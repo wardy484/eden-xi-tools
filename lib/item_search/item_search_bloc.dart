@@ -1,76 +1,83 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
-import 'package:getmyshittogether/bloc/bloc.dart';
+import 'package:getmyshittogether/item_search/item_search.dart';
 import 'package:getmyshittogether/eden/search/entities/search_result.dart';
 import 'package:getmyshittogether/eden/search/entities/search_result_item.dart';
 import 'package:meta/meta.dart';
 import 'package:http/http.dart' as http;
 import 'package:rxdart/rxdart.dart';
 
-class SearchBloc extends Bloc<SearchEvent, SearchState> {
+class ItemSearchBloc extends Bloc<ItemSearchEvent, ItemSearchState> {
   final http.Client httpClient;
   final limit = 30;
 
-  SearchBloc({@required this.httpClient}) : super(SearchInitial());
+  ItemSearchBloc({@required this.httpClient}) : super(ItemSearchInitial());
 
   @override
-  Stream<Transition<SearchEvent, SearchState>> transformEvents(
-    Stream<SearchEvent> events,
-    TransitionFunction<SearchEvent, SearchState> transitionFn,
+  Stream<Transition<ItemSearchEvent, ItemSearchState>> transformEvents(
+    Stream<ItemSearchEvent> events,
+    TransitionFunction<ItemSearchEvent, ItemSearchState> transitionFn,
   ) {
     return super.transformEvents(
         events.debounceTime(const Duration(milliseconds: 500)), transitionFn);
   }
 
   @override
-  Stream<SearchState> mapEventToState(SearchEvent event) async* {
+  Stream<ItemSearchState> mapEventToState(ItemSearchEvent event) async* {
     final currentState = state;
-    String itemName = "";
+    String itemName = currentState.itemName;
 
-    if (event is SearchRequested) {
-      final results = await _fetchResults(event.itemName, 0, limit);
-
-      yield SearchSuccess(
-        results: results,
-        hasReachedMax: results.total <= limit,
-      );
-
-      return;
+    if (event is InitiateItemSearch) {
+      yield ItemSearchEmpty();
     }
 
-    if (event is SearchFetched && !_hasReachedMax(currentState)) {
+    if (event is ItemSearchRequested) {
+      yield ItemSearchInitial(itemName: event.itemName);
+
+      add(ItemSearchFetched());
+    }
+
+    if (event is ItemSearchFetched && !_hasReachedMax(currentState)) {
       try {
-        if (currentState is SearchInitial) {
+        if (currentState is ItemSearchInitial) {
           final results = await _fetchResults(itemName, 0, limit);
 
-          yield SearchSuccess(results: results, hasReachedMax: false);
+          yield ItemSearchSuccess(
+            results: results,
+            hasReachedMax: results.total <= limit,
+            itemName: itemName,
+          );
 
           return;
         }
 
-        if (currentState is SearchSuccess) {
+        if (currentState is ItemSearchSuccess) {
           final results = await _fetchResults(
               itemName, currentState.results.items.length, limit);
 
           yield currentState.results.items.length == results.total
-              ? currentState.copyWith(hasReachedMax: true)
-              : SearchSuccess(
+              ? currentState.copyWith(
+                  hasReachedMax: true,
+                  itemName: itemName,
+                )
+              : ItemSearchSuccess(
                   results: SearchResult(
                     total: results.total,
                     items: currentState.results.items + results.items,
                   ),
-                  hasReachedMax: false,
+                  hasReachedMax: results.total <= limit,
+                  itemName: itemName,
                 );
         }
       } catch (_) {
-        yield SearchFailure();
+        yield ItemSearchFailure();
       }
     }
   }
 
-  bool _hasReachedMax(SearchState state) =>
-      state is SearchSuccess && state.hasReachedMax;
+  bool _hasReachedMax(ItemSearchState state) =>
+      state is ItemSearchSuccess && state.hasReachedMax;
 
   Future<SearchResult> _fetchResults(
       String itemName, int startIndex, int limit) async {
