@@ -1,25 +1,83 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:eden_xi_tools/item_search/item_search.dart';
-import 'package:eden_xi_tools/item_search/item_search_bloc.dart';
 
-class SearchField extends StatelessWidget {
-  const SearchField({Key key}) : super(key: key);
+class SearchField extends StatefulWidget {
+  final Function(String value) onChange;
+  final Function onClear;
+
+  const SearchField({
+    Key key,
+    this.onChange,
+    this.onClear,
+  }) : super(key: key);
+
+  @override
+  _SearchFieldState createState() => _SearchFieldState();
+}
+
+class _SearchFieldState extends State<SearchField> {
+  FocusNode _focus = new FocusNode();
+  TextEditingController _controller = TextEditingController();
+  bool _showClearButton = false;
+  String textValue = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _focus.addListener(_onFocusChange);
+  }
 
   @override
   Widget build(BuildContext context) {
-    ItemSearchBloc searchBloc = BlocProvider.of<ItemSearchBloc>(context);
-
     return TextField(
+      focusNode: _focus,
+      controller: _controller,
       onChanged: (String value) {
         if (value != null && value != "") {
-          searchBloc.add(ItemSearchRequested(itemName: value));
+          widget.onChange(value);
+
+          setState(() {
+            _showClearButton = true;
+            textValue = value;
+          });
+        } else {
+          _clearField();
         }
       },
-      decoration: InputDecoration(
-        // border: InputBorder.none,
-        hintText: 'Enter a search term',
-        contentPadding: EdgeInsets.symmetric(horizontal: 10),
+      decoration: _getDecoration(),
+    );
+  }
+
+  _clearField() {
+    setState(() {
+      _showClearButton = false;
+      textValue = '';
+    });
+
+    widget.onClear();
+  }
+
+  void _onFocusChange() {
+    setState(() {
+      if (textValue != '') {
+        _showClearButton = !_showClearButton;
+      }
+    });
+  }
+
+  InputDecoration _getDecoration() {
+    return InputDecoration(
+      hintText: 'Enter a search term',
+      contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 13),
+      suffixIcon: AnimatedOpacity(
+        opacity: _showClearButton ? 1.0 : 0.0,
+        duration: Duration(milliseconds: 200),
+        child: IconButton(
+          onPressed: () {
+            _controller.clear();
+            _clearField();
+          },
+          icon: Icon(Icons.clear),
+        ),
       ),
     );
   }

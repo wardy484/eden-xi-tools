@@ -28,7 +28,7 @@ class ItemSearchBloc extends Bloc<ItemSearchEvent, ItemSearchState> {
     final currentState = state;
     String itemName = currentState.itemName;
 
-    if (event is InitiateItemSearch) {
+    if (event is ItemSearchCleared) {
       yield ItemSearchEmpty();
     }
 

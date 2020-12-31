@@ -27,7 +27,7 @@ class PlayerSearchBloc extends Bloc<PlayerSearchEvent, PlayerSearchState> {
     final currentState = state;
     String playerName = currentState.playerName;
 
-    if (event is PlayerSearchInital) {
+    if (event is PlayerSearchInital || event is PlayerSearchCleared) {
       yield PlayerSearchEmpty();
     }
 

@@ -8,7 +8,7 @@ abstract class PlayerSearchEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class PlayerSearchClear extends PlayerSearchEvent {}
+class PlayerSearchCleared extends PlayerSearchEvent {}
 
 class PlayerSearchRequest extends PlayerSearchEvent {}
 

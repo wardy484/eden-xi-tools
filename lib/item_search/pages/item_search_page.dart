@@ -1,3 +1,4 @@
+import 'package:eden_xi_tools/item_search/views/item_search_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:eden_xi_tools/item_search/item_search.dart';
@@ -29,7 +30,7 @@ class _ItemSearchPageState extends State<ItemSearchPage> {
       ),
       body: Column(
         children: [
-          SearchField(),
+          ItemSearchField(),
           Expanded(
             child: BlocBuilder<ItemSearchBloc, ItemSearchState>(
               builder: (context, state) {
@@ -60,7 +61,7 @@ class _ItemSearchPageState extends State<ItemSearchPage> {
 
   @override
   void dispose() {
-    _searchBloc.add(InitiateItemSearch());
+    _searchBloc.add(ItemSearchCleared());
     super.dispose();
   }
 }

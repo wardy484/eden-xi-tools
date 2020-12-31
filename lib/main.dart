@@ -29,7 +29,7 @@ void main() {
       providers: [
         BlocProvider<ItemSearchBloc>(
           create: (context) => ItemSearchBloc(httpClient: http.Client())
-            ..add(InitiateItemSearch()),
+            ..add(ItemSearchCleared()),
         ),
         BlocProvider<PlayerSearchBloc>(
           create: (context) =>

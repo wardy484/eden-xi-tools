@@ -60,7 +60,7 @@ class _PlayerSearchPageState extends State<PlayerSearchPage> {
 
   @override
   void dispose() {
-    _searchBloc.add(PlayerSearchClear());
+    _searchBloc.add(PlayerSearchCleared());
     super.dispose();
   }
 }

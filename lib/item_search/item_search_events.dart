@@ -8,7 +8,7 @@ abstract class ItemSearchEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class InitiateItemSearch extends ItemSearchEvent {}
+class ItemSearchCleared extends ItemSearchEvent {}
 
 class ItemSearchFetched extends ItemSearchEvent {}
 
