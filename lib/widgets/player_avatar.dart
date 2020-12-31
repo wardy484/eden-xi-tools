@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class PlayerAvatar extends StatelessWidget {
@@ -10,8 +11,9 @@ class PlayerAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.network(
-      getUrl(),
+    return CachedNetworkImage(
+      placeholder: (context, url) => CircularProgressIndicator(),
+      imageUrl: getUrl(),
       height: height,
       width: width,
     );

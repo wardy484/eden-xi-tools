@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class ItemIcon extends StatelessWidget {
@@ -7,6 +8,9 @@ class ItemIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.network('https://static.ffxiah.com/images/icon/$id.png');
+    return CachedNetworkImage(
+      placeholder: (context, url) => CircularProgressIndicator(),
+      imageUrl: 'https://static.ffxiah.com/images/icon/$id.png',
+    );
   }
 }

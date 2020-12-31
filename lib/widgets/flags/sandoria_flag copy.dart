@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class SandoriaFlag extends StatelessWidget {
@@ -14,8 +15,10 @@ class SandoriaFlag extends StatelessWidget {
   Widget build(BuildContext context) {
     return Tooltip(
       message: "Sandoria",
-      child: Image.network(
-        'https://vignette.wikia.nocookie.net/ffxi/images/2/2f/Ffxi_flg_03l.jpg',
+      child: CachedNetworkImage(
+        placeholder: (context, url) => CircularProgressIndicator(),
+        imageUrl:
+            'https://vignette.wikia.nocookie.net/ffxi/images/2/2f/Ffxi_flg_03l.jpg',
         width: width,
         height: height,
       ),
