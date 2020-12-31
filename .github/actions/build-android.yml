@@ -22,5 +22,4 @@ jobs:
               with:
                   flutter-version: "1.26.0-1.0.pre"
             - run: flutter pub get
-            - run: flutter test
             - run: flutter build apk
