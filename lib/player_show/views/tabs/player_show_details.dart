@@ -42,6 +42,9 @@ class PlayerShowDetails extends StatelessWidget {
                 SizedBox(width: 8),
                 OnlineIndicator(onlineFlag: player.online),
                 BlocBuilder<UserSettingsBloc, UserSettingsState>(
+                  buildWhen: (prev, current) {
+                    print('$prev, $current');
+                  },
                   builder: (context, state) {
                     bool value = false;
 

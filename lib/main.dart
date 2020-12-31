@@ -1,5 +1,7 @@
 import 'package:eden_xi_tools/dashboard/pages/dashboard_page.dart';
 import 'package:eden_xi_tools/eden/player/repository/player_repository.dart';
+import 'package:eden_xi_tools/eden/settings/data_access/favourite_player_data_access.dart';
+import 'package:eden_xi_tools/eden/settings/repository/favourite_player_repository.dart';
 import 'package:eden_xi_tools/player_search/player_search_bloc.dart';
 import 'package:eden_xi_tools/player_show/player_show_bloc.dart';
 import 'package:eden_xi_tools/user_settings/user_settings_bloc.dart';
@@ -13,8 +15,14 @@ import 'package:eden_xi_tools/item_search/item_search.dart';
 import 'package:eden_xi_tools/item_search/item_search_bloc.dart';
 
 void main() {
+  FavouritePlayerDA favouritePlayerDA = FavouritePlayerDA();
   ItemRepository itemRepository = ItemRepository(http.Client());
   PlayerRepository playerRepository = PlayerRepository(http.Client());
+  FavouritePlayerRepository favouritePlayerRepository =
+      FavouritePlayerRepository(
+    favouritePlayerDA: favouritePlayerDA,
+    playerRepository: playerRepository,
+  );
 
   runApp(
     MultiBlocProvider(
@@ -35,9 +43,10 @@ void main() {
               PlayerShowBloc(playerRepository: playerRepository),
         ),
         BlocProvider<UserSettingsBloc>(
-          create: (context) =>
-              UserSettingsBloc(playerRepository: playerRepository)
-                ..add(UserSettingsFetch()),
+          create: (context) => UserSettingsBloc(
+            playerRepository: playerRepository,
+            favouritePlayerRepository: favouritePlayerRepository,
+          )..add(UserSettingsFetch()),
         ),
       ],
       child: App(),

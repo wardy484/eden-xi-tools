@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:eden_xi_tools/eden/player/entities/player.dart';
 import 'package:eden_xi_tools/eden/player/repository/player_repository.dart';
+import 'package:eden_xi_tools/eden/settings/repository/favourite_player_repository.dart';
 import 'package:eden_xi_tools/user_settings/user_settings_events.dart';
 import 'package:eden_xi_tools/user_settings/user_settings_state.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,12 +10,16 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class UserSettingsBloc extends Bloc<UserSettingsEvent, UserSettingsState> {
   final PlayerRepository playerRepository;
+  final FavouritePlayerRepository favouritePlayerRepository;
+
   final limit = 30;
 
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
-  UserSettingsBloc({@required this.playerRepository})
-      : super(UserSettingsEmpty());
+  UserSettingsBloc({
+    @required this.playerRepository,
+    @required this.favouritePlayerRepository,
+  }) : super(UserSettingsEmpty());
 
   @override
   Stream<UserSettingsState> mapEventToState(UserSettingsEvent event) async* {
@@ -23,50 +28,38 @@ class UserSettingsBloc extends Bloc<UserSettingsEvent, UserSettingsState> {
     }
 
     if (event is UserSettingsAddFavourite) {
-      final SharedPreferences prefs = await _prefs;
-      List<String> userNames = prefs.getStringList('favourites') ?? [];
-      userNames.add(event.player.name);
+      List<Player> players = [];
 
-      prefs.setStringList('favourites', userNames);
+      if (state is UserSettingsFetched) {
+        UserSettingsFetched newState = state as UserSettingsFetched;
+        players = newState.favourites.toList();
+      }
 
-      print(userNames);
+      Player newPlayer =
+          await favouritePlayerRepository.addFavouritePlayer(event.player);
 
-      List<Player> players =
-          await Stream.fromIterable(userNames).asyncMap((name) async {
-        return await playerRepository.getPlayer(name);
-      }).toList();
+      players.add(newPlayer);
 
       yield UserSettingsFetched(favourites: players);
     }
 
     if (event is UserSettingsRemoveFavourite) {
-      final SharedPreferences prefs = await _prefs;
-      List<String> userNames = prefs.getStringList('favourites') ?? [];
+      await favouritePlayerRepository.removeFavouritePlayer(event.player);
 
-      userNames = userNames.where((name) => name != event.player.name).toList();
+      if (state is UserSettingsFetched) {
+        UserSettingsFetched newState = state as UserSettingsFetched;
+        List<Player> favourites = newState.favourites
+            .where((player) => player.name != event.player.name)
+            .toList();
 
-      prefs.setStringList('favourites', userNames);
-
-      print(userNames);
-
-      List<Player> players =
-          await Stream.fromIterable(userNames).asyncMap((name) async {
-        return await playerRepository.getPlayer(name);
-      }).toList();
-
-      yield UserSettingsFetched(favourites: players);
+        yield UserSettingsFetched(favourites: favourites);
+      } else {
+        yield UserSettingsFetched(favourites: []);
+      }
     }
 
     if (event is UserSettingsFetch) {
-      final SharedPreferences prefs = await _prefs;
-      List<String> userNames = prefs.getStringList('favourites') ?? [];
-
-      List<Player> players =
-          await Stream.fromIterable(userNames).asyncMap((name) async {
-        return await playerRepository.getPlayer(name);
-      }).toList();
-
-      print(userNames);
+      final players = await favouritePlayerRepository.getFavouritePlayers();
 
       yield UserSettingsFetched(favourites: players);
     }
