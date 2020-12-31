@@ -1,6 +1,6 @@
 import 'package:eden_xi_tools/eden/player/entities/player.dart';
 import 'package:eden_xi_tools/widgets/flags/bastok_flag.dart';
-import 'package:eden_xi_tools/widgets/flags/sandoria_flag%20copy.dart';
+import 'package:eden_xi_tools/widgets/flags/sandoria_flag.dart';
 import 'package:eden_xi_tools/widgets/flags/windhurst_flag.dart';
 import 'package:flutter/material.dart';
 

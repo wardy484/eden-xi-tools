@@ -12,7 +12,7 @@ class PlayerAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
-      placeholder: (context, url) => CircularProgressIndicator(),
+      placeholder: (context, url) => Text(""),
       imageUrl: getUrl(),
       height: height,
       width: width,

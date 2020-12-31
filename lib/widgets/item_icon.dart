@@ -9,7 +9,7 @@ class ItemIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
-      placeholder: (context, url) => CircularProgressIndicator(),
+      placeholder: (context, url) => Text(""),
       imageUrl: 'https://static.ffxiah.com/images/icon/$id.png',
     );
   }

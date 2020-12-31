@@ -1,11 +1,11 @@
 import 'package:eden_xi_tools/widgets/flags/base_flag.dart';
 import 'package:flutter/material.dart';
 
-class WindhurstFlag extends StatelessWidget {
+class SandoriaFlag extends StatelessWidget {
   final double height;
   final double width;
 
-  const WindhurstFlag({
+  const SandoriaFlag({
     Key key,
     this.height,
     this.width,
@@ -14,8 +14,8 @@ class WindhurstFlag extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseFlag(
-      name: "Windhurst",
-      url: "b/bf/Ffxi_flg_04l.jpg",
+      name: "Sandoria",
+      url: "2/2f/Ffxi_flg_03l.jpg",
       width: width,
       height: height,
     );
