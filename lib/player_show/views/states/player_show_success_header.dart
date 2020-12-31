@@ -1,4 +1,5 @@
 import 'package:eden_xi_tools/eden/player/entities/player_search_results.dart';
+import 'package:eden_xi_tools/styles/text_styles.dart';
 import 'package:eden_xi_tools/widgets/player_avatar.dart';
 import 'package:flutter/material.dart';
 
@@ -17,17 +18,11 @@ class PlayerShowSuccessHeader extends StatelessWidget {
       ),
       title: Text(
         playerResult.charname,
-        style: TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-        ),
+        style: LightHeading,
       ),
       subtitle: Text(
         playerResult.title,
-        style: TextStyle(
-          color: Colors.white,
-          // fontWeight: FontWeight.bold,
-        ),
+        style: LightText,
       ),
     );
   }

@@ -1,4 +1,6 @@
 import 'package:eden_xi_tools/eden/player/entities/player.dart';
+import 'package:eden_xi_tools/styles/spacing.dart';
+import 'package:eden_xi_tools/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:eden_xi_tools/widgets/item_icon.dart';
 import 'package:intl/intl.dart';
@@ -25,7 +27,7 @@ class PlayerShowAuctionHouse extends StatelessWidget {
 
         return Card(
           child: Padding(
-            padding: EdgeInsets.all(8),
+            padding: BoxPadding,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -38,17 +40,13 @@ class PlayerShowAuctionHouse extends StatelessWidget {
                         SizedBox(width: 8),
                         Text(
                           formatPrice(item.sale),
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                          ),
+                          style: SubHeading,
                         ),
                       ],
                     ),
                     Text(
                       name.titleCase,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: SubHeading,
                     ),
                   ],
                 ),

@@ -1,4 +1,6 @@
 import 'package:eden_xi_tools/eden/player/entities/player.dart';
+import 'package:eden_xi_tools/styles/spacing.dart';
+import 'package:eden_xi_tools/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:recase/recase.dart';
 
@@ -23,7 +25,7 @@ class PlayerShowBazaar extends StatelessWidget {
 
         return Card(
           child: Padding(
-            padding: EdgeInsets.all(8),
+            padding: BoxPadding,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -34,14 +36,12 @@ class PlayerShowBazaar extends StatelessWidget {
                       children: [
                         Text(
                           name.titleCase,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                          ),
+                          style: SubHeading,
                         ),
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsets.only(right: 8),
+                      padding: BoxPaddingRight,
                       child: Text("100g"),
                     ),
                   ],

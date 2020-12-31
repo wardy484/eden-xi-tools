@@ -2,6 +2,7 @@ import 'package:eden_xi_tools/eden/player/entities/player.dart';
 import 'package:eden_xi_tools/player_show/views/widgets/player_crafting_card.dart';
 import 'package:eden_xi_tools/player_show/views/widgets/player_jobs_card.dart';
 import 'package:eden_xi_tools/player_show/views/widgets/player_show_regions.dart';
+import 'package:eden_xi_tools/styles/spacing.dart';
 import 'package:eden_xi_tools/user_settings/user_settings_bloc.dart';
 import 'package:eden_xi_tools/user_settings/user_settings_events.dart';
 import 'package:eden_xi_tools/user_settings/user_settings_state.dart';
@@ -24,7 +25,7 @@ class PlayerShowDetails extends StatelessWidget {
     final settingsBloc = BlocProvider.of<UserSettingsBloc>(context);
 
     return ListView(
-      padding: EdgeInsets.all(8.0),
+      padding: BoxPadding,
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -35,16 +36,10 @@ class PlayerShowDetails extends StatelessWidget {
               children: [
                 Text(
                   player.jobString,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                  ),
                 ),
                 SizedBox(width: 8),
                 OnlineIndicator(onlineFlag: player.online),
                 BlocBuilder<UserSettingsBloc, UserSettingsState>(
-                  buildWhen: (prev, current) {
-                    print('$prev, $current');
-                  },
                   builder: (context, state) {
                     bool value = false;
 

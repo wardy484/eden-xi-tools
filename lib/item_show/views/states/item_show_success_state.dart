@@ -1,4 +1,5 @@
 import 'package:eden_xi_tools/item_show/views/item_show_refresh_button.dart';
+import 'package:eden_xi_tools/styles/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:eden_xi_tools/eden/items/entities/item.dart';
 import 'package:eden_xi_tools/item_show/item_show_state.dart';
@@ -39,7 +40,7 @@ class ItemShowSuccessState extends StatelessWidget {
       body: Column(
         children: [
           Padding(
-            padding: EdgeInsets.fromLTRB(8, 8, 8, 8),
+            padding: BoxPadding,
             child: Column(
               children: [
                 Row(

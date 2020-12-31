@@ -3,6 +3,8 @@ import 'package:eden_xi_tools/eden/player/entities/player_search_results.dart';
 import 'package:eden_xi_tools/item_search/pages/item_search_page.dart';
 import 'package:eden_xi_tools/player_search/pages/player_search_page.dart';
 import 'package:eden_xi_tools/player_search/views/player_search_result_card.dart';
+import 'package:eden_xi_tools/styles/spacing.dart';
+import 'package:eden_xi_tools/styles/text_styles.dart';
 import 'package:eden_xi_tools/user_settings/user_settings_bloc.dart';
 import 'package:eden_xi_tools/user_settings/user_settings_state.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +50,7 @@ class DashboardPage extends StatelessWidget {
           }
 
           return Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: BoxPadding,
             child: Text(
               "Tap the star on player profiles to have them appear on your dashboard.",
             ),
@@ -57,7 +59,6 @@ class DashboardPage extends StatelessWidget {
       ),
       drawer: Drawer(
         child: ListView(
-          // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
@@ -71,10 +72,7 @@ class DashboardPage extends StatelessWidget {
                   SizedBox(height: 14),
                   Text(
                     'Eden XI Tools',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                    style: LightHeading,
                   ),
                 ],
               ),

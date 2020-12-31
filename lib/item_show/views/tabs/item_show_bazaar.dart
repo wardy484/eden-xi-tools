@@ -1,3 +1,5 @@
+import 'package:eden_xi_tools/styles/spacing.dart';
+import 'package:eden_xi_tools/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:eden_xi_tools/eden/items/entities/bazaar_item.dart';
 import 'package:eden_xi_tools/widgets/online_indicator.dart';
@@ -22,7 +24,7 @@ class ItemShowBazaar extends StatelessWidget {
 
         return Card(
           child: Padding(
-            padding: EdgeInsets.all(8),
+            padding: BoxPadding,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -35,14 +37,12 @@ class ItemShowBazaar extends StatelessWidget {
                         SizedBox(width: 8),
                         Text(
                           item.charname,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                          ),
+                          style: SubHeading,
                         ),
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsets.only(right: 8),
+                      padding: BoxPaddingRight,
                       child: Text("100g"),
                     ),
                   ],
