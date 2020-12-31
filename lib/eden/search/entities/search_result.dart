@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:getmyshittogether/eden/search/entities/search_result_item.dart';
+import 'package:eden_xi_tools/eden/search/entities/search_result_item.dart';
 
 class SearchResult extends Equatable {
   final int total;

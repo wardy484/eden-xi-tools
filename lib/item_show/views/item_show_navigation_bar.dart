@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:getmyshittogether/item_show/views/tabs/item_show_bottom_bar_items.dart';
+import 'package:eden_xi_tools/item_show/views/tabs/item_show_bottom_bar_items.dart';
 
 class ItemShowNavigationBar extends StatelessWidget {
   final int currentIndex;

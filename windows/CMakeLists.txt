@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
-project(getmyshittogether LANGUAGES CXX)
+project(edentools LANGUAGES CXX)
 
-set(BINARY_NAME "getmyshittogether")
+set(BINARY_NAME "edentools")
 
 cmake_policy(SET CMP0063 NEW)
 

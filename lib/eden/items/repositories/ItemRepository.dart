@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
-import 'package:getmyshittogether/eden/items/entities/auction_house_item.dart';
-import 'package:getmyshittogether/eden/items/entities/item.dart';
+import 'package:eden_xi_tools/eden/items/entities/auction_house_item.dart';
+import 'package:eden_xi_tools/eden/items/entities/bazaar_item.dart';
+import 'package:eden_xi_tools/eden/items/entities/item.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -19,7 +20,9 @@ class ItemRepository extends BaseEdenRepository {
   ItemRepository(http.Client client) : super(client: client);
 
   Future<List<AuctionHouseItem>> getAuctionHouseItem(
-      String itemKey, bool stacked) async {
+    String itemKey,
+    bool stacked,
+  ) async {
     final response =
         await client.get(getUrl('items/$itemKey/ah?stack=$stacked'));
 
@@ -37,7 +40,26 @@ class ItemRepository extends BaseEdenRepository {
       }).toList();
     } else {
       throw Exception(
-          "Erroring fetching auction house items from Eden server.");
+        "Erroring fetching auction house items from Eden server.",
+      );
+    }
+  }
+
+  Future<List<BazaarItem>> getBazaarItems(String itemKey) async {
+    final response = await client.get(getUrl('items/$itemKey/bazaar'));
+
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body) as List;
+
+      return data.map((item) {
+        return BazaarItem(
+          bazaar: item['bazaar'],
+          charname: item['charname'],
+          onlineFlag: item['online_flag'],
+        );
+      }).toList();
+    } else {
+      throw Exception("Erroring fetching bazaar items from Eden server.");
     }
   }
 

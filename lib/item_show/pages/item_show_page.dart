@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:getmyshittogether/eden/search/entities/search_result_item.dart';
-import 'package:getmyshittogether/item_show/item_show.dart';
-import 'package:getmyshittogether/item_show/views/item_show_navigation_bar.dart';
-import 'package:getmyshittogether/item_show/views/states/item_show_failure_state.dart';
-import 'package:getmyshittogether/item_show/views/states/item_show_loading_state.dart';
-import 'package:getmyshittogether/item_show/views/states/item_show_success_state.dart';
+import 'package:eden_xi_tools/eden/search/entities/search_result_item.dart';
+import 'package:eden_xi_tools/item_show/item_show.dart';
+import 'package:eden_xi_tools/item_show/views/item_show_navigation_bar.dart';
+import 'package:eden_xi_tools/item_show/views/states/item_show_failure_state.dart';
+import 'package:eden_xi_tools/item_show/views/states/item_show_loading_state.dart';
+import 'package:eden_xi_tools/item_show/views/states/item_show_success_state.dart';
 
 class ItemShowPage extends StatefulWidget {
   final SearchResultItem item;

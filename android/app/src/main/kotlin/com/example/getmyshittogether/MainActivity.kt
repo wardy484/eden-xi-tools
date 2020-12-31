@@ -1,4 +1,4 @@
-package com.example.getmyshittogether
+package com.kimward.eden_xi_tools
 
 import io.flutter.embedding.android.FlutterActivity
 

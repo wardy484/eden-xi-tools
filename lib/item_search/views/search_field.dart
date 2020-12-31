@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:getmyshittogether/item_search/item_search.dart';
-import 'package:getmyshittogether/item_search/item_search_bloc.dart';
+import 'package:eden_xi_tools/item_search/item_search.dart';
+import 'package:eden_xi_tools/item_search/item_search_bloc.dart';
 
 class SearchField extends StatelessWidget {
   const SearchField({Key key}) : super(key: key);

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:getmyshittogether/eden/items/entities/item.dart';
-import 'package:getmyshittogether/widgets/item_icon.dart';
+import 'package:eden_xi_tools/eden/items/entities/item.dart';
+import 'package:eden_xi_tools/widgets/item_icon.dart';
 
 class ItemShowSuccessHeader extends StatelessWidget {
   final Item item;

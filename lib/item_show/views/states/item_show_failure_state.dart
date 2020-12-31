@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:getmyshittogether/eden/search/entities/search_result_item.dart';
-import 'package:getmyshittogether/item_show/views/item_show_scaffold.dart';
+import 'package:eden_xi_tools/eden/search/entities/search_result_item.dart';
+import 'package:eden_xi_tools/item_show/views/item_show_scaffold.dart';
 
 class ItemShowFailureState extends StatelessWidget {
   final SearchResultItem item;
