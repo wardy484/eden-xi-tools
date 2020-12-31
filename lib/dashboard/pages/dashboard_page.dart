@@ -85,6 +85,8 @@ class DashboardPage extends StatelessWidget {
             ListTile(
               title: Text('Item Search'),
               onTap: () {
+                Navigator.pop(context);
+
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -96,6 +98,8 @@ class DashboardPage extends StatelessWidget {
             ListTile(
               title: Text('Player Search'),
               onTap: () {
+                Navigator.pop(context);
+
                 Navigator.push(
                   context,
                   MaterialPageRoute(
