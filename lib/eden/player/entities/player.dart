@@ -1,3 +1,4 @@
+import 'package:eden_xi_tools/eden/player/entities/player_search_results.dart';
 import 'package:equatable/equatable.dart';
 
 class PlayerCrafts extends Equatable {
@@ -174,6 +175,15 @@ class Player extends Equatable {
 
   @override
   String toString() => 'Player { id: $id, name: $name, title: $title }';
+
+  PlayerSearchResultItem toSearchResultItem() {
+    return PlayerSearchResultItem(
+      avatar: avatar,
+      jobString: jobString,
+      title: title,
+      charname: name,
+    );
+  }
 }
 
 class PlayerCraft extends Equatable {

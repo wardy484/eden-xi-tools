@@ -1,7 +1,8 @@
-import 'package:eden_xi_tools/dashboard/pages/dashboard_page.dart';
+import 'package:eden_xi_tools/dashboard/pages/dashboard_page_hydrated.dart';
 import 'package:eden_xi_tools/eden/player/repository/player_repository.dart';
 import 'package:eden_xi_tools/eden/settings/data_access/favourite_player_data_access.dart';
 import 'package:eden_xi_tools/eden/settings/repository/favourite_player_repository.dart';
+import 'package:eden_xi_tools/favourites/bloc/favourites_bloc.dart';
 import 'package:eden_xi_tools/item_auction_house/bloc/item_auction_house_bloc.dart';
 import 'package:eden_xi_tools/item_bazaar/bloc/item_bazaar_bloc.dart';
 import 'package:eden_xi_tools/player_search/player_search_bloc.dart';
@@ -15,9 +16,11 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:eden_xi_tools/item_search/item_search.dart';
 import 'package:eden_xi_tools/item_search/item_search_bloc.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  HydratedBloc.storage = await HydratedStorage.build();
 
   FavouritePlayerDA favouritePlayerDA = FavouritePlayerDA();
   ItemRepository itemRepository = ItemRepository(http.Client());
@@ -53,6 +56,9 @@ void main() {
           create: (context) =>
               PlayerShowBloc(playerRepository: playerRepository),
         ),
+        BlocProvider<FavouritesBloc>(
+          create: (context) => FavouritesBloc(),
+        ),
         BlocProvider<UserSettingsBloc>(
           create: (context) => UserSettingsBloc(
             playerRepository: playerRepository,
@@ -73,7 +79,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Eden Tools",
-      home: DashboardPage(),
+      home: DashboardPageHydrated(),
     );
   }
 }
