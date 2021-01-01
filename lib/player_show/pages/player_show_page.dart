@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:eden_xi_tools/eden/player/entities/player_search_results.dart';
 import 'package:eden_xi_tools/player_show/player_show.dart';
 import 'package:eden_xi_tools/player_show/player_show_events.dart';
@@ -20,17 +22,26 @@ class PlayerShowPage extends StatefulWidget {
 class _PlayerShowPageState extends State<PlayerShowPage> {
   int _selectedPageIndex = 0;
   PlayerShowBloc _playerShowBloc;
+  Completer<void> _refreshCompleter;
 
   @override
   void initState() {
     super.initState();
+    _refreshCompleter = Completer<void>();
+
     _playerShowBloc = BlocProvider.of<PlayerShowBloc>(context);
     _playerShowBloc.add(PlayerShowRequested(playerResult: widget.playerResult));
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PlayerShowBloc, PlayerShowState>(
+    return BlocConsumer<PlayerShowBloc, PlayerShowState>(
+      listener: (context, state) {
+        if (state is PlayerShowSuccessState) {
+          _refreshCompleter?.complete();
+          _refreshCompleter = Completer();
+        }
+      },
       builder: (context, state) {
         if (state is PlayerShowInitial) {
           return PlayerShowLoadingState(playerResult: widget.playerResult);
@@ -57,10 +68,12 @@ class _PlayerShowPageState extends State<PlayerShowPage> {
     setState(() => _selectedPageIndex = index);
   }
 
-  void _refreshPage() {
+  Future<void> _refreshPage() {
     _playerShowBloc.add(PlayerShowRequested(
       playerResult: widget.playerResult,
     ));
+
+    return _refreshCompleter.future;
   }
 
   @override

@@ -39,36 +39,34 @@ class _ItemAuctionHousePageState extends State<ItemAuctionHousePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Tab(
-      child: BlocConsumer<ItemAuctionHouseBloc, ItemAuctionHouseState>(
-        listener: (context, state) {
-          if (state is ItemAuctionHouseSuccess) {
-            _refreshCompleter?.complete();
-            _refreshCompleter = Completer();
-          }
-        },
-        builder: (context, state) {
-          if (state is ItemAuctionHouseSuccess) {
-            if (state.auctionHouseItems.length < 1) {
-              return Center(
-                child: Text("No auction house history..."),
-              );
-            }
-
-            return ItemAuctionHouseList(
-              onRefresh: () {
-                _auctionHouseBloc.add(ItemAuctionHouseRefreshed());
-                return _refreshCompleter.future;
-              },
-              items: state.auctionHouseItems,
+    return BlocConsumer<ItemAuctionHouseBloc, ItemAuctionHouseState>(
+      listener: (context, state) {
+        if (state is ItemAuctionHouseSuccess) {
+          _refreshCompleter?.complete();
+          _refreshCompleter = Completer();
+        }
+      },
+      builder: (context, state) {
+        if (state is ItemAuctionHouseSuccess) {
+          if (state.auctionHouseItems.length < 1) {
+            return Center(
+              child: Text("No auction house history..."),
             );
           }
 
-          return Center(
-            child: CircularProgressIndicator(),
+          return ItemAuctionHouseList(
+            onRefresh: () {
+              _auctionHouseBloc.add(ItemAuctionHouseRefreshed());
+              return _refreshCompleter.future;
+            },
+            items: state.auctionHouseItems,
           );
-        },
-      ),
+        }
+
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      },
     );
   }
 }

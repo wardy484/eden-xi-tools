@@ -6,8 +6,13 @@ import 'package:recase/recase.dart';
 
 class PlayerShowBazaar extends StatelessWidget {
   final List<PlayerBazaarItem> items;
+  final Function onRefresh;
 
-  const PlayerShowBazaar({Key key, @required this.items}) : super(key: key);
+  const PlayerShowBazaar({
+    Key key,
+    @required this.items,
+    @required this.onRefresh,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,40 +22,43 @@ class PlayerShowBazaar extends StatelessWidget {
       );
     }
 
-    return ListView.builder(
-      itemCount: items.length,
-      itemBuilder: (BuildContext context, int index) {
-        PlayerBazaarItem item = items[index];
-        ReCase name = new ReCase(item.itemName);
+    return RefreshIndicator(
+      onRefresh: onRefresh,
+      child: ListView.builder(
+        itemCount: items.length,
+        itemBuilder: (BuildContext context, int index) {
+          PlayerBazaarItem item = items[index];
+          ReCase name = new ReCase(item.itemName);
 
-        return Card(
-          child: Padding(
-            padding: BoxPadding,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Text(
-                          name.titleCase,
-                          style: SubHeading,
-                        ),
-                      ],
-                    ),
-                    Padding(
-                      padding: BoxPaddingRight,
-                      child: Text("100g"),
-                    ),
-                  ],
-                ),
-              ],
+          return Card(
+            child: Padding(
+              padding: BoxPadding,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            name.titleCase,
+                            style: SubHeading,
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: BoxPaddingRight,
+                        child: Text("100g"),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }

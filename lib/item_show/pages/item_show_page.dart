@@ -3,7 +3,6 @@ import 'package:eden_xi_tools/item_auction_house/pages/item_auction_house_page.d
 import 'package:eden_xi_tools/item_bazaar/bloc/item_bazaar_bloc.dart';
 import 'package:eden_xi_tools/item_bazaar/pages/item_bazaar_page.dart';
 import 'package:eden_xi_tools/item_show/views/item_show_description.dart';
-import 'package:eden_xi_tools/item_show/views/item_show_refresh_button.dart';
 import 'package:eden_xi_tools/item_show/views/item_show_header.dart';
 import 'package:eden_xi_tools/widgets/centered_loader.dart';
 import 'package:eden_xi_tools/widgets/centered_message.dart';
@@ -27,7 +26,6 @@ class _ItemShowPageState extends State<ItemShowPage> {
   ItemShowBloc _showItemBloc;
   ItemBazaarBloc _bazaarBloc;
   ItemAuctionHouseBloc _auctionHouseBloc;
-  TabController _tabController;
 
   @override
   void initState() {

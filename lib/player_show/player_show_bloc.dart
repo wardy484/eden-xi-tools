@@ -19,6 +19,8 @@ class PlayerShowBloc extends Bloc<PlayerShowEvent, PlayerShowState> {
 
     if (event is PlayerShowRequested) {
       try {
+        yield PlayerShowInitial();
+
         final name = event.playerResult.charname;
 
         final player = await playerRepository.getPlayer(name);
@@ -35,7 +37,7 @@ class PlayerShowBloc extends Bloc<PlayerShowEvent, PlayerShowState> {
           crafts: crafting,
         );
 
-        return;
+        // return;
       } catch (_) {
         yield PlayerShowFailure();
       }

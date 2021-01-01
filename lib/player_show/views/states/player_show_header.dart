@@ -3,10 +3,10 @@ import 'package:eden_xi_tools/styles/text_styles.dart';
 import 'package:eden_xi_tools/widgets/player_avatar.dart';
 import 'package:flutter/material.dart';
 
-class PlayerShowSuccessHeader extends StatelessWidget {
+class PlayerShowHeader extends StatelessWidget {
   final PlayerSearchResultItem playerResult;
 
-  const PlayerShowSuccessHeader({Key key, this.playerResult}) : super(key: key);
+  const PlayerShowHeader({Key key, this.playerResult}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

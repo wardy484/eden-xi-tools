@@ -8,8 +8,13 @@ import 'package:recase/recase.dart';
 
 class PlayerShowAuctionHouse extends StatelessWidget {
   final List<PlayerAuctionHouseItem> items;
+  final Function onRefresh;
 
-  const PlayerShowAuctionHouse({Key key, this.items}) : super(key: key);
+  const PlayerShowAuctionHouse({
+    Key key,
+    this.items,
+    this.onRefresh,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,50 +24,53 @@ class PlayerShowAuctionHouse extends StatelessWidget {
       );
     }
 
-    return ListView.builder(
-      itemCount: items.length,
-      itemBuilder: (BuildContext context, int index) {
-        PlayerAuctionHouseItem item = items[index];
-        ReCase name = new ReCase(item.name);
+    return RefreshIndicator(
+      onRefresh: onRefresh,
+      child: ListView.builder(
+        itemCount: items.length,
+        itemBuilder: (BuildContext context, int index) {
+          PlayerAuctionHouseItem item = items[index];
+          ReCase name = new ReCase(item.name);
 
-        return Card(
-          child: Padding(
-            padding: BoxPadding,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        ItemIcon(id: 65535), // Gil
-                        SizedBox(width: 8),
-                        Text(
-                          formatPrice(item.sale),
-                          style: SubHeading,
-                        ),
-                      ],
-                    ),
-                    Text(
-                      name.titleCase,
-                      style: SubHeading,
-                    ),
-                  ],
-                ),
-                SizedBox(height: 8),
-                Text('Bought at ${formatDate(item.sellDate)}'),
-                SizedBox(height: 8),
-                Row(
-                  children: [
-                    Text('${item.sellerName} > ${item.buyerName}'),
-                  ],
-                )
-              ],
+          return Card(
+            child: Padding(
+              padding: BoxPadding,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          ItemIcon(id: 65535), // Gil
+                          SizedBox(width: 8),
+                          Text(
+                            formatPrice(item.sale),
+                            style: SubHeading,
+                          ),
+                        ],
+                      ),
+                      Text(
+                        name.titleCase,
+                        style: SubHeading,
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 8),
+                  Text('Bought at ${formatDate(item.sellDate)}'),
+                  SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Text('${item.sellerName} > ${item.buyerName}'),
+                    ],
+                  )
+                ],
+              ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 

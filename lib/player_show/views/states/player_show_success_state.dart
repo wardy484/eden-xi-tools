@@ -1,8 +1,7 @@
 import 'package:eden_xi_tools/eden/player/entities/player_search_results.dart';
-import 'package:eden_xi_tools/item_show/views/item_show_refresh_button.dart';
 import 'package:eden_xi_tools/player_show/player_show.dart';
 import 'package:eden_xi_tools/player_show/views/player_show_navigation_bar.dart';
-import 'package:eden_xi_tools/player_show/views/states/player_show_success_header.dart';
+import 'package:eden_xi_tools/player_show/views/states/player_show_header.dart';
 import 'package:eden_xi_tools/player_show/views/tabs/player_show_auction_house.dart';
 import 'package:eden_xi_tools/player_show/views/tabs/player_show_bazaar.dart';
 import 'package:eden_xi_tools/player_show/views/tabs/player_show_details.dart';
@@ -28,19 +27,24 @@ class PlayerShowSuccessState extends StatelessWidget {
     final PlayerSearchResultItem playerResult = state.playerResult;
 
     return ItemShowScaffold(
-      header: PlayerShowSuccessHeader(playerResult: playerResult),
-      actions: <Widget>[
-        ItemShowRefreshButton(
-          onPressed: () => onRefreshPressed(),
-        ),
-      ],
+      header: PlayerShowHeader(playerResult: playerResult),
       body: Column(
         children: [
           Expanded(
             child: <Widget>[
-              PlayerShowDetails(player: state.player, crafts: state.crafts),
-              PlayerShowAuctionHouse(items: state.auctionHouseItems),
-              PlayerShowBazaar(items: state.bazaarItems),
+              PlayerShowDetails(
+                player: state.player,
+                crafts: state.crafts,
+                onRefresh: onRefreshPressed,
+              ),
+              PlayerShowAuctionHouse(
+                items: state.auctionHouseItems,
+                onRefresh: onRefreshPressed,
+              ),
+              PlayerShowBazaar(
+                items: state.bazaarItems,
+                onRefresh: onRefreshPressed,
+              ),
             ].elementAt(currentPageIndex),
           ),
         ],
