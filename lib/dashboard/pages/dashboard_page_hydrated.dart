@@ -11,7 +11,7 @@ class DashboardPageHydrated extends StatefulWidget {
 }
 
 class _DashboardPageHydratedState extends State<DashboardPageHydrated> {
-  int _selectedIndex = 1;
+  int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {

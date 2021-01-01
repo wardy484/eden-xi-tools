@@ -22,6 +22,8 @@ class PlayerFavourites extends Equatable {
     favourites.add(player);
   }
 
+  List<PlayerSearchResultItem> all() => favourites;
+
   List<PlayerSearchResultItem> withoutPlayer(PlayerSearchResultItem player) {
     return favourites
         .where((element) => element.charname != player.charname)

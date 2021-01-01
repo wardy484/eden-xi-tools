@@ -19,7 +19,7 @@ class PlayerFavouriteButton extends StatelessWidget {
         bool value = false;
 
         if (state is FavouritesLoaded) {
-          value = state.players.containsPlayer(player.charname);
+          value = state.players?.containsPlayer(player.charname) ?? false;
         }
 
         return FavouriteButton(

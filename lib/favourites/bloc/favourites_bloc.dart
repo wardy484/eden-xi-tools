@@ -17,95 +17,116 @@ class FavouritesBloc extends HydratedBloc<FavouritesEvent, FavouritesState> {
   Stream<FavouritesState> mapEventToState(
     FavouritesEvent event,
   ) async* {
-    if (event is FavouritesPlayerSaved) {
-      final currentState = state;
+    try {
+      if (event is FavouritesPlayerSaved) {
+        final currentState = state;
 
-      if (currentState is FavouritesInitial) {
-        yield FavouritesLoading();
+        if (currentState is FavouritesInitial) {
+          yield FavouritesLoading();
 
-        yield FavouritesLoaded(
-          players: PlayerFavourites(
-            favourites: [event.player],
-          ),
-        );
+          yield FavouritesLoaded(
+            players: PlayerFavourites(
+              favourites: [event.player],
+            ),
+          );
+        }
+
+        if (currentState is FavouritesLoaded) {
+          yield FavouritesLoading();
+
+          var players = currentState.players?.all() ?? [];
+          players.add(event.player);
+          // currentState.players.addPlayer(event.player);
+
+          yield currentState.copyWith(
+            players: PlayerFavourites(favourites: players),
+          );
+        }
       }
 
-      if (currentState is FavouritesLoaded) {
-        yield FavouritesLoading();
+      if (event is FavouritesPlayerRemoved) {
+        final currentState = state;
 
-        currentState.players.addPlayer(event.player);
+        if (currentState is FavouritesLoaded) {
+          yield FavouritesLoading();
 
-        yield currentState.copyWith(players: currentState.players);
-      }
-    }
-
-    if (event is FavouritesPlayerRemoved) {
-      final currentState = state;
-
-      if (currentState is FavouritesLoaded) {
-        yield FavouritesLoading();
-
-        yield currentState.copyWith(
-          players: PlayerFavourites(
-            favourites: currentState.players.withoutPlayer(event.player),
-          ),
-        );
-      }
-    }
-
-    if (event is FavouritesItemSaved) {
-      final currentState = state;
-
-      if (currentState is FavouritesInitial) {
-        yield FavouritesLoading();
-
-        yield FavouritesLoaded(
-          items: ItemFavourites(favourites: [
-            event.item,
-          ]),
-        );
+          yield currentState.copyWith(
+            players: PlayerFavourites(
+              favourites: currentState.players.withoutPlayer(event.player),
+            ),
+          );
+        }
       }
 
-      if (currentState is FavouritesLoaded) {
-        yield FavouritesLoading();
+      if (event is FavouritesItemSaved) {
+        final currentState = state;
 
-        var items = currentState.items?.all() ?? [];
-        items.add(event.item);
+        if (currentState is FavouritesInitial) {
+          yield FavouritesLoading();
 
-        yield currentState.copyWith(items: ItemFavourites(favourites: items));
+          yield FavouritesLoaded(
+            items: ItemFavourites(favourites: [
+              event.item,
+            ]),
+          );
+        }
+
+        if (currentState is FavouritesLoaded) {
+          yield FavouritesLoading();
+
+          var items = currentState.items?.all() ?? [];
+          items.add(event.item);
+
+          yield currentState.copyWith(items: ItemFavourites(favourites: items));
+        }
       }
-    }
 
-    if (event is FavouritesItemRemoved) {
-      final currentState = state;
+      if (event is FavouritesItemRemoved) {
+        final currentState = state;
 
-      if (currentState is FavouritesLoaded) {
-        yield FavouritesLoading();
+        if (currentState is FavouritesLoaded) {
+          yield FavouritesLoading();
 
-        var favourites = currentState.items.withoutItem(event.item);
+          var favourites = currentState.items.withoutItem(event.item);
 
-        yield currentState.copyWith(
-          items: ItemFavourites(favourites: favourites),
-        );
+          yield currentState.copyWith(
+            items: ItemFavourites(favourites: favourites),
+          );
+        }
       }
+    } catch (_) {
+      yield state;
+      print("An exception occured");
     }
   }
 
   @override
   FavouritesState fromJson(Map<String, dynamic> json) {
     try {
-      final favourites = PlayerFavourites.fromJson(json);
+      var players = null;
+      var items = null;
 
-      return FavouritesLoaded(players: favourites);
+      if (json['players'] != null) {
+        players = PlayerFavourites.fromJson(json['players']);
+      }
+
+      if (json['items'] != null) {
+        items = ItemFavourites.fromJson(json['items']);
+      }
+
+      return FavouritesLoaded(players: players, items: items);
     } catch (_) {
-      return null;
+      return FavouritesInitial();
     }
   }
 
   @override
   Map<String, dynamic> toJson(FavouritesState state) {
     if (state is FavouritesLoaded) {
-      return state.players.toJson();
+      return {
+        'players': state.players?.toJson() ?? null,
+        'items': state.items?.toJson() ?? null,
+      };
     }
 
     return null;

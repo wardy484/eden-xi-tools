@@ -11,7 +11,8 @@ class ItemFavouritesTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<FavouritesBloc, FavouritesState>(
       builder: (context, state) {
-        if (state is FavouritesLoaded && state.items.hasFavourites) {
+        if (state is FavouritesLoaded &&
+            (state.items?.hasFavourites ?? false)) {
           return ListView.builder(
             itemCount: state.items.favourites.length,
             itemBuilder: (context, index) {
