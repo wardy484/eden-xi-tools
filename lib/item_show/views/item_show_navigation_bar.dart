@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:eden_xi_tools/item_show/views/tabs/item_show_bottom_bar_items.dart';
 
 class ItemShowNavigationBar extends StatelessWidget {
   final int currentIndex;
@@ -14,10 +13,19 @@ class ItemShowNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      items: BottomBarListItems,
       currentIndex: currentIndex,
       selectedItemColor: Colors.blueAccent,
       onTap: onTap,
+      items: [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Auction House',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.people_alt_outlined),
+          label: 'Bazaar',
+        ),
+      ],
     );
   }
 }

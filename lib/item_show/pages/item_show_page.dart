@@ -1,11 +1,17 @@
+import 'package:eden_xi_tools/item_auction_house/bloc/item_auction_house_bloc.dart';
+import 'package:eden_xi_tools/item_auction_house/pages/item_auction_house_page.dart';
+import 'package:eden_xi_tools/item_bazaar/bloc/item_bazaar_bloc.dart';
+import 'package:eden_xi_tools/item_bazaar/pages/item_bazaar_page.dart';
+import 'package:eden_xi_tools/item_show/views/item_show_description.dart';
+import 'package:eden_xi_tools/item_show/views/item_show_refresh_button.dart';
+import 'package:eden_xi_tools/item_show/views/item_show_header.dart';
+import 'package:eden_xi_tools/widgets/centered_loader.dart';
+import 'package:eden_xi_tools/widgets/centered_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:eden_xi_tools/eden/search/entities/search_result_item.dart';
 import 'package:eden_xi_tools/item_show/item_show.dart';
 import 'package:eden_xi_tools/item_show/views/item_show_navigation_bar.dart';
-import 'package:eden_xi_tools/item_show/views/states/item_show_failure_state.dart';
-import 'package:eden_xi_tools/item_show/views/states/item_show_loading_state.dart';
-import 'package:eden_xi_tools/item_show/views/states/item_show_success_state.dart';
 
 class ItemShowPage extends StatefulWidget {
   final SearchResultItem item;
@@ -19,36 +25,64 @@ class ItemShowPage extends StatefulWidget {
 class _ItemShowPageState extends State<ItemShowPage> {
   int _selectedPageIndex = 0;
   ItemShowBloc _showItemBloc;
+  ItemBazaarBloc _bazaarBloc;
+  ItemAuctionHouseBloc _auctionHouseBloc;
+  TabController _tabController;
 
   @override
   void initState() {
     super.initState();
     _showItemBloc = BlocProvider.of<ItemShowBloc>(context);
+    _bazaarBloc = BlocProvider.of<ItemBazaarBloc>(context);
+    _auctionHouseBloc = BlocProvider.of<ItemAuctionHouseBloc>(context);
+
     _showItemBloc.add(ItemShowRequested(key: widget.item.key));
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ItemShowBloc, ItemShowState>(
+    return BlocBuilder<ItemAuctionHouseBloc, ItemAuctionHouseState>(
       builder: (context, state) {
-        if (state is ItemShowInitial) {
-          return ItemShowLoadingState(item: widget.item);
-        }
+        return DefaultTabController(
+          length: 2,
+          child: Scaffold(
+            appBar: AppBar(
+              title: ItemShowHeader(item: widget.item),
+            ),
+            body: BlocBuilder<ItemShowBloc, ItemShowState>(
+              builder: (context, state) {
+                if (state is ItemShowInitial) {
+                  return CenteredLoader();
+                }
 
-        if (state is ItemShowSuccess) {
-          return ItemShowSuccessState(
-            state: state,
-            currentPageIndex: _selectedPageIndex,
-            onRefreshPressed: _refreshPage,
-            toggleStack: _toggleStack,
-            navigationBar: ItemShowNavigationBar(
-              currentIndex: _selectedPageIndex,
+                if (state is ItemShowSuccess) {
+                  return Column(
+                    children: [
+                      ItemShowDescription(
+                        item: state.item,
+                        currentPageIndex: _selectedPageIndex,
+                      ),
+                      Expanded(
+                        child: [
+                          ItemAuctionHousePage(itemKey: state.item.key),
+                          ItemBazaarPage(itemKey: state.item.key),
+                        ].elementAt(_selectedPageIndex),
+                      ),
+                    ],
+                  );
+                }
+
+                return CenteredMessage(
+                  message: "Failed to fetch item, please try again later.",
+                );
+              },
+            ),
+            bottomNavigationBar: ItemShowNavigationBar(
+              currentIndex: _selectedPageIndex ?? 0,
               onTap: _onPageNavigation,
             ),
-          );
-        }
-
-        return ItemShowFailureState(item: widget.item);
+          ),
+        );
       },
     );
   }
@@ -57,23 +91,12 @@ class _ItemShowPageState extends State<ItemShowPage> {
     setState(() => _selectedPageIndex = index);
   }
 
-  void _refreshPage(bool showStacked) {
-    _showItemBloc.add(ItemShowRequested(
-      key: widget.item.key,
-      stacked: showStacked,
-    ));
-  }
-
-  void _toggleStack(bool newValue) {
-    _showItemBloc.add(ItemShowRequested(
-      key: widget.item.key,
-      stacked: newValue,
-    ));
-  }
-
   @override
   void dispose() {
     _showItemBloc.add(ItemShowClear());
+    _bazaarBloc.add(ItemBazaarCleared());
+    _auctionHouseBloc.add(ItemAuctionHouseCleared());
+
     super.dispose();
   }
 }

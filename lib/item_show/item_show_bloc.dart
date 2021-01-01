@@ -16,25 +16,32 @@ class ItemShowBloc extends Bloc<ItemShowEvent, ItemShowState> {
       yield ItemShowInitial();
     }
 
+    if (event is ItemShowRefreshed && state is ItemShowSuccess) {
+      yield ItemShowInitial();
+
+      yield await _buildSuccess("fire_crystal", false);
+    }
+
     if (event is ItemShowRequested) {
+      yield ItemShowInitial();
+
       try {
-        final item = await itemRepository.getItem(event.key);
-        final auctionHouseItems =
-            await itemRepository.getAuctionHouseItem(event.key, event.stacked);
-        final bazaarItems = await itemRepository.getBazaarItems(event.key);
-
-        yield ItemShowSuccess(
-          key: event.key,
-          item: item,
-          auctionHouseItems: auctionHouseItems,
-          bazaarItems: bazaarItems,
-          showStacked: event.stacked,
-        );
-
-        return;
+        yield await _buildSuccess(event.key, event.stacked);
       } catch (_) {
         yield ItemShowFailure();
       }
     }
+  }
+
+  Future<ItemShowSuccess> _buildSuccess(String key, bool stacked) async {
+    final item = await itemRepository.getItem(key);
+    final bazaarItems = await itemRepository.getBazaarItems(key);
+
+    return ItemShowSuccess(
+      key: key,
+      item: item,
+      bazaarItems: bazaarItems,
+      showStacked: stacked,
+    );
   }
 }

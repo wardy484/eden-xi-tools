@@ -1,11 +1,11 @@
+import 'package:eden_xi_tools/eden/search/entities/search_result_item.dart';
 import 'package:flutter/material.dart';
-import 'package:eden_xi_tools/eden/items/entities/item.dart';
 import 'package:eden_xi_tools/widgets/item_icon.dart';
 
-class ItemShowSuccessHeader extends StatelessWidget {
-  final Item item;
+class ItemShowHeader extends StatelessWidget {
+  final SearchResultItem item;
 
-  const ItemShowSuccessHeader({Key key, this.item}) : super(key: key);
+  const ItemShowHeader({Key key, this.item}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

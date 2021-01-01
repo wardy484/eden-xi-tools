@@ -20,3 +20,5 @@ class ItemShowRequested extends ItemShowEvent {
   @override
   List<Object> get props => [key, stacked];
 }
+
+class ItemShowRefreshed extends ItemShowEvent {}
