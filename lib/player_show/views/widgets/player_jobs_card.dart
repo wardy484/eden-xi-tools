@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:eden_xi_tools/eden/player/entities/player.dart';
 import 'package:eden_xi_tools/factory/PlayerFactory.dart';
 import 'package:eden_xi_tools/styles/spacing.dart';

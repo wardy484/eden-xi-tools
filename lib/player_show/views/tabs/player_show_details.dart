@@ -22,6 +22,7 @@ class PlayerShowDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: close_sinks
     final settingsBloc = BlocProvider.of<UserSettingsBloc>(context);
 
     return ListView(

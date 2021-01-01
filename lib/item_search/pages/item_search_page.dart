@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:eden_xi_tools/item_search/item_search.dart';
 import 'package:eden_xi_tools/item_search/views/search_empty.dart';
 import 'package:eden_xi_tools/item_search/views/search_failure.dart';
-import 'package:eden_xi_tools/item_search/views/search_field.dart';
 import 'package:eden_xi_tools/item_search/views/search_loading.dart';
 import 'package:eden_xi_tools/item_search/views/search_sucess.dart';
 

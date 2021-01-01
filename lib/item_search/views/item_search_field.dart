@@ -8,6 +8,7 @@ class ItemSearchField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: close_sinks
     ItemSearchBloc searchBloc = BlocProvider.of<ItemSearchBloc>(context);
 
     return SearchField(

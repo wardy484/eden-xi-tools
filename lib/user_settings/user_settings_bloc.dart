@@ -6,15 +6,12 @@ import 'package:eden_xi_tools/user_settings/user_settings_events.dart';
 import 'package:eden_xi_tools/user_settings/user_settings_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class UserSettingsBloc extends Bloc<UserSettingsEvent, UserSettingsState> {
   final PlayerRepository playerRepository;
   final FavouritePlayerRepository favouritePlayerRepository;
 
   final limit = 30;
-
-  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
   UserSettingsBloc({
     @required this.playerRepository,

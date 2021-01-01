@@ -2,6 +2,8 @@ import 'package:eden_xi_tools/dashboard/pages/dashboard_page.dart';
 import 'package:eden_xi_tools/eden/player/repository/player_repository.dart';
 import 'package:eden_xi_tools/eden/settings/data_access/favourite_player_data_access.dart';
 import 'package:eden_xi_tools/eden/settings/repository/favourite_player_repository.dart';
+import 'package:eden_xi_tools/item_auction_house/bloc/item_auction_house_bloc.dart';
+import 'package:eden_xi_tools/item_bazaar/bloc/item_bazaar_bloc.dart';
 import 'package:eden_xi_tools/player_search/player_search_bloc.dart';
 import 'package:eden_xi_tools/player_show/player_show_bloc.dart';
 import 'package:eden_xi_tools/user_settings/user_settings_bloc.dart';
@@ -15,6 +17,8 @@ import 'package:eden_xi_tools/item_search/item_search.dart';
 import 'package:eden_xi_tools/item_search/item_search_bloc.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   FavouritePlayerDA favouritePlayerDA = FavouritePlayerDA();
   ItemRepository itemRepository = ItemRepository(http.Client());
   PlayerRepository playerRepository = PlayerRepository(http.Client());
@@ -37,6 +41,13 @@ void main() {
         ),
         BlocProvider<ItemShowBloc>(
           create: (context) => ItemShowBloc(itemRepository: itemRepository),
+        ),
+        BlocProvider<ItemAuctionHouseBloc>(
+          create: (context) =>
+              ItemAuctionHouseBloc(itemRepository: itemRepository),
+        ),
+        BlocProvider<ItemBazaarBloc>(
+          create: (context) => ItemBazaarBloc(itemRepository: itemRepository),
         ),
         BlocProvider<PlayerShowBloc>(
           create: (context) =>

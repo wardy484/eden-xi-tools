@@ -1,4 +1,3 @@
-import 'package:eden_xi_tools/item_search/item_search.dart';
 import 'package:eden_xi_tools/item_search/views/search_field.dart';
 import 'package:eden_xi_tools/player_search/player_search.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +8,7 @@ class PlayerSearchField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: close_sinks
     PlayerSearchBloc searchBloc = BlocProvider.of<PlayerSearchBloc>(context);
 
     return SearchField(
