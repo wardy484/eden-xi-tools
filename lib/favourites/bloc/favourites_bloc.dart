@@ -1,7 +1,9 @@
 import 'dart:async';
 
-import 'package:eden_xi_tools/eden/player/entities/player.dart';
 import 'package:eden_xi_tools/eden/player/entities/player_search_results.dart';
+import 'package:eden_xi_tools/eden/search/entities/search_result_item.dart';
+import 'package:eden_xi_tools/favourites/entities/item_favourites.dart';
+import 'package:eden_xi_tools/favourites/entities/player_favourites.dart';
 import 'package:equatable/equatable.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
@@ -22,10 +24,8 @@ class FavouritesBloc extends HydratedBloc<FavouritesEvent, FavouritesState> {
         yield FavouritesLoading();
 
         yield FavouritesLoaded(
-          favourites: PlayerFavourites(
-            favourites: [
-              event.player.toSearchResultItem(),
-            ],
+          players: PlayerFavourites(
+            favourites: [event.player],
           ),
         );
       }
@@ -33,11 +33,9 @@ class FavouritesBloc extends HydratedBloc<FavouritesEvent, FavouritesState> {
       if (currentState is FavouritesLoaded) {
         yield FavouritesLoading();
 
-        currentState.favourites.favourites.add(
-          event.player.toSearchResultItem(),
-        );
+        currentState.players.addPlayer(event.player);
 
-        yield FavouritesLoaded(favourites: currentState.favourites);
+        yield currentState.copyWith(players: currentState.players);
       }
     }
 
@@ -47,12 +45,47 @@ class FavouritesBloc extends HydratedBloc<FavouritesEvent, FavouritesState> {
       if (currentState is FavouritesLoaded) {
         yield FavouritesLoading();
 
-        var favourites = currentState.favourites.favourites
-            .where((element) => element.charname != event.player.name)
-            .toList();
+        yield currentState.copyWith(
+          players: PlayerFavourites(
+            favourites: currentState.players.withoutPlayer(event.player),
+          ),
+        );
+      }
+    }
+
+    if (event is FavouritesItemSaved) {
+      final currentState = state;
+
+      if (currentState is FavouritesInitial) {
+        yield FavouritesLoading();
 
         yield FavouritesLoaded(
-          favourites: PlayerFavourites(favourites: favourites),
+          items: ItemFavourites(favourites: [
+            event.item,
+          ]),
+        );
+      }
+
+      if (currentState is FavouritesLoaded) {
+        yield FavouritesLoading();
+
+        var items = currentState.items?.all() ?? [];
+        items.add(event.item);
+
+        yield currentState.copyWith(items: ItemFavourites(favourites: items));
+      }
+    }
+
+    if (event is FavouritesItemRemoved) {
+      final currentState = state;
+
+      if (currentState is FavouritesLoaded) {
+        yield FavouritesLoading();
+
+        var favourites = currentState.items.withoutItem(event.item);
+
+        yield currentState.copyWith(
+          items: ItemFavourites(favourites: favourites),
         );
       }
     }
@@ -63,7 +96,7 @@ class FavouritesBloc extends HydratedBloc<FavouritesEvent, FavouritesState> {
     try {
       final favourites = PlayerFavourites.fromJson(json);
 
-      return FavouritesLoaded(favourites: favourites);
+      return FavouritesLoaded(players: favourites);
     } catch (_) {
       return null;
     }
@@ -72,7 +105,7 @@ class FavouritesBloc extends HydratedBloc<FavouritesEvent, FavouritesState> {
   @override
   Map<String, dynamic> toJson(FavouritesState state) {
     if (state is FavouritesLoaded) {
-      return state.favourites.toJson();
+      return state.players.toJson();
     }
 
     return null;

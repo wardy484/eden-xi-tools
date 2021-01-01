@@ -1,13 +1,13 @@
-import 'package:eden_xi_tools/eden/player/entities/player_search_results.dart';
+import 'package:eden_xi_tools/eden/search/entities/search_result_item.dart';
 import 'package:eden_xi_tools/favourites/bloc/favourites_bloc.dart';
 import 'package:eden_xi_tools/widgets/favourite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class PlayerFavouriteButton extends StatelessWidget {
-  final PlayerSearchResultItem player;
+class ItemFavouriteButton extends StatelessWidget {
+  final SearchResultItem item;
 
-  const PlayerFavouriteButton({Key key, this.player}) : super(key: key);
+  const ItemFavouriteButton({Key key, this.item}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,16 +19,16 @@ class PlayerFavouriteButton extends StatelessWidget {
         bool value = false;
 
         if (state is FavouritesLoaded) {
-          value = state.players.containsPlayer(player.charname);
+          value = state.items?.contains(item) ?? false;
         }
 
         return FavouriteButton(
           value: value,
           onPressed: (bool favourited) {
             if (favourited) {
-              favouritesBloc.add(FavouritesPlayerSaved(player: player));
+              favouritesBloc.add(FavouritesItemSaved(item: item));
             } else {
-              favouritesBloc.add(FavouritesPlayerRemoved(player: player));
+              favouritesBloc.add(FavouritesItemRemoved(item: item));
             }
           },
         );

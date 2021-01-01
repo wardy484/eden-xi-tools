@@ -10,20 +10,23 @@ class FavouriteButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Tooltip(
-      message: "Favourite this player",
-      child: IconButton(
-        icon: Icon(getIcon()),
-        onPressed: () {
-          onPressed(!value);
-        },
-        color: getColour(),
+    return Padding(
+      padding: const EdgeInsets.only(right: 8),
+      child: Tooltip(
+        message: "Favourite this player",
+        child: IconButton(
+          icon: Icon(getIcon()),
+          onPressed: () {
+            onPressed(!value);
+          },
+          color: getColour(),
+        ),
       ),
     );
   }
 
   Color getColour() {
-    return value ? Colors.yellow : Colors.black;
+    return value ? Colors.white : Colors.white;
   }
 
   IconData getIcon() {

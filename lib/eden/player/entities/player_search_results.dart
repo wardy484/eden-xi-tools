@@ -35,32 +35,6 @@ class PlayerSearchResultItem extends Equatable {
   Map<String, dynamic> toJson() => _$PlayerSearchResultItemToJson(this);
 }
 
-@JsonSerializable()
-class PlayerFavourites extends Equatable {
-  final List<PlayerSearchResultItem> favourites;
-
-  const PlayerFavourites({
-    @required this.favourites,
-  });
-
-  @override
-  List<Object> get props => [favourites];
-
-  bool get hasFavourites => favourites.length > 0;
-
-  @override
-  String toString() => 'PlayerFavourites { id: $favourites }';
-
-  factory PlayerFavourites.fromJson(Map<String, dynamic> json) =>
-      _$PlayerFavouritesFromJson(json);
-
-  Map<String, dynamic> toJson() => _$PlayerFavouritesToJson(this);
-
-  bool containsPlayer(String playerName) {
-    return favourites.any((player) => player.charname == playerName);
-  }
-}
-
 class PlayerSearchResult extends Equatable {
   final int total;
   final List<PlayerSearchResultItem> items;

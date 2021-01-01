@@ -1,4 +1,5 @@
 import 'package:eden_xi_tools/eden/player/entities/player.dart';
+import 'package:eden_xi_tools/eden/player/entities/player_crafts.dart';
 import 'package:eden_xi_tools/eden/player/entities/player_search_results.dart';
 import 'package:equatable/equatable.dart';
 

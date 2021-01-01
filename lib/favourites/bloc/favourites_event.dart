@@ -8,7 +8,7 @@ abstract class FavouritesEvent extends Equatable {
 }
 
 class FavouritesPlayerSaved extends FavouritesEvent {
-  final Player player;
+  final PlayerSearchResultItem player;
 
   const FavouritesPlayerSaved({this.player});
 
@@ -17,10 +17,28 @@ class FavouritesPlayerSaved extends FavouritesEvent {
 }
 
 class FavouritesPlayerRemoved extends FavouritesEvent {
-  final Player player;
+  final PlayerSearchResultItem player;
 
   const FavouritesPlayerRemoved({this.player});
 
   @override
   List<Object> get props => [player];
+}
+
+class FavouritesItemSaved extends FavouritesEvent {
+  final SearchResultItem item;
+
+  const FavouritesItemSaved({this.item});
+
+  @override
+  List<Object> get props => [item];
+}
+
+class FavouritesItemRemoved extends FavouritesEvent {
+  final SearchResultItem item;
+
+  const FavouritesItemRemoved({this.item});
+
+  @override
+  List<Object> get props => [item];
 }

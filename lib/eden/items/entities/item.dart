@@ -1,3 +1,4 @@
+import 'package:eden_xi_tools/eden/search/entities/search_result_item.dart';
 import 'package:equatable/equatable.dart';
 
 class Item extends Equatable {
@@ -24,4 +25,13 @@ class Item extends Equatable {
 
   @override
   String toString() => 'Item { id: $id }';
+
+  SearchResultItem toSearchResultItem() {
+    return SearchResultItem(
+      id: id,
+      name: name,
+      sort: sort,
+      key: key,
+    );
+  }
 }

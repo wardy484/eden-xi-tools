@@ -1,5 +1,9 @@
 import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'search_result_item.g.dart';
+
+@JsonSerializable()
 class SearchResultItem extends Equatable {
   final int id;
   final String name;
@@ -13,4 +17,9 @@ class SearchResultItem extends Equatable {
 
   @override
   String toString() => 'Search Result Item { id: $id }';
+
+  factory SearchResultItem.fromJson(Map<String, dynamic> json) =>
+      _$SearchResultItemFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SearchResultItemToJson(this);
 }

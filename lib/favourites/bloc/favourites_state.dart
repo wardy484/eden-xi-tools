@@ -12,12 +12,23 @@ class FavouritesInitial extends FavouritesState {}
 class FavouritesLoading extends FavouritesState {}
 
 class FavouritesLoaded extends FavouritesState {
-  final PlayerFavourites favourites;
+  final PlayerFavourites players;
+  final ItemFavourites items;
 
-  const FavouritesLoaded({this.favourites});
+  const FavouritesLoaded({this.players, this.items});
+
+  FavouritesLoaded copyWith({
+    PlayerFavourites players,
+    ItemFavourites items,
+  }) {
+    return FavouritesLoaded(
+      players: players ?? this.players,
+      items: items ?? this.items,
+    );
+  }
 
   @override
   List<Object> get props => [
-        favourites,
+        players,
       ];
 }

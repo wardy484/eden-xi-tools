@@ -19,11 +19,11 @@ class PlayerShowNations extends StatelessWidget {
         SizedBox(width: 8),
         BastokFlag(width: 25, height: 25),
         SizedBox(width: 5),
-        Text(ranks.sandoria.toString()),
+        Text(ranks.bastok.toString()),
         SizedBox(width: 8),
         WindhurstFlag(width: 25, height: 25),
         SizedBox(width: 5),
-        Text(ranks.sandoria.toString()),
+        Text(ranks.windurst.toString()),
       ],
     );
   }

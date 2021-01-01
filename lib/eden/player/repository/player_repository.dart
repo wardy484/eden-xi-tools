@@ -1,5 +1,6 @@
 import 'package:eden_xi_tools/eden/items/repositories/ItemRepository.dart';
 import 'package:eden_xi_tools/eden/player/entities/player.dart';
+import 'package:eden_xi_tools/eden/player/entities/player_crafts.dart';
 import 'package:eden_xi_tools/eden/player/entities/player_search_results.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;

@@ -1,18 +1,17 @@
-import 'package:eden_xi_tools/eden/player/entities/player.dart';
-import 'package:eden_xi_tools/eden/player/entities/player_search_results.dart';
-import 'package:eden_xi_tools/favourites/bloc/favourites_bloc.dart';
-import 'package:eden_xi_tools/item_search/pages/item_search_page.dart';
-import 'package:eden_xi_tools/player_search/pages/player_search_page.dart';
-import 'package:eden_xi_tools/player_search/views/player_search_result_card.dart';
-import 'package:eden_xi_tools/styles/spacing.dart';
-import 'package:eden_xi_tools/styles/text_styles.dart';
-import 'package:eden_xi_tools/user_settings/user_settings_bloc.dart';
-import 'package:eden_xi_tools/user_settings/user_settings_state.dart';
+import 'package:eden_xi_tools/dashboard/views/dashboard_drawer.dart';
+import 'package:eden_xi_tools/favourites/views/item_favourites_tab.dart';
+import 'package:eden_xi_tools/favourites/views/player_favourites_tab.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-class DashboardPageHydrated extends StatelessWidget {
+class DashboardPageHydrated extends StatefulWidget {
   const DashboardPageHydrated({Key key}) : super(key: key);
+
+  @override
+  _DashboardPageHydratedState createState() => _DashboardPageHydratedState();
+}
+
+class _DashboardPageHydratedState extends State<DashboardPageHydrated> {
+  int _selectedIndex = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -30,78 +29,32 @@ class DashboardPageHydrated extends StatelessWidget {
           ],
         ),
       ),
-      body: BlocBuilder<FavouritesBloc, FavouritesState>(
-        builder: (context, state) {
-          if (state is FavouritesLoaded && state.favourites.hasFavourites) {
-            return ListView.builder(
-              itemCount: state.favourites.favourites.length,
-              itemBuilder: (context, index) {
-                return PlayerSearchResultCard(
-                    item: state.favourites.favourites[index]);
-              },
-            );
-          }
-
-          return Padding(
-            padding: BoxPadding,
-            child: Text(
-              "Tap the star on player profiles to have them appear on your dashboard.",
-            ),
-          );
-        },
+      body: [
+        PlayerFavouritesTab(),
+        ItemFavouritesTab(),
+      ].elementAt(_selectedIndex),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people),
+            label: 'Favourite players',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.cake),
+            label: 'Favourite items',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.blue[800],
+        onTap: _onItemTapped,
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              child: Column(
-                children: [
-                  Image.asset(
-                    "icon.png",
-                    width: 94,
-                    height: 94,
-                  ),
-                  SizedBox(height: 14),
-                  Text(
-                    'Eden XI Tools',
-                    style: LightHeading,
-                  ),
-                ],
-              ),
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-            ),
-            ListTile(
-              title: Text('Item Search'),
-              onTap: () {
-                Navigator.pop(context);
-
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ItemSearchPage(),
-                  ),
-                );
-              },
-            ),
-            ListTile(
-              title: Text('Player Search'),
-              onTap: () {
-                Navigator.pop(context);
-
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PlayerSearchPage(),
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: DashboardDrawer(),
     );
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 }
