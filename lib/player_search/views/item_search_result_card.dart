@@ -3,11 +3,10 @@ import 'package:eden_xi_tools/eden/search/entities/search_result_item.dart';
 import 'package:eden_xi_tools/item_show/pages/item_show_page.dart';
 import 'package:eden_xi_tools/widgets/item_icon.dart';
 
-class ItemSearchResultWidget extends StatelessWidget {
+class ItemSearchCard extends StatelessWidget {
   final SearchResultItem item;
 
-  const ItemSearchResultWidget({Key key, @required this.item})
-      : super(key: key);
+  const ItemSearchCard({Key key, @required this.item}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
