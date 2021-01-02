@@ -16,7 +16,7 @@ class RepositoryRegistry {
 }
 
 abstract class RepositoryInjector {
-  @Register.factory(ItemRepository)
-  @Register.factory(PlayerRepository)
+  @Register.factory(ItemRepository, resolvers: {Dio: 'EdenClient'})
+  @Register.factory(PlayerRepository, resolvers: {Dio: 'EdenClient'})
   void configure();
 }

@@ -10,8 +10,20 @@ class AppRegistry {
 
   register() {
     container.registerFactory((container) => Dio());
+    container.registerFactory(
+      _edenClientFactory,
+      name: 'EdenClient',
+    );
 
     RepositoryRegistry().register();
     BlocRegistry().register();
+  }
+
+  Dio _edenClientFactory(container) {
+    Dio dio = Dio();
+
+    dio.options.baseUrl = "https://edenxi.com/api/v1/";
+
+    return dio;
   }
 }

@@ -1,30 +1,21 @@
 import 'package:dio/dio.dart';
 import 'package:eden_xi_tools/eden/search/entities/search_result.dart';
 import 'package:eden_xi_tools/eden/search/entities/search_result_item.dart';
-import 'package:flutter/foundation.dart';
 import 'package:eden_xi_tools/eden/items/entities/auction_house_item.dart';
 import 'package:eden_xi_tools/eden/items/entities/bazaar_item.dart';
 import 'package:eden_xi_tools/eden/items/entities/item.dart';
+import 'package:flutter/material.dart';
 
-class BaseEdenRepository {
+class ItemRepository {
   final Dio client;
-  final baseUrl = "https://edenxi.com/api/v1/";
 
-  BaseEdenRepository({@required this.client});
-
-  String getUrl(String url) {
-    return '$baseUrl$url';
-  }
-}
-
-class ItemRepository extends BaseEdenRepository {
-  ItemRepository(Dio client) : super(client: client);
+  ItemRepository({@required this.client});
 
   Future<SearchResult> search(
       String itemName, int startIndex, int limit) async {
     final encodedItemName = Uri.encodeFull(itemName);
-    final response = await client.get(
-        'https://edenxi.com/api/v1/items?search=$encodedItemName&limit=$limit&offset=$startIndex');
+    final response = await client
+        .get('/items?search=$encodedItemName&limit=$limit&offset=$startIndex');
 
     if (response.statusCode == 200) {
       final data = response.data;
@@ -50,8 +41,7 @@ class ItemRepository extends BaseEdenRepository {
     String itemKey,
     bool stacked,
   ) async {
-    final response =
-        await client.get(getUrl('items/$itemKey/ah?stack=$stacked'));
+    final response = await client.get('/items/$itemKey/ah?stack=$stacked');
 
     if (response.statusCode == 200) {
       final data = response.data;
@@ -73,7 +63,7 @@ class ItemRepository extends BaseEdenRepository {
   }
 
   Future<List<BazaarItem>> getBazaarItems(String itemKey) async {
-    final response = await client.get(getUrl('items/$itemKey/bazaar'));
+    final response = await client.get('/items/$itemKey/bazaar');
 
     if (response.statusCode == 200) {
       final data = response.data;
@@ -91,7 +81,7 @@ class ItemRepository extends BaseEdenRepository {
   }
 
   Future<Item> getItem(String key) async {
-    final response = await client.get('https://edenxi.com/api/v1/items/$key');
+    final response = await client.get('/items/$key');
 
     if (response.statusCode == 200) {
       final data = response.data;

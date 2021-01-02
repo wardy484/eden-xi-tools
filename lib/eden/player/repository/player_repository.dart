@@ -1,18 +1,22 @@
 import 'package:dio/dio.dart';
-import 'package:eden_xi_tools/eden/items/repositories/ItemRepository.dart';
 import 'package:eden_xi_tools/eden/player/entities/player.dart';
 import 'package:eden_xi_tools/eden/player/entities/player_crafts.dart';
 import 'package:eden_xi_tools/eden/player/entities/player_search_results.dart';
+import 'package:flutter/cupertino.dart';
 
-class PlayerRepository extends BaseEdenRepository {
-  PlayerRepository(Dio client) : super(client: client);
+class PlayerRepository {
+  final Dio client;
+
+  PlayerRepository({@required this.client});
 
   String _buildSearchUrl(
-      String playerName, int startIndex, int limit, bool online) {
+    String playerName,
+    int startIndex,
+    int limit,
+    bool online,
+  ) {
     final encodedPlayerName = Uri.encodeFull(playerName);
-    return getUrl(
-      'chars?search=$encodedPlayerName&limit=$limit&offset=$startIndex&online=$online',
-    );
+    return 'chars?search=$encodedPlayerName&limit=$limit&offset=$startIndex&online=$online';
   }
 
   Future<PlayerSearchResult> search(
@@ -49,7 +53,7 @@ class PlayerRepository extends BaseEdenRepository {
   }
 
   Future<Player> getPlayer(String playerName) async {
-    final response = await client.get(getUrl('chars/$playerName'));
+    final response = await client.get('/chars/$playerName');
 
     if (response.statusCode == 200) {
       final data = response.data;
@@ -102,7 +106,7 @@ class PlayerRepository extends BaseEdenRepository {
   }
 
   Future<PlayerCrafts> getCrafts(String playerName) async {
-    final response = await client.get(getUrl('chars/$playerName/crafts'));
+    final response = await client.get('/chars/$playerName/crafts');
 
     if (response.statusCode == 200) {
       final data = response.data;
@@ -137,7 +141,7 @@ class PlayerRepository extends BaseEdenRepository {
   Future<List<PlayerAuctionHouseItem>> getAuctionHouseItems(
     String playerName,
   ) async {
-    final response = await client.get(getUrl('chars/$playerName/ah'));
+    final response = await client.get('/chars/$playerName/ah');
 
     if (response.statusCode == 200) {
       final data = response.data;
@@ -160,7 +164,7 @@ class PlayerRepository extends BaseEdenRepository {
   }
 
   Future<List<PlayerBazaarItem>> getBazaarItems(String playerName) async {
-    final response = await client.get(getUrl('chars/$playerName/bazaar'));
+    final response = await client.get('chars/$playerName/bazaar');
 
     if (response.statusCode == 200) {
       final data = response.data;

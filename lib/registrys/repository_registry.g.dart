@@ -10,7 +10,9 @@ class _$RepositoryInjector extends RepositoryInjector {
   @override
   void configure() {
     final KiwiContainer container = KiwiContainer();
-    container.registerFactory((c) => ItemRepository(c<Dio>()));
-    container.registerFactory((c) => PlayerRepository(c<Dio>()));
+    container
+        .registerFactory((c) => ItemRepository(client: c<Dio>('EdenClient')));
+    container
+        .registerFactory((c) => PlayerRepository(client: c<Dio>('EdenClient')));
   }
 }
