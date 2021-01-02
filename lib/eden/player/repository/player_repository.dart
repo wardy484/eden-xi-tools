@@ -1,12 +1,11 @@
+import 'package:dio/dio.dart';
 import 'package:eden_xi_tools/eden/items/repositories/ItemRepository.dart';
 import 'package:eden_xi_tools/eden/player/entities/player.dart';
 import 'package:eden_xi_tools/eden/player/entities/player_crafts.dart';
 import 'package:eden_xi_tools/eden/player/entities/player_search_results.dart';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 
 class PlayerRepository extends BaseEdenRepository {
-  PlayerRepository(http.Client client) : super(client: client);
+  PlayerRepository(Dio client) : super(client: client);
 
   String _buildSearchUrl(
       String playerName, int startIndex, int limit, bool online) {
@@ -29,12 +28,12 @@ class PlayerRepository extends BaseEdenRepository {
     ));
 
     if (response.statusCode == 200) {
-      final data = json.decode(response.body) as Map;
+      final data = response.data;
       final players = data['chars'] as List;
 
       return PlayerSearchResult(
         total: data['total'],
-        items: players.map((player) {
+        items: players.map<PlayerSearchResultItem>((player) {
           return PlayerSearchResultItem(
             avatar: player['avatar'],
             charname: player['charname'],
@@ -53,9 +52,9 @@ class PlayerRepository extends BaseEdenRepository {
     final response = await client.get(getUrl('chars/$playerName'));
 
     if (response.statusCode == 200) {
-      final data = json.decode(response.body) as Map;
-      final jobs = data['jobs'] as Map;
-      final ranks = data['ranks'] as Map;
+      final data = response.data;
+      final jobs = data['jobs'];
+      final ranks = data['ranks'];
 
       return Player(
         avatar: data['avatar'],
@@ -106,7 +105,7 @@ class PlayerRepository extends BaseEdenRepository {
     final response = await client.get(getUrl('chars/$playerName/crafts'));
 
     if (response.statusCode == 200) {
-      final data = json.decode(response.body) as Map;
+      final data = response.data;
 
       return PlayerCrafts(
         alchemy: toDouble(data['Alchemy']),
@@ -141,9 +140,9 @@ class PlayerRepository extends BaseEdenRepository {
     final response = await client.get(getUrl('chars/$playerName/ah'));
 
     if (response.statusCode == 200) {
-      final data = json.decode(response.body) as List;
+      final data = response.data;
 
-      return data.map((item) {
+      return data.map<PlayerAuctionHouseItem>((item) {
         return PlayerAuctionHouseItem(
           buyerName: item['buyer_name'],
           name: item['name'],
@@ -164,9 +163,9 @@ class PlayerRepository extends BaseEdenRepository {
     final response = await client.get(getUrl('chars/$playerName/bazaar'));
 
     if (response.statusCode == 200) {
-      final data = json.decode(response.body) as List;
+      final data = response.data;
 
-      return data.map((item) {
+      return data.map<PlayerBazaarItem>((item) {
         return PlayerBazaarItem(
           bazaar: item['bazaar'],
           itemName: item['name'],

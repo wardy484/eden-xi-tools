@@ -1,12 +1,13 @@
+import 'package:dio/dio.dart';
+import 'package:eden_xi_tools/eden/search/entities/search_result.dart';
+import 'package:eden_xi_tools/eden/search/entities/search_result_item.dart';
 import 'package:flutter/foundation.dart';
 import 'package:eden_xi_tools/eden/items/entities/auction_house_item.dart';
 import 'package:eden_xi_tools/eden/items/entities/bazaar_item.dart';
 import 'package:eden_xi_tools/eden/items/entities/item.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 
 class BaseEdenRepository {
-  final http.Client client;
+  final Dio client;
   final baseUrl = "https://edenxi.com/api/v1/";
 
   BaseEdenRepository({@required this.client});
@@ -17,7 +18,33 @@ class BaseEdenRepository {
 }
 
 class ItemRepository extends BaseEdenRepository {
-  ItemRepository(http.Client client) : super(client: client);
+  ItemRepository(Dio client) : super(client: client);
+
+  Future<SearchResult> search(
+      String itemName, int startIndex, int limit) async {
+    final encodedItemName = Uri.encodeFull(itemName);
+    final response = await client.get(
+        'https://edenxi.com/api/v1/items?search=$encodedItemName&limit=$limit&offset=$startIndex');
+
+    if (response.statusCode == 200) {
+      final data = response.data;
+      final items = data['items'] as List;
+
+      return SearchResult(
+        total: data['total'],
+        items: items.map<SearchResultItem>((item) {
+          return SearchResultItem(
+            id: item['id'],
+            name: item['name'],
+            sort: item['sort'],
+            key: item['key'],
+          );
+        }).toList(),
+      );
+    } else {
+      throw Exception("Erroring fetching search results from Eden server.");
+    }
+  }
 
   Future<List<AuctionHouseItem>> getAuctionHouseItem(
     String itemKey,
@@ -27,9 +54,9 @@ class ItemRepository extends BaseEdenRepository {
         await client.get(getUrl('items/$itemKey/ah?stack=$stacked'));
 
     if (response.statusCode == 200) {
-      final data = json.decode(response.body) as List;
+      final data = response.data;
 
-      return data.map((item) {
+      return data.map<AuctionHouseItem>((item) {
         return AuctionHouseItem(
           buyerName: item['buyer_name'],
           name: item['name'],
@@ -49,9 +76,9 @@ class ItemRepository extends BaseEdenRepository {
     final response = await client.get(getUrl('items/$itemKey/bazaar'));
 
     if (response.statusCode == 200) {
-      final data = json.decode(response.body) as List;
+      final data = response.data;
 
-      return data.map((item) {
+      return data.map<BazaarItem>((item) {
         return BazaarItem(
           bazaar: item['bazaar'],
           charname: item['charname'],
@@ -67,7 +94,7 @@ class ItemRepository extends BaseEdenRepository {
     final response = await client.get('https://edenxi.com/api/v1/items/$key');
 
     if (response.statusCode == 200) {
-      final data = json.decode(response.body) as Map;
+      final data = response.data;
 
       return Item(
         id: data['id'],

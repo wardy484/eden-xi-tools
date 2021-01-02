@@ -1,18 +1,15 @@
-import 'dart:convert';
-
 import 'package:bloc/bloc.dart';
+import 'package:eden_xi_tools/eden/items/repositories/ItemRepository.dart';
 import 'package:eden_xi_tools/item_search/item_search.dart';
 import 'package:eden_xi_tools/eden/search/entities/search_result.dart';
-import 'package:eden_xi_tools/eden/search/entities/search_result_item.dart';
 import 'package:meta/meta.dart';
-import 'package:http/http.dart' as http;
 import 'package:rxdart/rxdart.dart';
 
 class ItemSearchBloc extends Bloc<ItemSearchEvent, ItemSearchState> {
-  final http.Client httpClient;
+  final ItemRepository itemRepository;
   final limit = 30;
 
-  ItemSearchBloc({@required this.httpClient}) : super(ItemSearchInitial());
+  ItemSearchBloc({@required this.itemRepository}) : super(ItemSearchEmpty());
 
   @override
   Stream<Transition<ItemSearchEvent, ItemSearchState>> transformEvents(
@@ -41,7 +38,7 @@ class ItemSearchBloc extends Bloc<ItemSearchEvent, ItemSearchState> {
     if (event is ItemSearchFetched && !_hasReachedMax(currentState)) {
       try {
         if (currentState is ItemSearchInitial) {
-          final results = await _fetchResults(itemName, 0, limit);
+          final results = await itemRepository.search(itemName, 0, limit);
 
           yield ItemSearchSuccess(
             results: results,
@@ -53,8 +50,11 @@ class ItemSearchBloc extends Bloc<ItemSearchEvent, ItemSearchState> {
         }
 
         if (currentState is ItemSearchSuccess) {
-          final results = await _fetchResults(
-              itemName, currentState.results.items.length, limit);
+          final results = await itemRepository.search(
+            itemName,
+            currentState.results.items.length,
+            limit,
+          );
 
           yield currentState.results.items.length == results.total
               ? currentState.copyWith(
@@ -78,30 +78,4 @@ class ItemSearchBloc extends Bloc<ItemSearchEvent, ItemSearchState> {
 
   bool _hasReachedMax(ItemSearchState state) =>
       state is ItemSearchSuccess && state.hasReachedMax;
-
-  Future<SearchResult> _fetchResults(
-      String itemName, int startIndex, int limit) async {
-    final encodedItemName = Uri.encodeFull(itemName);
-    final response = await httpClient.get(
-        'https://edenxi.com/api/v1/items?search=$encodedItemName&limit=$limit&offset=$startIndex');
-
-    if (response.statusCode == 200) {
-      final data = json.decode(response.body) as Map;
-      final items = data['items'] as List;
-
-      return SearchResult(
-        total: data['total'],
-        items: items.map((item) {
-          return SearchResultItem(
-            id: item['id'],
-            name: item['name'],
-            sort: item['sort'],
-            key: item['key'],
-          );
-        }).toList(),
-      );
-    } else {
-      throw Exception("Erroring fetching search results from Eden server.");
-    }
-  }
 }

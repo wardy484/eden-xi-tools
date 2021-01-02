@@ -1,6 +1,4 @@
 import 'package:eden_xi_tools/item_favourites/bloc/item_favourites_bloc.dart';
-import 'package:eden_xi_tools/player_favourites/bloc/player_favourites_bloc.dart';
-import 'package:eden_xi_tools/player_search/views/player_search_result_card.dart';
 import 'package:eden_xi_tools/styles/spacing.dart';
 import 'package:eden_xi_tools/widgets/item_search/item_search_result_widget.dart';
 import 'package:flutter/material.dart';
