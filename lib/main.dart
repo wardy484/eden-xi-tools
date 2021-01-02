@@ -4,7 +4,7 @@ import 'package:eden_xi_tools/item_bazaar/bloc/item_bazaar_bloc.dart';
 import 'package:eden_xi_tools/item_favourites/bloc/item_favourites_bloc.dart';
 import 'package:eden_xi_tools/player_search/player_search_bloc.dart';
 import 'package:eden_xi_tools/player_show/player_show_bloc.dart';
-import 'package:eden_xi_tools/providers/app_provider.dart';
+import 'package:eden_xi_tools/registrys/app_registry.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:eden_xi_tools/item_show/item_show_bloc.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +19,7 @@ void main() async {
   HydratedBloc.storage = await HydratedStorage.build();
 
   KiwiContainer container = KiwiContainer();
-  AppProvider().register();
+  AppRegistry().register();
 
   runApp(
     MultiBlocProvider(
