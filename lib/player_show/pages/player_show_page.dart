@@ -9,6 +9,7 @@ import 'package:eden_xi_tools/player_show/views/states/player_show_loading_state
 import 'package:eden_xi_tools/player_show/views/states/player_show_success_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kiwi/kiwi.dart';
 
 class PlayerShowPage extends StatefulWidget {
   final PlayerSearchResultItem playerResult;
@@ -27,40 +28,42 @@ class _PlayerShowPageState extends State<PlayerShowPage> {
   @override
   void initState() {
     super.initState();
-    _refreshCompleter = Completer<void>();
 
-    _playerShowBloc = BlocProvider.of<PlayerShowBloc>(context);
+    _playerShowBloc = KiwiContainer().resolve<PlayerShowBloc>();
     _playerShowBloc.add(PlayerShowRequested(playerResult: widget.playerResult));
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<PlayerShowBloc, PlayerShowState>(
-      listener: (context, state) {
-        if (state is PlayerShowSuccessState) {
-          _refreshCompleter?.complete();
-          _refreshCompleter = Completer();
-        }
-      },
-      builder: (context, state) {
-        if (state is PlayerShowInitial) {
-          return PlayerShowLoadingState(playerResult: widget.playerResult);
-        }
+    return BlocProvider.value(
+      value: _playerShowBloc,
+      child: BlocConsumer<PlayerShowBloc, PlayerShowState>(
+        listener: (context, state) {
+          if (state is PlayerShowSuccessState) {
+            _refreshCompleter?.complete();
+            _refreshCompleter = Completer();
+          }
+        },
+        builder: (context, state) {
+          if (state is PlayerShowInitial) {
+            return PlayerShowLoadingState(playerResult: widget.playerResult);
+          }
 
-        if (state is PlayerShowSuccess) {
-          return PlayerShowSuccessState(
-            state: state,
-            currentPageIndex: _selectedPageIndex,
-            onRefreshPressed: _refreshPage,
-            navigationBar: PlayerShowNavigationBar(
-              currentIndex: _selectedPageIndex,
-              onTap: _onPageNavigation,
-            ),
-          );
-        }
+          if (state is PlayerShowSuccess) {
+            return PlayerShowSuccessState(
+              state: state,
+              currentPageIndex: _selectedPageIndex,
+              onRefreshPressed: _refreshPage,
+              navigationBar: PlayerShowNavigationBar(
+                currentIndex: _selectedPageIndex,
+                onTap: _onPageNavigation,
+              ),
+            );
+          }
 
-        return PlayerShowFailureState(item: widget.playerResult);
-      },
+          return PlayerShowFailureState(item: widget.playerResult);
+        },
+      ),
     );
   }
 
@@ -78,7 +81,7 @@ class _PlayerShowPageState extends State<PlayerShowPage> {
 
   @override
   void dispose() {
-    _playerShowBloc.add(PlayerShowClear());
+    _playerShowBloc.close();
     super.dispose();
   }
 }
