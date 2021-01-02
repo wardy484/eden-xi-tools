@@ -1,4 +1,4 @@
-import 'package:eden_xi_tools/favourites/bloc/favourites_bloc.dart';
+import 'package:eden_xi_tools/player_favourites/bloc/player_favourites_bloc.dart';
 import 'package:eden_xi_tools/player_search/views/player_search_result_card.dart';
 import 'package:eden_xi_tools/styles/spacing.dart';
 import 'package:flutter/material.dart';
@@ -9,14 +9,15 @@ class PlayerFavouritesTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FavouritesBloc, FavouritesState>(
+    return BlocBuilder<PlayerFavouritesBloc, PlayerFavouritesState>(
       builder: (context, state) {
-        if (state is FavouritesLoaded && (state.players?.hasFavourites ?? false)) {
+        if (state is PlayerFavouritesLoaded && !state.favourites.isEmpty) {
           return ListView.builder(
-            itemCount: state.players.favourites.length,
+            itemCount: state.favourites.count,
             itemBuilder: (context, index) {
               return PlayerSearchResultCard(
-                  item: state.players.favourites[index]);
+                item: state.favourites.atIndex(index),
+              );
             },
           );
         }

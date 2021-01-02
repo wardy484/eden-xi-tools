@@ -1,4 +1,6 @@
-import 'package:eden_xi_tools/favourites/bloc/favourites_bloc.dart';
+import 'package:eden_xi_tools/item_favourites/bloc/item_favourites_bloc.dart';
+import 'package:eden_xi_tools/player_favourites/bloc/player_favourites_bloc.dart';
+import 'package:eden_xi_tools/player_search/views/player_search_result_card.dart';
 import 'package:eden_xi_tools/styles/spacing.dart';
 import 'package:eden_xi_tools/widgets/item_search/item_search_result_widget.dart';
 import 'package:flutter/material.dart';
@@ -9,15 +11,15 @@ class ItemFavouritesTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FavouritesBloc, FavouritesState>(
+    return BlocBuilder<ItemFavouritesBloc, ItemFavouritesState>(
       builder: (context, state) {
-        if (state is FavouritesLoaded &&
-            (state.items?.hasFavourites ?? false)) {
+        if (state is ItemFavouritesLoaded && !state.favourites.isEmpty) {
           return ListView.builder(
-            itemCount: state.items.favourites.length,
+            itemCount: state.favourites.count,
             itemBuilder: (context, index) {
               return ItemSearchResultWidget(
-                  item: state.items.favourites[index]);
+                item: state.favourites.atIndex(index),
+              );
             },
           );
         }
@@ -25,7 +27,7 @@ class ItemFavouritesTab extends StatelessWidget {
         return Padding(
           padding: BoxPadding,
           child: Text(
-            "Tap the star on items profiles to have them appear on your dashboard.",
+            "Tap the star on item profiles to have them appear on your dashboard.",
           ),
         );
       },

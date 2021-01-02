@@ -1,3 +1,4 @@
+import 'package:eden_xi_tools/eden/player/entities/player_search_results.dart';
 import 'package:eden_xi_tools/eden/search/entities/search_result_item.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
@@ -16,21 +17,26 @@ class ItemFavourites extends Equatable {
   @override
   List<Object> get props => [favourites];
 
-  bool get hasFavourites => favourites.length > 0;
+  bool get isEmpty => favourites.length < 1;
+  int get count => favourites.length;
 
-  void addItem(SearchResultItem item) {
-    favourites.add(item);
+  void add(SearchResultItem player) {
+    favourites.add(player);
   }
 
-  List<SearchResultItem> withoutItem(SearchResultItem item) {
-    return favourites.where((element) => element.name != item.name).toList();
-  }
-
-  bool contains(SearchResultItem item) {
-    return favourites.any((element) => element.name == item.name);
+  SearchResultItem atIndex(int index) {
+    return favourites[index];
   }
 
   List<SearchResultItem> all() => favourites;
+
+  List<SearchResultItem> without(SearchResultItem item) {
+    return favourites.where((element) => element.name != item.name).toList();
+  }
+
+  bool contains(String itemName) {
+    return favourites.any((item) => item.name == itemName);
+  }
 
   @override
   String toString() => 'PlayerFavourites { id: $favourites }';

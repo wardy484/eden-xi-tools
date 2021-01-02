@@ -1,6 +1,6 @@
 import 'package:eden_xi_tools/dashboard/views/dashboard_drawer.dart';
-import 'package:eden_xi_tools/favourites/views/item_favourites_tab.dart';
-import 'package:eden_xi_tools/favourites/views/player_favourites_tab.dart';
+import 'package:eden_xi_tools/item_favourites/views/item_favourites_tab.dart';
+import 'package:eden_xi_tools/player_favourites/views/player_favourites_tab.dart';
 import 'package:flutter/material.dart';
 
 class DashboardPageHydrated extends StatefulWidget {

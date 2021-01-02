@@ -16,15 +16,20 @@ class PlayerFavourites extends Equatable {
   @override
   List<Object> get props => [favourites];
 
-  bool get hasFavourites => favourites.length > 0;
+  bool get isEmpty => favourites.length < 1;
+  int get count => favourites.length;
 
-  void addPlayer(PlayerSearchResultItem player) {
+  void add(PlayerSearchResultItem player) {
     favourites.add(player);
+  }
+
+  PlayerSearchResultItem atIndex(int index) {
+    return favourites[index];
   }
 
   List<PlayerSearchResultItem> all() => favourites;
 
-  List<PlayerSearchResultItem> withoutPlayer(PlayerSearchResultItem player) {
+  List<PlayerSearchResultItem> without(PlayerSearchResultItem player) {
     return favourites
         .where((element) => element.charname != player.charname)
         .toList();
@@ -38,7 +43,7 @@ class PlayerFavourites extends Equatable {
 
   Map<String, dynamic> toJson() => _$PlayerFavouritesToJson(this);
 
-  bool containsPlayer(String playerName) {
+  bool contains(String playerName) {
     return favourites.any((player) => player.charname == playerName);
   }
 }
