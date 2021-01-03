@@ -11,6 +11,8 @@ class _$RepositoryInjector extends RepositoryInjector {
   void configure() {
     final KiwiContainer container = KiwiContainer();
     container
+        .registerFactory((c) => StatusRepository(client: c<Dio>('EdenClient')));
+    container
         .registerFactory((c) => ItemRepository(client: c<Dio>('EdenClient')));
     container
         .registerFactory((c) => PlayerRepository(client: c<Dio>('EdenClient')));

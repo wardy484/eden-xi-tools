@@ -1,3 +1,4 @@
+import 'package:eden_xi_tools/widgets/swipable_pages/swipable_page_container.dart';
 import 'package:flutter/material.dart';
 
 class PlayerSearchEmptyView extends StatelessWidget {
@@ -5,11 +6,9 @@ class PlayerSearchEmptyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text(
-          "Begin searching for a player by typing in the search box above.",
-        ),
+    return SwipablePageContent(
+      child: Text(
+        "Begin searching for a player by typing in the search box above.",
       ),
     );
   }

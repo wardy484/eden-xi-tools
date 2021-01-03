@@ -12,7 +12,10 @@ class PlayerSearchResultCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: PlayerAvatar(id: item.avatar),
+      leading: PlayerAvatar(
+        id: item.avatar,
+        width: 45,
+      ),
       title: Text(item.charname),
       subtitle: Text(item.title),
       onTap: () {

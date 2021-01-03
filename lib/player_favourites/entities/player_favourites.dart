@@ -35,6 +35,11 @@ class PlayerFavourites extends Equatable {
         .toList();
   }
 
+  List<PlayerSearchResultItem> top(int count) {
+    return favourites.sublist(
+        0, favourites.length > count ? count : favourites.length);
+  }
+
   @override
   String toString() => 'PlayerFavourites { id: $favourites }';
 

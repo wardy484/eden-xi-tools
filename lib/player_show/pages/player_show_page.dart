@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:eden_xi_tools/eden/player/entities/player_search_result_item/player_search_result_item.dart';
 import 'package:eden_xi_tools/player_show/player_show.dart';
 import 'package:eden_xi_tools/player_show/player_show_events.dart';
-import 'package:eden_xi_tools/player_show/views/player_show_navigation_bar.dart';
 import 'package:eden_xi_tools/player_show/views/states/player_show_failure_state.dart';
 import 'package:eden_xi_tools/player_show/views/states/player_show_loading_state.dart';
 import 'package:eden_xi_tools/player_show/views/states/player_show_success_state.dart';
@@ -21,7 +20,6 @@ class PlayerShowPage extends StatefulWidget {
 }
 
 class _PlayerShowPageState extends State<PlayerShowPage> {
-  int _selectedPageIndex = 0;
   PlayerShowBloc _playerShowBloc;
   Completer<void> _refreshCompleter;
 
@@ -52,12 +50,7 @@ class _PlayerShowPageState extends State<PlayerShowPage> {
           if (state is PlayerShowSuccess) {
             return PlayerShowSuccessState(
               state: state,
-              currentPageIndex: _selectedPageIndex,
               onRefreshPressed: _refreshPage,
-              navigationBar: PlayerShowNavigationBar(
-                currentIndex: _selectedPageIndex,
-                onTap: _onPageNavigation,
-              ),
             );
           }
 
@@ -65,10 +58,6 @@ class _PlayerShowPageState extends State<PlayerShowPage> {
         },
       ),
     );
-  }
-
-  void _onPageNavigation(int index) {
-    setState(() => _selectedPageIndex = index);
   }
 
   Future<void> _refreshPage() {

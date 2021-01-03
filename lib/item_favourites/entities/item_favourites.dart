@@ -33,6 +33,11 @@ class ItemFavourites extends Equatable {
     return favourites.where((element) => element.name != item.name).toList();
   }
 
+  List<SearchResultItem> top(int count) {
+    return favourites.sublist(
+        0, favourites.length > count ? count : favourites.length);
+  }
+
   bool contains(String itemName) {
     return favourites.any((item) => item.name == itemName);
   }

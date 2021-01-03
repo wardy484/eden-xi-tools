@@ -1,6 +1,7 @@
 import 'package:eden_xi_tools/eden/player/entities/player_bazaar_item/player_bazaar_item.dart';
 import 'package:eden_xi_tools/styles/spacing.dart';
 import 'package:eden_xi_tools/styles/text_styles.dart';
+import 'package:eden_xi_tools/widgets/swipable_pages/swipable_page_container.dart';
 import 'package:flutter/material.dart';
 import 'package:recase/recase.dart';
 
@@ -17,7 +18,7 @@ class PlayerShowBazaar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (items.length < 1) {
-      return Center(
+      return SwipablePageContent(
         child: Text("No bazaar history..."),
       );
     }

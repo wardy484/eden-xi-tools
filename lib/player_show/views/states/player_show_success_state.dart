@@ -6,26 +6,30 @@ import 'package:eden_xi_tools/player_show/views/states/player_show_header.dart';
 import 'package:eden_xi_tools/player_show/views/tabs/player_show_auction_house.dart';
 import 'package:eden_xi_tools/player_show/views/tabs/player_show_bazaar.dart';
 import 'package:eden_xi_tools/player_show/views/tabs/player_show_details.dart';
+import 'package:eden_xi_tools/widgets/swipable_pages/swipable_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:eden_xi_tools/item_show/views/item_show_scaffold.dart';
 
-class PlayerShowSuccessState extends StatelessWidget {
+class PlayerShowSuccessState extends StatefulWidget {
   final PlayerShowSuccess state;
-  final int currentPageIndex;
   final Function onRefreshPressed;
-  final PlayerShowNavigationBar navigationBar;
 
   const PlayerShowSuccessState({
     Key key,
     @required this.state,
-    @required this.currentPageIndex,
     @required this.onRefreshPressed,
-    @required this.navigationBar,
   }) : super(key: key);
 
   @override
+  _PlayerShowSuccessStateState createState() => _PlayerShowSuccessStateState();
+}
+
+class _PlayerShowSuccessStateState extends State<PlayerShowSuccessState> {
+  int _selectedPageIndex = 0;
+
+  @override
   Widget build(BuildContext context) {
-    final PlayerSearchResultItem playerResult = state.playerResult;
+    final PlayerSearchResultItem playerResult = widget.state.playerResult;
 
     return ItemShowScaffold(
       header: PlayerShowHeader(playerResult: playerResult),
@@ -35,25 +39,36 @@ class PlayerShowSuccessState extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: <Widget>[
-              PlayerShowDetails(
-                player: state.player,
-                crafts: state.crafts,
-                onRefresh: onRefreshPressed,
-              ),
-              PlayerShowAuctionHouse(
-                items: state.auctionHouseItems,
-                onRefresh: onRefreshPressed,
-              ),
-              PlayerShowBazaar(
-                items: state.bazaarItems,
-                onRefresh: onRefreshPressed,
-              ),
-            ].elementAt(currentPageIndex),
+            child: SwipablePages(
+              index: _selectedPageIndex,
+              onSwipe: _onPageNavigation,
+              pages: [
+                PlayerShowDetails(
+                  player: widget.state.player,
+                  crafts: widget.state.crafts,
+                  onRefresh: widget.onRefreshPressed,
+                ),
+                PlayerShowAuctionHouse(
+                  items: widget.state.auctionHouseItems,
+                  onRefresh: widget.onRefreshPressed,
+                ),
+                PlayerShowBazaar(
+                  items: widget.state.bazaarItems,
+                  onRefresh: widget.onRefreshPressed,
+                ),
+              ],
+            ),
           ),
         ],
       ),
-      bottomNavigationBar: navigationBar,
+      bottomNavigationBar: PlayerShowNavigationBar(
+        currentIndex: _selectedPageIndex,
+        onTap: _onPageNavigation,
+      ),
     );
+  }
+
+  void _onPageNavigation(int index) {
+    setState(() => _selectedPageIndex = index);
   }
 }

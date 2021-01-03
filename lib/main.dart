@@ -1,4 +1,4 @@
-import 'package:eden_xi_tools/dashboard/pages/dashboard_page_hydrated.dart';
+import 'package:eden_xi_tools/dashboard/pages/dashboard_page.dart';
 import 'package:eden_xi_tools/item_favourites/bloc/item_favourites_bloc.dart';
 import 'package:eden_xi_tools/registrys/app_registry.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,7 +37,8 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Eden Tools",
-      home: DashboardPageHydrated(),
+      home: DashboardPage(),
+      // home: DashboardPageHydrated(),
     );
   }
 }

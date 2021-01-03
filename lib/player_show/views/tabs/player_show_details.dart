@@ -33,9 +33,7 @@ class PlayerShowDetails extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    player.jobString,
-                  ),
+                  Text(player.jobString),
                   SizedBox(width: 8),
                   OnlineIndicator(onlineFlag: player.online),
                 ],
