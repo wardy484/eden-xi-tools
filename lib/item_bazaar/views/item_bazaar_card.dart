@@ -1,5 +1,5 @@
 import 'package:eden_xi_tools/extensions/int.dart';
-import 'package:eden_xi_tools/eden/items/entities/bazaar_item.dart';
+import 'package:eden_xi_tools/eden/items/entities/bazaar_item/bazaar_item.dart';
 import 'package:eden_xi_tools/styles/spacing.dart';
 import 'package:eden_xi_tools/styles/text_styles.dart';
 

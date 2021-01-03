@@ -1,6 +1,6 @@
 import 'package:eden_xi_tools/eden/player/entities/player_search_result/player_search_results.dart';
 import 'package:equatable/equatable.dart';
-import 'package:eden_xi_tools/eden/search/entities/search_result.dart';
+import 'package:eden_xi_tools/eden/items/entities/search_result/search_result.dart';
 
 abstract class PlayerSearchState extends Equatable {
   final String playerName;

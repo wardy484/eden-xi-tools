@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:eden_xi_tools/eden/items/entities/auction_house_item.dart';
+import 'package:eden_xi_tools/eden/items/entities/auction_house_item/auction_house_item.dart';
 import 'package:eden_xi_tools/eden/items/repositories/ItemRepository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';

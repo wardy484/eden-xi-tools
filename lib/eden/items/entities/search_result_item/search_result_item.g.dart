@@ -6,8 +6,8 @@ part of 'search_result_item.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SearchResultItem _$SearchResultItemFromJson(Map<String, dynamic> json) {
-  return SearchResultItem(
+_$_SearchResultItem _$_$_SearchResultItemFromJson(Map<String, dynamic> json) {
+  return _$_SearchResultItem(
     id: json['id'] as int,
     name: json['name'] as String,
     sort: json['sort'] as String,
@@ -15,7 +15,8 @@ SearchResultItem _$SearchResultItemFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$SearchResultItemToJson(SearchResultItem instance) =>
+Map<String, dynamic> _$_$_SearchResultItemToJson(
+        _$_SearchResultItem instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

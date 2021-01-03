@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:eden_xi_tools/eden/search/entities/search_result_item.dart';
+import 'package:eden_xi_tools/eden/items/entities/search_result_item/search_result_item.dart';
 import 'package:eden_xi_tools/item_favourites/entities/item_favourites.dart';
 import 'package:equatable/equatable.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';

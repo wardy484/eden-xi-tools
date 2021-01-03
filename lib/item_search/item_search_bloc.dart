@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:eden_xi_tools/eden/items/repositories/ItemRepository.dart';
 import 'package:eden_xi_tools/item_search/item_search.dart';
-import 'package:eden_xi_tools/eden/search/entities/search_result.dart';
+import 'package:eden_xi_tools/eden/items/entities/search_result/search_result.dart';
 import 'package:meta/meta.dart';
 import 'package:rxdart/rxdart.dart';
 

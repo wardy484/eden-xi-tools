@@ -1,9 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:eden_xi_tools/eden/search/entities/search_result.dart';
-import 'package:eden_xi_tools/eden/search/entities/search_result_item.dart';
-import 'package:eden_xi_tools/eden/items/entities/auction_house_item.dart';
-import 'package:eden_xi_tools/eden/items/entities/bazaar_item.dart';
-import 'package:eden_xi_tools/eden/items/entities/item.dart';
+import 'package:eden_xi_tools/eden/items/entities/search_result/search_result.dart';
+import 'package:eden_xi_tools/eden/items/entities/auction_house_item/auction_house_item.dart';
+import 'package:eden_xi_tools/eden/items/entities/bazaar_item/bazaar_item.dart';
+import 'package:eden_xi_tools/eden/items/entities/item/item.dart';
 import 'package:flutter/material.dart';
 
 class ItemRepository {
@@ -18,20 +17,7 @@ class ItemRepository {
         .get('/items?search=$encodedItemName&limit=$limit&offset=$startIndex');
 
     if (response.statusCode == 200) {
-      final data = response.data;
-      final items = data['items'] as List;
-
-      return SearchResult(
-        total: data['total'],
-        items: items.map<SearchResultItem>((item) {
-          return SearchResultItem(
-            id: item['id'],
-            name: item['name'],
-            sort: item['sort'],
-            key: item['key'],
-          );
-        }).toList(),
-      );
+      return SearchResult.fromJson(response.data);
     } else {
       throw Exception("Erroring fetching search results from Eden server.");
     }
@@ -44,16 +30,8 @@ class ItemRepository {
     final response = await client.get('/items/$itemKey/ah?stack=$stacked');
 
     if (response.statusCode == 200) {
-      final data = response.data;
-
-      return data.map<AuctionHouseItem>((item) {
-        return AuctionHouseItem(
-          buyerName: item['buyer_name'],
-          name: item['name'],
-          sellerName: item['seller_name'],
-          sale: item['sale'],
-          sellDate: item['sell_date'],
-        );
+      return response.data.map<AuctionHouseItem>((item) {
+        return AuctionHouseItem.fromJson(item);
       }).toList();
     } else {
       throw Exception(
@@ -66,14 +44,8 @@ class ItemRepository {
     final response = await client.get('/items/$itemKey/bazaar');
 
     if (response.statusCode == 200) {
-      final data = response.data;
-
-      return data.map<BazaarItem>((item) {
-        return BazaarItem(
-          bazaar: item['bazaar'],
-          charname: item['charname'],
-          onlineFlag: item['online_flag'],
-        );
+      return response.data.map<BazaarItem>((item) {
+        return BazaarItem.fromJson(item);
       }).toList();
     } else {
       throw Exception("Erroring fetching bazaar items from Eden server.");
@@ -84,17 +56,7 @@ class ItemRepository {
     final response = await client.get('/items/$key');
 
     if (response.statusCode == 200) {
-      final data = response.data;
-
-      return Item(
-        id: data['id'],
-        armor: data['armor'],
-        desc: data['desc'],
-        key: data['key'],
-        name: data['name'],
-        sort: data['sort'],
-        stackable: data['stackable'],
-      );
+      return Item.fromJson(response.data);
     } else {
       throw Exception("Erroring fetching item from Eden server.");
     }

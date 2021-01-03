@@ -1,4 +1,4 @@
-import 'package:eden_xi_tools/eden/search/entities/search_result_item.dart';
+import 'package:eden_xi_tools/eden/items/entities/search_result_item/search_result_item.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';

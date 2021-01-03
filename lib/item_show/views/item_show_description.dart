@@ -1,4 +1,4 @@
-import 'package:eden_xi_tools/eden/items/entities/item.dart';
+import 'package:eden_xi_tools/eden/items/entities/item/item.dart';
 import 'package:eden_xi_tools/item_auction_house/bloc/item_auction_house_bloc.dart';
 import 'package:eden_xi_tools/styles/spacing.dart';
 import 'package:eden_xi_tools/widgets/labelled_switch.dart';
