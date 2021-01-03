@@ -1,5 +1,5 @@
 import 'package:eden_xi_tools/eden/player/entities/player_jobs/player_jobs.dart';
-import 'package:eden_xi_tools/factory/PlayerFactory.dart';
+import 'package:eden_xi_tools/player_show/views/widgets/factory/PlayerFactory.dart';
 import 'package:eden_xi_tools/styles/spacing.dart';
 import 'package:eden_xi_tools/styles/text_styles.dart';
 import 'package:flutter/material.dart';

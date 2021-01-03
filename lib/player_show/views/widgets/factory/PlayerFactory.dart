@@ -3,13 +3,6 @@ import 'package:eden_xi_tools/eden/player/entities/player_crafts/player_crafts.d
 import 'package:eden_xi_tools/player_show/views/widgets/player_profile_skill_label.dart';
 import 'package:flutter/material.dart';
 
-class CraftListItem {
-  final String label;
-  final double level;
-
-  const CraftListItem({this.label, this.level});
-}
-
 class PlayerFactory {
   static List<Widget> makeCraftsList(PlayerCrafts crafts) {
     return [
