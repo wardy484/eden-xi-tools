@@ -1,4 +1,4 @@
-import 'package:eden_xi_tools/eden/player/entities/player_crafts.dart';
+import 'package:eden_xi_tools/eden/player/entities/player_crafts/player_crafts.dart';
 import 'package:eden_xi_tools/factory/PlayerFactory.dart';
 import 'package:eden_xi_tools/styles/spacing.dart';
 import 'package:eden_xi_tools/styles/text_styles.dart';

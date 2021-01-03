@@ -1,5 +1,5 @@
-import 'package:eden_xi_tools/eden/player/entities/player.dart';
-import 'package:eden_xi_tools/eden/player/entities/player_crafts.dart';
+import 'package:eden_xi_tools/eden/player/entities/player_jobs/player_jobs.dart';
+import 'package:eden_xi_tools/eden/player/entities/player_crafts/player_crafts.dart';
 import 'package:eden_xi_tools/player_show/views/widgets/player_profile_skill_label.dart';
 import 'package:flutter/material.dart';
 

@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:eden_xi_tools/eden/player/entities/player_search_results.dart';
+import 'package:eden_xi_tools/eden/player/entities/player_search_result/player_search_results.dart';
 import 'package:eden_xi_tools/eden/player/repository/player_repository.dart';
 import 'package:eden_xi_tools/player_search/player_search_events.dart';
 import 'package:eden_xi_tools/player_search/player_search_state.dart';

@@ -1,4 +1,4 @@
-import 'package:eden_xi_tools/eden/player/entities/player_search_results.dart';
+import 'package:eden_xi_tools/eden/player/entities/player_search_result_item/player_search_result_item.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 

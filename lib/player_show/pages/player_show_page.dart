@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:eden_xi_tools/eden/player/entities/player_search_results.dart';
+import 'package:eden_xi_tools/eden/player/entities/player_search_result_item/player_search_result_item.dart';
 import 'package:eden_xi_tools/player_show/player_show.dart';
 import 'package:eden_xi_tools/player_show/player_show_events.dart';
 import 'package:eden_xi_tools/player_show/views/player_show_navigation_bar.dart';

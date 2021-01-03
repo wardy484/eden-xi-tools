@@ -1,5 +1,5 @@
-import 'package:eden_xi_tools/eden/player/entities/player.dart';
-import 'package:eden_xi_tools/eden/player/entities/player_crafts.dart';
+import 'package:eden_xi_tools/eden/player/entities/player/player.dart';
+import 'package:eden_xi_tools/eden/player/entities/player_crafts/player_crafts.dart';
 import 'package:eden_xi_tools/player_show/views/widgets/player_crafting_card.dart';
 import 'package:eden_xi_tools/player_show/views/widgets/player_jobs_card.dart';
 import 'package:eden_xi_tools/player_show/views/widgets/player_show_regions.dart';

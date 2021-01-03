@@ -1,4 +1,4 @@
-import 'package:eden_xi_tools/eden/player/entities/player_search_results.dart';
+import 'package:eden_xi_tools/eden/player/entities/player_search_result_item/player_search_result_item.dart';
 import 'package:eden_xi_tools/widgets/favourite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

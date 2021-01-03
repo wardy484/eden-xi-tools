@@ -1,6 +1,8 @@
-import 'package:eden_xi_tools/eden/player/entities/player.dart';
-import 'package:eden_xi_tools/eden/player/entities/player_crafts.dart';
-import 'package:eden_xi_tools/eden/player/entities/player_search_results.dart';
+import 'package:eden_xi_tools/eden/player/entities/player/player.dart';
+import 'package:eden_xi_tools/eden/player/entities/player_auction_house_item/player_auction_house_item.dart';
+import 'package:eden_xi_tools/eden/player/entities/player_bazaar_item/player_bazaar_item.dart';
+import 'package:eden_xi_tools/eden/player/entities/player_crafts/player_crafts.dart';
+import 'package:eden_xi_tools/eden/player/entities/player_search_result_item/player_search_result_item.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class PlayerShowState extends Equatable {

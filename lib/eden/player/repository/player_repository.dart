@@ -1,8 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:eden_xi_tools/eden/player/entities/player.dart';
-import 'package:eden_xi_tools/eden/player/entities/player_crafts.dart';
-import 'package:eden_xi_tools/eden/player/entities/player_search_results.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:eden_xi_tools/eden/player/entities/player/player.dart';
+import 'package:eden_xi_tools/eden/player/entities/player_auction_house_item/player_auction_house_item.dart';
+import 'package:eden_xi_tools/eden/player/entities/player_bazaar_item/player_bazaar_item.dart';
+import 'package:eden_xi_tools/eden/player/entities/player_crafts/player_crafts.dart';
+import 'package:eden_xi_tools/eden/player/entities/player_search_result/player_search_results.dart';
+
+import 'package:flutter/material.dart';
 
 class PlayerRepository {
   final Dio client;
@@ -24,28 +27,11 @@ class PlayerRepository {
     int startIndex,
     int limit,
   ) async {
-    final response = await client.get(_buildSearchUrl(
-      playerName,
-      startIndex,
-      limit,
-      false,
-    ));
+    final url = _buildSearchUrl(playerName, startIndex, limit, false);
+    final response = await client.get(url);
 
     if (response.statusCode == 200) {
-      final data = response.data;
-      final players = data['chars'] as List;
-
-      return PlayerSearchResult(
-        total: data['total'],
-        items: players.map<PlayerSearchResultItem>((player) {
-          return PlayerSearchResultItem(
-            avatar: player['avatar'],
-            charname: player['charname'],
-            jobString: player['jobString'],
-            title: player['title'],
-          );
-        }).toList(),
-      );
+      return PlayerSearchResult.fromJson(response.data);
     } else {
       throw Exception(
           "Erroring fetching player search results from Eden server.");
@@ -56,48 +42,7 @@ class PlayerRepository {
     final response = await client.get('/chars/$playerName');
 
     if (response.statusCode == 200) {
-      final data = response.data;
-      final jobs = data['jobs'];
-      final ranks = data['ranks'];
-
-      return Player(
-        avatar: data['avatar'],
-        id: data['id'],
-        jobString: data['jobString'],
-        mentor: data['mentor'],
-        name: data['name'],
-        nameFlags: data['nameFlags'],
-        nation: data['nation'],
-        online: data['online'],
-        title: data['title'],
-        jobs: PlayerJobs(
-          blm: jobs['BLM'],
-          blu: jobs['BLU'],
-          brd: jobs['BRD'],
-          bst: jobs['BST'],
-          cor: jobs['COR'],
-          dnc: jobs['DNC'],
-          drg: jobs['DRG'],
-          drk: jobs['DRK'],
-          mnk: jobs['MNK'],
-          nin: jobs['NIN'],
-          pld: jobs['PLD'],
-          pup: jobs['PUP'],
-          rdm: jobs['RDM'],
-          rng: jobs['RNG'],
-          sam: jobs['SAM'],
-          sch: jobs['SCH'],
-          smn: jobs['SMN'],
-          thf: jobs['THF'],
-          war: jobs['WAR'],
-          whm: jobs['WHM'],
-        ),
-        ranks: PlayerRanks(
-          bastok: ranks['bastok'],
-          sandoria: ranks['sandoria'],
-          windurst: ranks['windurst'],
-        ),
-      );
+      return Player.fromJson(response.data);
     } else {
       throw Exception(
         "Erroring fetching player data for player from Eden server.",
@@ -109,20 +54,7 @@ class PlayerRepository {
     final response = await client.get('/chars/$playerName/crafts');
 
     if (response.statusCode == 200) {
-      final data = response.data;
-
-      return PlayerCrafts(
-        alchemy: toDouble(data['Alchemy']),
-        bonecraft: toDouble(data['Bonecraft']),
-        clothcraft: toDouble(data['Clothcraft']),
-        cooking: toDouble(data['Cooking']),
-        fishing: toDouble(data['Fishing']),
-        goldsmithing: toDouble(data['Goldsmithing']),
-        leathercraft: toDouble(data['Leathercraft']),
-        smithing: toDouble(data['Smithing']),
-        synergy: toDouble(data['Synergy']),
-        woodworking: toDouble(data['Woodworking']),
-      );
+      return PlayerCrafts.fromJson(response.data);
     } else {
       throw Exception(
         "Erroring fetching player crafting data for player from Eden server.",
@@ -147,14 +79,7 @@ class PlayerRepository {
       final data = response.data;
 
       return data.map<PlayerAuctionHouseItem>((item) {
-        return PlayerAuctionHouseItem(
-          buyerName: item['buyer_name'],
-          name: item['name'],
-          sellerName: item['seller_name'],
-          sale: item['sale'],
-          sellDate: item['sell_date'],
-          stackSize: item['stack_size'],
-        );
+        return PlayerAuctionHouseItem.fromJson(item);
       }).toList();
     } else {
       throw Exception(
@@ -167,9 +92,7 @@ class PlayerRepository {
     final response = await client.get('chars/$playerName/bazaar');
 
     if (response.statusCode == 200) {
-      final data = response.data;
-
-      return data.map<PlayerBazaarItem>((item) {
+      return response.data.map<PlayerBazaarItem>((item) {
         return PlayerBazaarItem(
           bazaar: item['bazaar'],
           itemName: item['name'],

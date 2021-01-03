@@ -1,14 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'player_search_results.dart';
+part of 'player_search_result_item.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-PlayerSearchResultItem _$PlayerSearchResultItemFromJson(
+_$_PlayerSearchResultItem _$_$_PlayerSearchResultItemFromJson(
     Map<String, dynamic> json) {
-  return PlayerSearchResultItem(
+  return _$_PlayerSearchResultItem(
     avatar: json['avatar'] as String,
     charname: json['charname'] as String,
     jobString: json['jobString'] as String,
@@ -16,8 +16,8 @@ PlayerSearchResultItem _$PlayerSearchResultItemFromJson(
   );
 }
 
-Map<String, dynamic> _$PlayerSearchResultItemToJson(
-        PlayerSearchResultItem instance) =>
+Map<String, dynamic> _$_$_PlayerSearchResultItemToJson(
+        _$_PlayerSearchResultItem instance) =>
     <String, dynamic>{
       'avatar': instance.avatar,
       'charname': instance.charname,
