@@ -2,6 +2,7 @@ import 'package:eden_xi_tools/dashboard/pages/favourites_page.dart';
 import 'package:eden_xi_tools/dashboard/views/dashboard_favourites_card.dart';
 import 'package:eden_xi_tools/item_favourites/bloc/item_favourites_bloc.dart';
 import 'package:eden_xi_tools/player_search/views/item_search_result_card.dart';
+import 'package:eden_xi_tools/settings/bloc/settings_bloc.dart';
 import 'package:eden_xi_tools/widgets/centered_loader.dart';
 import 'package:eden_xi_tools/widgets/centered_message.dart';
 import 'package:flutter/material.dart';
@@ -44,26 +45,34 @@ class DashboardFavouriteItemsCard extends StatelessWidget {
         }
 
         if (state is ItemFavouritesLoaded) {
-          return DashboardFavouritesCard(
-            title: "Favourite items",
-            children: [
-              if (state.favourites.isEmpty)
-                Row(
-                  children: [
-                    Flexible(
-                      child: Text(
-                        "It looks like you have no favourite items yet. Click the star on an item profile to favourite it.",
-                        softWrap: true,
-                      ),
-                    ),
-                  ],
-                )
-              else
-                ...state.favourites.top(3).map((item) {
-                  return ItemSearchCard(item: item);
-                }),
-            ],
-            onViewMoreTapped: () => _openFavouritesPage(context),
+          final favourites = state.favourites;
+
+          return BlocBuilder<SettingsBloc, SettingsState>(
+            builder: (context, state) {
+              return DashboardFavouritesCard(
+                title: "Favourite items",
+                children: [
+                  if (favourites.isEmpty)
+                    Row(
+                      children: [
+                        Flexible(
+                          child: Text(
+                            "It looks like you have no favourite items yet. Click the star on an item profile to favourite it.",
+                            softWrap: true,
+                          ),
+                        ),
+                      ],
+                    )
+                  else
+                    ...favourites
+                        .top(state.settings.maxItemsOnDashboard)
+                        .map((item) {
+                      return ItemSearchCard(item: item);
+                    }),
+                ],
+                onViewMoreTapped: () => _openFavouritesPage(context),
+              );
+            },
           );
         }
 

@@ -3,6 +3,7 @@ import 'package:eden_xi_tools/dashboard/views/dashboard_favourite_players_card.d
 import 'package:eden_xi_tools/dashboard/views/dashboard_server_status.dart';
 import 'package:eden_xi_tools/item_search/pages/item_search_tab.dart';
 import 'package:eden_xi_tools/player_search/pages/player_search_tab.dart';
+import 'package:eden_xi_tools/settings/pages/settings_page.dart';
 import 'package:eden_xi_tools/widgets/swipable_pages/SwipableScaffold.dart';
 import 'package:flutter/material.dart';
 
@@ -31,6 +32,23 @@ class _DashboardPageState extends State<DashboardPage> {
             Text("Eden XI Tools"),
           ],
         ),
+        actions: [
+          FlatButton(
+            minWidth: 60,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SettingsPage(),
+                ),
+              );
+            },
+            child: Icon(
+              Icons.settings,
+              color: Colors.white,
+            ),
+          ),
+        ],
       ),
       pages: [
         ListView(
