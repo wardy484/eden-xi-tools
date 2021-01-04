@@ -87,7 +87,7 @@ class DashboardFavouritePlayersCard extends StatelessWidget {
       context,
       MaterialPageRoute(
         builder: (context) => FavouritesPage(
-          initialPageIndex: 1,
+          initialPageIndex: FavouritePageTabs.players,
         ),
       ),
     );
