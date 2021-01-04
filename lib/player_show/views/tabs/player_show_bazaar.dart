@@ -4,6 +4,7 @@ import 'package:eden_xi_tools/styles/text_styles.dart';
 import 'package:eden_xi_tools/widgets/swipable_pages/swipable_page_container.dart';
 import 'package:flutter/material.dart';
 import 'package:recase/recase.dart';
+import 'package:eden_xi_tools/extensions/int.dart';
 
 class PlayerShowBazaar extends StatelessWidget {
   final List<PlayerBazaarItem> items;
@@ -50,7 +51,7 @@ class PlayerShowBazaar extends StatelessWidget {
                       ),
                       Padding(
                         padding: BoxPaddingRight,
-                        child: Text("100g"),
+                        child: Text(item.bazaar.toGil()),
                       ),
                     ],
                   ),
