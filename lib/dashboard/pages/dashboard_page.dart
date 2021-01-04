@@ -22,7 +22,8 @@ class _DashboardPageState extends State<DashboardPage> {
         title: Row(
           children: [
             Image.asset(
-              "icon.png",
+              "icon_simple.png",
+              color: Colors.white,
               width: 35,
               height: 35,
             ),

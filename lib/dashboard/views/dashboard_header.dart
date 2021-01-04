@@ -7,11 +7,7 @@ class DashboardHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Image.asset(
-          "icon.png",
-          width: 35,
-          height: 35,
-        ),
+        Icon(Icons.gavel),
         SizedBox(width: 14),
         Text("Eden XI Tools"),
       ],
