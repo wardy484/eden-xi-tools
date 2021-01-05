@@ -53,6 +53,7 @@ class _SearchSuccessState extends State<SearchSuccess> {
 
   @override
   void dispose() {
+    // somethin
     _scrollController.dispose();
     super.dispose();
   }
