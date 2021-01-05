@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:eden_xi_tools/item_auction_house/bloc/item_auction_house_bloc.dart';
 import 'package:eden_xi_tools/item_auction_house/views/item_auction_house_list.dart';
-import 'package:eden_xi_tools/widgets/swipable_pages/swipable_page_container.dart';
+import 'package:eden_xi_tools/widgets/centered_message.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -50,9 +50,7 @@ class _ItemAuctionHousePageState extends State<ItemAuctionHousePage> {
       builder: (context, state) {
         if (state is ItemAuctionHouseSuccess) {
           if (state.auctionHouseItems.length < 1) {
-            return SwipablePageContent(
-              child: Text("No auction house history.."),
-            );
+            return CenteredMessage("No auction house history.");
           }
 
           return ItemAuctionHouseList(

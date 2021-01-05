@@ -19,6 +19,7 @@ class ItemShowScaffold extends StatelessWidget {
     return Container(
       child: Scaffold(
         appBar: AppBar(
+          titleSpacing: 0,
           title: header,
           actions: actions,
         ),

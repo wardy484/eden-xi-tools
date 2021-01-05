@@ -15,5 +15,8 @@ abstract class Item with _$Item {
     bool stackable,
   }) = _Item;
 
+  @late
+  String get trimmedDesc => desc.replaceAll("\n", " ");
+
   factory Item.fromJson(Map<String, dynamic> json) => _$ItemFromJson(json);
 }

@@ -12,7 +12,8 @@ class PlayerFavouritesTab extends StatelessWidget {
     return BlocBuilder<PlayerFavouritesBloc, PlayerFavouritesState>(
       builder: (context, state) {
         if (state is PlayerFavouritesLoaded && !state.favourites.isEmpty) {
-          return ListView.builder(
+          return ListView.separated(
+            separatorBuilder: (context, index) => Divider(),
             itemCount: state.favourites.count,
             itemBuilder: (context, index) {
               return PlayerSearchResultCard(

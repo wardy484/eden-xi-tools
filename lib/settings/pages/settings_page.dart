@@ -1,4 +1,5 @@
 import 'package:eden_xi_tools/settings/bloc/settings_bloc.dart';
+import 'package:eden_xi_tools/widgets/custom_card/custom_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -34,69 +35,57 @@ class _SettingsPageState extends State<SettingsPage> {
           return Form(
             key: _formKey,
             child: new ListView(
+              padding: EdgeInsets.symmetric(vertical: 8),
               children: [
-                SizedBox(height: 14),
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: Text(
-                    "Dashboard",
-                    style: TextStyle(fontWeight: FontWeight.w600),
-                  ),
-                ),
-                Divider(),
-                ListTile(
-                  leading: Icon(
-                    Icons.gavel,
-                    size: 30,
-                    color: Colors.grey[700],
-                  ),
-                  title: Text("Max. items"),
-                  trailing: SizedBox(
-                    width: 80,
-                    child: DropdownButton(
-                      hint: new Text('Max. players: '),
-                      items: _buildDropdownOptions(),
-                      value: state.settings.maxItemsOnDashboard,
-                      onChanged: (value) {
-                        _settingsBloc.add(
-                          SettingsEvent.saved(
-                            state.settings.copyWith(maxItemsOnDashboard: value),
+                CustomCard(
+                  title: "Dashboard settings",
+                  body: Column(
+                    children: [
+                      ListTile(
+                        title: Text("Max. items"),
+                        trailing: SizedBox(
+                          width: 50,
+                          child: DropdownButton(
+                            hint: new Text('Max. players: '),
+                            items: _buildDropdownOptions(),
+                            value: state.settings.maxItemsOnDashboard,
+                            onChanged: (value) {
+                              _settingsBloc.add(
+                                SettingsEvent.saved(
+                                  state.settings
+                                      .copyWith(maxItemsOnDashboard: value),
+                                ),
+                              );
+                            },
+                            isExpanded: true,
+                            underline: Text(""),
                           ),
-                        );
-                      },
-                      isExpanded: true,
-                      underline: Text(""),
-                    ),
-                  ),
-                ),
-                Divider(),
-                ListTile(
-                  leading: Icon(
-                    Icons.people,
-                    size: 30,
-                    color: Colors.grey[700],
-                  ),
-                  title: Text("Max. players"),
-                  trailing: SizedBox(
-                    width: 80,
-                    child: DropdownButton(
-                      hint: new Text('Max. players: '),
-                      items: _buildDropdownOptions(),
-                      value: state.settings.maxPlayersOnDashboard,
-                      onChanged: (value) {
-                        _settingsBloc.add(
-                          SettingsEvent.saved(
-                            state.settings
-                                .copyWith(maxPlayersOnDashboard: value),
+                        ),
+                      ),
+                      ListTile(
+                        title: Text("Max. players"),
+                        trailing: SizedBox(
+                          width: 50,
+                          child: DropdownButton(
+                            hint: new Text('Max. players: '),
+                            items: _buildDropdownOptions(),
+                            value: state.settings.maxPlayersOnDashboard,
+                            onChanged: (value) {
+                              _settingsBloc.add(
+                                SettingsEvent.saved(
+                                  state.settings
+                                      .copyWith(maxPlayersOnDashboard: value),
+                                ),
+                              );
+                            },
+                            isExpanded: true,
+                            underline: Text(""),
                           ),
-                        );
-                      },
-                      isExpanded: true,
-                      underline: Text(""),
-                    ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-                Divider(),
+                )
               ],
             ),
           );

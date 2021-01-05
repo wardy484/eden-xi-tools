@@ -11,8 +11,12 @@ class ItemSearchCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       leading: ItemIcon(id: item.id),
-      title: Text(item.name),
+      title: Text(
+        item.name,
+      ),
+      trailing: Icon(Icons.arrow_forward_ios, size: 15),
       onTap: () {
         Navigator.push(
           context,

@@ -1,3 +1,4 @@
+import 'package:eden_xi_tools/widgets/custom_card/custom_card.dart';
 import 'package:flutter/material.dart';
 
 class DashboardFavouritesCard extends StatelessWidget {
@@ -14,33 +15,20 @@ class DashboardFavouritesCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Row(
-              children: [
-                Text(
-                  title,
-                  style: const TextStyle(fontWeight: FontWeight.w600),
-                ),
-              ],
+    return CustomCard(
+      title: title,
+      body: Column(children: children),
+      footer: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+            child: TextButton(
+              child: const Text('MORE'),
+              onPressed: onViewMoreTapped,
             ),
-            SizedBox(height: 8),
-            ...children,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                TextButton(
-                  child: const Text('View more...'),
-                  onPressed: onViewMoreTapped,
-                )
-              ],
-            ),
-          ],
-        ),
+          )
+        ],
       ),
     );
   }

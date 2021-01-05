@@ -36,28 +36,22 @@ class _PlayerShowSuccessStateState extends State<PlayerShowSuccessState> {
       actions: [
         PlayerFavouriteButton(player: playerResult),
       ],
-      body: Column(
-        children: [
-          Expanded(
-            child: SwipablePages(
-              index: _selectedPageIndex,
-              onSwipe: _onPageNavigation,
-              pages: [
-                PlayerShowDetails(
-                  player: widget.state.player,
-                  crafts: widget.state.crafts,
-                  onRefresh: widget.onRefreshPressed,
-                ),
-                PlayerShowAuctionHouse(
-                  items: widget.state.auctionHouseItems,
-                  onRefresh: widget.onRefreshPressed,
-                ),
-                PlayerShowBazaar(
-                  items: widget.state.bazaarItems,
-                  onRefresh: widget.onRefreshPressed,
-                ),
-              ],
-            ),
+      body: SwipablePages(
+        index: _selectedPageIndex,
+        onSwipe: _onPageNavigation,
+        pages: [
+          PlayerShowDetails(
+            player: widget.state.player,
+            crafts: widget.state.crafts,
+            onRefresh: widget.onRefreshPressed,
+          ),
+          PlayerShowAuctionHouse(
+            items: widget.state.auctionHouseItems,
+            onRefresh: widget.onRefreshPressed,
+          ),
+          PlayerShowBazaar(
+            items: widget.state.bazaarItems,
+            onRefresh: widget.onRefreshPressed,
           ),
         ],
       ),

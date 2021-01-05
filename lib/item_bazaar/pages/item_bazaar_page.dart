@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:eden_xi_tools/item_bazaar/bloc/item_bazaar_bloc.dart';
 import 'package:eden_xi_tools/item_bazaar/views/item_bazaar_list.dart';
-import 'package:eden_xi_tools/widgets/swipable_pages/swipable_page_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -42,9 +41,7 @@ class _ItemBazaarPageState extends State<ItemBazaarPage> {
         builder: (context, state) {
           if (state is ItemBazaarSuccess) {
             if (state.bazaarItems.length < 1) {
-              return SwipablePageContent(
-                child: Text("No bazaar history..."),
-              );
+              return Text("No bazaar history...");
             }
 
             return ItemBazaarList(

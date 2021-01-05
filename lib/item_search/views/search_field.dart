@@ -29,6 +29,7 @@ class _SearchFieldState extends State<SearchField> {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      // autofocus: true,
       focusNode: _focus,
       controller: _controller,
       onChanged: (String value) {
@@ -66,8 +67,15 @@ class _SearchFieldState extends State<SearchField> {
 
   InputDecoration _getDecoration() {
     return InputDecoration(
+      prefixIcon: Icon(Icons.search),
       hintText: 'Enter a search term',
-      contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 13),
+      contentPadding: EdgeInsets.only(
+        top: 16,
+        bottom: 13,
+        left: 10,
+        right: 10,
+      ),
+      // contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 13),
       suffixIcon: AnimatedOpacity(
         opacity: _showClearButton ? 1.0 : 0.0,
         duration: Duration(milliseconds: 200),

@@ -15,6 +15,7 @@ class LabelledSwitch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(label),
         Switch(

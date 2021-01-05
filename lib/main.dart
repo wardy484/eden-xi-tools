@@ -42,7 +42,31 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Eden Tools",
       home: DashboardPage(),
-      // home: DashboardPageHydrated(),
+      theme: ThemeData(
+        brightness: Brightness.light,
+        primaryColor: Colors.blue,
+        accentColor: Colors.blueAccent,
+        scaffoldBackgroundColor: Colors.grey[200],
+        cardTheme: CardTheme(
+          margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        ),
+        fontFamily: 'Roboto',
+        textTheme: TextTheme(
+          headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+          headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
+          bodyText2: TextStyle(
+            fontSize: 14.0,
+          ),
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          fillColor: Colors.white,
+          filled: true,
+        ),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          elevation: 5,
+        ),
+        dividerTheme: DividerThemeData(space: 0),
+      ),
     );
   }
 }

@@ -5,8 +5,9 @@ import 'package:eden_xi_tools/item_bazaar/pages/item_bazaar_page.dart';
 import 'package:eden_xi_tools/item_favourites/views/item_favourite_button.dart';
 import 'package:eden_xi_tools/item_show/views/item_show_description.dart';
 import 'package:eden_xi_tools/item_show/views/item_show_header.dart';
+import 'package:eden_xi_tools/item_show/views/item_show_stacked.dart';
 import 'package:eden_xi_tools/widgets/centered_loader.dart';
-import 'package:eden_xi_tools/widgets/swipable_pages/swipable_page_container.dart';
+import 'package:eden_xi_tools/widgets/centered_message.dart';
 import 'package:eden_xi_tools/widgets/swipable_pages/swipable_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -86,9 +87,8 @@ class _ItemShowPageState extends State<ItemShowPage> {
                   );
                 }
 
-                return SwipablePageContent(
-                  child: Text("Failed to fetch item, please try again later"),
-                );
+                return CenteredMessage(
+                    "Failed to fetch item, please try again later");
               },
             ),
             bottomNavigationBar: ItemShowNavigationBar(

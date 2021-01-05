@@ -12,12 +12,14 @@ class PlayerSearchResultCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       leading: PlayerAvatar(
         id: item.avatar,
         width: 45,
       ),
       title: Text(item.charname),
       subtitle: Text(item.title),
+      trailing: Icon(Icons.arrow_forward_ios, size: 15),
       onTap: () {
         Navigator.push(
           context,

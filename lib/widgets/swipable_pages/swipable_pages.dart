@@ -20,6 +20,7 @@ class _SwipablePagesState extends State<SwipablePages> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      behavior: HitTestBehavior.translucent,
       onHorizontalDragEnd: (dragEndDetails) {
         if (dragEndDetails.primaryVelocity < 0) {
           if (widget.index + 1 < widget.pages.length) {

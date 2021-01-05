@@ -1,7 +1,7 @@
 import 'package:eden_xi_tools/dashboard/pages/favourites_page.dart';
 import 'package:eden_xi_tools/dashboard/views/dashboard_favourites_card.dart';
 import 'package:eden_xi_tools/item_favourites/bloc/item_favourites_bloc.dart';
-import 'package:eden_xi_tools/player_search/views/item_search_result_card.dart';
+import 'package:eden_xi_tools/item_show/views/item_search_result_card.dart';
 import 'package:eden_xi_tools/settings/bloc/settings_bloc.dart';
 import 'package:eden_xi_tools/widgets/centered_loader.dart';
 import 'package:eden_xi_tools/widgets/centered_message.dart';
@@ -18,18 +18,7 @@ class DashboardFavouriteItemsCard extends StatelessWidget {
         if (state is ItemFavouritesInitial) {
           return DashboardFavouritesCard(
             title: "Favourite items",
-            children: [
-              Row(
-                children: [
-                  Flexible(
-                    child: Text(
-                      "It looks like you have no favourite items yet. Click the star on an item profile to favourite it.",
-                      softWrap: true,
-                    ),
-                  ),
-                ],
-              )
-            ],
+            children: [_buildRow()],
             onViewMoreTapped: () => _openFavouritesPage(context),
           );
         }
@@ -53,16 +42,7 @@ class DashboardFavouriteItemsCard extends StatelessWidget {
                 title: "Favourite items",
                 children: [
                   if (favourites.isEmpty)
-                    Row(
-                      children: [
-                        Flexible(
-                          child: Text(
-                            "It looks like you have no favourite items yet. Click the star on an item profile to favourite it.",
-                            softWrap: true,
-                          ),
-                        ),
-                      ],
-                    )
+                    _buildRow()
                   else
                     ...favourites
                         .top(state.settings.maxItemsOnDashboard)
@@ -80,9 +60,7 @@ class DashboardFavouriteItemsCard extends StatelessWidget {
           title: "Favourite items",
           children: [
             CenteredMessage(
-              message:
-                  "An error occurred while loading your favourite items, please try again later.",
-            ),
+                "An error occurred while loading your favourite items, please try again later."),
           ],
           onViewMoreTapped: () => _openFavouritesPage(context),
         );
@@ -98,6 +76,22 @@ class DashboardFavouriteItemsCard extends StatelessWidget {
           initialPageIndex: FavouritePageTabs.items,
         ),
       ),
+    );
+  }
+
+  Widget _buildRow() {
+    return Row(
+      children: [
+        Flexible(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              "It looks like you have no favourite items yet. Click the star on an item profile to favourite it.",
+              softWrap: true,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
