@@ -1,4 +1,4 @@
-import 'package:eden_xi_tools/widgets/swipable_pages/swipable_page_container.dart';
+import 'package:eden_xi_tools/widgets/centered_message.dart';
 import 'package:flutter/material.dart';
 
 class PlayerSearchEmptyView extends StatelessWidget {
@@ -6,10 +6,8 @@ class PlayerSearchEmptyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SwipablePageContent(
-      child: Text(
-        "Begin searching for a player by typing in the search box above.",
-      ),
+    return CenteredMessage(
+      "Begin searching for a player by typing in the search box above.",
     );
   }
 }

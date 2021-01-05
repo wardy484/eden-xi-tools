@@ -1,4 +1,4 @@
-import 'package:eden_xi_tools/player_search/views/item_search_result_card.dart';
+import 'package:eden_xi_tools/item_show/views/item_search_result_card.dart';
 import 'package:flutter/material.dart';
 import 'package:eden_xi_tools/eden/items/entities/search_result/search_result.dart';
 import 'package:eden_xi_tools/item_search/item_search.dart';
@@ -36,7 +36,8 @@ class _SearchSuccessState extends State<SearchSuccess> {
       );
     }
 
-    return ListView.builder(
+    return ListView.separated(
+      separatorBuilder: (context, index) => Divider(height: 1),
       itemBuilder: (BuildContext context, int index) {
         return index >= results.items.length
             ? BottomLoader()

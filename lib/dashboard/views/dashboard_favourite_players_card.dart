@@ -18,18 +18,7 @@ class DashboardFavouritePlayersCard extends StatelessWidget {
         if (state is PlayerFavouritesInitial) {
           return DashboardFavouritesCard(
             title: "Favourite players",
-            children: [
-              Row(
-                children: [
-                  Flexible(
-                    child: Text(
-                      "It looks like you have no favourite players yet. Click the star on a players profile to favourite them.",
-                      softWrap: true,
-                    ),
-                  ),
-                ],
-              )
-            ],
+            children: [_buildRow()],
             onViewMoreTapped: () => _openFavouritesPage(context),
           );
         }
@@ -53,16 +42,7 @@ class DashboardFavouritePlayersCard extends StatelessWidget {
                 title: "Favourite players",
                 children: [
                   if (favourites.isEmpty)
-                    Row(
-                      children: [
-                        Flexible(
-                          child: Text(
-                            "It looks like you have no favourite players yet. Click the star on a players profile to favourite them.",
-                            softWrap: true,
-                          ),
-                        ),
-                      ],
-                    )
+                    _buildRow()
                   else
                     ...favourites
                         .top(state.settings.maxPlayersOnDashboard)
@@ -80,8 +60,7 @@ class DashboardFavouritePlayersCard extends StatelessWidget {
           title: "Favourite items",
           children: [
             CenteredMessage(
-              message:
-                  "An error occurred while loading your favourite items, please try again later.",
+              "An error occurred while loading your favourite items, please try again later.",
             ),
           ],
           onViewMoreTapped: () => _openFavouritesPage(context),
@@ -98,6 +77,22 @@ class DashboardFavouritePlayersCard extends StatelessWidget {
           initialPageIndex: FavouritePageTabs.players,
         ),
       ),
+    );
+  }
+
+  Widget _buildRow() {
+    return Row(
+      children: [
+        Flexible(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              "It looks like you have no favourite players yet. Click the star on a players profile to favourite them.",
+              softWrap: true,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

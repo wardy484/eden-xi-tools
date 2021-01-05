@@ -24,23 +24,27 @@ class PlayerShowDetails extends StatelessWidget {
     return RefreshIndicator(
       onRefresh: onRefresh,
       child: ListView(
-        padding: BoxPadding,
+        padding: EdgeInsets.symmetric(vertical: 8),
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              PlayerShowNations(ranks: player.ranks),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(player.jobString),
-                  SizedBox(width: 8),
-                  OnlineIndicator(onlineFlag: player.online),
+                  PlayerShowNations(ranks: player.ranks),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(player.jobString),
+                      SizedBox(width: 8),
+                      OnlineIndicator(onlineFlag: player.online),
+                    ],
+                  ),
                 ],
               ),
-            ],
+            ),
           ),
-          SizedBox(height: 8),
           PlayerJobsCard(jobs: player.jobs),
           PlayerCraftingCard(crafts: crafts),
         ],

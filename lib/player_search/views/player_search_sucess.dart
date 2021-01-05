@@ -36,7 +36,8 @@ class _PlayerSearchSuccessView extends State<PlayerSearchSuccessView> {
       );
     }
 
-    return ListView.builder(
+    return ListView.separated(
+      separatorBuilder: (context, index) => Divider(),
       itemBuilder: (BuildContext context, int index) {
         return index >= results.items.length
             ? BottomLoader()

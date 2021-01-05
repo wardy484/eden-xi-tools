@@ -181,9 +181,21 @@ class _$_Item implements _Item {
   @override
   final bool stackable;
 
+  bool _didtrimmedDesc = false;
+  String _trimmedDesc;
+
+  @override
+  String get trimmedDesc {
+    if (_didtrimmedDesc == false) {
+      _didtrimmedDesc = true;
+      _trimmedDesc = desc.replaceAll("\n", " ");
+    }
+    return _trimmedDesc;
+  }
+
   @override
   String toString() {
-    return 'Item(id: $id, armor: $armor, desc: $desc, key: $key, name: $name, sort: $sort, stackable: $stackable)';
+    return 'Item(id: $id, armor: $armor, desc: $desc, key: $key, name: $name, sort: $sort, stackable: $stackable, trimmedDesc: $trimmedDesc)';
   }
 
   @override

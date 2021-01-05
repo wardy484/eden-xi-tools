@@ -46,9 +46,6 @@ class App extends StatelessWidget {
         brightness: Brightness.light,
         primaryColor: Colors.blue,
         accentColor: Colors.blueAccent,
-        // backgroundColor: Colors.grey[700],
-        // primaryColorDark: Colors.grey[900],
-        // primaryColorLight: Colors.grey[900],
         scaffoldBackgroundColor: Colors.grey[200],
         cardTheme: CardTheme(
           margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -61,12 +58,14 @@ class App extends StatelessWidget {
             fontSize: 14.0,
           ),
         ),
-        // bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        //   backgroundColor: Colors.grey[700],
-        //   unselectedItemColor: Colors.grey[400],
-        //   elevation: 5,
-        //   selectedItemColor: Colors.white,
-        // ),
+        inputDecorationTheme: InputDecorationTheme(
+          fillColor: Colors.white,
+          filled: true,
+        ),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          elevation: 5,
+        ),
+        dividerTheme: DividerThemeData(space: 0),
       ),
     );
   }

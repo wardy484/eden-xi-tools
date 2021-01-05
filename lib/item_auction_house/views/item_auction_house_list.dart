@@ -17,6 +17,7 @@ class ItemAuctionHouseList extends StatelessWidget {
     return RefreshIndicator(
       onRefresh: onRefresh,
       child: ListView.builder(
+        padding: EdgeInsets.symmetric(vertical: 8),
         itemCount: items.length,
         itemBuilder: (BuildContext context, int index) {
           return ItemAuctionHouseCard(

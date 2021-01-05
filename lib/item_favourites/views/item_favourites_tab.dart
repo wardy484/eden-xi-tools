@@ -1,5 +1,5 @@
 import 'package:eden_xi_tools/item_favourites/bloc/item_favourites_bloc.dart';
-import 'package:eden_xi_tools/player_search/views/item_search_result_card.dart';
+import 'package:eden_xi_tools/item_show/views/item_search_result_card.dart';
 import 'package:eden_xi_tools/styles/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,7 +12,8 @@ class ItemFavouritesTab extends StatelessWidget {
     return BlocBuilder<ItemFavouritesBloc, ItemFavouritesState>(
       builder: (context, state) {
         if (state is ItemFavouritesLoaded && !state.favourites.isEmpty) {
-          return ListView.builder(
+          return ListView.separated(
+            separatorBuilder: (context, index) => Divider(),
             itemCount: state.favourites.count,
             itemBuilder: (context, index) {
               return ItemSearchCard(

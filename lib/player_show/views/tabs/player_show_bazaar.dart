@@ -1,7 +1,7 @@
 import 'package:eden_xi_tools/eden/player/entities/player_bazaar_item/player_bazaar_item.dart';
 import 'package:eden_xi_tools/styles/spacing.dart';
 import 'package:eden_xi_tools/styles/text_styles.dart';
-import 'package:eden_xi_tools/widgets/swipable_pages/swipable_page_container.dart';
+import 'package:eden_xi_tools/widgets/centered_message.dart';
 import 'package:flutter/material.dart';
 import 'package:recase/recase.dart';
 import 'package:eden_xi_tools/extensions/int.dart';
@@ -19,14 +19,13 @@ class PlayerShowBazaar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (items.length < 1) {
-      return SwipablePageContent(
-        child: Text("No bazaar history..."),
-      );
+      return CenteredMessage("No bazaar history...");
     }
 
     return RefreshIndicator(
       onRefresh: onRefresh,
       child: ListView.builder(
+        padding: EdgeInsets.symmetric(vertical: 8),
         itemCount: items.length,
         itemBuilder: (BuildContext context, int index) {
           PlayerBazaarItem item = items[index];
@@ -34,7 +33,7 @@ class PlayerShowBazaar extends StatelessWidget {
 
           return Card(
             child: Padding(
-              padding: BoxPadding,
+              padding: EdgeInsets.all(16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
