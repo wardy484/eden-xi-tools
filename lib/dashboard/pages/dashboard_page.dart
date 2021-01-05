@@ -53,6 +53,9 @@ class _DashboardPageState extends State<DashboardPage> {
       pages: [
         ListView(
           children: [
+            SizedBox(
+              height: 8,
+            ),
             DashboardServerStatus(),
             DashboardFavouriteItemsCard(),
             DashboardFavouritePlayersCard(),

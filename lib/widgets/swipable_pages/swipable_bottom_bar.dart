@@ -23,7 +23,6 @@ class _SwipableBottomBarState extends State<SwipableBottomBar> {
       type: BottomNavigationBarType.fixed,
       items: widget.tabs,
       currentIndex: widget.index,
-      selectedItemColor: Colors.blue[800],
       onTap: widget.onTap,
     );
   }

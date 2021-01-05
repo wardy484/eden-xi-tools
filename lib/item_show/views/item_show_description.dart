@@ -2,7 +2,7 @@ import 'package:eden_xi_tools/eden/items/entities/item/item.dart';
 import 'package:eden_xi_tools/item_auction_house/bloc/item_auction_house_bloc.dart';
 import 'package:eden_xi_tools/styles/spacing.dart';
 import 'package:eden_xi_tools/widgets/labelled_switch.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ItemShowDescription extends StatelessWidget {
@@ -19,21 +19,30 @@ class ItemShowDescription extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: BoxPadding,
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Flexible(child: Text(item.desc)),
-                  if (currentPageIndex == 0)
-                    StackToggleButton(currentPageIndex: currentPageIndex),
-                ],
-              ),
-            ],
+        SizedBox(height: 8),
+        Card(
+          child: Padding(
+            padding: BoxPadding,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Flexible(child: Text(item.desc)),
+                      StackToggleButton(currentPageIndex: currentPageIndex),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
-        )
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Divider(),
+        ),
       ],
     );
   }
