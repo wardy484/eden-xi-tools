@@ -5,7 +5,6 @@ import 'package:eden_xi_tools/item_bazaar/pages/item_bazaar_page.dart';
 import 'package:eden_xi_tools/item_favourites/views/item_favourite_button.dart';
 import 'package:eden_xi_tools/item_show/views/item_show_description.dart';
 import 'package:eden_xi_tools/item_show/views/item_show_header.dart';
-import 'package:eden_xi_tools/item_show/views/item_show_stacked.dart';
 import 'package:eden_xi_tools/widgets/centered_loader.dart';
 import 'package:eden_xi_tools/widgets/centered_message.dart';
 import 'package:eden_xi_tools/widgets/swipable_pages/swipable_pages.dart';

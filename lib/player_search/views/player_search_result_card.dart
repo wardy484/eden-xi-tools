@@ -5,9 +5,13 @@ import 'package:flutter/material.dart';
 
 class PlayerSearchResultCard extends StatelessWidget {
   final PlayerSearchResultItem item;
+  final Widget icon;
 
-  const PlayerSearchResultCard({Key key, @required this.item})
-      : super(key: key);
+  const PlayerSearchResultCard({
+    Key key,
+    @required this.item,
+    this.icon,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,17 +23,19 @@ class PlayerSearchResultCard extends StatelessWidget {
       ),
       title: Text(item.charname),
       subtitle: Text(item.title),
-      trailing: Icon(Icons.arrow_forward_ios, size: 15),
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => PlayerShowPage(
-              playerResult: item,
-            ),
-          ),
-        );
-      },
+      trailing: icon == null ? Icon(Icons.arrow_forward_ios, size: 15) : icon,
+      onTap: () => _navigate(context),
+    );
+  }
+
+  void _navigate(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => PlayerShowPage(
+          playerResult: item,
+        ),
+      ),
     );
   }
 }

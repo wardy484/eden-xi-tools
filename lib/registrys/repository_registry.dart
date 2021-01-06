@@ -1,5 +1,4 @@
 import 'package:eden_xi_tools/eden/player/repository/player_repository.dart';
-import 'package:eden_xi_tools/eden/status/repository/status_repository.dart';
 import 'package:kiwi/kiwi.dart';
 import 'package:eden_xi_tools/eden/items/repositories/ItemRepository.dart';
 import 'package:dio/dio.dart';

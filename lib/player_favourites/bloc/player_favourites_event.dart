@@ -24,3 +24,13 @@ class PlayerFavouritesRemoved extends PlayerFavouritesEvent {
   @override
   List<Object> get props => [player];
 }
+
+class PlayerFavouritesReordered extends PlayerFavouritesEvent {
+  final int oldIndex;
+  final int newIndex;
+
+  const PlayerFavouritesReordered(this.oldIndex, this.newIndex);
+
+  @override
+  List<Object> get props => [oldIndex, newIndex];
+}

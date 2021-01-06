@@ -19,6 +19,27 @@ class PlayerFavouritesBloc
     try {
       final currentState = state;
 
+      if (event is PlayerFavouritesReordered &&
+          currentState is PlayerFavouritesLoaded) {
+        yield PlayerFavouritesLoading();
+
+        var newIndex = event.newIndex;
+        var favourites = currentState.favourites.all();
+
+        if (event.newIndex > event.oldIndex) {
+          newIndex = event.newIndex - 1;
+        }
+
+        var item = favourites.removeAt(event.oldIndex);
+        favourites.insert(newIndex, item);
+
+        yield PlayerFavouritesLoaded(
+          favourites: PlayerFavourites(
+            favourites: favourites,
+          ),
+        );
+      }
+
       if (event is PlayerFavouritesSaved) {
         if (currentState is PlayerFavouritesInitial) {
           yield PlayerFavouritesLoading();

@@ -3,7 +3,6 @@ import 'package:eden_xi_tools/eden/player/entities/player_crafts/player_crafts.d
 import 'package:eden_xi_tools/player_show/views/widgets/player_crafting_card.dart';
 import 'package:eden_xi_tools/player_show/views/widgets/player_jobs_card.dart';
 import 'package:eden_xi_tools/player_show/views/widgets/player_show_regions.dart';
-import 'package:eden_xi_tools/styles/spacing.dart';
 import 'package:eden_xi_tools/widgets/online_indicator.dart';
 import 'package:flutter/material.dart';
 

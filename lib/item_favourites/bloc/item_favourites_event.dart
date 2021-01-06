@@ -24,3 +24,13 @@ class ItemFavouritesRemoved extends ItemFavouritesEvent {
   @override
   List<Object> get props => [item];
 }
+
+class ItemFavouritesReordered extends ItemFavouritesEvent {
+  final int oldIndex;
+  final int newIndex;
+
+  const ItemFavouritesReordered(this.oldIndex, this.newIndex);
+
+  @override
+  List<Object> get props => [oldIndex, newIndex];
+}

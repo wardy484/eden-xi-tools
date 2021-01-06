@@ -1,7 +1,5 @@
 import 'package:eden_xi_tools/eden/player/entities/player_crafts/player_crafts.dart';
 import 'package:eden_xi_tools/player_show/views/widgets/factory/PlayerFactory.dart';
-import 'package:eden_xi_tools/styles/spacing.dart';
-import 'package:eden_xi_tools/styles/text_styles.dart';
 import 'package:eden_xi_tools/widgets/custom_card/custom_card.dart';
 import 'package:flutter/material.dart';
 
