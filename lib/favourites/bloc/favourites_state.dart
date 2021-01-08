@@ -4,6 +4,5 @@ part of 'favourites_bloc.dart';
 abstract class FavouritesState<T> with _$FavouritesState {
   const factory FavouritesState.initial() = _Initial<T>;
   const factory FavouritesState.loading() = _Loading<T>;
-  const factory FavouritesState.loaded(FavouritesList<T> favourites) =
-      _Loaded<T>;
+  const factory FavouritesState.loaded(List<T> favourites) = _Loaded<T>;
 }
