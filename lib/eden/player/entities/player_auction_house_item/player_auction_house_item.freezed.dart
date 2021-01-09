@@ -157,14 +157,15 @@ class __$PlayerAuctionHouseItemCopyWithImpl<$Res>
 @JsonSerializable()
 
 /// @nodoc
-class _$_PlayerAuctionHouseItem implements _PlayerAuctionHouseItem {
+class _$_PlayerAuctionHouseItem extends _PlayerAuctionHouseItem {
   _$_PlayerAuctionHouseItem(
       {@JsonKey(name: 'buyer_name') this.buyerName,
       this.name,
       this.sale,
       @JsonKey(name: 'sell_date') this.sellDate,
       @JsonKey(name: 'seller_name') this.sellerName,
-      @JsonKey(name: 'stack_size') this.stackSize});
+      @JsonKey(name: 'stack_size') this.stackSize})
+      : super._();
 
   factory _$_PlayerAuctionHouseItem.fromJson(Map<String, dynamic> json) =>
       _$_$_PlayerAuctionHouseItemFromJson(json);
@@ -234,7 +235,8 @@ class _$_PlayerAuctionHouseItem implements _PlayerAuctionHouseItem {
   }
 }
 
-abstract class _PlayerAuctionHouseItem implements PlayerAuctionHouseItem {
+abstract class _PlayerAuctionHouseItem extends PlayerAuctionHouseItem {
+  _PlayerAuctionHouseItem._() : super._();
   factory _PlayerAuctionHouseItem(
       {@JsonKey(name: 'buyer_name') String buyerName,
       String name,

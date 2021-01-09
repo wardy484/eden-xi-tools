@@ -1,4 +1,5 @@
 import 'package:eden_xi_tools/eden/player/entities/player_auction_house_item/player_auction_house_item.dart';
+import 'package:eden_xi_tools/item_auction_house/views/item_auction_house_card.dart';
 import 'package:eden_xi_tools/styles/spacing.dart';
 import 'package:eden_xi_tools/styles/text_styles.dart';
 import 'package:eden_xi_tools/widgets/item_icon.dart';
@@ -14,39 +15,52 @@ class PlayerAuctionHouseItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: BoxPadding,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+    return Column(
+      children: [
+        Row(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    ItemIcon(id: 65535), // Gil
-                    SizedBox(width: 8),
-                    Text(
-                      item.sale.toGil(),
-                      style: SubHeading,
-                    ),
-                  ],
-                ),
-                Text(buildTitle(), style: SubHeading),
-              ],
+            Padding(
+              padding: const EdgeInsets.only(left: 20, top: 16),
+              child: Text(buildTitle(), style: SubHeading),
             ),
-            SizedBox(height: 8),
-            Text('Bought at ${formatDate(item.sellDate)}'),
-            SizedBox(height: 8),
-            Row(
-              children: [
-                Text('${item.sellerName} > ${item.buyerName}'),
-              ],
-            )
           ],
         ),
-      ),
+        ItemAuctionHouseCard(item: item.toAuctionHouseItem()),
+        // Card(
+        //   child: Padding(
+        //     padding: BoxPadding,
+        //     child: Column(
+        //       crossAxisAlignment: CrossAxisAlignment.start,
+        //       children: [
+        //         Row(
+        //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //           children: [
+        //             Row(
+        //               children: [
+        //                 ItemIcon(id: 65535), // Gil
+        //                 SizedBox(width: 8),
+        //                 Text(
+        //                   item.sale.toGil(),
+        //                   style: SubHeading,
+        //                 ),
+        //               ],
+        //             ),
+        //             // Text(buildTitle(), style: SubHeading),
+        //           ],
+        //         ),
+        //         SizedBox(height: 8),
+        //         Text('Bought at ${formatDate(item.sellDate)}'),
+        //         SizedBox(height: 8),
+        //         Row(
+        //           children: [
+        //             Text('${item.sellerName} > ${item.buyerName}'),
+        //           ],
+        //         )
+        //       ],
+        //     ),
+        //   ),
+        // ),
+      ],
     );
   }
 

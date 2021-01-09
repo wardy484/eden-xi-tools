@@ -1,10 +1,13 @@
+import 'package:eden_xi_tools/eden/items/entities/auction_house_item/auction_house_item.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'player_auction_house_item.freezed.dart';
 part 'player_auction_house_item.g.dart';
 
 @freezed
-abstract class PlayerAuctionHouseItem with _$PlayerAuctionHouseItem {
+abstract class PlayerAuctionHouseItem implements _$PlayerAuctionHouseItem {
+  const PlayerAuctionHouseItem._();
+
   factory PlayerAuctionHouseItem({
     @JsonKey(name: 'buyer_name') String buyerName,
     String name,
@@ -16,4 +19,14 @@ abstract class PlayerAuctionHouseItem with _$PlayerAuctionHouseItem {
 
   factory PlayerAuctionHouseItem.fromJson(Map<String, dynamic> json) =>
       _$PlayerAuctionHouseItemFromJson(json);
+
+  AuctionHouseItem toAuctionHouseItem() {
+    return AuctionHouseItem(
+      buyerName: buyerName,
+      sellerName: sellerName,
+      sale: sale,
+      sellDate: sellDate,
+      name: name,
+    );
+  }
 }
