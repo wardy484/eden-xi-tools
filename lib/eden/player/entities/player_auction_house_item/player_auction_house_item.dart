@@ -6,6 +6,7 @@ part 'player_auction_house_item.g.dart';
 
 @freezed
 abstract class PlayerAuctionHouseItem implements _$PlayerAuctionHouseItem {
+  // ignore: unused_element
   const PlayerAuctionHouseItem._();
 
   factory PlayerAuctionHouseItem({

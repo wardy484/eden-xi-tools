@@ -2,6 +2,7 @@ import 'package:eden_xi_tools/eden/status/repository/status_repository.dart';
 import 'package:eden_xi_tools/registrys/bloc_registry.dart';
 import 'package:eden_xi_tools/registrys/repository_registry.dart';
 import 'package:eden_xi_tools/server_status/bloc/server_status_bloc.dart';
+import 'package:eden_xi_tools/yells/bloc/yells_bloc.dart';
 import 'package:kiwi/kiwi.dart';
 import 'package:dio/dio.dart';
 
@@ -24,6 +25,12 @@ class AppRegistry {
       (container) => ServerStatusBloc(
         statusRepository:
             StatusRepository(client: container.resolve<Dio>("EdenClient")),
+      ),
+    );
+
+    container.registerFactory(
+      (container) => YellsBloc(
+        StatusRepository(client: container.resolve<Dio>("EdenClient")),
       ),
     );
 

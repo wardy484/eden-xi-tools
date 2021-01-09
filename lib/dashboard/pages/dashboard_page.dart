@@ -5,6 +5,7 @@ import 'package:eden_xi_tools/item_search/pages/item_search_tab.dart';
 import 'package:eden_xi_tools/player_search/pages/player_search_tab.dart';
 import 'package:eden_xi_tools/settings/pages/settings_page.dart';
 import 'package:eden_xi_tools/widgets/swipable_pages/SwipableScaffold.dart';
+import 'package:eden_xi_tools/yells/views/yells_tab.dart';
 import 'package:flutter/material.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -62,6 +63,7 @@ class _DashboardPageState extends State<DashboardPage> {
         ),
         ItemSearchTab(),
         PlayerSearchTab(),
+        YellsTab(),
       ],
       tabs: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
@@ -76,10 +78,10 @@ class _DashboardPageState extends State<DashboardPage> {
           icon: Icon(Icons.people),
           label: 'Player Search',
         ),
-        // BottomNavigationBarItem(
-        //   icon: Icon(Icons.chat_bubble),
-        //   label: 'Yells',
-        // ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.chat_bubble),
+          label: 'Yells',
+        ),
       ],
     );
   }
