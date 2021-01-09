@@ -602,7 +602,7 @@ class _$FavouritesStateTearOff {
   }
 
 // ignore: unused_element
-  _Loaded<T> loaded<T>(dynamic favourites) {
+  _Loaded<T> loaded<T>(List<T> favourites) {
     return _Loaded<T>(
       favourites,
     );
@@ -619,13 +619,13 @@ mixin _$FavouritesState<T> {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loaded(dynamic favourites),
+    @required TResult loaded(List<T> favourites),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loaded(dynamic favourites),
+    TResult loaded(List<T> favourites),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -700,7 +700,7 @@ class _$_Initial<T> implements _Initial<T> {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loaded(dynamic favourites),
+    @required TResult loaded(List<T> favourites),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -713,7 +713,7 @@ class _$_Initial<T> implements _Initial<T> {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loaded(dynamic favourites),
+    TResult loaded(List<T> favourites),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -796,7 +796,7 @@ class _$_Loading<T> implements _Loading<T> {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loaded(dynamic favourites),
+    @required TResult loaded(List<T> favourites),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -809,7 +809,7 @@ class _$_Loading<T> implements _Loading<T> {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loaded(dynamic favourites),
+    TResult loaded(List<T> favourites),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -856,7 +856,7 @@ abstract class _Loading<T> implements FavouritesState<T> {
 abstract class _$LoadedCopyWith<T, $Res> {
   factory _$LoadedCopyWith(_Loaded<T> value, $Res Function(_Loaded<T>) then) =
       __$LoadedCopyWithImpl<T, $Res>;
-  $Res call({dynamic favourites});
+  $Res call({List<T> favourites});
 }
 
 /// @nodoc
@@ -874,7 +874,7 @@ class __$LoadedCopyWithImpl<T, $Res>
     Object favourites = freezed,
   }) {
     return _then(_Loaded<T>(
-      favourites == freezed ? _value.favourites : favourites,
+      favourites == freezed ? _value.favourites : favourites as List<T>,
     ));
   }
 }
@@ -884,7 +884,7 @@ class _$_Loaded<T> implements _Loaded<T> {
   const _$_Loaded(this.favourites) : assert(favourites != null);
 
   @override
-  final dynamic favourites;
+  final List<T> favourites;
 
   @override
   String toString() {
@@ -913,7 +913,7 @@ class _$_Loaded<T> implements _Loaded<T> {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loaded(dynamic favourites),
+    @required TResult loaded(List<T> favourites),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -926,7 +926,7 @@ class _$_Loaded<T> implements _Loaded<T> {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loaded(dynamic favourites),
+    TResult loaded(List<T> favourites),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -966,8 +966,8 @@ class _$_Loaded<T> implements _Loaded<T> {
 }
 
 abstract class _Loaded<T> implements FavouritesState<T> {
-  const factory _Loaded(dynamic favourites) = _$_Loaded<T>;
+  const factory _Loaded(List<T> favourites) = _$_Loaded<T>;
 
-  dynamic get favourites;
+  List<T> get favourites;
   _$LoadedCopyWith<T, _Loaded<T>> get copyWith;
 }

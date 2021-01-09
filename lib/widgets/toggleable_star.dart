@@ -1,12 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class FavouriteButton extends StatelessWidget {
+class ToggleableStar extends StatelessWidget {
   final bool value;
   final Function onPressed;
 
-  const FavouriteButton({Key key, this.value, this.onPressed})
-      : super(key: key);
+  const ToggleableStar({
+    Key key,
+    this.value,
+    this.onPressed,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

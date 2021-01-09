@@ -1,8 +1,8 @@
+import 'package:eden_xi_tools/favourites/views/favourite_button.dart';
 import 'package:eden_xi_tools/item_auction_house/bloc/item_auction_house_bloc.dart';
 import 'package:eden_xi_tools/item_auction_house/pages/item_auction_house_page.dart';
 import 'package:eden_xi_tools/item_bazaar/bloc/item_bazaar_bloc.dart';
 import 'package:eden_xi_tools/item_bazaar/pages/item_bazaar_page.dart';
-import 'package:eden_xi_tools/item_favourites/views/item_favourite_button.dart';
 import 'package:eden_xi_tools/item_show/views/item_show_description.dart';
 import 'package:eden_xi_tools/item_show/views/item_show_header.dart';
 import 'package:eden_xi_tools/widgets/centered_loader.dart';
@@ -56,7 +56,7 @@ class _ItemShowPageState extends State<ItemShowPage> {
             appBar: AppBar(
               title: ItemShowHeader(item: widget.item),
               actions: [
-                ItemFavouriteButton(item: widget.item),
+                FavouritesButton<SearchResultItem>(item: widget.item),
               ],
             ),
             body: BlocBuilder<ItemShowBloc, ItemShowState>(

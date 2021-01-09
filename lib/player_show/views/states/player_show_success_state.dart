@@ -1,6 +1,6 @@
 import 'package:eden_xi_tools/eden/player/entities/player_search_result_item/player_search_result_item.dart';
+import 'package:eden_xi_tools/favourites/views/favourite_button.dart';
 import 'package:eden_xi_tools/player_show/player_show.dart';
-import 'package:eden_xi_tools/player_favourites/views/player_favourite_button.dart';
 import 'package:eden_xi_tools/player_show/views/player_show_navigation_bar.dart';
 import 'package:eden_xi_tools/player_show/views/states/player_show_header.dart';
 import 'package:eden_xi_tools/player_show/views/tabs/player_show_auction_house.dart';
@@ -34,7 +34,7 @@ class _PlayerShowSuccessStateState extends State<PlayerShowSuccessState> {
     return ItemShowScaffold(
       header: PlayerShowHeader(playerResult: playerResult),
       actions: [
-        PlayerFavouriteButton(player: playerResult),
+        FavouritesButton<PlayerSearchResultItem>(item: playerResult),
       ],
       body: SwipablePages(
         index: _selectedPageIndex,
