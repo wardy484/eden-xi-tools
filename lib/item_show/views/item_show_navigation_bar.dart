@@ -14,7 +14,6 @@ class ItemShowNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       currentIndex: currentIndex,
-      // selectedItemColor: Colors.blueAccent,
       onTap: onTap,
       items: [
         BottomNavigationBarItem(

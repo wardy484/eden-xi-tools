@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:eden_xi_tools/eden/player/entities/player_search_result_item/player_search_result_item.dart';
+import 'package:eden_xi_tools/player_equipment/bloc/player_equipment_bloc.dart';
 import 'package:eden_xi_tools/player_show/player_show.dart';
 import 'package:eden_xi_tools/player_show/player_show_events.dart';
 import 'package:eden_xi_tools/player_show/views/states/player_show_failure_state.dart';
@@ -21,6 +22,8 @@ class PlayerShowPage extends StatefulWidget {
 
 class _PlayerShowPageState extends State<PlayerShowPage> {
   PlayerShowBloc _playerShowBloc;
+  PlayerEquipmentBloc _equipmentBloc;
+
   Completer<void> _refreshCompleter;
 
   @override
@@ -29,12 +32,21 @@ class _PlayerShowPageState extends State<PlayerShowPage> {
 
     _playerShowBloc = KiwiContainer().resolve<PlayerShowBloc>();
     _playerShowBloc.add(PlayerShowRequested(playerResult: widget.playerResult));
+
+    _equipmentBloc = KiwiContainer().resolve<PlayerEquipmentBloc>();
+    _equipmentBloc
+        .add(PlayerEquipmentEvent.fetched(widget.playerResult.charname));
+
+    _refreshCompleter = Completer();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider.value(
-      value: _playerShowBloc,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider.value(value: _playerShowBloc),
+        BlocProvider.value(value: _equipmentBloc),
+      ],
       child: BlocConsumer<PlayerShowBloc, PlayerShowState>(
         listener: (context, state) {
           if (state is PlayerShowSuccessState) {
@@ -65,12 +77,17 @@ class _PlayerShowPageState extends State<PlayerShowPage> {
       playerResult: widget.playerResult,
     ));
 
+    _equipmentBloc
+        .add(PlayerEquipmentEvent.fetched(widget.playerResult.charname));
+
     return _refreshCompleter.future;
   }
 
   @override
   void dispose() {
     _playerShowBloc.close();
+    _equipmentBloc.close();
+
     super.dispose();
   }
 }

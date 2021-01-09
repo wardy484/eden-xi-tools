@@ -3,6 +3,7 @@ import 'package:eden_xi_tools/eden/player/entities/player/player.dart';
 import 'package:eden_xi_tools/eden/player/entities/player_auction_house_item/player_auction_house_item.dart';
 import 'package:eden_xi_tools/eden/player/entities/player_bazaar_item/player_bazaar_item.dart';
 import 'package:eden_xi_tools/eden/player/entities/player_crafts/player_crafts.dart';
+import 'package:eden_xi_tools/eden/player/entities/player_equipment/player_equipment.dart';
 import 'package:eden_xi_tools/eden/player/entities/player_search_result/player_search_results.dart';
 
 import 'package:flutter/material.dart';
@@ -35,6 +36,16 @@ class PlayerRepository {
     } else {
       throw Exception(
           "Erroring fetching player search results from Eden server.");
+    }
+  }
+
+  Future<PlayerEquipment> getEquipment(String playerName) async {
+    final response = await client.get('/chars/$playerName/equip');
+
+    if (response.statusCode == 200) {
+      return PlayerEquipment.fromJson(response.data);
+    } else {
+      throw Exception("Erroring fetching player equipment from Eden server.");
     }
   }
 
