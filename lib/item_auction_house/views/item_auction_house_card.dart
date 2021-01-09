@@ -1,9 +1,12 @@
 import 'package:eden_xi_tools/eden/items/entities/auction_house_item/auction_house_item.dart';
+import 'package:eden_xi_tools/eden/player/repository/player_repository.dart';
+import 'package:eden_xi_tools/player_show/pages/player_show_page.dart';
 import 'package:eden_xi_tools/widgets/item_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 import 'package:eden_xi_tools/extensions/int.dart';
+import 'package:kiwi/kiwi.dart';
 
 enum MoreOptions { buyer, seller }
 
@@ -25,7 +28,11 @@ class ItemAuctionHouseCard extends StatelessWidget {
             ),
             trailing: PopupMenuButton<MoreOptions>(
               onSelected: (MoreOptions result) {
-                _navigateToPlayer(item.sellerName);
+                if (result.index == 0) {
+                  _navigateToPlayer(item.sellerName, context);
+                } else {
+                  _navigateToPlayer(item.buyerName, context);
+                }
               },
               itemBuilder: (BuildContext context) {
                 return <PopupMenuEntry<MoreOptions>>[
@@ -54,12 +61,26 @@ class ItemAuctionHouseCard extends StatelessWidget {
     return formatter.format(date);
   }
 
-  _navigateToPlayer(String playerName) {
-    Fluttertoast.showToast(
-      msg: "Navigating to players coming soon.",
-      toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.BOTTOM,
-      backgroundColor: Colors.grey[800],
-    );
+  _navigateToPlayer(String playerName, context) async {
+    var playerRepository = KiwiContainer().resolve<PlayerRepository>();
+    var players = await playerRepository.search(playerName, 0, 1);
+
+    if (players.total > 0) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => PlayerShowPage(
+            playerResult: players.items.first,
+          ),
+        ),
+      );
+    } else {
+      Fluttertoast.showToast(
+        msg: "Player not found...",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        backgroundColor: Colors.grey[800],
+      );
+    }
   }
 }
