@@ -4,5 +4,5 @@ part 'status.freezed.dart';
 
 @freezed
 abstract class Status with _$Status {
-  factory Status({bool online}) = _Status;
+  factory Status({bool online, int players}) = _Status;
 }

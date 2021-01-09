@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:eden_xi_tools/eden/status/entities/status.dart';
-import 'package:eden_xi_tools/eden/status/repository/status_repository.dart';
+import 'package:eden_xi_tools/eden/misc/entities/status/status.dart';
+import 'package:eden_xi_tools/eden/misc/repository/misc_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'server_status_event.dart';
@@ -10,7 +10,7 @@ part 'server_status_state.dart';
 part 'server_status_bloc.freezed.dart';
 
 class ServerStatusBloc extends Bloc<ServerStatusEvent, ServerStatusState> {
-  final StatusRepository statusRepository;
+  final MiscRepository statusRepository;
 
   ServerStatusBloc({@required this.statusRepository}) : super(_Initial());
 
@@ -24,7 +24,7 @@ class ServerStatusBloc extends Bloc<ServerStatusEvent, ServerStatusState> {
       Status status = await statusRepository.get();
 
       if (status.online) {
-        yield ServerStatusState.online();
+        yield ServerStatusState.online(status.players);
       } else {
         yield ServerStatusState.offline();
       }

@@ -1,18 +1,22 @@
 import 'package:dio/dio.dart';
-import 'package:eden_xi_tools/eden/status/entities/status.dart';
-import 'package:eden_xi_tools/eden/status/entities/yell/yell.dart';
+import 'package:eden_xi_tools/eden/misc/entities/status/status.dart';
+import 'package:eden_xi_tools/eden/misc/entities/yell/yell.dart';
 
 import 'package:flutter/material.dart';
 
-class StatusRepository {
+class MiscRepository {
   final Dio client;
 
-  StatusRepository({@required this.client});
+  MiscRepository({@required this.client});
 
   Future<Status> get() async {
     final response = await client.get('misc/status');
 
-    return Status(online: response.statusCode == 200);
+    print(int.parse(response.data).toString());
+    return Status(
+      online: response.statusCode == 200,
+      players: int.parse(response.data),
+    );
   }
 
   Future<List<Yell>> getYells() async {

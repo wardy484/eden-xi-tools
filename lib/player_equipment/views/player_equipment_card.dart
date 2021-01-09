@@ -4,7 +4,6 @@ import 'package:eden_xi_tools/eden/player/entities/player_equipment/player_equip
 import 'package:eden_xi_tools/eden/player/entities/player_equipment_slot/playerequipmentslot.dart';
 import 'package:eden_xi_tools/item_show/pages/item_show_page.dart';
 import 'package:eden_xi_tools/player_equipment/bloc/player_equipment_bloc.dart';
-import 'package:eden_xi_tools/settings/entities/settings.dart';
 import 'package:eden_xi_tools/widgets/centered_loader.dart';
 import 'package:eden_xi_tools/widgets/custom_card/custom_card.dart';
 import 'package:eden_xi_tools/widgets/item_icon.dart';

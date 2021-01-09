@@ -1,5 +1,6 @@
-import 'package:eden_xi_tools/eden/status/entities/status.dart';
+import 'package:eden_xi_tools/eden/misc/entities/status/status.dart';
 import 'package:eden_xi_tools/server_status/bloc/server_status_bloc.dart';
+import 'package:eden_xi_tools/widgets/centered_loader.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kiwi/kiwi.dart';
 
@@ -17,7 +18,7 @@ class _DashboardServerStatusState extends State<DashboardServerStatus> {
 
   @override
   void initState() {
-    _statusBloc = KiwiContainer().resolve<ServerStatusBloc>();
+    _statusBloc = BlocProvider.of<ServerStatusBloc>(context);
     _statusBloc.add(ServerStatusEvent.fetched());
 
     super.initState();
@@ -25,53 +26,50 @@ class _DashboardServerStatusState extends State<DashboardServerStatus> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider.value(
-      value: _statusBloc,
-      child: Card(
-        child: BlocBuilder<ServerStatusBloc, ServerStatusState>(
-          builder: (context, state) {
-            return state.when(
-              initial: () => ListTile(
-                leading: Icon(
-                  Icons.power_settings_new,
-                  color: Colors.green,
-                ),
-                title: Text("Server is online"),
+    return Card(
+      child: BlocBuilder<ServerStatusBloc, ServerStatusState>(
+        builder: (context, state) {
+          return state.when(
+            initial: () => ListTile(
+              leading: Icon(
+                Icons.power_settings_new,
+                color: Colors.green,
               ),
-              loading: () => ListTile(
-                leading: Icon(
-                  Icons.power_settings_new,
-                  color: Colors.green,
-                ),
-                title: Text("Server is online"),
+              title: Row(
+                children: [
+                  Text("Players online: "),
+                ],
               ),
-              offline: () => ListTile(
-                leading: Icon(
-                  Icons.power_settings_new,
-                  color: Colors.red,
-                ),
-                title: Text("Server is offline"),
+            ),
+            loading: () => ListTile(
+              leading: Icon(
+                Icons.power_settings_new,
+                color: Colors.green,
               ),
-              online: () => ListTile(
-                leading: Icon(
-                  Icons.power_settings_new,
-                  color: Colors.green,
-                ),
-                title: Text("Server is online"),
+              title: Row(
+                children: [
+                  Text("Players online: "),
+                ],
               ),
-            );
-          },
-        ),
+            ),
+            offline: () => ListTile(
+              leading: Icon(
+                Icons.power_settings_new,
+                color: Colors.red,
+              ),
+              title: Text("Server is offline"),
+            ),
+            online: (int players) => ListTile(
+              leading: Icon(
+                Icons.power_settings_new,
+                color: Colors.green,
+              ),
+              title: Text("Players online: $players"),
+            ),
+          );
+        },
       ),
     );
-  }
-
-  String buildMessage(Status status) {
-    if (status.online) {
-      return "Server is online";
-    }
-
-    return "Server is offline";
   }
 
   @override

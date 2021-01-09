@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:eden_xi_tools/eden/status/entities/yell/yell.dart';
+import 'package:eden_xi_tools/eden/misc/entities/yell/yell.dart';
 import 'package:eden_xi_tools/widgets/centered_loader.dart';
 import 'package:eden_xi_tools/yells/bloc/yells_bloc.dart';
 import 'package:eden_xi_tools/yells/views/yell_line.dart';

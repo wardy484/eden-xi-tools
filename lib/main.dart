@@ -1,6 +1,7 @@
 import 'package:eden_xi_tools/dashboard/pages/dashboard_page.dart';
 import 'package:eden_xi_tools/item_favourites/bloc/item_favourites_bloc.dart';
 import 'package:eden_xi_tools/registrys/app_registry.dart';
+import 'package:eden_xi_tools/server_status/bloc/server_status_bloc.dart';
 import 'package:eden_xi_tools/settings/bloc/settings_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,9 @@ void main() async {
         ),
         BlocProvider<SettingsBloc>(
           create: (context) => container.resolve<SettingsBloc>(),
+        ),
+        BlocProvider<ServerStatusBloc>(
+          create: (context) => container.resolve<ServerStatusBloc>(),
         ),
       ],
       child: App(),

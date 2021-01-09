@@ -267,8 +267,10 @@ class _$ServerStatusStateTearOff {
   }
 
 // ignore: unused_element
-  _Online online() {
-    return const _Online();
+  _Online online(int players) {
+    return _Online(
+      players,
+    );
   }
 }
 
@@ -283,14 +285,14 @@ mixin _$ServerStatusState {
     @required TResult initial(),
     @required TResult loading(),
     @required TResult offline(),
-    @required TResult online(),
+    @required TResult online(int players),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
     TResult offline(),
-    TResult online(),
+    TResult online(int players),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -366,7 +368,7 @@ class _$_Initial implements _Initial {
     @required TResult initial(),
     @required TResult loading(),
     @required TResult offline(),
-    @required TResult online(),
+    @required TResult online(int players),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -381,7 +383,7 @@ class _$_Initial implements _Initial {
     TResult initial(),
     TResult loading(),
     TResult offline(),
-    TResult online(),
+    TResult online(int players),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -466,7 +468,7 @@ class _$_Loading implements _Loading {
     @required TResult initial(),
     @required TResult loading(),
     @required TResult offline(),
-    @required TResult online(),
+    @required TResult online(int players),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -481,7 +483,7 @@ class _$_Loading implements _Loading {
     TResult initial(),
     TResult loading(),
     TResult offline(),
-    TResult online(),
+    TResult online(int players),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -566,7 +568,7 @@ class _$_Offline implements _Offline {
     @required TResult initial(),
     @required TResult loading(),
     @required TResult offline(),
-    @required TResult online(),
+    @required TResult online(int players),
   }) {
     assert(initial != null);
     assert(loading != null);
@@ -581,7 +583,7 @@ class _$_Offline implements _Offline {
     TResult initial(),
     TResult loading(),
     TResult offline(),
-    TResult online(),
+    TResult online(int players),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -631,6 +633,7 @@ abstract class _Offline implements ServerStatusState {
 abstract class _$OnlineCopyWith<$Res> {
   factory _$OnlineCopyWith(_Online value, $Res Function(_Online) then) =
       __$OnlineCopyWithImpl<$Res>;
+  $Res call({int players});
 }
 
 /// @nodoc
@@ -641,24 +644,44 @@ class __$OnlineCopyWithImpl<$Res> extends _$ServerStatusStateCopyWithImpl<$Res>
 
   @override
   _Online get _value => super._value as _Online;
+
+  @override
+  $Res call({
+    Object players = freezed,
+  }) {
+    return _then(_Online(
+      players == freezed ? _value.players : players as int,
+    ));
+  }
 }
 
 /// @nodoc
 class _$_Online implements _Online {
-  const _$_Online();
+  const _$_Online(this.players) : assert(players != null);
+
+  @override
+  final int players;
 
   @override
   String toString() {
-    return 'ServerStatusState.online()';
+    return 'ServerStatusState.online(players: $players)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Online);
+    return identical(this, other) ||
+        (other is _Online &&
+            (identical(other.players, players) ||
+                const DeepCollectionEquality().equals(other.players, players)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(players);
+
+  @override
+  _$OnlineCopyWith<_Online> get copyWith =>
+      __$OnlineCopyWithImpl<_Online>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -666,13 +689,13 @@ class _$_Online implements _Online {
     @required TResult initial(),
     @required TResult loading(),
     @required TResult offline(),
-    @required TResult online(),
+    @required TResult online(int players),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(offline != null);
     assert(online != null);
-    return online();
+    return online(players);
   }
 
   @override
@@ -681,12 +704,12 @@ class _$_Online implements _Online {
     TResult initial(),
     TResult loading(),
     TResult offline(),
-    TResult online(),
+    TResult online(int players),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (online != null) {
-      return online();
+      return online(players);
     }
     return orElse();
   }
@@ -724,5 +747,8 @@ class _$_Online implements _Online {
 }
 
 abstract class _Online implements ServerStatusState {
-  const factory _Online() = _$_Online;
+  const factory _Online(int players) = _$_Online;
+
+  int get players;
+  _$OnlineCopyWith<_Online> get copyWith;
 }
