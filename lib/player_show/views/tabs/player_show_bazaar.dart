@@ -1,3 +1,4 @@
+import 'package:eden_xi_tools/eden/items/entities/search_result_item/search_result_item.dart';
 import 'package:eden_xi_tools/eden/items/repositories/ItemRepository.dart';
 import 'package:eden_xi_tools/eden/player/entities/player_bazaar_item/player_bazaar_item.dart';
 import 'package:eden_xi_tools/item_show/pages/item_show_page.dart';
@@ -43,7 +44,7 @@ class _PlayerShowBazaarState extends State<PlayerShowBazaar> {
 
           return GestureDetector(
             onTap: () => _navigateToItem(
-              name.titleCase.replaceAll("+1", ""),
+              item.itemName,
               context,
             ),
             child: Card(
@@ -81,18 +82,24 @@ class _PlayerShowBazaarState extends State<PlayerShowBazaar> {
 
   _navigateToItem(String itemName, context) async {
     var itemRepository = KiwiContainer().resolve<ItemRepository>();
-    var items = await itemRepository.search(itemName, 0, 1);
+    var name = Uri.encodeFull(itemName);
+    var item = await itemRepository.getItem(name);
 
     if (_snackbar != null) {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
     }
 
-    if (items.total > 0) {
+    if (item != null) {
       Navigator.push(
         context,
         MaterialPageRoute(
           builder: (context) => ItemShowPage(
-            item: items.items.first,
+            item: SearchResultItem(
+              id: item.id,
+              name: ReCase(item.name).titleCase,
+              sort: name,
+              key: name,
+            ),
           ),
         ),
       );
