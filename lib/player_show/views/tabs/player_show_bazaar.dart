@@ -5,12 +5,11 @@ import 'package:eden_xi_tools/styles/spacing.dart';
 import 'package:eden_xi_tools/styles/text_styles.dart';
 import 'package:eden_xi_tools/widgets/centered_message.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kiwi/kiwi.dart';
 import 'package:recase/recase.dart';
 import 'package:eden_xi_tools/extensions/int.dart';
 
-class PlayerShowBazaar extends StatelessWidget {
+class PlayerShowBazaar extends StatefulWidget {
   final List<PlayerBazaarItem> items;
   final Function onRefresh;
 
@@ -21,18 +20,25 @@ class PlayerShowBazaar extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _PlayerShowBazaarState createState() => _PlayerShowBazaarState();
+}
+
+class _PlayerShowBazaarState extends State<PlayerShowBazaar> {
+  SnackBar _snackbar;
+
+  @override
   Widget build(BuildContext context) {
-    if (items.length < 1) {
+    if (widget.items.length < 1) {
       return CenteredMessage("No bazaar history...");
     }
 
     return RefreshIndicator(
-      onRefresh: onRefresh,
+      onRefresh: widget.onRefresh,
       child: ListView.builder(
         padding: EdgeInsets.symmetric(vertical: 8),
-        itemCount: items.length,
+        itemCount: widget.items.length,
         itemBuilder: (BuildContext context, int index) {
-          PlayerBazaarItem item = items[index];
+          PlayerBazaarItem item = widget.items[index];
           ReCase name = new ReCase(item.itemName);
 
           return GestureDetector(
@@ -77,6 +83,10 @@ class PlayerShowBazaar extends StatelessWidget {
     var itemRepository = KiwiContainer().resolve<ItemRepository>();
     var items = await itemRepository.search(itemName, 0, 1);
 
+    if (_snackbar != null) {
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+    }
+
     if (items.total > 0) {
       Navigator.push(
         context,
@@ -87,12 +97,12 @@ class PlayerShowBazaar extends StatelessWidget {
         ),
       );
     } else {
-      Scaffold.of(context).showSnackBar(
-        SnackBar(
-          content: Text("Unable to find item on auction house."),
-          duration: Duration(seconds: 4),
-        ),
+      _snackbar = SnackBar(
+        content: Text("Unable to find item on auction house."),
+        duration: Duration(seconds: 4),
       );
+
+      ScaffoldMessenger.of(context).showSnackBar(_snackbar);
     }
   }
 }
