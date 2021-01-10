@@ -4,8 +4,8 @@ import 'package:eden_xi_tools/widgets/swipable_pages/SwipableScaffold.dart';
 import 'package:flutter/material.dart';
 
 enum FavouritePageTabs {
-  items,
   players,
+  items,
 }
 
 class FavouritesPage extends StatefulWidget {
@@ -29,17 +29,17 @@ class _FavouritesPageState extends State<FavouritesPage> {
         title: Text("Favourites"),
       ),
       pages: [
-        ItemFavouritesTab(),
         PlayerFavouritesTab(),
+        ItemFavouritesTab(),
       ],
       tabs: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: Icon(Icons.cake),
-          label: 'Favourite items',
-        ),
-        BottomNavigationBarItem(
           icon: Icon(Icons.people),
           label: 'Favourite players',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.cake),
+          label: 'Favourite items',
         ),
       ],
     );

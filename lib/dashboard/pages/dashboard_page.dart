@@ -75,8 +75,8 @@ class _DashboardPageState extends State<DashboardPage> {
             children: [
               SizedBox(height: 8),
               DashboardServerStatus(),
-              DashboardFavouriteItemsCard(),
               DashboardFavouritePlayersCard(),
+              DashboardFavouriteItemsCard(),
               SizedBox(height: 16),
             ],
           ),
