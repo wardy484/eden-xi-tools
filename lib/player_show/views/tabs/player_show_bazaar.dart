@@ -35,18 +35,18 @@ class PlayerShowBazaar extends StatelessWidget {
           PlayerBazaarItem item = items[index];
           ReCase name = new ReCase(item.itemName);
 
-          return Card(
-            child: Padding(
-              padding: EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  GestureDetector(
-                    onTap: () => _navigateToItem(
-                      name.titleCase.replaceAll("+1", ""),
-                      context,
-                    ),
-                    child: Row(
+          return GestureDetector(
+            onTap: () => _navigateToItem(
+              name.titleCase.replaceAll("+1", ""),
+              context,
+            ),
+            child: Card(
+              child: Padding(
+                padding: EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(
@@ -63,8 +63,8 @@ class PlayerShowBazaar extends StatelessWidget {
                         ),
                       ],
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           );
