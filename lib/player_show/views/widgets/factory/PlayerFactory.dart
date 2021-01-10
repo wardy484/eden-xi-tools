@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class PlayerFactory {
   static List<Widget> makeCraftsList(PlayerCrafts crafts) {
     return [
-      PlayerProfileSkillLabel(name: "Fishing", level: crafts.alchemy),
+      PlayerProfileSkillLabel(name: "Fishing", level: crafts.fishing),
       PlayerProfileSkillLabel(name: "Woodworking", level: crafts.woodworking),
       PlayerProfileSkillLabel(name: "Smithing", level: crafts.smithing),
       PlayerProfileSkillLabel(name: "Goldsmithing", level: crafts.goldsmithing),
