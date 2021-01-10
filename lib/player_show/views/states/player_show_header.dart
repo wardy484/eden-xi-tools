@@ -22,6 +22,8 @@ class PlayerShowHeader extends StatelessWidget {
       ),
       subtitle: Text(
         playerResult.title,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
         style: LightText,
       ),
     );

@@ -21,6 +21,9 @@ class PlayerShowDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).size);
+    bool isScreenNarrow = MediaQuery.of(context).size.width <= 354;
+
     return RefreshIndicator(
       onRefresh: onRefresh,
       child: ListView(
@@ -29,12 +32,29 @@ class PlayerShowDetails extends StatelessWidget {
           Card(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Flex(
+                direction: isScreenNarrow ? Axis.vertical : Axis.horizontal,
+                mainAxisAlignment: isScreenNarrow
+                    ? MainAxisAlignment.center
+                    : MainAxisAlignment.spaceBetween,
                 children: [
-                  PlayerShowNations(ranks: player.ranks),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: isScreenNarrow
+                        ? MainAxisAlignment.center
+                        : MainAxisAlignment.start,
+                    children: [
+                      PlayerShowNations(ranks: player.ranks),
+                    ],
+                  ),
+                  if (isScreenNarrow)
+                    SizedBox(
+                      height: 16,
+                      width: 1000,
+                    ),
+                  Row(
+                    mainAxisAlignment: isScreenNarrow
+                        ? MainAxisAlignment.center
+                        : MainAxisAlignment.end,
                     children: [
                       Text(player.jobString),
                       SizedBox(width: 8),

@@ -15,8 +15,7 @@ class ItemShowHeader extends StatelessWidget {
         SizedBox(width: 15),
         Text(
           item.name,
-          maxLines: 10,
-          softWrap: true,
+          overflow: TextOverflow.ellipsis,
         ),
       ],
     );
