@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "841113579326",
+    "project_id": "edenxi",
+    "storage_bucket": "edenxi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841113579326:android:af8deec170649351b1466f",
+        "android_client_info": {
+          "package_name": "com.kimward.eden_xi_tools"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "841113579326-lejkps0crv3nr93v04eembrbc7kofk4k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNeE22ztIgrs_M0xg6r9YmUz2OofjrXCA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "841113579326-lejkps0crv3nr93v04eembrbc7kofk4k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
