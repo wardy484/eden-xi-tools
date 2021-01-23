@@ -3,11 +3,11 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:eden_xi_tools/dashboard/pages/dashboard_page.dart';
 import 'package:eden_xi_tools/item_favourites/bloc/item_favourites_bloc.dart';
 import 'package:eden_xi_tools/registrys/app_registry.dart';
-import 'package:eden_xi_tools/server_status/bloc/server_status_bloc.dart';
 import 'package:eden_xi_tools/settings/bloc/settings_bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:eden_xi_tools/player_favourites/bloc/player_favourites_bloc.dart';
 import 'package:kiwi/kiwi.dart';
@@ -36,22 +36,21 @@ void main() async {
   AppRegistry().register();
 
   runApp(
-    MultiBlocProvider(
-      providers: [
-        BlocProvider<ItemFavouritesBloc>(
-          create: (context) => container.resolve<ItemFavouritesBloc>(),
-        ),
-        BlocProvider<PlayerFavouritesBloc>(
-          create: (context) => container.resolve<PlayerFavouritesBloc>(),
-        ),
-        BlocProvider<SettingsBloc>(
-          create: (context) => container.resolve<SettingsBloc>(),
-        ),
-        BlocProvider<ServerStatusBloc>(
-          create: (context) => container.resolve<ServerStatusBloc>(),
-        ),
-      ],
-      child: App(),
+    ProviderScope(
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider<ItemFavouritesBloc>(
+            create: (context) => container.resolve<ItemFavouritesBloc>(),
+          ),
+          BlocProvider<PlayerFavouritesBloc>(
+            create: (context) => container.resolve<PlayerFavouritesBloc>(),
+          ),
+          BlocProvider<SettingsBloc>(
+            create: (context) => container.resolve<SettingsBloc>(),
+          ),
+        ],
+        child: App(),
+      ),
     ),
   );
 }

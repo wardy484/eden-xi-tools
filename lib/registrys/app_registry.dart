@@ -1,7 +1,6 @@
 import 'package:eden_xi_tools/eden/misc/repository/misc_repository.dart';
 import 'package:eden_xi_tools/registrys/bloc_registry.dart';
 import 'package:eden_xi_tools/registrys/repository_registry.dart';
-import 'package:eden_xi_tools/server_status/bloc/server_status_bloc.dart';
 import 'package:eden_xi_tools/yells/bloc/yells_bloc.dart';
 import 'package:kiwi/kiwi.dart';
 import 'package:dio/dio.dart';
@@ -18,14 +17,12 @@ class AppRegistry {
       name: 'EdenClient',
     );
 
-    // TODO: Figure out why i have to register this manual
-    // Using codegen caused weird exception when starting application
+    // TODO: Migrate this shit to riverpod providers
+    // no real need for any of the generate code this providers.
 
     container.registerFactory(
-      (container) => ServerStatusBloc(
-        statusRepository:
-            MiscRepository(client: container.resolve<Dio>("EdenClient")),
-      ),
+      (container) =>
+          MiscRepository(client: container.resolve<Dio>("EdenClient")),
     );
 
     container.registerFactory(
