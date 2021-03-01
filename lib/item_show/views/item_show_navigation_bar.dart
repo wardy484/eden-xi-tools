@@ -1,13 +1,17 @@
+import 'package:eden_xi_tools/eden/items/entities/owner/ownable_items.dart';
+import 'package:eden_xi_tools/eden/items/entities/search_result_item/search_result_item.dart';
 import 'package:flutter/material.dart';
 
 class ItemShowNavigationBar extends StatelessWidget {
   final int currentIndex;
+  final SearchResultItem item;
   final Function(int index) onTap;
 
   const ItemShowNavigationBar({
     Key key,
     this.currentIndex,
     this.onTap,
+    this.item,
   }) : super(key: key);
 
   @override
@@ -16,6 +20,11 @@ class ItemShowNavigationBar extends StatelessWidget {
       currentIndex: currentIndex,
       onTap: onTap,
       items: [
+        if (OwnableItems.contains(item.id))
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Owners',
+          ),
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
           label: 'Auction House',

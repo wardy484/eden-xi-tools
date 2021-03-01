@@ -20,6 +20,7 @@ class _$BlocInjector extends BlocInjector {
         (c) => ItemAuctionHouseBloc(itemRepository: c<ItemRepository>()));
     container.registerFactory(
         (c) => ItemBazaarBloc(itemRepository: c<ItemRepository>()));
+    container.registerFactory((c) => ItemOwnersBloc(c<ItemRepository>()));
     container.registerFactory(
         (c) => PlayerShowBloc(playerRepository: c<PlayerRepository>()));
     container.registerFactory((c) => ItemFavouritesBloc());

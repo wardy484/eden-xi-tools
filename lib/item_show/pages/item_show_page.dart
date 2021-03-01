@@ -1,8 +1,11 @@
+import 'package:eden_xi_tools/eden/items/entities/owner/ownable_items.dart';
 import 'package:eden_xi_tools/item_auction_house/bloc/item_auction_house_bloc.dart';
 import 'package:eden_xi_tools/item_auction_house/pages/item_auction_house_page.dart';
 import 'package:eden_xi_tools/item_bazaar/bloc/item_bazaar_bloc.dart';
 import 'package:eden_xi_tools/item_bazaar/pages/item_bazaar_page.dart';
 import 'package:eden_xi_tools/item_favourites/views/item_favourite_button.dart';
+import 'package:eden_xi_tools/item_owners/bloc/bloc/item_owners_bloc.dart';
+import 'package:eden_xi_tools/item_owners/item_owners_page.dart';
 import 'package:eden_xi_tools/item_show/views/item_show_description.dart';
 import 'package:eden_xi_tools/item_show/views/item_show_header.dart';
 import 'package:eden_xi_tools/widgets/centered_loader.dart';
@@ -29,6 +32,7 @@ class _ItemShowPageState extends State<ItemShowPage> {
   ItemShowBloc _showItemBloc;
   ItemBazaarBloc _bazaarBloc;
   ItemAuctionHouseBloc _auctionHouseBloc;
+  ItemOwnersBloc _itemOwnersBloc;
 
   @override
   void initState() {
@@ -38,6 +42,7 @@ class _ItemShowPageState extends State<ItemShowPage> {
     _showItemBloc = container.resolve<ItemShowBloc>();
     _bazaarBloc = container.resolve<ItemBazaarBloc>();
     _auctionHouseBloc = container.resolve<ItemAuctionHouseBloc>();
+    _itemOwnersBloc = container.resolve<ItemOwnersBloc>();
 
     _showItemBloc.add(ItemShowRequested(key: widget.item.key));
   }
@@ -49,6 +54,7 @@ class _ItemShowPageState extends State<ItemShowPage> {
         BlocProvider.value(value: _showItemBloc),
         BlocProvider.value(value: _bazaarBloc),
         BlocProvider.value(value: _auctionHouseBloc),
+        BlocProvider.value(value: _itemOwnersBloc),
       ],
       child: BlocBuilder<ItemAuctionHouseBloc, ItemAuctionHouseState>(
         builder: (context, state) {
@@ -75,6 +81,8 @@ class _ItemShowPageState extends State<ItemShowPage> {
                       Expanded(
                         child: SwipablePages(
                           pages: [
+                            if (OwnableItems.contains(widget.item.id))
+                              ItemOwnersPage(item: state.item),
                             ItemAuctionHousePage(itemKey: state.item.key),
                             ItemBazaarPage(itemKey: state.item.key),
                           ],
@@ -93,6 +101,7 @@ class _ItemShowPageState extends State<ItemShowPage> {
             bottomNavigationBar: ItemShowNavigationBar(
               currentIndex: _selectedPageIndex ?? 0,
               onTap: _onPageNavigation,
+              item: widget.item,
             ),
           );
         },
@@ -109,6 +118,7 @@ class _ItemShowPageState extends State<ItemShowPage> {
     _showItemBloc.close();
     _bazaarBloc.close();
     _auctionHouseBloc.close();
+    _itemOwnersBloc.close();
 
     super.dispose();
   }

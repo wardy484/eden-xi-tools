@@ -1,4 +1,6 @@
 import 'package:bloc/bloc.dart';
+import 'package:eden_xi_tools/eden/items/entities/owner/ownable_items.dart';
+import 'package:eden_xi_tools/eden/items/entities/owner/owner.dart';
 import 'package:eden_xi_tools/eden/items/repositories/ItemRepository.dart';
 import 'package:eden_xi_tools/item_show/item_show_events.dart';
 import 'package:eden_xi_tools/item_show/item_show_state.dart';
@@ -36,12 +38,18 @@ class ItemShowBloc extends Bloc<ItemShowEvent, ItemShowState> {
   Future<ItemShowSuccess> _buildSuccess(String key, bool stacked) async {
     final item = await itemRepository.getItem(key);
     final bazaarItems = await itemRepository.getBazaarItems(key);
+    List<Owner> owners = [];
+
+    if (OwnableItems.contains(item.id)) {
+      owners = await itemRepository.getOwners(item.id);
+    }
 
     return ItemShowSuccess(
       key: key,
       item: item,
       bazaarItems: bazaarItems,
       showStacked: stacked,
+      owners: owners,
     );
   }
 }

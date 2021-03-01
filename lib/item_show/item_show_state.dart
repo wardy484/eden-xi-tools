@@ -1,3 +1,4 @@
+import 'package:eden_xi_tools/eden/items/entities/owner/owner.dart';
 import 'package:equatable/equatable.dart';
 import 'package:eden_xi_tools/eden/items/entities/bazaar_item/bazaar_item.dart';
 import 'package:eden_xi_tools/eden/items/entities/item/item.dart';
@@ -20,12 +21,14 @@ class ItemShowSuccess extends ItemShowState {
   final Item item;
   final List<BazaarItem> bazaarItems;
   final bool showStacked;
+  final List<Owner> owners;
 
   const ItemShowSuccess({
     this.key,
     this.item,
     this.showStacked,
     this.bazaarItems,
+    this.owners,
   });
 
   ItemShowSuccess copyWith({
@@ -33,12 +36,14 @@ class ItemShowSuccess extends ItemShowState {
     Item item,
     List<BazaarItem> bazaarItems,
     bool showStacked,
+    List<Owner> owners,
   }) {
     return ItemShowSuccess(
       key: key ?? this.key,
       item: item ?? this.item,
       bazaarItems: bazaarItems ?? this.bazaarItems,
       showStacked: showStacked ?? this.showStacked,
+      owners: owners ?? this.owners,
     );
   }
 
@@ -48,6 +53,7 @@ class ItemShowSuccess extends ItemShowState {
         item,
         bazaarItems,
         showStacked,
+        owners,
       ];
 
   @override

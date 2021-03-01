@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:eden_xi_tools/eden/items/entities/owner/owner.dart';
 import 'package:eden_xi_tools/eden/items/entities/search_result/search_result.dart';
 import 'package:eden_xi_tools/eden/items/entities/auction_house_item/auction_house_item.dart';
 import 'package:eden_xi_tools/eden/items/entities/bazaar_item/bazaar_item.dart';
@@ -57,6 +58,18 @@ class ItemRepository {
 
     if (response.statusCode == 200) {
       return Item.fromJson(response.data);
+    } else {
+      throw Exception("Erroring fetching item from Eden server.");
+    }
+  }
+
+  Future<List<Owner>> getOwners(int key) async {
+    final response = await client.get('/items/$key/owners');
+
+    if (response.statusCode == 200) {
+      List owners = response.data as List;
+
+      return owners.map((owner) => Owner(owner)).toList();
     } else {
       throw Exception("Erroring fetching item from Eden server.");
     }
