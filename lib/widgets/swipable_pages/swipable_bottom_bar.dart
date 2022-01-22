@@ -6,10 +6,10 @@ class SwipableBottomBar extends StatefulWidget {
   final Function(int index) onTap;
 
   SwipableBottomBar({
-    Key key,
-    @required this.tabs,
-    @required this.index,
-    @required this.onTap,
+    Key? key,
+    required this.tabs,
+    required this.index,
+    required this.onTap,
   }) : super(key: key);
 
   @override
@@ -30,7 +30,7 @@ class _SwipableBottomBarState extends State<SwipableBottomBar> {
         // color: globals.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.grey[300],
+            color: Colors.grey[300]!,
             blurRadius: 10,
             spreadRadius: 1,
           ),

@@ -8,20 +8,19 @@ import 'package:eden_xi_tools/settings/pages/settings_page.dart';
 import 'package:eden_xi_tools/widgets/swipable_pages/SwipableScaffold.dart';
 import 'package:eden_xi_tools/yells/views/yells_tab.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:hooks_riverpod/all.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class DashboardPage extends HookWidget {
-  const DashboardPage({Key key}) : super(key: key);
+class DashboardPage extends HookConsumerWidget {
+  const DashboardPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     Future.delayed(
       Duration.zero,
-      () => context.read(serverStatusProvider).fetch(),
+      () => ref.read(serverStatusProvider),
     );
 
-    var status = useProvider(serverStatusProvider);
+    var status = ref.watch(serverStatusProvider);
 
     return SwipableScaffold(
       resetOnPop: true,
@@ -39,8 +38,8 @@ class DashboardPage extends HookWidget {
           ],
         ),
         actions: [
-          FlatButton(
-            minWidth: 60,
+          TextButton(
+            // minWidth: 60,
             onPressed: () {
               Navigator.push(
                 context,
@@ -59,7 +58,7 @@ class DashboardPage extends HookWidget {
       pages: [
         RefreshIndicator(
           onRefresh: () async {
-            status.fetch();
+            status;
           },
           child: ListView(
             children: [

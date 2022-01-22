@@ -12,7 +12,7 @@ class FavouritesPage extends StatefulWidget {
   final FavouritePageTabs initialPageIndex;
 
   const FavouritesPage({
-    Key key,
+    Key? key,
     this.initialPageIndex = FavouritePageTabs.items,
   }) : super(key: key);
 

@@ -4,18 +4,19 @@ part 'item.freezed.dart';
 part 'item.g.dart';
 
 @freezed
-abstract class Item with _$Item {
+class Item with _$Item {
+  const Item._();
+
   factory Item({
-    int id,
-    String armor,
-    String desc,
-    String key,
-    String name,
-    String sort,
-    bool stackable,
+    required int id,
+    String? armor,
+    required String desc,
+    required String key,
+    required String name,
+    required String sort,
+    required bool stackable,
   }) = _Item;
 
-  @late
   String get trimmedDesc => desc.replaceAll("\n", " ");
 
   factory Item.fromJson(Map<String, dynamic> json) => _$ItemFromJson(json);

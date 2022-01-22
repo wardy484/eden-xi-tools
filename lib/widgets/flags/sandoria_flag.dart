@@ -6,9 +6,9 @@ class SandoriaFlag extends StatelessWidget {
   final double width;
 
   const SandoriaFlag({
-    Key key,
-    this.height,
-    this.width,
+    Key? key,
+    required this.height,
+    required this.width,
   }) : super(key: key);
 
   @override

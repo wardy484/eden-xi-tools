@@ -6,7 +6,7 @@ import 'package:eden_xi_tools/item_show/views/item_show_scaffold.dart';
 class PlayerShowFailureState extends StatelessWidget {
   final PlayerSearchResultItem item;
 
-  const PlayerShowFailureState({Key key, @required this.item})
+  const PlayerShowFailureState({Key? key, required this.item})
       : super(key: key);
 
   @override

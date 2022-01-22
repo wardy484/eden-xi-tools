@@ -4,11 +4,11 @@ part 'player_ranks.freezed.dart';
 part 'player_ranks.g.dart';
 
 @freezed
-abstract class PlayerRanks with _$PlayerRanks {
+class PlayerRanks with _$PlayerRanks {
   factory PlayerRanks({
-    int bastok,
-    int sandoria,
-    int windurst,
+    required int bastok,
+    required int sandoria,
+    required int windurst,
   }) = _PlayerRanks;
 
   factory PlayerRanks.fromJson(Map<String, dynamic> json) =>

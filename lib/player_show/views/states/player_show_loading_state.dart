@@ -6,7 +6,7 @@ import 'package:eden_xi_tools/item_show/views/item_show_scaffold.dart';
 class PlayerShowLoadingState extends StatelessWidget {
   final PlayerSearchResultItem playerResult;
 
-  const PlayerShowLoadingState({Key key, @required this.playerResult})
+  const PlayerShowLoadingState({Key? key, required this.playerResult})
       : super(key: key);
 
   @override

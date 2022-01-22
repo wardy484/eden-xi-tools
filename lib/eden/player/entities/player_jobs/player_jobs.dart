@@ -4,28 +4,28 @@ part 'player_jobs.freezed.dart';
 part 'player_jobs.g.dart';
 
 @freezed
-abstract class PlayerJobs with _$PlayerJobs {
+class PlayerJobs with _$PlayerJobs {
   factory PlayerJobs({
-    @JsonKey(name: 'BLM') int blm,
-    @JsonKey(name: 'BLU') int blu,
-    @JsonKey(name: 'BRD') int brd,
-    @JsonKey(name: 'BST') int bst,
-    @JsonKey(name: 'COR') int cor,
-    @JsonKey(name: 'DNC') int dnc,
-    @JsonKey(name: 'DRG') int drg,
-    @JsonKey(name: 'DRK') int drk,
-    @JsonKey(name: 'MNK') int mnk,
-    @JsonKey(name: 'NIN') int nin,
-    @JsonKey(name: 'PLD') int pld,
-    @JsonKey(name: 'PUP') int pup,
-    @JsonKey(name: 'RDM') int rdm,
-    @JsonKey(name: 'RNG') int rng,
-    @JsonKey(name: 'SAM') int sam,
-    @JsonKey(name: 'SCH') int sch,
-    @JsonKey(name: 'SMN') int smn,
-    @JsonKey(name: 'THF') int thf,
-    @JsonKey(name: 'WAR') int war,
-    @JsonKey(name: 'WHM') int whm,
+    @JsonKey(name: 'BLM') required int blm,
+    @JsonKey(name: 'BLU') required int blu,
+    @JsonKey(name: 'BRD') required int brd,
+    @JsonKey(name: 'BST') required int bst,
+    @JsonKey(name: 'COR') required int cor,
+    @JsonKey(name: 'DNC') required int dnc,
+    @JsonKey(name: 'DRG') required int drg,
+    @JsonKey(name: 'DRK') required int drk,
+    @JsonKey(name: 'MNK') required int mnk,
+    @JsonKey(name: 'NIN') required int nin,
+    @JsonKey(name: 'PLD') required int pld,
+    @JsonKey(name: 'PUP') required int pup,
+    @JsonKey(name: 'RDM') required int rdm,
+    @JsonKey(name: 'RNG') required int rng,
+    @JsonKey(name: 'SAM') required int sam,
+    @JsonKey(name: 'SCH') required int sch,
+    @JsonKey(name: 'SMN') required int smn,
+    @JsonKey(name: 'THF') required int thf,
+    @JsonKey(name: 'WAR') required int war,
+    @JsonKey(name: 'WHM') required int whm,
   }) = _PlayerJobs;
 
   factory PlayerJobs.fromJson(Map<String, dynamic> json) =>

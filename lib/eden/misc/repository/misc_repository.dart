@@ -2,12 +2,10 @@ import 'package:dio/dio.dart';
 import 'package:eden_xi_tools/eden/misc/entities/status/status.dart';
 import 'package:eden_xi_tools/eden/misc/entities/yell/yell.dart';
 
-import 'package:flutter/material.dart';
-
 class MiscRepository {
   final Dio client;
 
-  MiscRepository({@required this.client});
+  MiscRepository({required this.client});
 
   Future<Status> get() async {
     final response = await client.get('misc/status');

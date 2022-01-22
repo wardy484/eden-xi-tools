@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'player_equipment.dart';
 
@@ -8,6 +9,10 @@ part of 'player_equipment.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 PlayerEquipment _$PlayerEquipmentFromJson(Map<String, dynamic> json) {
   return _PlayerEquipment.fromJson(json);
 }
@@ -16,7 +21,6 @@ PlayerEquipment _$PlayerEquipmentFromJson(Map<String, dynamic> json) {
 class _$PlayerEquipmentTearOff {
   const _$PlayerEquipmentTearOff();
 
-// ignore: unused_element
   _PlayerEquipment call(
       PlayerEquipmentSlot ammo,
       PlayerEquipmentSlot back,
@@ -58,39 +62,39 @@ class _$PlayerEquipmentTearOff {
     );
   }
 
-// ignore: unused_element
-  PlayerEquipment fromJson(Map<String, Object> json) {
+  PlayerEquipment fromJson(Map<String, Object?> json) {
     return PlayerEquipment.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $PlayerEquipment = _$PlayerEquipmentTearOff();
 
 /// @nodoc
 mixin _$PlayerEquipment {
-  PlayerEquipmentSlot get ammo;
-  PlayerEquipmentSlot get back;
-  PlayerEquipmentSlot get body;
-  PlayerEquipmentSlot get ear1;
-  PlayerEquipmentSlot get ear2;
-  PlayerEquipmentSlot get feet;
-  PlayerEquipmentSlot get hands;
-  PlayerEquipmentSlot get head;
-  PlayerEquipmentSlot get legs;
-  PlayerEquipmentSlot get ls1;
-  PlayerEquipmentSlot get ls2;
-  PlayerEquipmentSlot get main;
-  PlayerEquipmentSlot get neck;
-  PlayerEquipmentSlot get ranged;
-  PlayerEquipmentSlot get ring1;
-  PlayerEquipmentSlot get ring2;
-  PlayerEquipmentSlot get sub;
-  PlayerEquipmentSlot get waist;
+  PlayerEquipmentSlot get ammo => throw _privateConstructorUsedError;
+  PlayerEquipmentSlot get back => throw _privateConstructorUsedError;
+  PlayerEquipmentSlot get body => throw _privateConstructorUsedError;
+  PlayerEquipmentSlot get ear1 => throw _privateConstructorUsedError;
+  PlayerEquipmentSlot get ear2 => throw _privateConstructorUsedError;
+  PlayerEquipmentSlot get feet => throw _privateConstructorUsedError;
+  PlayerEquipmentSlot get hands => throw _privateConstructorUsedError;
+  PlayerEquipmentSlot get head => throw _privateConstructorUsedError;
+  PlayerEquipmentSlot get legs => throw _privateConstructorUsedError;
+  PlayerEquipmentSlot get ls1 => throw _privateConstructorUsedError;
+  PlayerEquipmentSlot get ls2 => throw _privateConstructorUsedError;
+  PlayerEquipmentSlot get main => throw _privateConstructorUsedError;
+  PlayerEquipmentSlot get neck => throw _privateConstructorUsedError;
+  PlayerEquipmentSlot get ranged => throw _privateConstructorUsedError;
+  PlayerEquipmentSlot get ring1 => throw _privateConstructorUsedError;
+  PlayerEquipmentSlot get ring2 => throw _privateConstructorUsedError;
+  PlayerEquipmentSlot get sub => throw _privateConstructorUsedError;
+  PlayerEquipmentSlot get waist => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $PlayerEquipmentCopyWith<PlayerEquipment> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PlayerEquipmentCopyWith<PlayerEquipment> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -149,52 +153,103 @@ class _$PlayerEquipmentCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object ammo = freezed,
-    Object back = freezed,
-    Object body = freezed,
-    Object ear1 = freezed,
-    Object ear2 = freezed,
-    Object feet = freezed,
-    Object hands = freezed,
-    Object head = freezed,
-    Object legs = freezed,
-    Object ls1 = freezed,
-    Object ls2 = freezed,
-    Object main = freezed,
-    Object neck = freezed,
-    Object ranged = freezed,
-    Object ring1 = freezed,
-    Object ring2 = freezed,
-    Object sub = freezed,
-    Object waist = freezed,
+    Object? ammo = freezed,
+    Object? back = freezed,
+    Object? body = freezed,
+    Object? ear1 = freezed,
+    Object? ear2 = freezed,
+    Object? feet = freezed,
+    Object? hands = freezed,
+    Object? head = freezed,
+    Object? legs = freezed,
+    Object? ls1 = freezed,
+    Object? ls2 = freezed,
+    Object? main = freezed,
+    Object? neck = freezed,
+    Object? ranged = freezed,
+    Object? ring1 = freezed,
+    Object? ring2 = freezed,
+    Object? sub = freezed,
+    Object? waist = freezed,
   }) {
     return _then(_value.copyWith(
-      ammo: ammo == freezed ? _value.ammo : ammo as PlayerEquipmentSlot,
-      back: back == freezed ? _value.back : back as PlayerEquipmentSlot,
-      body: body == freezed ? _value.body : body as PlayerEquipmentSlot,
-      ear1: ear1 == freezed ? _value.ear1 : ear1 as PlayerEquipmentSlot,
-      ear2: ear2 == freezed ? _value.ear2 : ear2 as PlayerEquipmentSlot,
-      feet: feet == freezed ? _value.feet : feet as PlayerEquipmentSlot,
-      hands: hands == freezed ? _value.hands : hands as PlayerEquipmentSlot,
-      head: head == freezed ? _value.head : head as PlayerEquipmentSlot,
-      legs: legs == freezed ? _value.legs : legs as PlayerEquipmentSlot,
-      ls1: ls1 == freezed ? _value.ls1 : ls1 as PlayerEquipmentSlot,
-      ls2: ls2 == freezed ? _value.ls2 : ls2 as PlayerEquipmentSlot,
-      main: main == freezed ? _value.main : main as PlayerEquipmentSlot,
-      neck: neck == freezed ? _value.neck : neck as PlayerEquipmentSlot,
-      ranged: ranged == freezed ? _value.ranged : ranged as PlayerEquipmentSlot,
-      ring1: ring1 == freezed ? _value.ring1 : ring1 as PlayerEquipmentSlot,
-      ring2: ring2 == freezed ? _value.ring2 : ring2 as PlayerEquipmentSlot,
-      sub: sub == freezed ? _value.sub : sub as PlayerEquipmentSlot,
-      waist: waist == freezed ? _value.waist : waist as PlayerEquipmentSlot,
+      ammo: ammo == freezed
+          ? _value.ammo
+          : ammo // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      back: back == freezed
+          ? _value.back
+          : back // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      body: body == freezed
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      ear1: ear1 == freezed
+          ? _value.ear1
+          : ear1 // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      ear2: ear2 == freezed
+          ? _value.ear2
+          : ear2 // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      feet: feet == freezed
+          ? _value.feet
+          : feet // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      hands: hands == freezed
+          ? _value.hands
+          : hands // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      head: head == freezed
+          ? _value.head
+          : head // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      legs: legs == freezed
+          ? _value.legs
+          : legs // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      ls1: ls1 == freezed
+          ? _value.ls1
+          : ls1 // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      ls2: ls2 == freezed
+          ? _value.ls2
+          : ls2 // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      main: main == freezed
+          ? _value.main
+          : main // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      neck: neck == freezed
+          ? _value.neck
+          : neck // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      ranged: ranged == freezed
+          ? _value.ranged
+          : ranged // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      ring1: ring1 == freezed
+          ? _value.ring1
+          : ring1 // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      ring2: ring2 == freezed
+          ? _value.ring2
+          : ring2 // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      sub: sub == freezed
+          ? _value.sub
+          : sub // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      waist: waist == freezed
+          ? _value.waist
+          : waist // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
     ));
   }
 
   @override
   $PlayerEquipmentSlotCopyWith<$Res> get ammo {
-    if (_value.ammo == null) {
-      return null;
-    }
     return $PlayerEquipmentSlotCopyWith<$Res>(_value.ammo, (value) {
       return _then(_value.copyWith(ammo: value));
     });
@@ -202,9 +257,6 @@ class _$PlayerEquipmentCopyWithImpl<$Res>
 
   @override
   $PlayerEquipmentSlotCopyWith<$Res> get back {
-    if (_value.back == null) {
-      return null;
-    }
     return $PlayerEquipmentSlotCopyWith<$Res>(_value.back, (value) {
       return _then(_value.copyWith(back: value));
     });
@@ -212,9 +264,6 @@ class _$PlayerEquipmentCopyWithImpl<$Res>
 
   @override
   $PlayerEquipmentSlotCopyWith<$Res> get body {
-    if (_value.body == null) {
-      return null;
-    }
     return $PlayerEquipmentSlotCopyWith<$Res>(_value.body, (value) {
       return _then(_value.copyWith(body: value));
     });
@@ -222,9 +271,6 @@ class _$PlayerEquipmentCopyWithImpl<$Res>
 
   @override
   $PlayerEquipmentSlotCopyWith<$Res> get ear1 {
-    if (_value.ear1 == null) {
-      return null;
-    }
     return $PlayerEquipmentSlotCopyWith<$Res>(_value.ear1, (value) {
       return _then(_value.copyWith(ear1: value));
     });
@@ -232,9 +278,6 @@ class _$PlayerEquipmentCopyWithImpl<$Res>
 
   @override
   $PlayerEquipmentSlotCopyWith<$Res> get ear2 {
-    if (_value.ear2 == null) {
-      return null;
-    }
     return $PlayerEquipmentSlotCopyWith<$Res>(_value.ear2, (value) {
       return _then(_value.copyWith(ear2: value));
     });
@@ -242,9 +285,6 @@ class _$PlayerEquipmentCopyWithImpl<$Res>
 
   @override
   $PlayerEquipmentSlotCopyWith<$Res> get feet {
-    if (_value.feet == null) {
-      return null;
-    }
     return $PlayerEquipmentSlotCopyWith<$Res>(_value.feet, (value) {
       return _then(_value.copyWith(feet: value));
     });
@@ -252,9 +292,6 @@ class _$PlayerEquipmentCopyWithImpl<$Res>
 
   @override
   $PlayerEquipmentSlotCopyWith<$Res> get hands {
-    if (_value.hands == null) {
-      return null;
-    }
     return $PlayerEquipmentSlotCopyWith<$Res>(_value.hands, (value) {
       return _then(_value.copyWith(hands: value));
     });
@@ -262,9 +299,6 @@ class _$PlayerEquipmentCopyWithImpl<$Res>
 
   @override
   $PlayerEquipmentSlotCopyWith<$Res> get head {
-    if (_value.head == null) {
-      return null;
-    }
     return $PlayerEquipmentSlotCopyWith<$Res>(_value.head, (value) {
       return _then(_value.copyWith(head: value));
     });
@@ -272,9 +306,6 @@ class _$PlayerEquipmentCopyWithImpl<$Res>
 
   @override
   $PlayerEquipmentSlotCopyWith<$Res> get legs {
-    if (_value.legs == null) {
-      return null;
-    }
     return $PlayerEquipmentSlotCopyWith<$Res>(_value.legs, (value) {
       return _then(_value.copyWith(legs: value));
     });
@@ -282,9 +313,6 @@ class _$PlayerEquipmentCopyWithImpl<$Res>
 
   @override
   $PlayerEquipmentSlotCopyWith<$Res> get ls1 {
-    if (_value.ls1 == null) {
-      return null;
-    }
     return $PlayerEquipmentSlotCopyWith<$Res>(_value.ls1, (value) {
       return _then(_value.copyWith(ls1: value));
     });
@@ -292,9 +320,6 @@ class _$PlayerEquipmentCopyWithImpl<$Res>
 
   @override
   $PlayerEquipmentSlotCopyWith<$Res> get ls2 {
-    if (_value.ls2 == null) {
-      return null;
-    }
     return $PlayerEquipmentSlotCopyWith<$Res>(_value.ls2, (value) {
       return _then(_value.copyWith(ls2: value));
     });
@@ -302,9 +327,6 @@ class _$PlayerEquipmentCopyWithImpl<$Res>
 
   @override
   $PlayerEquipmentSlotCopyWith<$Res> get main {
-    if (_value.main == null) {
-      return null;
-    }
     return $PlayerEquipmentSlotCopyWith<$Res>(_value.main, (value) {
       return _then(_value.copyWith(main: value));
     });
@@ -312,9 +334,6 @@ class _$PlayerEquipmentCopyWithImpl<$Res>
 
   @override
   $PlayerEquipmentSlotCopyWith<$Res> get neck {
-    if (_value.neck == null) {
-      return null;
-    }
     return $PlayerEquipmentSlotCopyWith<$Res>(_value.neck, (value) {
       return _then(_value.copyWith(neck: value));
     });
@@ -322,9 +341,6 @@ class _$PlayerEquipmentCopyWithImpl<$Res>
 
   @override
   $PlayerEquipmentSlotCopyWith<$Res> get ranged {
-    if (_value.ranged == null) {
-      return null;
-    }
     return $PlayerEquipmentSlotCopyWith<$Res>(_value.ranged, (value) {
       return _then(_value.copyWith(ranged: value));
     });
@@ -332,9 +348,6 @@ class _$PlayerEquipmentCopyWithImpl<$Res>
 
   @override
   $PlayerEquipmentSlotCopyWith<$Res> get ring1 {
-    if (_value.ring1 == null) {
-      return null;
-    }
     return $PlayerEquipmentSlotCopyWith<$Res>(_value.ring1, (value) {
       return _then(_value.copyWith(ring1: value));
     });
@@ -342,9 +355,6 @@ class _$PlayerEquipmentCopyWithImpl<$Res>
 
   @override
   $PlayerEquipmentSlotCopyWith<$Res> get ring2 {
-    if (_value.ring2 == null) {
-      return null;
-    }
     return $PlayerEquipmentSlotCopyWith<$Res>(_value.ring2, (value) {
       return _then(_value.copyWith(ring2: value));
     });
@@ -352,9 +362,6 @@ class _$PlayerEquipmentCopyWithImpl<$Res>
 
   @override
   $PlayerEquipmentSlotCopyWith<$Res> get sub {
-    if (_value.sub == null) {
-      return null;
-    }
     return $PlayerEquipmentSlotCopyWith<$Res>(_value.sub, (value) {
       return _then(_value.copyWith(sub: value));
     });
@@ -362,9 +369,6 @@ class _$PlayerEquipmentCopyWithImpl<$Res>
 
   @override
   $PlayerEquipmentSlotCopyWith<$Res> get waist {
-    if (_value.waist == null) {
-      return null;
-    }
     return $PlayerEquipmentSlotCopyWith<$Res>(_value.waist, (value) {
       return _then(_value.copyWith(waist: value));
     });
@@ -449,52 +453,105 @@ class __$PlayerEquipmentCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object ammo = freezed,
-    Object back = freezed,
-    Object body = freezed,
-    Object ear1 = freezed,
-    Object ear2 = freezed,
-    Object feet = freezed,
-    Object hands = freezed,
-    Object head = freezed,
-    Object legs = freezed,
-    Object ls1 = freezed,
-    Object ls2 = freezed,
-    Object main = freezed,
-    Object neck = freezed,
-    Object ranged = freezed,
-    Object ring1 = freezed,
-    Object ring2 = freezed,
-    Object sub = freezed,
-    Object waist = freezed,
+    Object? ammo = freezed,
+    Object? back = freezed,
+    Object? body = freezed,
+    Object? ear1 = freezed,
+    Object? ear2 = freezed,
+    Object? feet = freezed,
+    Object? hands = freezed,
+    Object? head = freezed,
+    Object? legs = freezed,
+    Object? ls1 = freezed,
+    Object? ls2 = freezed,
+    Object? main = freezed,
+    Object? neck = freezed,
+    Object? ranged = freezed,
+    Object? ring1 = freezed,
+    Object? ring2 = freezed,
+    Object? sub = freezed,
+    Object? waist = freezed,
   }) {
     return _then(_PlayerEquipment(
-      ammo == freezed ? _value.ammo : ammo as PlayerEquipmentSlot,
-      back == freezed ? _value.back : back as PlayerEquipmentSlot,
-      body == freezed ? _value.body : body as PlayerEquipmentSlot,
-      ear1 == freezed ? _value.ear1 : ear1 as PlayerEquipmentSlot,
-      ear2 == freezed ? _value.ear2 : ear2 as PlayerEquipmentSlot,
-      feet == freezed ? _value.feet : feet as PlayerEquipmentSlot,
-      hands == freezed ? _value.hands : hands as PlayerEquipmentSlot,
-      head == freezed ? _value.head : head as PlayerEquipmentSlot,
-      legs == freezed ? _value.legs : legs as PlayerEquipmentSlot,
-      ls1 == freezed ? _value.ls1 : ls1 as PlayerEquipmentSlot,
-      ls2 == freezed ? _value.ls2 : ls2 as PlayerEquipmentSlot,
-      main == freezed ? _value.main : main as PlayerEquipmentSlot,
-      neck == freezed ? _value.neck : neck as PlayerEquipmentSlot,
-      ranged == freezed ? _value.ranged : ranged as PlayerEquipmentSlot,
-      ring1 == freezed ? _value.ring1 : ring1 as PlayerEquipmentSlot,
-      ring2 == freezed ? _value.ring2 : ring2 as PlayerEquipmentSlot,
-      sub == freezed ? _value.sub : sub as PlayerEquipmentSlot,
-      waist == freezed ? _value.waist : waist as PlayerEquipmentSlot,
+      ammo == freezed
+          ? _value.ammo
+          : ammo // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      back == freezed
+          ? _value.back
+          : back // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      body == freezed
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      ear1 == freezed
+          ? _value.ear1
+          : ear1 // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      ear2 == freezed
+          ? _value.ear2
+          : ear2 // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      feet == freezed
+          ? _value.feet
+          : feet // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      hands == freezed
+          ? _value.hands
+          : hands // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      head == freezed
+          ? _value.head
+          : head // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      legs == freezed
+          ? _value.legs
+          : legs // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      ls1 == freezed
+          ? _value.ls1
+          : ls1 // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      ls2 == freezed
+          ? _value.ls2
+          : ls2 // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      main == freezed
+          ? _value.main
+          : main // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      neck == freezed
+          ? _value.neck
+          : neck // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      ranged == freezed
+          ? _value.ranged
+          : ranged // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      ring1 == freezed
+          ? _value.ring1
+          : ring1 // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      ring2 == freezed
+          ? _value.ring2
+          : ring2 // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      sub == freezed
+          ? _value.sub
+          : sub // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
+      waist == freezed
+          ? _value.waist
+          : waist // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipmentSlot,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
-class _$_PlayerEquipment implements _PlayerEquipment {
+@JsonSerializable()
+class _$_PlayerEquipment extends _PlayerEquipment {
   _$_PlayerEquipment(
       this.ammo,
       this.back,
@@ -514,27 +571,10 @@ class _$_PlayerEquipment implements _PlayerEquipment {
       this.ring2,
       this.sub,
       this.waist)
-      : assert(ammo != null),
-        assert(back != null),
-        assert(body != null),
-        assert(ear1 != null),
-        assert(ear2 != null),
-        assert(feet != null),
-        assert(hands != null),
-        assert(head != null),
-        assert(legs != null),
-        assert(ls1 != null),
-        assert(ls2 != null),
-        assert(main != null),
-        assert(neck != null),
-        assert(ranged != null),
-        assert(ring1 != null),
-        assert(ring2 != null),
-        assert(sub != null),
-        assert(waist != null);
+      : super._();
 
   factory _$_PlayerEquipment.fromJson(Map<String, dynamic> json) =>
-      _$_$_PlayerEquipmentFromJson(json);
+      _$$_PlayerEquipmentFromJson(json);
 
   @override
   final PlayerEquipmentSlot ammo;
@@ -581,78 +621,62 @@ class _$_PlayerEquipment implements _PlayerEquipment {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PlayerEquipment &&
-            (identical(other.ammo, ammo) ||
-                const DeepCollectionEquality().equals(other.ammo, ammo)) &&
-            (identical(other.back, back) ||
-                const DeepCollectionEquality().equals(other.back, back)) &&
-            (identical(other.body, body) ||
-                const DeepCollectionEquality().equals(other.body, body)) &&
-            (identical(other.ear1, ear1) ||
-                const DeepCollectionEquality().equals(other.ear1, ear1)) &&
-            (identical(other.ear2, ear2) ||
-                const DeepCollectionEquality().equals(other.ear2, ear2)) &&
-            (identical(other.feet, feet) ||
-                const DeepCollectionEquality().equals(other.feet, feet)) &&
-            (identical(other.hands, hands) ||
-                const DeepCollectionEquality().equals(other.hands, hands)) &&
-            (identical(other.head, head) ||
-                const DeepCollectionEquality().equals(other.head, head)) &&
-            (identical(other.legs, legs) ||
-                const DeepCollectionEquality().equals(other.legs, legs)) &&
-            (identical(other.ls1, ls1) ||
-                const DeepCollectionEquality().equals(other.ls1, ls1)) &&
-            (identical(other.ls2, ls2) ||
-                const DeepCollectionEquality().equals(other.ls2, ls2)) &&
-            (identical(other.main, main) ||
-                const DeepCollectionEquality().equals(other.main, main)) &&
-            (identical(other.neck, neck) ||
-                const DeepCollectionEquality().equals(other.neck, neck)) &&
-            (identical(other.ranged, ranged) ||
-                const DeepCollectionEquality().equals(other.ranged, ranged)) &&
-            (identical(other.ring1, ring1) ||
-                const DeepCollectionEquality().equals(other.ring1, ring1)) &&
-            (identical(other.ring2, ring2) ||
-                const DeepCollectionEquality().equals(other.ring2, ring2)) &&
-            (identical(other.sub, sub) ||
-                const DeepCollectionEquality().equals(other.sub, sub)) &&
-            (identical(other.waist, waist) ||
-                const DeepCollectionEquality().equals(other.waist, waist)));
+        (other.runtimeType == runtimeType &&
+            other is _PlayerEquipment &&
+            (identical(other.ammo, ammo) || other.ammo == ammo) &&
+            (identical(other.back, back) || other.back == back) &&
+            (identical(other.body, body) || other.body == body) &&
+            (identical(other.ear1, ear1) || other.ear1 == ear1) &&
+            (identical(other.ear2, ear2) || other.ear2 == ear2) &&
+            (identical(other.feet, feet) || other.feet == feet) &&
+            (identical(other.hands, hands) || other.hands == hands) &&
+            (identical(other.head, head) || other.head == head) &&
+            (identical(other.legs, legs) || other.legs == legs) &&
+            (identical(other.ls1, ls1) || other.ls1 == ls1) &&
+            (identical(other.ls2, ls2) || other.ls2 == ls2) &&
+            (identical(other.main, main) || other.main == main) &&
+            (identical(other.neck, neck) || other.neck == neck) &&
+            (identical(other.ranged, ranged) || other.ranged == ranged) &&
+            (identical(other.ring1, ring1) || other.ring1 == ring1) &&
+            (identical(other.ring2, ring2) || other.ring2 == ring2) &&
+            (identical(other.sub, sub) || other.sub == sub) &&
+            (identical(other.waist, waist) || other.waist == waist));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(ammo) ^
-      const DeepCollectionEquality().hash(back) ^
-      const DeepCollectionEquality().hash(body) ^
-      const DeepCollectionEquality().hash(ear1) ^
-      const DeepCollectionEquality().hash(ear2) ^
-      const DeepCollectionEquality().hash(feet) ^
-      const DeepCollectionEquality().hash(hands) ^
-      const DeepCollectionEquality().hash(head) ^
-      const DeepCollectionEquality().hash(legs) ^
-      const DeepCollectionEquality().hash(ls1) ^
-      const DeepCollectionEquality().hash(ls2) ^
-      const DeepCollectionEquality().hash(main) ^
-      const DeepCollectionEquality().hash(neck) ^
-      const DeepCollectionEquality().hash(ranged) ^
-      const DeepCollectionEquality().hash(ring1) ^
-      const DeepCollectionEquality().hash(ring2) ^
-      const DeepCollectionEquality().hash(sub) ^
-      const DeepCollectionEquality().hash(waist);
+  int get hashCode => Object.hash(
+      runtimeType,
+      ammo,
+      back,
+      body,
+      ear1,
+      ear2,
+      feet,
+      hands,
+      head,
+      legs,
+      ls1,
+      ls2,
+      main,
+      neck,
+      ranged,
+      ring1,
+      ring2,
+      sub,
+      waist);
 
+  @JsonKey(ignore: true)
   @override
   _$PlayerEquipmentCopyWith<_PlayerEquipment> get copyWith =>
       __$PlayerEquipmentCopyWithImpl<_PlayerEquipment>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_PlayerEquipmentToJson(this);
+    return _$$_PlayerEquipmentToJson(this);
   }
 }
 
-abstract class _PlayerEquipment implements PlayerEquipment {
+abstract class _PlayerEquipment extends PlayerEquipment {
   factory _PlayerEquipment(
       PlayerEquipmentSlot ammo,
       PlayerEquipmentSlot back,
@@ -672,6 +696,7 @@ abstract class _PlayerEquipment implements PlayerEquipment {
       PlayerEquipmentSlot ring2,
       PlayerEquipmentSlot sub,
       PlayerEquipmentSlot waist) = _$_PlayerEquipment;
+  _PlayerEquipment._() : super._();
 
   factory _PlayerEquipment.fromJson(Map<String, dynamic> json) =
       _$_PlayerEquipment.fromJson;
@@ -713,5 +738,7 @@ abstract class _PlayerEquipment implements PlayerEquipment {
   @override
   PlayerEquipmentSlot get waist;
   @override
-  _$PlayerEquipmentCopyWith<_PlayerEquipment> get copyWith;
+  @JsonKey(ignore: true)
+  _$PlayerEquipmentCopyWith<_PlayerEquipment> get copyWith =>
+      throw _privateConstructorUsedError;
 }

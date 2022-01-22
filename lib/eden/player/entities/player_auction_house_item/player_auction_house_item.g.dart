@@ -6,19 +6,18 @@ part of 'player_auction_house_item.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PlayerAuctionHouseItem _$_$_PlayerAuctionHouseItemFromJson(
-    Map<String, dynamic> json) {
-  return _$_PlayerAuctionHouseItem(
-    buyerName: json['buyer_name'] as String,
-    name: json['name'] as String,
-    sale: json['sale'] as int,
-    sellDate: json['sell_date'] as int,
-    sellerName: json['seller_name'] as String,
-    stackSize: json['stack_size'] as int,
-  );
-}
+_$_PlayerAuctionHouseItem _$$_PlayerAuctionHouseItemFromJson(
+        Map<String, dynamic> json) =>
+    _$_PlayerAuctionHouseItem(
+      buyerName: json['buyer_name'] as String,
+      name: json['name'] as String,
+      sale: json['sale'] as int,
+      sellDate: json['sell_date'] as int,
+      sellerName: json['seller_name'] as String,
+      stackSize: json['stack_size'] as int,
+    );
 
-Map<String, dynamic> _$_$_PlayerAuctionHouseItemToJson(
+Map<String, dynamic> _$$_PlayerAuctionHouseItemToJson(
         _$_PlayerAuctionHouseItem instance) =>
     <String, dynamic>{
       'buyer_name': instance.buyerName,

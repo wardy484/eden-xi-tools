@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 
 class PlayerSearchResultCard extends StatelessWidget {
   final PlayerSearchResultItem item;
-  final Widget icon;
+  final Widget? icon;
 
   const PlayerSearchResultCard({
-    Key key,
-    @required this.item,
+    Key? key,
+    required this.item,
     this.icon,
   }) : super(key: key);
 
@@ -22,7 +22,7 @@ class PlayerSearchResultCard extends StatelessWidget {
         width: 45,
       ),
       title: Text(item.charname),
-      subtitle: Text(item.title),
+      subtitle: Text(item.jobString),
       trailing: icon == null ? Icon(Icons.arrow_forward_ios, size: 15) : icon,
       onTap: () => _navigate(context),
     );

@@ -13,7 +13,10 @@ enum MoreOptions { buyer, seller }
 class ItemAuctionHouseCard extends StatelessWidget {
   final AuctionHouseItem item;
 
-  const ItemAuctionHouseCard({Key key, this.item}) : super(key: key);
+  const ItemAuctionHouseCard({
+    Key? key,
+    required this.item,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,11 +41,12 @@ class ItemAuctionHouseCard extends StatelessWidget {
                 return <PopupMenuEntry<MoreOptions>>[
                   PopupMenuItem<MoreOptions>(
                     value: MoreOptions.seller,
-                    child: Text('Seller: ${item.sellerName}'),
+                    // TODO: Fix enums being wrong way around
+                    child: Text('Seller: ${item.buyerName}'),
                   ),
                   PopupMenuItem<MoreOptions>(
                     value: MoreOptions.buyer,
-                    child: Text('Buyer: ${item.buyerName}'),
+                    child: Text('Buyer: ${item.sellerName}'),
                   ),
                 ];
               },

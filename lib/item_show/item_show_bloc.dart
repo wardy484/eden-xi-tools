@@ -4,33 +4,36 @@ import 'package:eden_xi_tools/eden/items/entities/owner/owner.dart';
 import 'package:eden_xi_tools/eden/items/repositories/ItemRepository.dart';
 import 'package:eden_xi_tools/item_show/item_show_events.dart';
 import 'package:eden_xi_tools/item_show/item_show_state.dart';
-import 'package:meta/meta.dart';
 
 class ItemShowBloc extends Bloc<ItemShowEvent, ItemShowState> {
   final ItemRepository itemRepository;
   final limit = 30;
 
-  ItemShowBloc({@required this.itemRepository}) : super(ItemShowInitial());
+  ItemShowBloc({required this.itemRepository}) : super(ItemShowInitial()) {
+    on<ItemShowEvent>(_onEvent);
+  }
 
-  @override
-  Stream<ItemShowState> mapEventToState(ItemShowEvent event) async* {
+  void _onEvent(
+    ItemShowEvent event,
+    Emitter<ItemShowState> emit,
+  ) async {
     if (event is ItemShowClear) {
-      yield ItemShowInitial();
+      emit(ItemShowInitial());
     }
 
     if (event is ItemShowRefreshed && state is ItemShowSuccess) {
-      yield ItemShowInitial();
+      emit(ItemShowInitial());
 
-      yield await _buildSuccess("fire_crystal", false);
+      emit(await _buildSuccess("fire_crystal", false));
     }
 
     if (event is ItemShowRequested) {
-      yield ItemShowInitial();
+      emit(ItemShowInitial());
 
       try {
-        yield await _buildSuccess(event.key, event.stacked);
+        emit(await _buildSuccess(event.key, event.stacked));
       } catch (_) {
-        yield ItemShowFailure();
+        emit(ItemShowFailure());
       }
     }
   }

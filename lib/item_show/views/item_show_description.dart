@@ -10,9 +10,9 @@ class ItemShowDescription extends StatelessWidget {
   final int currentPageIndex;
 
   const ItemShowDescription({
-    Key key,
-    @required this.item,
-    @required this.currentPageIndex,
+    Key? key,
+    required this.item,
+    required this.currentPageIndex,
   }) : super(key: key);
 
   @override
@@ -57,7 +57,10 @@ class ItemShowDescription extends StatelessWidget {
 class StackToggleButton extends StatelessWidget {
   final int currentPageIndex;
 
-  const StackToggleButton({Key key, this.currentPageIndex}) : super(key: key);
+  const StackToggleButton({
+    Key? key,
+    required this.currentPageIndex,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

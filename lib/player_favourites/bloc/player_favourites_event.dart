@@ -10,7 +10,7 @@ abstract class PlayerFavouritesEvent extends Equatable {
 class PlayerFavouritesSaved extends PlayerFavouritesEvent {
   final PlayerSearchResultItem player;
 
-  const PlayerFavouritesSaved({this.player});
+  const PlayerFavouritesSaved({required this.player});
 
   @override
   List<Object> get props => [player];
@@ -19,7 +19,7 @@ class PlayerFavouritesSaved extends PlayerFavouritesEvent {
 class PlayerFavouritesRemoved extends PlayerFavouritesEvent {
   final PlayerSearchResultItem player;
 
-  const PlayerFavouritesRemoved({this.player});
+  const PlayerFavouritesRemoved({required this.player});
 
   @override
   List<Object> get props => [player];

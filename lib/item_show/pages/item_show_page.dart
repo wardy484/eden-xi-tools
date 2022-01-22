@@ -21,7 +21,7 @@ import 'package:kiwi/kiwi.dart';
 class ItemShowPage extends StatefulWidget {
   final SearchResultItem item;
 
-  const ItemShowPage({Key key, this.item}) : super(key: key);
+  const ItemShowPage({Key? key, required this.item}) : super(key: key);
 
   @override
   _ItemShowPageState createState() => _ItemShowPageState();
@@ -29,10 +29,10 @@ class ItemShowPage extends StatefulWidget {
 
 class _ItemShowPageState extends State<ItemShowPage> {
   int _selectedPageIndex = 0;
-  ItemShowBloc _showItemBloc;
-  ItemBazaarBloc _bazaarBloc;
-  ItemAuctionHouseBloc _auctionHouseBloc;
-  ItemOwnersBloc _itemOwnersBloc;
+  late ItemShowBloc _showItemBloc;
+  late ItemBazaarBloc _bazaarBloc;
+  late ItemAuctionHouseBloc _auctionHouseBloc;
+  late ItemOwnersBloc _itemOwnersBloc;
 
   @override
   void initState() {
@@ -99,7 +99,7 @@ class _ItemShowPageState extends State<ItemShowPage> {
               },
             ),
             bottomNavigationBar: ItemShowNavigationBar(
-              currentIndex: _selectedPageIndex ?? 0,
+              currentIndex: _selectedPageIndex,
               onTap: _onPageNavigation,
               item: widget.item,
             ),

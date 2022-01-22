@@ -1,6 +1,5 @@
 import 'package:eden_xi_tools/eden/player/entities/player_search_result/player_search_results.dart';
 import 'package:equatable/equatable.dart';
-import 'package:eden_xi_tools/eden/items/entities/search_result/search_result.dart';
 
 abstract class PlayerSearchState extends Equatable {
   final String playerName;
@@ -29,13 +28,16 @@ class PlayerSearchSuccess extends PlayerSearchState {
   final bool hasReachedMax;
   final String playerName;
 
-  const PlayerSearchSuccess(
-      {this.results, this.hasReachedMax, this.playerName = ""});
+  const PlayerSearchSuccess({
+    required this.results,
+    required this.hasReachedMax,
+    this.playerName = "",
+  });
 
   PlayerSearchSuccess copyWith({
-    SearchResult results,
-    bool hasReachedMax,
-    String playerName,
+    PlayerSearchResult? results,
+    bool? hasReachedMax,
+    String? playerName,
   }) {
     return PlayerSearchSuccess(
       results: results ?? this.results,

@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 class ServerStatusIndicator extends StatelessWidget {
   final Status status;
 
-  const ServerStatusIndicator({Key key, this.status}) : super(key: key);
+  const ServerStatusIndicator({
+    Key? key,
+    required this.status,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

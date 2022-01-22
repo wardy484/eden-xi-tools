@@ -6,10 +6,6 @@ import 'package:eden_xi_tools/eden/player/entities/player_search_result_item/pla
 import 'package:equatable/equatable.dart';
 
 abstract class PlayerShowState extends Equatable {
-  final PlayerSearchResultItem playerResult;
-
-  const PlayerShowState({this.playerResult});
-
   @override
   List<Object> get props => [];
 }
@@ -25,20 +21,20 @@ class PlayerShowSuccess extends PlayerShowState {
   final List<PlayerAuctionHouseItem> auctionHouseItems;
   final PlayerCrafts crafts;
 
-  const PlayerShowSuccess({
-    this.playerResult,
-    this.bazaarItems,
-    this.auctionHouseItems,
-    this.player,
-    this.crafts,
+  PlayerShowSuccess({
+    required this.playerResult,
+    required this.bazaarItems,
+    required this.auctionHouseItems,
+    required this.player,
+    required this.crafts,
   });
 
   PlayerShowSuccess copyWith({
-    PlayerSearchResultItem playerResult,
-    List<PlayerBazaarItem> bazaarItems,
-    List<PlayerAuctionHouseItem> auctionHouseItems,
-    Player player,
-    PlayerCrafts crafts,
+    PlayerSearchResultItem? playerResult,
+    List<PlayerBazaarItem>? bazaarItems,
+    List<PlayerAuctionHouseItem>? auctionHouseItems,
+    Player? player,
+    PlayerCrafts? crafts,
   }) {
     return PlayerShowSuccess(
       playerResult: playerResult ?? this.playerResult,

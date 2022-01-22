@@ -4,11 +4,11 @@ part 'bazaar_item.freezed.dart';
 part 'bazaar_item.g.dart';
 
 @freezed
-abstract class BazaarItem with _$BazaarItem {
+class BazaarItem with _$BazaarItem {
   factory BazaarItem({
-    int bazaar,
-    String charname,
-    @JsonKey(name: 'online_flag') int onlineFlag,
+    required int bazaar,
+    required String charname,
+    @JsonKey(name: 'online_flag') required int onlineFlag,
   }) = _BazaarItem;
 
   factory BazaarItem.fromJson(Map<String, dynamic> json) =>

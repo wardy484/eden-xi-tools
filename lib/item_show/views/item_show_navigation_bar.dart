@@ -8,10 +8,10 @@ class ItemShowNavigationBar extends StatelessWidget {
   final Function(int index) onTap;
 
   const ItemShowNavigationBar({
-    Key key,
-    this.currentIndex,
-    this.onTap,
-    this.item,
+    Key? key,
+    required this.currentIndex,
+    required this.onTap,
+    required this.item,
   }) : super(key: key);
 
   @override

@@ -5,12 +5,12 @@ import 'package:eden_xi_tools/widgets/item_icon.dart';
 
 class ItemSearchCard extends StatelessWidget {
   final SearchResultItem item;
-  final Widget icon;
+  final Widget? icon;
 
   const ItemSearchCard({
-    Key key,
-    @required this.item,
-    this.icon,
+    Key? key,
+    required this.item,
+    this.icon = null,
   }) : super(key: key);
 
   @override

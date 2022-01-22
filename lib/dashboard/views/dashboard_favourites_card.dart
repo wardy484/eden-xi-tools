@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 class DashboardFavouritesCard extends StatelessWidget {
   final String title;
   final List<Widget> children;
-  final Function onViewMoreTapped;
+  final Function() onViewMoreTapped;
 
   const DashboardFavouritesCard({
-    Key key,
-    @required this.title,
-    @required this.children,
-    @required this.onViewMoreTapped,
+    Key? key,
+    required this.title,
+    required this.children,
+    required this.onViewMoreTapped,
   }) : super(key: key);
 
   @override

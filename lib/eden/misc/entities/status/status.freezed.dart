@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'status.dart';
 
@@ -9,12 +10,14 @@ part of 'status.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$StatusTearOff {
   const _$StatusTearOff();
 
-// ignore: unused_element
-  _Status call({bool online, int players}) {
+  _Status call({required bool online, required int players}) {
     return _Status(
       online: online,
       players: players,
@@ -23,15 +26,15 @@ class _$StatusTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Status = _$StatusTearOff();
 
 /// @nodoc
 mixin _$Status {
-  bool get online;
-  int get players;
+  bool get online => throw _privateConstructorUsedError;
+  int get players => throw _privateConstructorUsedError;
 
-  $StatusCopyWith<Status> get copyWith;
+  @JsonKey(ignore: true)
+  $StatusCopyWith<Status> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -51,12 +54,18 @@ class _$StatusCopyWithImpl<$Res> implements $StatusCopyWith<$Res> {
 
   @override
   $Res call({
-    Object online = freezed,
-    Object players = freezed,
+    Object? online = freezed,
+    Object? players = freezed,
   }) {
     return _then(_value.copyWith(
-      online: online == freezed ? _value.online : online as bool,
-      players: players == freezed ? _value.players : players as int,
+      online: online == freezed
+          ? _value.online
+          : online // ignore: cast_nullable_to_non_nullable
+              as bool,
+      players: players == freezed
+          ? _value.players
+          : players // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -80,19 +89,26 @@ class __$StatusCopyWithImpl<$Res> extends _$StatusCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object online = freezed,
-    Object players = freezed,
+    Object? online = freezed,
+    Object? players = freezed,
   }) {
     return _then(_Status(
-      online: online == freezed ? _value.online : online as bool,
-      players: players == freezed ? _value.players : players as int,
+      online: online == freezed
+          ? _value.online
+          : online // ignore: cast_nullable_to_non_nullable
+              as bool,
+      players: players == freezed
+          ? _value.players
+          : players // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Status implements _Status {
-  _$_Status({this.online, this.players});
+  _$_Status({required this.online, required this.players});
 
   @override
   final bool online;
@@ -107,31 +123,29 @@ class _$_Status implements _Status {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Status &&
-            (identical(other.online, online) ||
-                const DeepCollectionEquality().equals(other.online, online)) &&
-            (identical(other.players, players) ||
-                const DeepCollectionEquality().equals(other.players, players)));
+        (other.runtimeType == runtimeType &&
+            other is _Status &&
+            (identical(other.online, online) || other.online == online) &&
+            (identical(other.players, players) || other.players == players));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(online) ^
-      const DeepCollectionEquality().hash(players);
+  int get hashCode => Object.hash(runtimeType, online, players);
 
+  @JsonKey(ignore: true)
   @override
   _$StatusCopyWith<_Status> get copyWith =>
       __$StatusCopyWithImpl<_Status>(this, _$identity);
 }
 
 abstract class _Status implements Status {
-  factory _Status({bool online, int players}) = _$_Status;
+  factory _Status({required bool online, required int players}) = _$_Status;
 
   @override
   bool get online;
   @override
   int get players;
   @override
-  _$StatusCopyWith<_Status> get copyWith;
+  @JsonKey(ignore: true)
+  _$StatusCopyWith<_Status> get copyWith => throw _privateConstructorUsedError;
 }

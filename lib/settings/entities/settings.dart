@@ -4,10 +4,10 @@ part 'settings.freezed.dart';
 part 'settings.g.dart';
 
 @freezed
-abstract class Settings with _$Settings {
+class Settings with _$Settings {
   factory Settings({
-    int maxPlayersOnDashboard,
-    int maxItemsOnDashboard,
+    required int maxPlayersOnDashboard,
+    required int maxItemsOnDashboard,
   }) = _Settings;
 
   factory Settings.fromJson(Map<String, dynamic> json) =>

@@ -8,8 +8,11 @@ class PlayerSearchSuccessView extends StatefulWidget {
   final PlayerSearchSuccess state;
   final Function fetchMoreResults;
 
-  const PlayerSearchSuccessView({Key key, this.state, this.fetchMoreResults})
-      : super(key: key);
+  const PlayerSearchSuccessView({
+    Key? key,
+    required this.state,
+    required this.fetchMoreResults,
+  }) : super(key: key);
 
   @override
   _PlayerSearchSuccessView createState() => _PlayerSearchSuccessView();

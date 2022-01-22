@@ -2,13 +2,13 @@ import 'package:eden_xi_tools/eden/items/entities/owner/owner.dart';
 import 'package:flutter/material.dart';
 
 class ItemOwnersList extends StatelessWidget {
-  final Function onRefresh;
+  final Future<void> Function() onRefresh;
   final List<Owner> owners;
 
   const ItemOwnersList({
-    Key key,
-    this.onRefresh,
-    this.owners,
+    Key? key,
+    required this.onRefresh,
+    required this.owners,
   }) : super(key: key);
 
   @override

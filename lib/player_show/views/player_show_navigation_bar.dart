@@ -6,9 +6,9 @@ class PlayerShowNavigationBar extends StatelessWidget {
   final Function(int index) onTap;
 
   const PlayerShowNavigationBar({
-    Key key,
-    this.currentIndex,
-    this.onTap,
+    Key? key,
+    required this.currentIndex,
+    required this.onTap,
   }) : super(key: key);
 
   @override

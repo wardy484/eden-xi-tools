@@ -6,9 +6,9 @@ class WindhurstFlag extends StatelessWidget {
   final double width;
 
   const WindhurstFlag({
-    Key key,
-    this.height,
-    this.width,
+    Key? key,
+    required this.height,
+    required this.width,
   }) : super(key: key);
 
   @override

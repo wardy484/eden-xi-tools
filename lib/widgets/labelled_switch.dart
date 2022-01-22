@@ -6,10 +6,10 @@ class LabelledSwitch extends StatelessWidget {
   final Function(bool value) onChanged;
 
   const LabelledSwitch({
-    Key key,
-    this.label,
-    this.value,
-    this.onChanged,
+    Key? key,
+    required this.label,
+    required this.value,
+    required this.onChanged,
   }) : super(key: key);
 
   @override

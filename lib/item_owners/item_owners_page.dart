@@ -10,15 +10,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class ItemOwnersPage extends StatefulWidget {
   final Item item;
 
-  const ItemOwnersPage({Key key, this.item}) : super(key: key);
+  const ItemOwnersPage({
+    Key? key,
+    required this.item,
+  }) : super(key: key);
 
   @override
   _ItemOwnersPageState createState() => _ItemOwnersPageState();
 }
 
 class _ItemOwnersPageState extends State<ItemOwnersPage> {
-  Completer<void> _refreshCompleter;
-  ItemOwnersBloc _ownersBloc;
+  late Completer<void> _refreshCompleter;
+  late ItemOwnersBloc _ownersBloc;
 
   @override
   void initState() {
@@ -39,7 +42,7 @@ class _ItemOwnersPageState extends State<ItemOwnersPage> {
         listener: (context, state) {
           state.maybeWhen(
             success: (_) {
-              _refreshCompleter?.complete();
+              _refreshCompleter.complete();
               _refreshCompleter = Completer();
             },
             orElse: () => {},

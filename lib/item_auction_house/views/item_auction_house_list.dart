@@ -3,13 +3,13 @@ import 'package:eden_xi_tools/item_auction_house/views/item_auction_house_card.d
 import 'package:flutter/material.dart';
 
 class ItemAuctionHouseList extends StatelessWidget {
-  final Function onRefresh;
+  final Future<void> Function() onRefresh;
   final List<AuctionHouseItem> items;
 
   const ItemAuctionHouseList({
-    Key key,
-    this.onRefresh,
-    this.items,
+    Key? key,
+    required this.onRefresh,
+    required this.items,
   }) : super(key: key);
 
   @override

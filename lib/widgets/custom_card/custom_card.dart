@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 class CustomCard extends StatelessWidget {
-  final String title;
-  final Widget header;
-  final Widget body;
-  final Widget footer;
+  final String? title;
+  final Widget? header;
+  final Widget? body;
+  final Widget? footer;
 
   const CustomCard({
-    Key key,
+    Key? key,
     this.header,
     this.title,
-    @required this.body,
+    this.body,
     this.footer,
   })  : assert(
           !(header != null && title != null),
@@ -27,7 +27,7 @@ class CustomCard extends StatelessWidget {
           if (header != null)
             Column(
               children: [
-                header,
+                if (header != null) header!,
                 Divider(),
               ],
             ),
@@ -38,7 +38,7 @@ class CustomCard extends StatelessWidget {
                   padding: EdgeInsets.all(16),
                   child: Row(
                     children: [
-                      Text(title,
+                      Text(title!,
                           style: TextStyle(fontWeight: FontWeight.bold)),
                     ],
                   ),
@@ -46,12 +46,12 @@ class CustomCard extends StatelessWidget {
                 Divider(),
               ],
             ),
-          body,
+          if (body != null) body!,
           if (footer != null)
             Column(
               children: [
                 Divider(),
-                footer,
+                if (footer != null) footer!,
               ],
             )
         ],

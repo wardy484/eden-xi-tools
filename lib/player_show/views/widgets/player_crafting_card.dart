@@ -7,7 +7,10 @@ import 'package:responsive_grid/responsive_grid.dart';
 class PlayerCraftingCard extends StatelessWidget {
   final PlayerCrafts crafts;
 
-  const PlayerCraftingCard({Key key, this.crafts}) : super(key: key);
+  const PlayerCraftingCard({
+    Key? key,
+    required this.crafts,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

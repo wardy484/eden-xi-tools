@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'search_result.dart';
 
@@ -8,6 +9,10 @@ part of 'search_result.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SearchResult _$SearchResultFromJson(Map<String, dynamic> json) {
   return _SearchResult.fromJson(json);
 }
@@ -16,31 +21,31 @@ SearchResult _$SearchResultFromJson(Map<String, dynamic> json) {
 class _$SearchResultTearOff {
   const _$SearchResultTearOff();
 
-// ignore: unused_element
-  _SearchResult call({int total, List<SearchResultItem> items}) {
+  _SearchResult call(
+      {required int total, required List<SearchResultItem> items}) {
     return _SearchResult(
       total: total,
       items: items,
     );
   }
 
-// ignore: unused_element
-  SearchResult fromJson(Map<String, Object> json) {
+  SearchResult fromJson(Map<String, Object?> json) {
     return SearchResult.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SearchResult = _$SearchResultTearOff();
 
 /// @nodoc
 mixin _$SearchResult {
-  int get total;
-  List<SearchResultItem> get items;
+  int get total => throw _privateConstructorUsedError;
+  List<SearchResultItem> get items => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $SearchResultCopyWith<SearchResult> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SearchResultCopyWith<SearchResult> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -61,12 +66,18 @@ class _$SearchResultCopyWithImpl<$Res> implements $SearchResultCopyWith<$Res> {
 
   @override
   $Res call({
-    Object total = freezed,
-    Object items = freezed,
+    Object? total = freezed,
+    Object? items = freezed,
   }) {
     return _then(_value.copyWith(
-      total: total == freezed ? _value.total : total as int,
-      items: items == freezed ? _value.items : items as List<SearchResultItem>,
+      total: total == freezed
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
+              as int,
+      items: items == freezed
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List<SearchResultItem>,
     ));
   }
 }
@@ -93,24 +104,29 @@ class __$SearchResultCopyWithImpl<$Res> extends _$SearchResultCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object total = freezed,
-    Object items = freezed,
+    Object? total = freezed,
+    Object? items = freezed,
   }) {
     return _then(_SearchResult(
-      total: total == freezed ? _value.total : total as int,
-      items: items == freezed ? _value.items : items as List<SearchResultItem>,
+      total: total == freezed
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
+              as int,
+      items: items == freezed
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List<SearchResultItem>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_SearchResult implements _SearchResult {
-  _$_SearchResult({this.total, this.items});
+  _$_SearchResult({required this.total, required this.items});
 
   factory _$_SearchResult.fromJson(Map<String, dynamic> json) =>
-      _$_$_SearchResultFromJson(json);
+      _$$_SearchResultFromJson(json);
 
   @override
   final int total;
@@ -125,32 +141,31 @@ class _$_SearchResult implements _SearchResult {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SearchResult &&
-            (identical(other.total, total) ||
-                const DeepCollectionEquality().equals(other.total, total)) &&
-            (identical(other.items, items) ||
-                const DeepCollectionEquality().equals(other.items, items)));
+        (other.runtimeType == runtimeType &&
+            other is _SearchResult &&
+            (identical(other.total, total) || other.total == total) &&
+            const DeepCollectionEquality().equals(other.items, items));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(total) ^
-      const DeepCollectionEquality().hash(items);
+  int get hashCode => Object.hash(
+      runtimeType, total, const DeepCollectionEquality().hash(items));
 
+  @JsonKey(ignore: true)
   @override
   _$SearchResultCopyWith<_SearchResult> get copyWith =>
       __$SearchResultCopyWithImpl<_SearchResult>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_SearchResultToJson(this);
+    return _$$_SearchResultToJson(this);
   }
 }
 
 abstract class _SearchResult implements SearchResult {
-  factory _SearchResult({int total, List<SearchResultItem> items}) =
-      _$_SearchResult;
+  factory _SearchResult(
+      {required int total,
+      required List<SearchResultItem> items}) = _$_SearchResult;
 
   factory _SearchResult.fromJson(Map<String, dynamic> json) =
       _$_SearchResult.fromJson;
@@ -160,5 +175,7 @@ abstract class _SearchResult implements SearchResult {
   @override
   List<SearchResultItem> get items;
   @override
-  _$SearchResultCopyWith<_SearchResult> get copyWith;
+  @JsonKey(ignore: true)
+  _$SearchResultCopyWith<_SearchResult> get copyWith =>
+      throw _privateConstructorUsedError;
 }

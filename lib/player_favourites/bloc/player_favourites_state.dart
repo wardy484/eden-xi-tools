@@ -14,9 +14,9 @@ class PlayerFavouritesLoading extends PlayerFavouritesState {}
 class PlayerFavouritesLoaded extends PlayerFavouritesState {
   final PlayerFavourites favourites;
 
-  const PlayerFavouritesLoaded({this.favourites});
+  const PlayerFavouritesLoaded({required this.favourites});
 
-  PlayerFavouritesLoaded copyWith({PlayerFavourites favourites}) {
+  PlayerFavouritesLoaded copyWith({PlayerFavourites? favourites}) {
     return PlayerFavouritesLoaded(
       favourites: favourites ?? this.favourites,
     );

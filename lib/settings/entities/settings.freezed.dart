@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'settings.dart';
 
@@ -8,6 +9,10 @@ part of 'settings.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 Settings _$SettingsFromJson(Map<String, dynamic> json) {
   return _Settings.fromJson(json);
 }
@@ -16,31 +21,31 @@ Settings _$SettingsFromJson(Map<String, dynamic> json) {
 class _$SettingsTearOff {
   const _$SettingsTearOff();
 
-// ignore: unused_element
-  _Settings call({int maxPlayersOnDashboard, int maxItemsOnDashboard}) {
+  _Settings call(
+      {required int maxPlayersOnDashboard, required int maxItemsOnDashboard}) {
     return _Settings(
       maxPlayersOnDashboard: maxPlayersOnDashboard,
       maxItemsOnDashboard: maxItemsOnDashboard,
     );
   }
 
-// ignore: unused_element
-  Settings fromJson(Map<String, Object> json) {
+  Settings fromJson(Map<String, Object?> json) {
     return Settings.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Settings = _$SettingsTearOff();
 
 /// @nodoc
 mixin _$Settings {
-  int get maxPlayersOnDashboard;
-  int get maxItemsOnDashboard;
+  int get maxPlayersOnDashboard => throw _privateConstructorUsedError;
+  int get maxItemsOnDashboard => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $SettingsCopyWith<Settings> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SettingsCopyWith<Settings> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -60,16 +65,18 @@ class _$SettingsCopyWithImpl<$Res> implements $SettingsCopyWith<$Res> {
 
   @override
   $Res call({
-    Object maxPlayersOnDashboard = freezed,
-    Object maxItemsOnDashboard = freezed,
+    Object? maxPlayersOnDashboard = freezed,
+    Object? maxItemsOnDashboard = freezed,
   }) {
     return _then(_value.copyWith(
       maxPlayersOnDashboard: maxPlayersOnDashboard == freezed
           ? _value.maxPlayersOnDashboard
-          : maxPlayersOnDashboard as int,
+          : maxPlayersOnDashboard // ignore: cast_nullable_to_non_nullable
+              as int,
       maxItemsOnDashboard: maxItemsOnDashboard == freezed
           ? _value.maxItemsOnDashboard
-          : maxItemsOnDashboard as int,
+          : maxItemsOnDashboard // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -93,28 +100,30 @@ class __$SettingsCopyWithImpl<$Res> extends _$SettingsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object maxPlayersOnDashboard = freezed,
-    Object maxItemsOnDashboard = freezed,
+    Object? maxPlayersOnDashboard = freezed,
+    Object? maxItemsOnDashboard = freezed,
   }) {
     return _then(_Settings(
       maxPlayersOnDashboard: maxPlayersOnDashboard == freezed
           ? _value.maxPlayersOnDashboard
-          : maxPlayersOnDashboard as int,
+          : maxPlayersOnDashboard // ignore: cast_nullable_to_non_nullable
+              as int,
       maxItemsOnDashboard: maxItemsOnDashboard == freezed
           ? _value.maxItemsOnDashboard
-          : maxItemsOnDashboard as int,
+          : maxItemsOnDashboard // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_Settings implements _Settings {
-  _$_Settings({this.maxPlayersOnDashboard, this.maxItemsOnDashboard});
+  _$_Settings(
+      {required this.maxPlayersOnDashboard, required this.maxItemsOnDashboard});
 
   factory _$_Settings.fromJson(Map<String, dynamic> json) =>
-      _$_$_SettingsFromJson(json);
+      _$$_SettingsFromJson(json);
 
   @override
   final int maxPlayersOnDashboard;
@@ -129,34 +138,33 @@ class _$_Settings implements _Settings {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Settings &&
+        (other.runtimeType == runtimeType &&
+            other is _Settings &&
             (identical(other.maxPlayersOnDashboard, maxPlayersOnDashboard) ||
-                const DeepCollectionEquality().equals(
-                    other.maxPlayersOnDashboard, maxPlayersOnDashboard)) &&
+                other.maxPlayersOnDashboard == maxPlayersOnDashboard) &&
             (identical(other.maxItemsOnDashboard, maxItemsOnDashboard) ||
-                const DeepCollectionEquality()
-                    .equals(other.maxItemsOnDashboard, maxItemsOnDashboard)));
+                other.maxItemsOnDashboard == maxItemsOnDashboard));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(maxPlayersOnDashboard) ^
-      const DeepCollectionEquality().hash(maxItemsOnDashboard);
+      Object.hash(runtimeType, maxPlayersOnDashboard, maxItemsOnDashboard);
 
+  @JsonKey(ignore: true)
   @override
   _$SettingsCopyWith<_Settings> get copyWith =>
       __$SettingsCopyWithImpl<_Settings>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_SettingsToJson(this);
+    return _$$_SettingsToJson(this);
   }
 }
 
 abstract class _Settings implements Settings {
-  factory _Settings({int maxPlayersOnDashboard, int maxItemsOnDashboard}) =
-      _$_Settings;
+  factory _Settings(
+      {required int maxPlayersOnDashboard,
+      required int maxItemsOnDashboard}) = _$_Settings;
 
   factory _Settings.fromJson(Map<String, dynamic> json) = _$_Settings.fromJson;
 
@@ -165,5 +173,7 @@ abstract class _Settings implements Settings {
   @override
   int get maxItemsOnDashboard;
   @override
-  _$SettingsCopyWith<_Settings> get copyWith;
+  @JsonKey(ignore: true)
+  _$SettingsCopyWith<_Settings> get copyWith =>
+      throw _privateConstructorUsedError;
 }

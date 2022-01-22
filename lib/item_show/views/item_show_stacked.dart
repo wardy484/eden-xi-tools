@@ -9,9 +9,9 @@ class ItemShowShacked extends StatelessWidget {
   final int currentPageIndex;
 
   const ItemShowShacked({
-    Key key,
-    this.item,
-    this.currentPageIndex,
+    Key? key,
+    required this.item,
+    required this.currentPageIndex,
   }) : super(key: key);
 
   @override
@@ -39,7 +39,10 @@ class ItemShowShacked extends StatelessWidget {
 class StackToggleButton extends StatelessWidget {
   final int currentPageIndex;
 
-  const StackToggleButton({Key key, this.currentPageIndex}) : super(key: key);
+  const StackToggleButton({
+    Key? key,
+    required this.currentPageIndex,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

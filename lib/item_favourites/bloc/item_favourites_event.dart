@@ -10,7 +10,9 @@ abstract class ItemFavouritesEvent extends Equatable {
 class ItemFavouritesSaved extends ItemFavouritesEvent {
   final SearchResultItem item;
 
-  const ItemFavouritesSaved({this.item});
+  const ItemFavouritesSaved({
+    required this.item,
+  });
 
   @override
   List<Object> get props => [item];
@@ -19,7 +21,9 @@ class ItemFavouritesSaved extends ItemFavouritesEvent {
 class ItemFavouritesRemoved extends ItemFavouritesEvent {
   final SearchResultItem item;
 
-  const ItemFavouritesRemoved({this.item});
+  const ItemFavouritesRemoved({
+    required this.item,
+  });
 
   @override
   List<Object> get props => [item];

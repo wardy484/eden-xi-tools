@@ -4,21 +4,20 @@ import 'package:eden_xi_tools/eden/misc/entities/yell/yell.dart';
 import 'package:eden_xi_tools/widgets/centered_loader.dart';
 import 'package:eden_xi_tools/yells/bloc/yells_bloc.dart';
 import 'package:eden_xi_tools/yells/views/yell_line.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kiwi/kiwi.dart';
 
 class YellsTab extends StatefulWidget {
-  YellsTab({Key key}) : super(key: key);
+  YellsTab({Key? key}) : super(key: key);
 
   @override
   _YellsTabState createState() => _YellsTabState();
 }
 
 class _YellsTabState extends State<YellsTab> {
-  YellsBloc _yellsBloc;
-  Completer<void> _refreshCompleter;
+  late YellsBloc _yellsBloc;
+  late Completer<void> _refreshCompleter;
 
   @override
   void initState() {
@@ -39,7 +38,7 @@ class _YellsTabState extends State<YellsTab> {
           listener: (context, state) {
             state.maybeWhen(
               loaded: (List<Yell> yells) {
-                _refreshCompleter?.complete();
+                _refreshCompleter.complete();
                 _refreshCompleter = Completer();
               },
               orElse: () => null,

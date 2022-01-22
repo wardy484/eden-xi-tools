@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'playerequipmentslot.dart';
 
@@ -8,6 +9,10 @@ part of 'playerequipmentslot.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 PlayerEquipmentSlot _$PlayerEquipmentSlotFromJson(Map<String, dynamic> json) {
   return _PlayerEquipmentSlot.fromJson(json);
 }
@@ -16,12 +21,8 @@ PlayerEquipmentSlot _$PlayerEquipmentSlotFromJson(Map<String, dynamic> json) {
 class _$PlayerEquipmentSlotTearOff {
   const _$PlayerEquipmentSlotTearOff();
 
-// ignore: unused_element
-  _PlayerEquipmentSlot call(
-      @JsonKey(name: 'equipslotid') int equipSlotId,
-      @nullable @JsonKey(name: 'itemid') int itemId,
-      @nullable String name,
-      @nullable String signature) {
+  _PlayerEquipmentSlot call(@JsonKey(name: 'equipslotid') int equipSlotId,
+      @JsonKey(name: 'itemid') int? itemId, String? name, String? signature) {
     return _PlayerEquipmentSlot(
       equipSlotId,
       itemId,
@@ -30,30 +31,27 @@ class _$PlayerEquipmentSlotTearOff {
     );
   }
 
-// ignore: unused_element
-  PlayerEquipmentSlot fromJson(Map<String, Object> json) {
+  PlayerEquipmentSlot fromJson(Map<String, Object?> json) {
     return PlayerEquipmentSlot.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $PlayerEquipmentSlot = _$PlayerEquipmentSlotTearOff();
 
 /// @nodoc
 mixin _$PlayerEquipmentSlot {
   @JsonKey(name: 'equipslotid')
-  int get equipSlotId;
-  @nullable
+  int get equipSlotId => throw _privateConstructorUsedError;
   @JsonKey(name: 'itemid')
-  int get itemId;
-  @nullable
-  String get name;
-  @nullable
-  String get signature;
+  int? get itemId => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  String? get signature => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $PlayerEquipmentSlotCopyWith<PlayerEquipmentSlot> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PlayerEquipmentSlotCopyWith<PlayerEquipmentSlot> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -63,9 +61,9 @@ abstract class $PlayerEquipmentSlotCopyWith<$Res> {
       _$PlayerEquipmentSlotCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: 'equipslotid') int equipSlotId,
-      @nullable @JsonKey(name: 'itemid') int itemId,
-      @nullable String name,
-      @nullable String signature});
+      @JsonKey(name: 'itemid') int? itemId,
+      String? name,
+      String? signature});
 }
 
 /// @nodoc
@@ -79,17 +77,28 @@ class _$PlayerEquipmentSlotCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object equipSlotId = freezed,
-    Object itemId = freezed,
-    Object name = freezed,
-    Object signature = freezed,
+    Object? equipSlotId = freezed,
+    Object? itemId = freezed,
+    Object? name = freezed,
+    Object? signature = freezed,
   }) {
     return _then(_value.copyWith(
-      equipSlotId:
-          equipSlotId == freezed ? _value.equipSlotId : equipSlotId as int,
-      itemId: itemId == freezed ? _value.itemId : itemId as int,
-      name: name == freezed ? _value.name : name as String,
-      signature: signature == freezed ? _value.signature : signature as String,
+      equipSlotId: equipSlotId == freezed
+          ? _value.equipSlotId
+          : equipSlotId // ignore: cast_nullable_to_non_nullable
+              as int,
+      itemId: itemId == freezed
+          ? _value.itemId
+          : itemId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      signature: signature == freezed
+          ? _value.signature
+          : signature // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -103,9 +112,9 @@ abstract class _$PlayerEquipmentSlotCopyWith<$Res>
   @override
   $Res call(
       {@JsonKey(name: 'equipslotid') int equipSlotId,
-      @nullable @JsonKey(name: 'itemid') int itemId,
-      @nullable String name,
-      @nullable String signature});
+      @JsonKey(name: 'itemid') int? itemId,
+      String? name,
+      String? signature});
 }
 
 /// @nodoc
@@ -121,47 +130,51 @@ class __$PlayerEquipmentSlotCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object equipSlotId = freezed,
-    Object itemId = freezed,
-    Object name = freezed,
-    Object signature = freezed,
+    Object? equipSlotId = freezed,
+    Object? itemId = freezed,
+    Object? name = freezed,
+    Object? signature = freezed,
   }) {
     return _then(_PlayerEquipmentSlot(
-      equipSlotId == freezed ? _value.equipSlotId : equipSlotId as int,
-      itemId == freezed ? _value.itemId : itemId as int,
-      name == freezed ? _value.name : name as String,
-      signature == freezed ? _value.signature : signature as String,
+      equipSlotId == freezed
+          ? _value.equipSlotId
+          : equipSlotId // ignore: cast_nullable_to_non_nullable
+              as int,
+      itemId == freezed
+          ? _value.itemId
+          : itemId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      signature == freezed
+          ? _value.signature
+          : signature // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_PlayerEquipmentSlot implements _PlayerEquipmentSlot {
-  _$_PlayerEquipmentSlot(
-      @JsonKey(name: 'equipslotid') this.equipSlotId,
-      @nullable @JsonKey(name: 'itemid') this.itemId,
-      @nullable this.name,
-      @nullable this.signature)
-      : assert(equipSlotId != null);
+  _$_PlayerEquipmentSlot(@JsonKey(name: 'equipslotid') this.equipSlotId,
+      @JsonKey(name: 'itemid') this.itemId, this.name, this.signature);
 
   factory _$_PlayerEquipmentSlot.fromJson(Map<String, dynamic> json) =>
-      _$_$_PlayerEquipmentSlotFromJson(json);
+      _$$_PlayerEquipmentSlotFromJson(json);
 
   @override
   @JsonKey(name: 'equipslotid')
   final int equipSlotId;
   @override
-  @nullable
   @JsonKey(name: 'itemid')
-  final int itemId;
+  final int? itemId;
   @override
-  @nullable
-  final String name;
+  final String? name;
   @override
-  @nullable
-  final String signature;
+  final String? signature;
 
   @override
   String toString() {
@@ -171,27 +184,21 @@ class _$_PlayerEquipmentSlot implements _PlayerEquipmentSlot {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PlayerEquipmentSlot &&
+        (other.runtimeType == runtimeType &&
+            other is _PlayerEquipmentSlot &&
             (identical(other.equipSlotId, equipSlotId) ||
-                const DeepCollectionEquality()
-                    .equals(other.equipSlotId, equipSlotId)) &&
-            (identical(other.itemId, itemId) ||
-                const DeepCollectionEquality().equals(other.itemId, itemId)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
+                other.equipSlotId == equipSlotId) &&
+            (identical(other.itemId, itemId) || other.itemId == itemId) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.signature, signature) ||
-                const DeepCollectionEquality()
-                    .equals(other.signature, signature)));
+                other.signature == signature));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(equipSlotId) ^
-      const DeepCollectionEquality().hash(itemId) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(signature);
+      Object.hash(runtimeType, equipSlotId, itemId, name, signature);
 
+  @JsonKey(ignore: true)
   @override
   _$PlayerEquipmentSlotCopyWith<_PlayerEquipmentSlot> get copyWith =>
       __$PlayerEquipmentSlotCopyWithImpl<_PlayerEquipmentSlot>(
@@ -199,16 +206,16 @@ class _$_PlayerEquipmentSlot implements _PlayerEquipmentSlot {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_PlayerEquipmentSlotToJson(this);
+    return _$$_PlayerEquipmentSlotToJson(this);
   }
 }
 
 abstract class _PlayerEquipmentSlot implements PlayerEquipmentSlot {
   factory _PlayerEquipmentSlot(
       @JsonKey(name: 'equipslotid') int equipSlotId,
-      @nullable @JsonKey(name: 'itemid') int itemId,
-      @nullable String name,
-      @nullable String signature) = _$_PlayerEquipmentSlot;
+      @JsonKey(name: 'itemid') int? itemId,
+      String? name,
+      String? signature) = _$_PlayerEquipmentSlot;
 
   factory _PlayerEquipmentSlot.fromJson(Map<String, dynamic> json) =
       _$_PlayerEquipmentSlot.fromJson;
@@ -217,15 +224,14 @@ abstract class _PlayerEquipmentSlot implements PlayerEquipmentSlot {
   @JsonKey(name: 'equipslotid')
   int get equipSlotId;
   @override
-  @nullable
   @JsonKey(name: 'itemid')
-  int get itemId;
+  int? get itemId;
   @override
-  @nullable
-  String get name;
+  String? get name;
   @override
-  @nullable
-  String get signature;
+  String? get signature;
   @override
-  _$PlayerEquipmentSlotCopyWith<_PlayerEquipmentSlot> get copyWith;
+  @JsonKey(ignore: true)
+  _$PlayerEquipmentSlotCopyWith<_PlayerEquipmentSlot> get copyWith =>
+      throw _privateConstructorUsedError;
 }

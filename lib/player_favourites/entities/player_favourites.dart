@@ -1,6 +1,5 @@
 import 'package:eden_xi_tools/eden/player/entities/player_search_result_item/player_search_result_item.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'player_favourites.g.dart';
@@ -10,7 +9,7 @@ class PlayerFavourites extends Equatable {
   final List<PlayerSearchResultItem> favourites;
 
   const PlayerFavourites({
-    @required this.favourites,
+    required this.favourites,
   });
 
   @override

@@ -6,12 +6,12 @@ import 'package:intl/intl.dart';
 
 class PlayerShowAuctionHouse extends StatelessWidget {
   final List<PlayerAuctionHouseItem> items;
-  final Function onRefresh;
+  final Future<void> Function() onRefresh;
 
   const PlayerShowAuctionHouse({
-    Key key,
-    this.items,
-    this.onRefresh,
+    Key? key,
+    required this.items,
+    required this.onRefresh,
   }) : super(key: key);
 
   @override

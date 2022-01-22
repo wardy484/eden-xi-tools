@@ -7,7 +7,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class ItemFavouriteButton extends StatelessWidget {
   final SearchResultItem item;
 
-  const ItemFavouriteButton({Key key, this.item}) : super(key: key);
+  const ItemFavouriteButton({
+    Key? key,
+    required this.item,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

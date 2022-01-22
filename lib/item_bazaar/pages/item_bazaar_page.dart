@@ -7,15 +7,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class ItemBazaarPage extends StatefulWidget {
   final String itemKey;
 
-  const ItemBazaarPage({Key key, this.itemKey}) : super(key: key);
+  const ItemBazaarPage({
+    Key? key,
+    required this.itemKey,
+  }) : super(key: key);
 
   @override
   _ItemBazaarPageState createState() => _ItemBazaarPageState();
 }
 
 class _ItemBazaarPageState extends State<ItemBazaarPage> {
-  Completer<void> _refreshCompleter;
-  ItemBazaarBloc _bazaarBloc;
+  late Completer<void> _refreshCompleter;
+  late ItemBazaarBloc _bazaarBloc;
 
   @override
   void initState() {
@@ -24,7 +27,10 @@ class _ItemBazaarPageState extends State<ItemBazaarPage> {
     _bazaarBloc = BlocProvider.of<ItemBazaarBloc>(context);
 
     if (_bazaarBloc.state is ItemBazaarInitial) {
-      _bazaarBloc.add(ItemBazaarRequested(itemKey: widget.itemKey));
+      _bazaarBloc.add(ItemBazaarRequested(
+        itemKey: widget.itemKey,
+        stacked: false,
+      ));
     }
   }
 
@@ -34,7 +40,7 @@ class _ItemBazaarPageState extends State<ItemBazaarPage> {
       child: BlocConsumer<ItemBazaarBloc, ItemBazaarState>(
         listener: (context, state) {
           if (state is ItemBazaarSuccess) {
-            _refreshCompleter?.complete();
+            _refreshCompleter.complete();
             _refreshCompleter = Completer();
           }
         },

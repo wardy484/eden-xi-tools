@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'settings_bloc.dart';
 
@@ -9,11 +10,13 @@ part of 'settings_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$SettingsEventTearOff {
   const _$SettingsEventTearOff();
 
-// ignore: unused_element
   _Saved saved(Settings settings) {
     return _Saved(
       settings,
@@ -22,33 +25,48 @@ class _$SettingsEventTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SettingsEvent = _$SettingsEventTearOff();
 
 /// @nodoc
 mixin _$SettingsEvent {
-  Settings get settings;
+  Settings get settings => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult saved(Settings settings),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(Settings settings) saved,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult saved(Settings settings),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Settings settings)? saved,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult saved(_Saved value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Settings settings)? saved,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult saved(_Saved value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Saved value) saved,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Saved value)? saved,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Saved value)? saved,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 
-  $SettingsEventCopyWith<SettingsEvent> get copyWith;
+  @JsonKey(ignore: true)
+  $SettingsEventCopyWith<SettingsEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -72,18 +90,18 @@ class _$SettingsEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object settings = freezed,
+    Object? settings = freezed,
   }) {
     return _then(_value.copyWith(
-      settings: settings == freezed ? _value.settings : settings as Settings,
+      settings: settings == freezed
+          ? _value.settings
+          : settings // ignore: cast_nullable_to_non_nullable
+              as Settings,
     ));
   }
 
   @override
   $SettingsCopyWith<$Res> get settings {
-    if (_value.settings == null) {
-      return null;
-    }
     return $SettingsCopyWith<$Res>(_value.settings, (value) {
       return _then(_value.copyWith(settings: value));
     });
@@ -112,17 +130,21 @@ class __$SavedCopyWithImpl<$Res> extends _$SettingsEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object settings = freezed,
+    Object? settings = freezed,
   }) {
     return _then(_Saved(
-      settings == freezed ? _value.settings : settings as Settings,
+      settings == freezed
+          ? _value.settings
+          : settings // ignore: cast_nullable_to_non_nullable
+              as Settings,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Saved implements _Saved {
-  const _$_Saved(this.settings) : assert(settings != null);
+  const _$_Saved(this.settings);
 
   @override
   final Settings settings;
@@ -135,36 +157,42 @@ class _$_Saved implements _Saved {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Saved &&
+        (other.runtimeType == runtimeType &&
+            other is _Saved &&
             (identical(other.settings, settings) ||
-                const DeepCollectionEquality()
-                    .equals(other.settings, settings)));
+                other.settings == settings));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(settings);
+  int get hashCode => Object.hash(runtimeType, settings);
 
+  @JsonKey(ignore: true)
   @override
   _$SavedCopyWith<_Saved> get copyWith =>
       __$SavedCopyWithImpl<_Saved>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult saved(Settings settings),
+  TResult when<TResult extends Object?>({
+    required TResult Function(Settings settings) saved,
   }) {
-    assert(saved != null);
     return saved(settings);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult saved(Settings settings),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Settings settings)? saved,
   }) {
-    assert(orElse != null);
+    return saved?.call(settings);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Settings settings)? saved,
+    required TResult orElse(),
+  }) {
     if (saved != null) {
       return saved(settings);
     }
@@ -173,20 +201,26 @@ class _$_Saved implements _Saved {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult saved(_Saved value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Saved value) saved,
   }) {
-    assert(saved != null);
     return saved(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult saved(_Saved value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Saved value)? saved,
   }) {
-    assert(orElse != null);
+    return saved?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Saved value)? saved,
+    required TResult orElse(),
+  }) {
     if (saved != null) {
       return saved(this);
     }
@@ -200,21 +234,20 @@ abstract class _Saved implements SettingsEvent {
   @override
   Settings get settings;
   @override
-  _$SavedCopyWith<_Saved> get copyWith;
+  @JsonKey(ignore: true)
+  _$SavedCopyWith<_Saved> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$SettingsStateTearOff {
   const _$SettingsStateTearOff();
 
-// ignore: unused_element
   _Initial initial(Settings settings) {
     return _Initial(
       settings,
     );
   }
 
-// ignore: unused_element
   _Loaded loaded(Settings settings) {
     return _Loaded(
       settings,
@@ -223,37 +256,54 @@ class _$SettingsStateTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SettingsState = _$SettingsStateTearOff();
 
 /// @nodoc
 mixin _$SettingsState {
-  Settings get settings;
+  Settings get settings => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(Settings settings),
-    @required TResult loaded(Settings settings),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(Settings settings) initial,
+    required TResult Function(Settings settings) loaded,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(Settings settings),
-    TResult loaded(Settings settings),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Settings settings)? initial,
+    TResult Function(Settings settings)? loaded,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loaded(_Loaded value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Settings settings)? initial,
+    TResult Function(Settings settings)? loaded,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loaded(_Loaded value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loaded value) loaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loaded value)? loaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loaded value)? loaded,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 
-  $SettingsStateCopyWith<SettingsState> get copyWith;
+  @JsonKey(ignore: true)
+  $SettingsStateCopyWith<SettingsState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -277,18 +327,18 @@ class _$SettingsStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object settings = freezed,
+    Object? settings = freezed,
   }) {
     return _then(_value.copyWith(
-      settings: settings == freezed ? _value.settings : settings as Settings,
+      settings: settings == freezed
+          ? _value.settings
+          : settings // ignore: cast_nullable_to_non_nullable
+              as Settings,
     ));
   }
 
   @override
   $SettingsCopyWith<$Res> get settings {
-    if (_value.settings == null) {
-      return null;
-    }
     return $SettingsCopyWith<$Res>(_value.settings, (value) {
       return _then(_value.copyWith(settings: value));
     });
@@ -317,17 +367,21 @@ class __$InitialCopyWithImpl<$Res> extends _$SettingsStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object settings = freezed,
+    Object? settings = freezed,
   }) {
     return _then(_Initial(
-      settings == freezed ? _value.settings : settings as Settings,
+      settings == freezed
+          ? _value.settings
+          : settings // ignore: cast_nullable_to_non_nullable
+              as Settings,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Initial implements _Initial {
-  const _$_Initial(this.settings) : assert(settings != null);
+  const _$_Initial(this.settings);
 
   @override
   final Settings settings;
@@ -340,39 +394,45 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Initial &&
+        (other.runtimeType == runtimeType &&
+            other is _Initial &&
             (identical(other.settings, settings) ||
-                const DeepCollectionEquality()
-                    .equals(other.settings, settings)));
+                other.settings == settings));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(settings);
+  int get hashCode => Object.hash(runtimeType, settings);
 
+  @JsonKey(ignore: true)
   @override
   _$InitialCopyWith<_Initial> get copyWith =>
       __$InitialCopyWithImpl<_Initial>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(Settings settings),
-    @required TResult loaded(Settings settings),
+  TResult when<TResult extends Object?>({
+    required TResult Function(Settings settings) initial,
+    required TResult Function(Settings settings) loaded,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
     return initial(settings);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(Settings settings),
-    TResult loaded(Settings settings),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Settings settings)? initial,
+    TResult Function(Settings settings)? loaded,
   }) {
-    assert(orElse != null);
+    return initial?.call(settings);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Settings settings)? initial,
+    TResult Function(Settings settings)? loaded,
+    required TResult orElse(),
+  }) {
     if (initial != null) {
       return initial(settings);
     }
@@ -381,23 +441,29 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loaded(_Loaded value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loaded value) loaded,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loaded(_Loaded value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loaded value)? loaded,
   }) {
-    assert(orElse != null);
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loaded value)? loaded,
+    required TResult orElse(),
+  }) {
     if (initial != null) {
       return initial(this);
     }
@@ -411,7 +477,9 @@ abstract class _Initial implements SettingsState {
   @override
   Settings get settings;
   @override
-  _$InitialCopyWith<_Initial> get copyWith;
+  @JsonKey(ignore: true)
+  _$InitialCopyWith<_Initial> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -436,17 +504,21 @@ class __$LoadedCopyWithImpl<$Res> extends _$SettingsStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object settings = freezed,
+    Object? settings = freezed,
   }) {
     return _then(_Loaded(
-      settings == freezed ? _value.settings : settings as Settings,
+      settings == freezed
+          ? _value.settings
+          : settings // ignore: cast_nullable_to_non_nullable
+              as Settings,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Loaded implements _Loaded {
-  const _$_Loaded(this.settings) : assert(settings != null);
+  const _$_Loaded(this.settings);
 
   @override
   final Settings settings;
@@ -459,39 +531,45 @@ class _$_Loaded implements _Loaded {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Loaded &&
+        (other.runtimeType == runtimeType &&
+            other is _Loaded &&
             (identical(other.settings, settings) ||
-                const DeepCollectionEquality()
-                    .equals(other.settings, settings)));
+                other.settings == settings));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(settings);
+  int get hashCode => Object.hash(runtimeType, settings);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadedCopyWith<_Loaded> get copyWith =>
       __$LoadedCopyWithImpl<_Loaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(Settings settings),
-    @required TResult loaded(Settings settings),
+  TResult when<TResult extends Object?>({
+    required TResult Function(Settings settings) initial,
+    required TResult Function(Settings settings) loaded,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
     return loaded(settings);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(Settings settings),
-    TResult loaded(Settings settings),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Settings settings)? initial,
+    TResult Function(Settings settings)? loaded,
   }) {
-    assert(orElse != null);
+    return loaded?.call(settings);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Settings settings)? initial,
+    TResult Function(Settings settings)? loaded,
+    required TResult orElse(),
+  }) {
     if (loaded != null) {
       return loaded(settings);
     }
@@ -500,23 +578,29 @@ class _$_Loaded implements _Loaded {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loaded(_Loaded value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loaded value) loaded,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
     return loaded(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loaded(_Loaded value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loaded value)? loaded,
   }) {
-    assert(orElse != null);
+    return loaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loaded value)? loaded,
+    required TResult orElse(),
+  }) {
     if (loaded != null) {
       return loaded(this);
     }
@@ -530,5 +614,6 @@ abstract class _Loaded implements SettingsState {
   @override
   Settings get settings;
   @override
-  _$LoadedCopyWith<_Loaded> get copyWith;
+  @JsonKey(ignore: true)
+  _$LoadedCopyWith<_Loaded> get copyWith => throw _privateConstructorUsedError;
 }

@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:eden_xi_tools/eden/player/entities/player_search_result_item/player_search_result_item.dart';
 import 'package:eden_xi_tools/player_equipment/bloc/player_equipment_bloc.dart';
 import 'package:eden_xi_tools/player_show/player_show.dart';
-import 'package:eden_xi_tools/player_show/player_show_events.dart';
 import 'package:eden_xi_tools/player_show/views/states/player_show_failure_state.dart';
 import 'package:eden_xi_tools/player_show/views/states/player_show_loading_state.dart';
 import 'package:eden_xi_tools/player_show/views/states/player_show_success_state.dart';
@@ -14,17 +13,20 @@ import 'package:kiwi/kiwi.dart';
 class PlayerShowPage extends StatefulWidget {
   final PlayerSearchResultItem playerResult;
 
-  const PlayerShowPage({Key key, this.playerResult}) : super(key: key);
+  const PlayerShowPage({
+    Key? key,
+    required this.playerResult,
+  }) : super(key: key);
 
   @override
   _PlayerShowPageState createState() => _PlayerShowPageState();
 }
 
 class _PlayerShowPageState extends State<PlayerShowPage> {
-  PlayerShowBloc _playerShowBloc;
-  PlayerEquipmentBloc _equipmentBloc;
+  late PlayerShowBloc _playerShowBloc;
+  late PlayerEquipmentBloc _equipmentBloc;
 
-  Completer<void> _refreshCompleter;
+  late Completer<void> _refreshCompleter;
 
   @override
   void initState() {
@@ -50,7 +52,7 @@ class _PlayerShowPageState extends State<PlayerShowPage> {
       child: BlocConsumer<PlayerShowBloc, PlayerShowState>(
         listener: (context, state) {
           if (state is PlayerShowSuccessState) {
-            _refreshCompleter?.complete();
+            _refreshCompleter.complete();
             _refreshCompleter = Completer();
           }
         },

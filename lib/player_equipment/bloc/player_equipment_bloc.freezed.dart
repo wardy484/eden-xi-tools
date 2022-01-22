@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'player_equipment_bloc.dart';
 
@@ -9,16 +10,17 @@ part of 'player_equipment_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$PlayerEquipmentEventTearOff {
   const _$PlayerEquipmentEventTearOff();
 
-// ignore: unused_element
   _Started started() {
     return const _Started();
   }
 
-// ignore: unused_element
   _Fetched fetched(String playerName) {
     return _Fetched(
       playerName,
@@ -27,33 +29,48 @@ class _$PlayerEquipmentEventTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $PlayerEquipmentEvent = _$PlayerEquipmentEventTearOff();
 
 /// @nodoc
 mixin _$PlayerEquipmentEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult started(),
-    @required TResult fetched(String playerName),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String playerName) fetched,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult started(),
-    TResult fetched(String playerName),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String playerName)? fetched,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult started(_Started value),
-    @required TResult fetched(_Fetched value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String playerName)? fetched,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult started(_Started value),
-    TResult fetched(_Fetched value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Fetched value) fetched,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Fetched value)? fetched,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Fetched value)? fetched,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -91,6 +108,7 @@ class __$StartedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_Started implements _Started {
   const _$_Started();
 
@@ -101,7 +119,8 @@ class _$_Started implements _Started {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Started);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Started);
   }
 
   @override
@@ -109,23 +128,29 @@ class _$_Started implements _Started {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult started(),
-    @required TResult fetched(String playerName),
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String playerName) fetched,
   }) {
-    assert(started != null);
-    assert(fetched != null);
     return started();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult started(),
-    TResult fetched(String playerName),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String playerName)? fetched,
   }) {
-    assert(orElse != null);
+    return started?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String playerName)? fetched,
+    required TResult orElse(),
+  }) {
     if (started != null) {
       return started();
     }
@@ -134,23 +159,29 @@ class _$_Started implements _Started {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult started(_Started value),
-    @required TResult fetched(_Fetched value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Fetched value) fetched,
   }) {
-    assert(started != null);
-    assert(fetched != null);
     return started(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult started(_Started value),
-    TResult fetched(_Fetched value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Fetched value)? fetched,
   }) {
-    assert(orElse != null);
+    return started?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Fetched value)? fetched,
+    required TResult orElse(),
+  }) {
     if (started != null) {
       return started(this);
     }
@@ -181,17 +212,21 @@ class __$FetchedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object playerName = freezed,
+    Object? playerName = freezed,
   }) {
     return _then(_Fetched(
-      playerName == freezed ? _value.playerName : playerName as String,
+      playerName == freezed
+          ? _value.playerName
+          : playerName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Fetched implements _Fetched {
-  const _$_Fetched(this.playerName) : assert(playerName != null);
+  const _$_Fetched(this.playerName);
 
   @override
   final String playerName;
@@ -204,39 +239,45 @@ class _$_Fetched implements _Fetched {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Fetched &&
+        (other.runtimeType == runtimeType &&
+            other is _Fetched &&
             (identical(other.playerName, playerName) ||
-                const DeepCollectionEquality()
-                    .equals(other.playerName, playerName)));
+                other.playerName == playerName));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(playerName);
+  int get hashCode => Object.hash(runtimeType, playerName);
 
+  @JsonKey(ignore: true)
   @override
   _$FetchedCopyWith<_Fetched> get copyWith =>
       __$FetchedCopyWithImpl<_Fetched>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult started(),
-    @required TResult fetched(String playerName),
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String playerName) fetched,
   }) {
-    assert(started != null);
-    assert(fetched != null);
     return fetched(playerName);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult started(),
-    TResult fetched(String playerName),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String playerName)? fetched,
   }) {
-    assert(orElse != null);
+    return fetched?.call(playerName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String playerName)? fetched,
+    required TResult orElse(),
+  }) {
     if (fetched != null) {
       return fetched(playerName);
     }
@@ -245,23 +286,29 @@ class _$_Fetched implements _Fetched {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult started(_Started value),
-    @required TResult fetched(_Fetched value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Fetched value) fetched,
   }) {
-    assert(started != null);
-    assert(fetched != null);
     return fetched(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult started(_Started value),
-    TResult fetched(_Fetched value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Fetched value)? fetched,
   }) {
-    assert(orElse != null);
+    return fetched?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Fetched value)? fetched,
+    required TResult orElse(),
+  }) {
     if (fetched != null) {
       return fetched(this);
     }
@@ -273,24 +320,23 @@ abstract class _Fetched implements PlayerEquipmentEvent {
   const factory _Fetched(String playerName) = _$_Fetched;
 
   String get playerName;
-  _$FetchedCopyWith<_Fetched> get copyWith;
+  @JsonKey(ignore: true)
+  _$FetchedCopyWith<_Fetched> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$PlayerEquipmentStateTearOff {
   const _$PlayerEquipmentStateTearOff();
 
-// ignore: unused_element
   _Initial initial() {
     return const _Initial();
   }
 
-// ignore: unused_element
   _Loading loading() {
     return const _Loading();
   }
 
-// ignore: unused_element
   _Loaded loaded(PlayerEquipment equipment) {
     return _Loaded(
       equipment,
@@ -299,37 +345,54 @@ class _$PlayerEquipmentStateTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $PlayerEquipmentState = _$PlayerEquipmentStateTearOff();
 
 /// @nodoc
 mixin _$PlayerEquipmentState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult loaded(PlayerEquipment equipment),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(PlayerEquipment equipment) loaded,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult loaded(PlayerEquipment equipment),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(PlayerEquipment equipment)? loaded,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loading(_Loading value),
-    @required TResult loaded(_Loaded value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(PlayerEquipment equipment)? loaded,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loading(_Loading value),
-    TResult loaded(_Loaded value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -367,6 +430,7 @@ class __$InitialCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_Initial implements _Initial {
   const _$_Initial();
 
@@ -377,7 +441,8 @@ class _$_Initial implements _Initial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initial);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Initial);
   }
 
   @override
@@ -385,26 +450,32 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult loaded(PlayerEquipment equipment),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(PlayerEquipment equipment) loaded,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
     return initial();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult loaded(PlayerEquipment equipment),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(PlayerEquipment equipment)? loaded,
   }) {
-    assert(orElse != null);
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(PlayerEquipment equipment)? loaded,
+    required TResult orElse(),
+  }) {
     if (initial != null) {
       return initial();
     }
@@ -413,26 +484,32 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loading(_Loading value),
-    @required TResult loaded(_Loaded value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loading(_Loading value),
-    TResult loaded(_Loaded value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
   }) {
-    assert(orElse != null);
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    required TResult orElse(),
+  }) {
     if (initial != null) {
       return initial(this);
     }
@@ -462,6 +539,7 @@ class __$LoadingCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_Loading implements _Loading {
   const _$_Loading();
 
@@ -472,7 +550,8 @@ class _$_Loading implements _Loading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Loading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Loading);
   }
 
   @override
@@ -480,26 +559,32 @@ class _$_Loading implements _Loading {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult loaded(PlayerEquipment equipment),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(PlayerEquipment equipment) loaded,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
     return loading();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult loaded(PlayerEquipment equipment),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(PlayerEquipment equipment)? loaded,
   }) {
-    assert(orElse != null);
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(PlayerEquipment equipment)? loaded,
+    required TResult orElse(),
+  }) {
     if (loading != null) {
       return loading();
     }
@@ -508,26 +593,32 @@ class _$_Loading implements _Loading {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loading(_Loading value),
-    @required TResult loaded(_Loaded value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loading(_Loading value),
-    TResult loaded(_Loaded value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
   }) {
-    assert(orElse != null);
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    required TResult orElse(),
+  }) {
     if (loading != null) {
       return loading(this);
     }
@@ -560,18 +651,18 @@ class __$LoadedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object equipment = freezed,
+    Object? equipment = freezed,
   }) {
     return _then(_Loaded(
-      equipment == freezed ? _value.equipment : equipment as PlayerEquipment,
+      equipment == freezed
+          ? _value.equipment
+          : equipment // ignore: cast_nullable_to_non_nullable
+              as PlayerEquipment,
     ));
   }
 
   @override
   $PlayerEquipmentCopyWith<$Res> get equipment {
-    if (_value.equipment == null) {
-      return null;
-    }
     return $PlayerEquipmentCopyWith<$Res>(_value.equipment, (value) {
       return _then(_value.copyWith(equipment: value));
     });
@@ -579,8 +670,9 @@ class __$LoadedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_Loaded implements _Loaded {
-  const _$_Loaded(this.equipment) : assert(equipment != null);
+  const _$_Loaded(this.equipment);
 
   @override
   final PlayerEquipment equipment;
@@ -593,42 +685,48 @@ class _$_Loaded implements _Loaded {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Loaded &&
+        (other.runtimeType == runtimeType &&
+            other is _Loaded &&
             (identical(other.equipment, equipment) ||
-                const DeepCollectionEquality()
-                    .equals(other.equipment, equipment)));
+                other.equipment == equipment));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(equipment);
+  int get hashCode => Object.hash(runtimeType, equipment);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadedCopyWith<_Loaded> get copyWith =>
       __$LoadedCopyWithImpl<_Loaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required TResult loaded(PlayerEquipment equipment),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(PlayerEquipment equipment) loaded,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
     return loaded(equipment);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult loaded(PlayerEquipment equipment),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(PlayerEquipment equipment)? loaded,
   }) {
-    assert(orElse != null);
+    return loaded?.call(equipment);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(PlayerEquipment equipment)? loaded,
+    required TResult orElse(),
+  }) {
     if (loaded != null) {
       return loaded(equipment);
     }
@@ -637,26 +735,32 @@ class _$_Loaded implements _Loaded {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult loading(_Loading value),
-    @required TResult loaded(_Loaded value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
   }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(loaded != null);
     return loaded(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult loading(_Loading value),
-    TResult loaded(_Loaded value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
   }) {
-    assert(orElse != null);
+    return loaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    required TResult orElse(),
+  }) {
     if (loaded != null) {
       return loaded(this);
     }
@@ -668,5 +772,6 @@ abstract class _Loaded implements PlayerEquipmentState {
   const factory _Loaded(PlayerEquipment equipment) = _$_Loaded;
 
   PlayerEquipment get equipment;
-  _$LoadedCopyWith<_Loaded> get copyWith;
+  @JsonKey(ignore: true)
+  _$LoadedCopyWith<_Loaded> get copyWith => throw _privateConstructorUsedError;
 }

@@ -10,10 +10,10 @@ class SwipableScaffold extends StatefulWidget {
   final bool resetOnPop;
 
   SwipableScaffold({
-    Key key,
-    @required this.pages,
-    @required this.appBar,
-    @required this.tabs,
+    Key? key,
+    required this.pages,
+    required this.appBar,
+    required this.tabs,
     this.initialPage = 0,
     this.resetOnPop = false,
   }) : super(key: key);

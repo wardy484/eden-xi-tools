@@ -10,13 +10,13 @@ import 'package:flutter/material.dart';
 class PlayerShowDetails extends StatelessWidget {
   final Player player;
   final PlayerCrafts crafts;
-  final Function onRefresh;
+  final Future<void> Function() onRefresh;
 
   const PlayerShowDetails({
-    Key key,
-    this.player,
-    this.crafts,
-    this.onRefresh,
+    Key? key,
+    required this.player,
+    required this.crafts,
+    required this.onRefresh,
   }) : super(key: key);
 
   @override

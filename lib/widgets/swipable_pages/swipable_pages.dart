@@ -6,10 +6,10 @@ class SwipablePages extends StatefulWidget {
   final Function(int index) onSwipe;
 
   SwipablePages({
-    Key key,
-    @required this.pages,
-    @required this.index,
-    @required this.onSwipe,
+    Key? key,
+    required this.pages,
+    required this.index,
+    required this.onSwipe,
   }) : super(key: key);
 
   @override
@@ -22,11 +22,13 @@ class _SwipablePagesState extends State<SwipablePages> {
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onHorizontalDragEnd: (dragEndDetails) {
-        if (dragEndDetails.primaryVelocity < 0) {
+        if (dragEndDetails.primaryVelocity != null &&
+            dragEndDetails.primaryVelocity! < 0) {
           if (widget.index + 1 < widget.pages.length) {
             widget.onSwipe(widget.index + 1);
           }
-        } else if (dragEndDetails.primaryVelocity > 0) {
+        } else if (dragEndDetails.primaryVelocity != null &&
+            dragEndDetails.primaryVelocity! > 0) {
           if (widget.index - 1 >= 0) {
             widget.onSwipe(widget.index - 1);
           }

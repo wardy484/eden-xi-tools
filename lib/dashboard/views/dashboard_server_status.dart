@@ -2,12 +2,12 @@ import 'package:eden_xi_tools/eden/misc/entities/status/status.dart';
 import 'package:eden_xi_tools/server_status/server_status_notifier.dart';
 import 'package:eden_xi_tools/widgets/server_status_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/all.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class DashboardServerStatus extends ConsumerWidget {
+class DashboardServerStatus extends HookConsumerWidget {
   @override
-  Widget build(BuildContext context, watch) {
-    var status = watch(serverStatusProvider.state);
+  Widget build(BuildContext context, WidgetRef ref) {
+    var status = ref.watch(serverStatusProvider);
 
     return Card(
       child: Builder(

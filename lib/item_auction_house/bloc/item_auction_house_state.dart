@@ -28,15 +28,15 @@ class ItemAuctionHouseSuccess extends ItemAuctionHouseState {
   final List<AuctionHouseItem> auctionHouseItems;
 
   const ItemAuctionHouseSuccess({
-    this.key,
-    this.stacked,
-    this.auctionHouseItems,
+    required this.key,
+    required this.stacked,
+    required this.auctionHouseItems,
   });
 
   ItemAuctionHouseSuccess copyWith({
-    String key,
-    bool stacked,
-    List<AuctionHouseItem> auctionHouseItems,
+    String? key,
+    bool? stacked,
+    List<AuctionHouseItem>? auctionHouseItems,
   }) {
     return ItemAuctionHouseSuccess(
       key: key ?? this.key,

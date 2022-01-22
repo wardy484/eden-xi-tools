@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:eden_xi_tools/eden/misc/entities/yell/yell.dart';
 import 'package:eden_xi_tools/eden/misc/repository/misc_repository.dart';
@@ -12,21 +10,25 @@ part 'yells_bloc.freezed.dart';
 class YellsBloc extends Bloc<YellsEvent, YellsState> {
   MiscRepository statusRepository;
 
-  YellsBloc(this.statusRepository) : super(_Initial());
+  YellsBloc(this.statusRepository) : super(_Initial()) {
+    on<YellsEvent>(_onEvent);
+  }
 
-  @override
-  Stream<YellsState> mapEventToState(
+  void _onEvent(
     YellsEvent event,
-  ) async* {
-    yield YellsState.loading();
+    Emitter<YellsState> emit,
+  ) async {
+    emit(YellsState.loading());
 
-    yield await event.when(
-      started: () => YellsState.initial(),
-      requested: () async {
-        List<Yell> yells = await statusRepository.getYells();
+    emit(
+      await event.when(
+        started: () => YellsState.initial(),
+        requested: () async {
+          List<Yell> yells = await statusRepository.getYells();
 
-        return YellsState.loaded(yells);
-      },
+          return YellsState.loaded(yells);
+        },
+      ),
     );
   }
 }

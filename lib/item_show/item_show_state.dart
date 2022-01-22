@@ -24,19 +24,19 @@ class ItemShowSuccess extends ItemShowState {
   final List<Owner> owners;
 
   const ItemShowSuccess({
-    this.key,
-    this.item,
-    this.showStacked,
-    this.bazaarItems,
-    this.owners,
+    required this.key,
+    required this.item,
+    required this.showStacked,
+    required this.bazaarItems,
+    required this.owners,
   });
 
   ItemShowSuccess copyWith({
-    String key,
-    Item item,
-    List<BazaarItem> bazaarItems,
-    bool showStacked,
-    List<Owner> owners,
+    String? key,
+    Item? item,
+    List<BazaarItem>? bazaarItems,
+    bool? showStacked,
+    List<Owner>? owners,
   }) {
     return ItemShowSuccess(
       key: key ?? this.key,

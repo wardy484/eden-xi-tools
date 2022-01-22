@@ -4,12 +4,12 @@ part 'playerequipmentslot.freezed.dart';
 part 'playerequipmentslot.g.dart';
 
 @freezed
-abstract class PlayerEquipmentSlot with _$PlayerEquipmentSlot {
+class PlayerEquipmentSlot with _$PlayerEquipmentSlot {
   factory PlayerEquipmentSlot(
     @JsonKey(name: 'equipslotid') int equipSlotId,
-    @nullable @JsonKey(name: 'itemid') int itemId,
-    @nullable String name,
-    @nullable String signature,
+    @JsonKey(name: 'itemid') int? itemId,
+    String? name,
+    String? signature,
   ) = _PlayerEquipmentSlot;
 
   factory PlayerEquipmentSlot.fromJson(Map<String, dynamic> json) =>

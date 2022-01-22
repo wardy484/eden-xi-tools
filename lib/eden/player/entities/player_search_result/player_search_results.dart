@@ -5,10 +5,10 @@ part 'player_search_results.freezed.dart';
 part 'player_search_results.g.dart';
 
 @freezed
-abstract class PlayerSearchResult with _$PlayerSearchResult {
+class PlayerSearchResult with _$PlayerSearchResult {
   factory PlayerSearchResult({
-    int total,
-    @JsonKey(name: 'chars') List<PlayerSearchResultItem> items,
+    required int total,
+    @JsonKey(name: 'chars') required List<PlayerSearchResultItem> items,
   }) = _PlayerSearchResult;
 
   factory PlayerSearchResult.fromJson(Map<String, dynamic> json) =>

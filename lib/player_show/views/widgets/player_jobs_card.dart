@@ -7,7 +7,10 @@ import 'package:responsive_grid/responsive_grid.dart';
 class PlayerJobsCard extends StatelessWidget {
   final PlayerJobs jobs;
 
-  const PlayerJobsCard({Key key, this.jobs}) : super(key: key);
+  const PlayerJobsCard({
+    Key? key,
+    required this.jobs,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

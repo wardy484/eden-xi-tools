@@ -1,10 +1,7 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:eden_xi_tools/eden/items/entities/auction_house_item/auction_house_item.dart';
 import 'package:eden_xi_tools/eden/items/repositories/ItemRepository.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
 
 part 'item_auction_house_event.dart';
 part 'item_auction_house_state.dart';
@@ -13,88 +10,95 @@ class ItemAuctionHouseBloc
     extends Bloc<ItemAuctionHouseEvent, ItemAuctionHouseState> {
   final ItemRepository itemRepository;
 
-  ItemAuctionHouseBloc({@required this.itemRepository})
-      : super(ItemAuctionHouseInitial());
+  ItemAuctionHouseBloc({required this.itemRepository})
+      : super(ItemAuctionHouseInitial()) {
+    on<ItemAuctionHouseEvent>(_onEvent);
+  }
 
-  @override
-  Stream<ItemAuctionHouseState> mapEventToState(
-      ItemAuctionHouseEvent event) async* {
+  void _onEvent(
+    ItemAuctionHouseEvent event,
+    Emitter<ItemAuctionHouseState> emit,
+  ) async {
     try {
       if (event is ItemAuctionHouseRequested) {
-        yield* _mapItemAuctionHouseRequested(event);
+        emit(ItemAuctionHouseLoading(event.stacked));
+        emit(await _mapItemAuctionHouseRequested(event));
       }
 
       if (event is ItemAuctionHouseRefreshed) {
-        yield* _mapItemAuctionHouseRefreshed(event);
+        emit(ItemAuctionHouseLoading(false));
+        emit(await _mapItemAuctionHouseRefreshed(event));
       }
 
       if (event is ItemAuctionHouseStackToggled) {
-        yield* _mapItemAuctionHouseStackToggled(event);
+        // TODO: Create some form of loading transition
+        // without the below code the app just hangs
+        // with it nothing happens because the logic is wank
+        // potentially migrate to the new bloc syntax properly
+        // or use freezed
+        // do before release on any platform
+        // emit(ItemAuctionHouseLoading(event.stacked));
+        emit(await _mapItemAuctionHouseStackToggled(event));
       }
 
       if (event is ItemAuctionHouseCleared) {
-        yield ItemAuctionHouseInitial();
+        emit(ItemAuctionHouseLoading(false));
+        emit(ItemAuctionHouseInitial());
       }
     } catch (_) {
-      yield ItemAuctionHouseFailure();
+      emit(ItemAuctionHouseFailure());
     }
   }
 
-  Stream<ItemAuctionHouseState> _mapItemAuctionHouseRequested(
+  Future<ItemAuctionHouseState> _mapItemAuctionHouseRequested(
     ItemAuctionHouseRequested event,
-  ) async* {
-    yield ItemAuctionHouseLoading(event.stacked);
-
+  ) async {
     var items = await itemRepository.getAuctionHouseItem(
       event.itemKey,
       event.stacked,
     );
 
-    yield ItemAuctionHouseSuccess(
+    return ItemAuctionHouseSuccess(
       key: event.itemKey,
       stacked: event.stacked,
       auctionHouseItems: items,
     );
   }
 
-  Stream<ItemAuctionHouseState> _mapItemAuctionHouseRefreshed(
+  Future<ItemAuctionHouseState> _mapItemAuctionHouseRefreshed(
     ItemAuctionHouseRefreshed event,
-  ) async* {
+  ) async {
     final currentState = state;
 
-    yield ItemAuctionHouseLoading(state.stacked);
-
     if (currentState is ItemAuctionHouseSuccess) {
-      yield ItemAuctionHouseLoading(currentState.stacked);
-
       var items = await itemRepository.getAuctionHouseItem(
         currentState.key,
         currentState.stacked,
       );
 
-      yield currentState.copyWith(auctionHouseItems: items);
+      return currentState.copyWith(auctionHouseItems: items);
     }
+
+    return ItemAuctionHouseLoading(state.stacked);
   }
 
-  Stream<ItemAuctionHouseState> _mapItemAuctionHouseStackToggled(
+  Future<ItemAuctionHouseState> _mapItemAuctionHouseStackToggled(
     ItemAuctionHouseStackToggled event,
-  ) async* {
+  ) async {
     final currentState = state;
 
-    yield ItemAuctionHouseLoading(state.stacked);
-
     if (currentState is ItemAuctionHouseSuccess) {
-      yield ItemAuctionHouseLoading(event.stacked);
-
       var items = await itemRepository.getAuctionHouseItem(
         currentState.key,
         event.stacked,
       );
 
-      yield currentState.copyWith(
+      return currentState.copyWith(
         auctionHouseItems: items,
         stacked: event.stacked,
       );
     }
+
+    return ItemAuctionHouseLoading(state.stacked);
   }
 }

@@ -28,13 +28,16 @@ class ItemSearchSuccess extends ItemSearchState {
   final bool hasReachedMax;
   final String itemName;
 
-  const ItemSearchSuccess(
-      {this.results, this.hasReachedMax, this.itemName = ""});
+  const ItemSearchSuccess({
+    required this.results,
+    required this.hasReachedMax,
+    this.itemName = "",
+  });
 
   ItemSearchSuccess copyWith({
-    SearchResult results,
-    bool hasReachedMax,
-    String itemName,
+    SearchResult? results,
+    bool? hasReachedMax,
+    String? itemName,
   }) {
     return ItemSearchSuccess(
       results: results ?? this.results,

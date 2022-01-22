@@ -8,8 +8,11 @@ class SearchSuccess extends StatefulWidget {
   final ItemSearchSuccess state;
   final Function fetchMoreResults;
 
-  const SearchSuccess({Key key, this.state, this.fetchMoreResults})
-      : super(key: key);
+  const SearchSuccess({
+    Key? key,
+    required this.state,
+    required this.fetchMoreResults,
+  }) : super(key: key);
 
   @override
   _SearchSuccessState createState() => _SearchSuccessState();

@@ -7,7 +7,6 @@ import 'package:eden_xi_tools/player_equipment/bloc/player_equipment_bloc.dart';
 import 'package:eden_xi_tools/widgets/centered_loader.dart';
 import 'package:eden_xi_tools/widgets/custom_card/custom_card.dart';
 import 'package:eden_xi_tools/widgets/item_icon.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recase/recase.dart';
@@ -16,10 +15,9 @@ class PlayerEquipmentCard extends StatelessWidget {
   final String playerName;
 
   const PlayerEquipmentCard({
-    Key key,
-    @required this.playerName,
-  })  : assert(playerName != null),
-        super(key: key);
+    Key? key,
+    required this.playerName,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -87,11 +85,14 @@ class PlayerEquipmentCard extends StatelessWidget {
 class EquipmentSlot extends StatelessWidget {
   final PlayerEquipmentSlot equipment;
 
-  const EquipmentSlot({Key key, this.equipment}) : super(key: key);
+  const EquipmentSlot({
+    Key? key,
+    required this.equipment,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    if (equipment?.name == null) {
+    if (equipment.name == null) {
       return CachedNetworkImage(
         imageUrl:
             "https://static.ffxiah.com/images/eq${equipment.equipSlotId + 1}.gif",
@@ -101,7 +102,7 @@ class EquipmentSlot extends StatelessWidget {
       );
     }
 
-    var name = (new ReCase(equipment.name)).titleCase;
+    var name = (new ReCase(equipment.name!)).titleCase;
 
     return Tooltip(
       message: name,
@@ -112,10 +113,10 @@ class EquipmentSlot extends StatelessWidget {
             MaterialPageRoute(
               builder: (context) => ItemShowPage(
                 item: SearchResultItem(
-                  id: equipment.itemId,
+                  id: equipment.itemId!,
                   name: name,
-                  sort: equipment.name,
-                  key: equipment.name,
+                  sort: equipment.name!,
+                  key: equipment.name!,
                 ),
               ),
             ),
@@ -131,7 +132,7 @@ class EquipmentSlot extends StatelessWidget {
             ),
           ),
           child: ItemIcon(
-            id: equipment.itemId,
+            id: equipment.itemId!,
             height: 50,
             width: 50,
           ),

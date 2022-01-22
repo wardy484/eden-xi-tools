@@ -6,7 +6,7 @@ final Settings InitialSettings = Settings(
 );
 
 @freezed
-abstract class SettingsState with _$SettingsState {
+class SettingsState with _$SettingsState {
   const factory SettingsState.initial(Settings settings) = _Initial;
   const factory SettingsState.loaded(Settings settings) = _Loaded;
 }

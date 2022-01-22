@@ -14,7 +14,7 @@ class PlayerSearchPage extends StatefulWidget {
 }
 
 class _PlayerSearchPageState extends State<PlayerSearchPage> {
-  PlayerSearchBloc _searchBloc;
+  late PlayerSearchBloc _searchBloc;
 
   @override
   void initState() {

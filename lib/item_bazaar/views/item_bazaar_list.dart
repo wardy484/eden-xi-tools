@@ -3,13 +3,13 @@ import 'package:eden_xi_tools/item_bazaar/views/item_bazaar_card.dart';
 import 'package:flutter/material.dart';
 
 class ItemBazaarList extends StatelessWidget {
-  final Function onRefresh;
+  final Future<void> Function() onRefresh;
   final List<BazaarItem> items;
 
   const ItemBazaarList({
-    Key key,
-    this.onRefresh,
-    this.items,
+    Key? key,
+    required this.onRefresh,
+    required this.items,
   }) : super(key: key);
 
   @override

@@ -3,36 +3,33 @@ import 'package:eden_xi_tools/eden/player/entities/player_search_result/player_s
 import 'package:eden_xi_tools/eden/player/repository/player_repository.dart';
 import 'package:eden_xi_tools/player_search/player_search_events.dart';
 import 'package:eden_xi_tools/player_search/player_search_state.dart';
-import 'package:meta/meta.dart';
-import 'package:rxdart/rxdart.dart';
+import 'package:eden_xi_tools/transformers.dart';
 
 class PlayerSearchBloc extends Bloc<PlayerSearchEvent, PlayerSearchState> {
   final PlayerRepository playerRepository;
   final limit = 30;
 
-  PlayerSearchBloc({@required this.playerRepository})
-      : super(PlayerSearchEmpty());
-
-  @override
-  Stream<Transition<PlayerSearchEvent, PlayerSearchState>> transformEvents(
-    Stream<PlayerSearchEvent> events,
-    TransitionFunction<PlayerSearchEvent, PlayerSearchState> transitionFn,
-  ) {
-    return super.transformEvents(
-        events.debounceTime(const Duration(milliseconds: 500)), transitionFn);
+  PlayerSearchBloc({required this.playerRepository})
+      : super(PlayerSearchEmpty()) {
+    on<PlayerSearchEvent>(
+      (event, emit) => _onEvent(event, emit),
+      transformer: debounce(const Duration(milliseconds: 300)),
+    );
   }
 
-  @override
-  Stream<PlayerSearchState> mapEventToState(PlayerSearchEvent event) async* {
+  void _onEvent(
+    PlayerSearchEvent event,
+    Emitter<PlayerSearchState> emit,
+  ) async {
     final currentState = state;
     String playerName = currentState.playerName;
 
     if (event is PlayerSearchInital || event is PlayerSearchCleared) {
-      yield PlayerSearchEmpty();
+      emit(PlayerSearchEmpty());
     }
 
     if (event is PlayerSearchFetch) {
-      yield PlayerSearchInital(playerName: event.playerName);
+      emit(PlayerSearchInital(playerName: event.playerName));
 
       add(PlayerSearchRequest());
     }
@@ -43,10 +40,12 @@ class PlayerSearchBloc extends Bloc<PlayerSearchEvent, PlayerSearchState> {
             currentState is PlayerSearchInital) {
           final results = await playerRepository.search(playerName, 0, limit);
 
-          yield PlayerSearchSuccess(
-            results: results,
-            hasReachedMax: results.total <= limit,
-            playerName: playerName,
+          emit(
+            PlayerSearchSuccess(
+              results: results,
+              hasReachedMax: results.total <= limit,
+              playerName: playerName,
+            ),
           );
 
           return;
@@ -59,22 +58,24 @@ class PlayerSearchBloc extends Bloc<PlayerSearchEvent, PlayerSearchState> {
             limit,
           );
 
-          yield currentState.results.items.length == results.total
-              ? currentState.copyWith(
-                  hasReachedMax: true,
-                  playerName: playerName,
-                )
-              : PlayerSearchSuccess(
-                  results: PlayerSearchResult(
-                    total: results.total,
-                    items: currentState.results.items + results.items,
+          emit(
+            currentState.results.items.length == results.total
+                ? currentState.copyWith(
+                    hasReachedMax: true,
+                    playerName: playerName,
+                  )
+                : PlayerSearchSuccess(
+                    results: PlayerSearchResult(
+                      total: results.total,
+                      items: currentState.results.items + results.items,
+                    ),
+                    hasReachedMax: results.total <= limit,
+                    playerName: playerName,
                   ),
-                  hasReachedMax: results.total <= limit,
-                  playerName: playerName,
-                );
+          );
         }
       } catch (_) {
-        yield PlayerSearchFailure();
+        emit(PlayerSearchFailure());
       }
     }
   }

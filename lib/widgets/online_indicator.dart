@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 class OnlineIndicator extends StatelessWidget {
   final int onlineFlag;
 
-  const OnlineIndicator({Key key, this.onlineFlag}) : super(key: key);
+  const OnlineIndicator({
+    Key? key,
+    required this.onlineFlag,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

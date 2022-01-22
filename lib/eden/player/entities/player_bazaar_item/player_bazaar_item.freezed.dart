@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'player_bazaar_item.dart';
 
@@ -8,6 +9,10 @@ part of 'player_bazaar_item.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 PlayerBazaarItem _$PlayerBazaarItemFromJson(Map<String, dynamic> json) {
   return _PlayerBazaarItem.fromJson(json);
 }
@@ -16,35 +21,34 @@ PlayerBazaarItem _$PlayerBazaarItemFromJson(Map<String, dynamic> json) {
 class _$PlayerBazaarItemTearOff {
   const _$PlayerBazaarItemTearOff();
 
-// ignore: unused_element
   _PlayerBazaarItem call(
-      {@JsonKey(name: 'bazaar') int bazaar,
-      @JsonKey(name: 'name') String itemName}) {
+      {@JsonKey(name: 'bazaar') required int bazaar,
+      @JsonKey(name: 'name') required String itemName}) {
     return _PlayerBazaarItem(
       bazaar: bazaar,
       itemName: itemName,
     );
   }
 
-// ignore: unused_element
-  PlayerBazaarItem fromJson(Map<String, Object> json) {
+  PlayerBazaarItem fromJson(Map<String, Object?> json) {
     return PlayerBazaarItem.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $PlayerBazaarItem = _$PlayerBazaarItemTearOff();
 
 /// @nodoc
 mixin _$PlayerBazaarItem {
   @JsonKey(name: 'bazaar')
-  int get bazaar;
+  int get bazaar => throw _privateConstructorUsedError;
   @JsonKey(name: 'name')
-  String get itemName;
+  String get itemName => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $PlayerBazaarItemCopyWith<PlayerBazaarItem> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PlayerBazaarItemCopyWith<PlayerBazaarItem> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -68,12 +72,18 @@ class _$PlayerBazaarItemCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object bazaar = freezed,
-    Object itemName = freezed,
+    Object? bazaar = freezed,
+    Object? itemName = freezed,
   }) {
     return _then(_value.copyWith(
-      bazaar: bazaar == freezed ? _value.bazaar : bazaar as int,
-      itemName: itemName == freezed ? _value.itemName : itemName as String,
+      bazaar: bazaar == freezed
+          ? _value.bazaar
+          : bazaar // ignore: cast_nullable_to_non_nullable
+              as int,
+      itemName: itemName == freezed
+          ? _value.itemName
+          : itemName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -103,26 +113,31 @@ class __$PlayerBazaarItemCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object bazaar = freezed,
-    Object itemName = freezed,
+    Object? bazaar = freezed,
+    Object? itemName = freezed,
   }) {
     return _then(_PlayerBazaarItem(
-      bazaar: bazaar == freezed ? _value.bazaar : bazaar as int,
-      itemName: itemName == freezed ? _value.itemName : itemName as String,
+      bazaar: bazaar == freezed
+          ? _value.bazaar
+          : bazaar // ignore: cast_nullable_to_non_nullable
+              as int,
+      itemName: itemName == freezed
+          ? _value.itemName
+          : itemName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_PlayerBazaarItem implements _PlayerBazaarItem {
   _$_PlayerBazaarItem(
-      {@JsonKey(name: 'bazaar') this.bazaar,
-      @JsonKey(name: 'name') this.itemName});
+      {@JsonKey(name: 'bazaar') required this.bazaar,
+      @JsonKey(name: 'name') required this.itemName});
 
   factory _$_PlayerBazaarItem.fromJson(Map<String, dynamic> json) =>
-      _$_$_PlayerBazaarItemFromJson(json);
+      _$$_PlayerBazaarItemFromJson(json);
 
   @override
   @JsonKey(name: 'bazaar')
@@ -139,34 +154,31 @@ class _$_PlayerBazaarItem implements _PlayerBazaarItem {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PlayerBazaarItem &&
-            (identical(other.bazaar, bazaar) ||
-                const DeepCollectionEquality().equals(other.bazaar, bazaar)) &&
+        (other.runtimeType == runtimeType &&
+            other is _PlayerBazaarItem &&
+            (identical(other.bazaar, bazaar) || other.bazaar == bazaar) &&
             (identical(other.itemName, itemName) ||
-                const DeepCollectionEquality()
-                    .equals(other.itemName, itemName)));
+                other.itemName == itemName));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(bazaar) ^
-      const DeepCollectionEquality().hash(itemName);
+  int get hashCode => Object.hash(runtimeType, bazaar, itemName);
 
+  @JsonKey(ignore: true)
   @override
   _$PlayerBazaarItemCopyWith<_PlayerBazaarItem> get copyWith =>
       __$PlayerBazaarItemCopyWithImpl<_PlayerBazaarItem>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_PlayerBazaarItemToJson(this);
+    return _$$_PlayerBazaarItemToJson(this);
   }
 }
 
 abstract class _PlayerBazaarItem implements PlayerBazaarItem {
   factory _PlayerBazaarItem(
-      {@JsonKey(name: 'bazaar') int bazaar,
-      @JsonKey(name: 'name') String itemName}) = _$_PlayerBazaarItem;
+      {@JsonKey(name: 'bazaar') required int bazaar,
+      @JsonKey(name: 'name') required String itemName}) = _$_PlayerBazaarItem;
 
   factory _PlayerBazaarItem.fromJson(Map<String, dynamic> json) =
       _$_PlayerBazaarItem.fromJson;
@@ -178,5 +190,7 @@ abstract class _PlayerBazaarItem implements PlayerBazaarItem {
   @JsonKey(name: 'name')
   String get itemName;
   @override
-  _$PlayerBazaarItemCopyWith<_PlayerBazaarItem> get copyWith;
+  @JsonKey(ignore: true)
+  _$PlayerBazaarItemCopyWith<_PlayerBazaarItem> get copyWith =>
+      throw _privateConstructorUsedError;
 }

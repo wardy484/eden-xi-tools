@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:eden_xi_tools/eden/player/entities/player_equipment/player_equipment.dart';
 import 'package:eden_xi_tools/eden/player/repository/player_repository.dart';
@@ -13,19 +11,25 @@ class PlayerEquipmentBloc
     extends Bloc<PlayerEquipmentEvent, PlayerEquipmentState> {
   final PlayerRepository playerRepository;
 
-  PlayerEquipmentBloc(this.playerRepository) : super(_Initial());
+  PlayerEquipmentBloc(this.playerRepository) : super(_Initial()) {
+    on<PlayerEquipmentEvent>(_onEvent);
+  }
 
-  @override
-  Stream<PlayerEquipmentState> mapEventToState(
+  void _onEvent(
     PlayerEquipmentEvent event,
-  ) async* {
-    yield await event.when(
-      started: () => PlayerEquipmentState.initial(),
-      fetched: (String playerName) async {
-        var equipment = await playerRepository.getEquipment(playerName);
+    Emitter<PlayerEquipmentState> emit,
+  ) async {
+    emit(PlayerEquipmentState.loading());
 
-        return PlayerEquipmentState.loaded(equipment);
-      },
+    emit(
+      await event.map(
+        started: (e) => PlayerEquipmentState.initial(),
+        fetched: (e) async {
+          var equipment = await playerRepository.getEquipment(e.playerName);
+
+          return PlayerEquipmentState.loaded(equipment);
+        },
+      ),
     );
   }
 }

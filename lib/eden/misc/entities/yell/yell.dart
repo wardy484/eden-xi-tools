@@ -4,7 +4,7 @@ part 'yell.freezed.dart';
 part 'yell.g.dart';
 
 @freezed
-abstract class Yell with _$Yell {
+class Yell with _$Yell {
   factory Yell(
     int date,
     String speaker,

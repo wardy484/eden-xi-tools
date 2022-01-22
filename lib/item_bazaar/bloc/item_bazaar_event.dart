@@ -11,7 +11,10 @@ class ItemBazaarRequested extends ItemBazaarEvent {
   final String itemKey;
   final bool stacked;
 
-  const ItemBazaarRequested({this.itemKey, this.stacked});
+  const ItemBazaarRequested({
+    required this.itemKey,
+    required this.stacked,
+  });
 
   @override
   List<Object> get props => [itemKey];

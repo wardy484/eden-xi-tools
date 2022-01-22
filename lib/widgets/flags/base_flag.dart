@@ -8,11 +8,11 @@ class BaseFlag extends StatelessWidget {
   final double width;
 
   const BaseFlag({
-    Key key,
-    this.name,
-    this.url,
-    this.height,
-    this.width,
+    Key? key,
+    required this.name,
+    required this.url,
+    required this.height,
+    required this.width,
   }) : super(key: key);
 
   @override

@@ -4,13 +4,13 @@ part 'auction_house_item.freezed.dart';
 part 'auction_house_item.g.dart';
 
 @freezed
-abstract class AuctionHouseItem with _$AuctionHouseItem {
+class AuctionHouseItem with _$AuctionHouseItem {
   factory AuctionHouseItem({
-    @JsonKey(name: 'buyer_name') String buyerName,
-    String name,
-    int sale,
-    @JsonKey(name: 'sell_date') int sellDate,
-    @JsonKey(name: 'seller_name') String sellerName,
+    @JsonKey(name: 'buyer_name') required String buyerName,
+    required String name,
+    required int sale,
+    @JsonKey(name: 'sell_date') required int sellDate,
+    @JsonKey(name: 'seller_name') required String sellerName,
   }) = _AuctionHouseItem;
 
   factory AuctionHouseItem.fromJson(Map<String, dynamic> json) =>

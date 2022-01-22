@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'owner.dart';
 
@@ -8,6 +9,10 @@ part of 'owner.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 Owner _$OwnerFromJson(Map<String, dynamic> json) {
   return _Owner.fromJson(json);
 }
@@ -16,29 +21,27 @@ Owner _$OwnerFromJson(Map<String, dynamic> json) {
 class _$OwnerTearOff {
   const _$OwnerTearOff();
 
-// ignore: unused_element
   _Owner call(String name) {
     return _Owner(
       name,
     );
   }
 
-// ignore: unused_element
-  Owner fromJson(Map<String, Object> json) {
+  Owner fromJson(Map<String, Object?> json) {
     return Owner.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Owner = _$OwnerTearOff();
 
 /// @nodoc
 mixin _$Owner {
-  String get name;
+  String get name => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $OwnerCopyWith<Owner> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $OwnerCopyWith<Owner> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -58,10 +61,13 @@ class _$OwnerCopyWithImpl<$Res> implements $OwnerCopyWith<$Res> {
 
   @override
   $Res call({
-    Object name = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -85,22 +91,24 @@ class __$OwnerCopyWithImpl<$Res> extends _$OwnerCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
+    Object? name = freezed,
   }) {
     return _then(_Owner(
-      name == freezed ? _value.name : name as String,
+      name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_Owner implements _Owner {
-  _$_Owner(this.name) : assert(name != null);
+  _$_Owner(this.name);
 
   factory _$_Owner.fromJson(Map<String, dynamic> json) =>
-      _$_$_OwnerFromJson(json);
+      _$$_OwnerFromJson(json);
 
   @override
   final String name;
@@ -113,22 +121,22 @@ class _$_Owner implements _Owner {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Owner &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+        (other.runtimeType == runtimeType &&
+            other is _Owner &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+  int get hashCode => Object.hash(runtimeType, name);
 
+  @JsonKey(ignore: true)
   @override
   _$OwnerCopyWith<_Owner> get copyWith =>
       __$OwnerCopyWithImpl<_Owner>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_OwnerToJson(this);
+    return _$$_OwnerToJson(this);
   }
 }
 
@@ -140,5 +148,6 @@ abstract class _Owner implements Owner {
   @override
   String get name;
   @override
-  _$OwnerCopyWith<_Owner> get copyWith;
+  @JsonKey(ignore: true)
+  _$OwnerCopyWith<_Owner> get copyWith => throw _privateConstructorUsedError;
 }

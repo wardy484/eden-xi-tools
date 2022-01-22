@@ -1,11 +1,10 @@
 import 'package:eden_xi_tools/settings/bloc/settings_bloc.dart';
 import 'package:eden_xi_tools/widgets/custom_card/custom_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SettingsPage extends StatefulWidget {
-  const SettingsPage({Key key}) : super(key: key);
+  const SettingsPage({Key? key}) : super(key: key);
 
   @override
   _SettingsPageState createState() => _SettingsPageState();
@@ -16,7 +15,7 @@ class _SettingsPageState extends State<SettingsPage> {
   final _minRows = 3;
   final _maxRows = 8;
 
-  SettingsBloc _settingsBloc;
+  late SettingsBloc _settingsBloc;
 
   @override
   void initState() {
@@ -49,11 +48,12 @@ class _SettingsPageState extends State<SettingsPage> {
                             hint: new Text('Max. players: '),
                             items: _buildDropdownOptions(),
                             value: state.settings.maxItemsOnDashboard,
-                            onChanged: (value) {
+                            onChanged: (int? value) {
                               _settingsBloc.add(
                                 SettingsEvent.saved(
-                                  state.settings
-                                      .copyWith(maxItemsOnDashboard: value),
+                                  state.settings.copyWith(
+                                    maxItemsOnDashboard: value ?? 3,
+                                  ),
                                 ),
                               );
                             },
@@ -70,11 +70,12 @@ class _SettingsPageState extends State<SettingsPage> {
                             hint: new Text('Max. players: '),
                             items: _buildDropdownOptions(),
                             value: state.settings.maxPlayersOnDashboard,
-                            onChanged: (value) {
+                            onChanged: (int? value) {
                               _settingsBloc.add(
                                 SettingsEvent.saved(
-                                  state.settings
-                                      .copyWith(maxPlayersOnDashboard: value),
+                                  state.settings.copyWith(
+                                    maxPlayersOnDashboard: value ?? 3,
+                                  ),
                                 ),
                               );
                             },
@@ -94,7 +95,7 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
-  List<Widget> _buildDropdownOptions() {
+  List<DropdownMenuItem<int>> _buildDropdownOptions() {
     List<DropdownMenuItem<int>> options = [];
 
     for (var i = _minRows; i < _maxRows + 1; i++) {

@@ -5,9 +5,9 @@ class SearchField extends StatefulWidget {
   final Function onClear;
 
   const SearchField({
-    Key key,
-    this.onChange,
-    this.onClear,
+    Key? key,
+    required this.onChange,
+    required this.onClear,
   }) : super(key: key);
 
   @override
@@ -33,7 +33,7 @@ class _SearchFieldState extends State<SearchField> {
       focusNode: _focus,
       controller: _controller,
       onChanged: (String value) {
-        if (value != null && value != "") {
+        if (value != "") {
           widget.onChange(value);
 
           setState(() {

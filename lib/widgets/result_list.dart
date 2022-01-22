@@ -6,10 +6,10 @@ class ResultList extends StatelessWidget {
   final ScrollController controller;
 
   const ResultList({
-    Key key,
-    @required this.itemCount,
-    @required this.itemBuilder,
-    this.controller,
+    Key? key,
+    required this.itemCount,
+    required this.itemBuilder,
+    required this.controller,
   }) : super(key: key);
 
   @override

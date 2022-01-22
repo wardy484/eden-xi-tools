@@ -5,7 +5,7 @@ class CenteredMessage extends StatelessWidget {
 
   const CenteredMessage(
     this.message, {
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

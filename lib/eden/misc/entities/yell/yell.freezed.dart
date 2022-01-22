@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'yell.dart';
 
@@ -8,6 +9,10 @@ part of 'yell.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 Yell _$YellFromJson(Map<String, dynamic> json) {
   return _Yell.fromJson(json);
 }
@@ -16,7 +21,6 @@ Yell _$YellFromJson(Map<String, dynamic> json) {
 class _$YellTearOff {
   const _$YellTearOff();
 
-// ignore: unused_element
   _Yell call(int date, String speaker, String message) {
     return _Yell(
       date,
@@ -25,24 +29,23 @@ class _$YellTearOff {
     );
   }
 
-// ignore: unused_element
-  Yell fromJson(Map<String, Object> json) {
+  Yell fromJson(Map<String, Object?> json) {
     return Yell.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Yell = _$YellTearOff();
 
 /// @nodoc
 mixin _$Yell {
-  int get date;
-  String get speaker;
-  String get message;
+  int get date => throw _privateConstructorUsedError;
+  String get speaker => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $YellCopyWith<Yell> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $YellCopyWith<Yell> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -62,14 +65,23 @@ class _$YellCopyWithImpl<$Res> implements $YellCopyWith<$Res> {
 
   @override
   $Res call({
-    Object date = freezed,
-    Object speaker = freezed,
-    Object message = freezed,
+    Object? date = freezed,
+    Object? speaker = freezed,
+    Object? message = freezed,
   }) {
     return _then(_value.copyWith(
-      date: date == freezed ? _value.date : date as int,
-      speaker: speaker == freezed ? _value.speaker : speaker as String,
-      message: message == freezed ? _value.message : message as String,
+      date: date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as int,
+      speaker: speaker == freezed
+          ? _value.speaker
+          : speaker // ignore: cast_nullable_to_non_nullable
+              as String,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -93,29 +105,33 @@ class __$YellCopyWithImpl<$Res> extends _$YellCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object date = freezed,
-    Object speaker = freezed,
-    Object message = freezed,
+    Object? date = freezed,
+    Object? speaker = freezed,
+    Object? message = freezed,
   }) {
     return _then(_Yell(
-      date == freezed ? _value.date : date as int,
-      speaker == freezed ? _value.speaker : speaker as String,
-      message == freezed ? _value.message : message as String,
+      date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as int,
+      speaker == freezed
+          ? _value.speaker
+          : speaker // ignore: cast_nullable_to_non_nullable
+              as String,
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_Yell implements _Yell {
-  _$_Yell(this.date, this.speaker, this.message)
-      : assert(date != null),
-        assert(speaker != null),
-        assert(message != null);
+  _$_Yell(this.date, this.speaker, this.message);
 
-  factory _$_Yell.fromJson(Map<String, dynamic> json) =>
-      _$_$_YellFromJson(json);
+  factory _$_Yell.fromJson(Map<String, dynamic> json) => _$$_YellFromJson(json);
 
   @override
   final int date;
@@ -132,30 +148,24 @@ class _$_Yell implements _Yell {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Yell &&
-            (identical(other.date, date) ||
-                const DeepCollectionEquality().equals(other.date, date)) &&
-            (identical(other.speaker, speaker) ||
-                const DeepCollectionEquality()
-                    .equals(other.speaker, speaker)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(other.message, message)));
+        (other.runtimeType == runtimeType &&
+            other is _Yell &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.speaker, speaker) || other.speaker == speaker) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(date) ^
-      const DeepCollectionEquality().hash(speaker) ^
-      const DeepCollectionEquality().hash(message);
+  int get hashCode => Object.hash(runtimeType, date, speaker, message);
 
+  @JsonKey(ignore: true)
   @override
   _$YellCopyWith<_Yell> get copyWith =>
       __$YellCopyWithImpl<_Yell>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_YellToJson(this);
+    return _$$_YellToJson(this);
   }
 }
 
@@ -171,5 +181,6 @@ abstract class _Yell implements Yell {
   @override
   String get message;
   @override
-  _$YellCopyWith<_Yell> get copyWith;
+  @JsonKey(ignore: true)
+  _$YellCopyWith<_Yell> get copyWith => throw _privateConstructorUsedError;
 }

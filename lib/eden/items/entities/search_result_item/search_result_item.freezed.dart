@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'search_result_item.dart';
 
@@ -8,6 +9,10 @@ part of 'search_result_item.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SearchResultItem _$SearchResultItemFromJson(Map<String, dynamic> json) {
   return _SearchResultItem.fromJson(json);
 }
@@ -16,8 +21,11 @@ SearchResultItem _$SearchResultItemFromJson(Map<String, dynamic> json) {
 class _$SearchResultItemTearOff {
   const _$SearchResultItemTearOff();
 
-// ignore: unused_element
-  _SearchResultItem call({int id, String name, String sort, String key}) {
+  _SearchResultItem call(
+      {required int id,
+      required String name,
+      required String sort,
+      required String key}) {
     return _SearchResultItem(
       id: id,
       name: name,
@@ -26,25 +34,25 @@ class _$SearchResultItemTearOff {
     );
   }
 
-// ignore: unused_element
-  SearchResultItem fromJson(Map<String, Object> json) {
+  SearchResultItem fromJson(Map<String, Object?> json) {
     return SearchResultItem.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SearchResultItem = _$SearchResultItemTearOff();
 
 /// @nodoc
 mixin _$SearchResultItem {
-  int get id;
-  String get name;
-  String get sort;
-  String get key;
+  int get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get sort => throw _privateConstructorUsedError;
+  String get key => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $SearchResultItemCopyWith<SearchResultItem> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SearchResultItemCopyWith<SearchResultItem> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -66,16 +74,28 @@ class _$SearchResultItemCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object name = freezed,
-    Object sort = freezed,
-    Object key = freezed,
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? sort = freezed,
+    Object? key = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as int,
-      name: name == freezed ? _value.name : name as String,
-      sort: sort == freezed ? _value.sort : sort as String,
-      key: key == freezed ? _value.key : key as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      sort: sort == freezed
+          ? _value.sort
+          : sort // ignore: cast_nullable_to_non_nullable
+              as String,
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -103,28 +123,43 @@ class __$SearchResultItemCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object name = freezed,
-    Object sort = freezed,
-    Object key = freezed,
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? sort = freezed,
+    Object? key = freezed,
   }) {
     return _then(_SearchResultItem(
-      id: id == freezed ? _value.id : id as int,
-      name: name == freezed ? _value.name : name as String,
-      sort: sort == freezed ? _value.sort : sort as String,
-      key: key == freezed ? _value.key : key as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      sort: sort == freezed
+          ? _value.sort
+          : sort // ignore: cast_nullable_to_non_nullable
+              as String,
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_SearchResultItem implements _SearchResultItem {
-  _$_SearchResultItem({this.id, this.name, this.sort, this.key});
+  _$_SearchResultItem(
+      {required this.id,
+      required this.name,
+      required this.sort,
+      required this.key});
 
   factory _$_SearchResultItem.fromJson(Map<String, dynamic> json) =>
-      _$_$_SearchResultItemFromJson(json);
+      _$$_SearchResultItemFromJson(json);
 
   @override
   final int id;
@@ -143,38 +178,34 @@ class _$_SearchResultItem implements _SearchResultItem {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SearchResultItem &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.sort, sort) ||
-                const DeepCollectionEquality().equals(other.sort, sort)) &&
-            (identical(other.key, key) ||
-                const DeepCollectionEquality().equals(other.key, key)));
+        (other.runtimeType == runtimeType &&
+            other is _SearchResultItem &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.sort, sort) || other.sort == sort) &&
+            (identical(other.key, key) || other.key == key));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(sort) ^
-      const DeepCollectionEquality().hash(key);
+  int get hashCode => Object.hash(runtimeType, id, name, sort, key);
 
+  @JsonKey(ignore: true)
   @override
   _$SearchResultItemCopyWith<_SearchResultItem> get copyWith =>
       __$SearchResultItemCopyWithImpl<_SearchResultItem>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_SearchResultItemToJson(this);
+    return _$$_SearchResultItemToJson(this);
   }
 }
 
 abstract class _SearchResultItem implements SearchResultItem {
-  factory _SearchResultItem({int id, String name, String sort, String key}) =
-      _$_SearchResultItem;
+  factory _SearchResultItem(
+      {required int id,
+      required String name,
+      required String sort,
+      required String key}) = _$_SearchResultItem;
 
   factory _SearchResultItem.fromJson(Map<String, dynamic> json) =
       _$_SearchResultItem.fromJson;
@@ -188,5 +219,7 @@ abstract class _SearchResultItem implements SearchResultItem {
   @override
   String get key;
   @override
-  _$SearchResultItemCopyWith<_SearchResultItem> get copyWith;
+  @JsonKey(ignore: true)
+  _$SearchResultItemCopyWith<_SearchResultItem> get copyWith =>
+      throw _privateConstructorUsedError;
 }

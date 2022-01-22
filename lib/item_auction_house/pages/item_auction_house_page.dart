@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:eden_xi_tools/item_auction_house/bloc/item_auction_house_bloc.dart';
 import 'package:eden_xi_tools/item_auction_house/views/item_auction_house_list.dart';
 import 'package:eden_xi_tools/widgets/centered_message.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,8 +9,8 @@ class ItemAuctionHousePage extends StatefulWidget {
   final String itemKey;
 
   const ItemAuctionHousePage({
-    Key key,
-    this.itemKey,
+    Key? key,
+    required this.itemKey,
   }) : super(key: key);
 
   @override
@@ -19,8 +18,8 @@ class ItemAuctionHousePage extends StatefulWidget {
 }
 
 class _ItemAuctionHousePageState extends State<ItemAuctionHousePage> {
-  Completer<void> _refreshCompleter;
-  ItemAuctionHouseBloc _auctionHouseBloc;
+  late Completer<void> _refreshCompleter;
+  late ItemAuctionHouseBloc _auctionHouseBloc;
 
   @override
   void initState() {
@@ -43,7 +42,7 @@ class _ItemAuctionHousePageState extends State<ItemAuctionHousePage> {
     return BlocConsumer<ItemAuctionHouseBloc, ItemAuctionHouseState>(
       listener: (context, state) {
         if (state is ItemAuctionHouseSuccess) {
-          _refreshCompleter?.complete();
+          _refreshCompleter.complete();
           _refreshCompleter = Completer();
         }
       },

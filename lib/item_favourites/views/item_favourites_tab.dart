@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ItemFavouritesTab extends StatelessWidget {
-  const ItemFavouritesTab({Key key}) : super(key: key);
+  const ItemFavouritesTab({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +43,8 @@ class _ItemFavouriteCard extends StatelessWidget {
   final SearchResultItem item;
 
   const _ItemFavouriteCard({
-    Key key,
-    this.item,
+    Key? key,
+    required this.item,
   }) : super(key: key);
 
   @override

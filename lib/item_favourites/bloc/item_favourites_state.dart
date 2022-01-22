@@ -14,9 +14,13 @@ class ItemFavouritesLoading extends ItemFavouritesState {}
 class ItemFavouritesLoaded extends ItemFavouritesState {
   final ItemFavourites favourites;
 
-  const ItemFavouritesLoaded({this.favourites});
+  const ItemFavouritesLoaded({
+    required this.favourites,
+  });
 
-  ItemFavouritesLoaded copyWith({ItemFavourites favourites}) {
+  ItemFavouritesLoaded copyWith({
+    ItemFavourites? favourites,
+  }) {
     return ItemFavouritesLoaded(
       favourites: favourites ?? this.favourites,
     );

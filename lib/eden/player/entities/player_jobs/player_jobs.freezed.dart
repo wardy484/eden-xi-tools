@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'player_jobs.dart';
 
@@ -8,6 +9,10 @@ part of 'player_jobs.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 PlayerJobs _$PlayerJobsFromJson(Map<String, dynamic> json) {
   return _PlayerJobs.fromJson(json);
 }
@@ -16,28 +21,27 @@ PlayerJobs _$PlayerJobsFromJson(Map<String, dynamic> json) {
 class _$PlayerJobsTearOff {
   const _$PlayerJobsTearOff();
 
-// ignore: unused_element
   _PlayerJobs call(
-      {@JsonKey(name: 'BLM') int blm,
-      @JsonKey(name: 'BLU') int blu,
-      @JsonKey(name: 'BRD') int brd,
-      @JsonKey(name: 'BST') int bst,
-      @JsonKey(name: 'COR') int cor,
-      @JsonKey(name: 'DNC') int dnc,
-      @JsonKey(name: 'DRG') int drg,
-      @JsonKey(name: 'DRK') int drk,
-      @JsonKey(name: 'MNK') int mnk,
-      @JsonKey(name: 'NIN') int nin,
-      @JsonKey(name: 'PLD') int pld,
-      @JsonKey(name: 'PUP') int pup,
-      @JsonKey(name: 'RDM') int rdm,
-      @JsonKey(name: 'RNG') int rng,
-      @JsonKey(name: 'SAM') int sam,
-      @JsonKey(name: 'SCH') int sch,
-      @JsonKey(name: 'SMN') int smn,
-      @JsonKey(name: 'THF') int thf,
-      @JsonKey(name: 'WAR') int war,
-      @JsonKey(name: 'WHM') int whm}) {
+      {@JsonKey(name: 'BLM') required int blm,
+      @JsonKey(name: 'BLU') required int blu,
+      @JsonKey(name: 'BRD') required int brd,
+      @JsonKey(name: 'BST') required int bst,
+      @JsonKey(name: 'COR') required int cor,
+      @JsonKey(name: 'DNC') required int dnc,
+      @JsonKey(name: 'DRG') required int drg,
+      @JsonKey(name: 'DRK') required int drk,
+      @JsonKey(name: 'MNK') required int mnk,
+      @JsonKey(name: 'NIN') required int nin,
+      @JsonKey(name: 'PLD') required int pld,
+      @JsonKey(name: 'PUP') required int pup,
+      @JsonKey(name: 'RDM') required int rdm,
+      @JsonKey(name: 'RNG') required int rng,
+      @JsonKey(name: 'SAM') required int sam,
+      @JsonKey(name: 'SCH') required int sch,
+      @JsonKey(name: 'SMN') required int smn,
+      @JsonKey(name: 'THF') required int thf,
+      @JsonKey(name: 'WAR') required int war,
+      @JsonKey(name: 'WHM') required int whm}) {
     return _PlayerJobs(
       blm: blm,
       blu: blu,
@@ -62,61 +66,61 @@ class _$PlayerJobsTearOff {
     );
   }
 
-// ignore: unused_element
-  PlayerJobs fromJson(Map<String, Object> json) {
+  PlayerJobs fromJson(Map<String, Object?> json) {
     return PlayerJobs.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $PlayerJobs = _$PlayerJobsTearOff();
 
 /// @nodoc
 mixin _$PlayerJobs {
   @JsonKey(name: 'BLM')
-  int get blm;
+  int get blm => throw _privateConstructorUsedError;
   @JsonKey(name: 'BLU')
-  int get blu;
+  int get blu => throw _privateConstructorUsedError;
   @JsonKey(name: 'BRD')
-  int get brd;
+  int get brd => throw _privateConstructorUsedError;
   @JsonKey(name: 'BST')
-  int get bst;
+  int get bst => throw _privateConstructorUsedError;
   @JsonKey(name: 'COR')
-  int get cor;
+  int get cor => throw _privateConstructorUsedError;
   @JsonKey(name: 'DNC')
-  int get dnc;
+  int get dnc => throw _privateConstructorUsedError;
   @JsonKey(name: 'DRG')
-  int get drg;
+  int get drg => throw _privateConstructorUsedError;
   @JsonKey(name: 'DRK')
-  int get drk;
+  int get drk => throw _privateConstructorUsedError;
   @JsonKey(name: 'MNK')
-  int get mnk;
+  int get mnk => throw _privateConstructorUsedError;
   @JsonKey(name: 'NIN')
-  int get nin;
+  int get nin => throw _privateConstructorUsedError;
   @JsonKey(name: 'PLD')
-  int get pld;
+  int get pld => throw _privateConstructorUsedError;
   @JsonKey(name: 'PUP')
-  int get pup;
+  int get pup => throw _privateConstructorUsedError;
   @JsonKey(name: 'RDM')
-  int get rdm;
+  int get rdm => throw _privateConstructorUsedError;
   @JsonKey(name: 'RNG')
-  int get rng;
+  int get rng => throw _privateConstructorUsedError;
   @JsonKey(name: 'SAM')
-  int get sam;
+  int get sam => throw _privateConstructorUsedError;
   @JsonKey(name: 'SCH')
-  int get sch;
+  int get sch => throw _privateConstructorUsedError;
   @JsonKey(name: 'SMN')
-  int get smn;
+  int get smn => throw _privateConstructorUsedError;
   @JsonKey(name: 'THF')
-  int get thf;
+  int get thf => throw _privateConstructorUsedError;
   @JsonKey(name: 'WAR')
-  int get war;
+  int get war => throw _privateConstructorUsedError;
   @JsonKey(name: 'WHM')
-  int get whm;
+  int get whm => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $PlayerJobsCopyWith<PlayerJobs> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PlayerJobsCopyWith<PlayerJobs> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -157,48 +161,108 @@ class _$PlayerJobsCopyWithImpl<$Res> implements $PlayerJobsCopyWith<$Res> {
 
   @override
   $Res call({
-    Object blm = freezed,
-    Object blu = freezed,
-    Object brd = freezed,
-    Object bst = freezed,
-    Object cor = freezed,
-    Object dnc = freezed,
-    Object drg = freezed,
-    Object drk = freezed,
-    Object mnk = freezed,
-    Object nin = freezed,
-    Object pld = freezed,
-    Object pup = freezed,
-    Object rdm = freezed,
-    Object rng = freezed,
-    Object sam = freezed,
-    Object sch = freezed,
-    Object smn = freezed,
-    Object thf = freezed,
-    Object war = freezed,
-    Object whm = freezed,
+    Object? blm = freezed,
+    Object? blu = freezed,
+    Object? brd = freezed,
+    Object? bst = freezed,
+    Object? cor = freezed,
+    Object? dnc = freezed,
+    Object? drg = freezed,
+    Object? drk = freezed,
+    Object? mnk = freezed,
+    Object? nin = freezed,
+    Object? pld = freezed,
+    Object? pup = freezed,
+    Object? rdm = freezed,
+    Object? rng = freezed,
+    Object? sam = freezed,
+    Object? sch = freezed,
+    Object? smn = freezed,
+    Object? thf = freezed,
+    Object? war = freezed,
+    Object? whm = freezed,
   }) {
     return _then(_value.copyWith(
-      blm: blm == freezed ? _value.blm : blm as int,
-      blu: blu == freezed ? _value.blu : blu as int,
-      brd: brd == freezed ? _value.brd : brd as int,
-      bst: bst == freezed ? _value.bst : bst as int,
-      cor: cor == freezed ? _value.cor : cor as int,
-      dnc: dnc == freezed ? _value.dnc : dnc as int,
-      drg: drg == freezed ? _value.drg : drg as int,
-      drk: drk == freezed ? _value.drk : drk as int,
-      mnk: mnk == freezed ? _value.mnk : mnk as int,
-      nin: nin == freezed ? _value.nin : nin as int,
-      pld: pld == freezed ? _value.pld : pld as int,
-      pup: pup == freezed ? _value.pup : pup as int,
-      rdm: rdm == freezed ? _value.rdm : rdm as int,
-      rng: rng == freezed ? _value.rng : rng as int,
-      sam: sam == freezed ? _value.sam : sam as int,
-      sch: sch == freezed ? _value.sch : sch as int,
-      smn: smn == freezed ? _value.smn : smn as int,
-      thf: thf == freezed ? _value.thf : thf as int,
-      war: war == freezed ? _value.war : war as int,
-      whm: whm == freezed ? _value.whm : whm as int,
+      blm: blm == freezed
+          ? _value.blm
+          : blm // ignore: cast_nullable_to_non_nullable
+              as int,
+      blu: blu == freezed
+          ? _value.blu
+          : blu // ignore: cast_nullable_to_non_nullable
+              as int,
+      brd: brd == freezed
+          ? _value.brd
+          : brd // ignore: cast_nullable_to_non_nullable
+              as int,
+      bst: bst == freezed
+          ? _value.bst
+          : bst // ignore: cast_nullable_to_non_nullable
+              as int,
+      cor: cor == freezed
+          ? _value.cor
+          : cor // ignore: cast_nullable_to_non_nullable
+              as int,
+      dnc: dnc == freezed
+          ? _value.dnc
+          : dnc // ignore: cast_nullable_to_non_nullable
+              as int,
+      drg: drg == freezed
+          ? _value.drg
+          : drg // ignore: cast_nullable_to_non_nullable
+              as int,
+      drk: drk == freezed
+          ? _value.drk
+          : drk // ignore: cast_nullable_to_non_nullable
+              as int,
+      mnk: mnk == freezed
+          ? _value.mnk
+          : mnk // ignore: cast_nullable_to_non_nullable
+              as int,
+      nin: nin == freezed
+          ? _value.nin
+          : nin // ignore: cast_nullable_to_non_nullable
+              as int,
+      pld: pld == freezed
+          ? _value.pld
+          : pld // ignore: cast_nullable_to_non_nullable
+              as int,
+      pup: pup == freezed
+          ? _value.pup
+          : pup // ignore: cast_nullable_to_non_nullable
+              as int,
+      rdm: rdm == freezed
+          ? _value.rdm
+          : rdm // ignore: cast_nullable_to_non_nullable
+              as int,
+      rng: rng == freezed
+          ? _value.rng
+          : rng // ignore: cast_nullable_to_non_nullable
+              as int,
+      sam: sam == freezed
+          ? _value.sam
+          : sam // ignore: cast_nullable_to_non_nullable
+              as int,
+      sch: sch == freezed
+          ? _value.sch
+          : sch // ignore: cast_nullable_to_non_nullable
+              as int,
+      smn: smn == freezed
+          ? _value.smn
+          : smn // ignore: cast_nullable_to_non_nullable
+              as int,
+      thf: thf == freezed
+          ? _value.thf
+          : thf // ignore: cast_nullable_to_non_nullable
+              as int,
+      war: war == freezed
+          ? _value.war
+          : war // ignore: cast_nullable_to_non_nullable
+              as int,
+      whm: whm == freezed
+          ? _value.whm
+          : whm // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -244,80 +308,139 @@ class __$PlayerJobsCopyWithImpl<$Res> extends _$PlayerJobsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object blm = freezed,
-    Object blu = freezed,
-    Object brd = freezed,
-    Object bst = freezed,
-    Object cor = freezed,
-    Object dnc = freezed,
-    Object drg = freezed,
-    Object drk = freezed,
-    Object mnk = freezed,
-    Object nin = freezed,
-    Object pld = freezed,
-    Object pup = freezed,
-    Object rdm = freezed,
-    Object rng = freezed,
-    Object sam = freezed,
-    Object sch = freezed,
-    Object smn = freezed,
-    Object thf = freezed,
-    Object war = freezed,
-    Object whm = freezed,
+    Object? blm = freezed,
+    Object? blu = freezed,
+    Object? brd = freezed,
+    Object? bst = freezed,
+    Object? cor = freezed,
+    Object? dnc = freezed,
+    Object? drg = freezed,
+    Object? drk = freezed,
+    Object? mnk = freezed,
+    Object? nin = freezed,
+    Object? pld = freezed,
+    Object? pup = freezed,
+    Object? rdm = freezed,
+    Object? rng = freezed,
+    Object? sam = freezed,
+    Object? sch = freezed,
+    Object? smn = freezed,
+    Object? thf = freezed,
+    Object? war = freezed,
+    Object? whm = freezed,
   }) {
     return _then(_PlayerJobs(
-      blm: blm == freezed ? _value.blm : blm as int,
-      blu: blu == freezed ? _value.blu : blu as int,
-      brd: brd == freezed ? _value.brd : brd as int,
-      bst: bst == freezed ? _value.bst : bst as int,
-      cor: cor == freezed ? _value.cor : cor as int,
-      dnc: dnc == freezed ? _value.dnc : dnc as int,
-      drg: drg == freezed ? _value.drg : drg as int,
-      drk: drk == freezed ? _value.drk : drk as int,
-      mnk: mnk == freezed ? _value.mnk : mnk as int,
-      nin: nin == freezed ? _value.nin : nin as int,
-      pld: pld == freezed ? _value.pld : pld as int,
-      pup: pup == freezed ? _value.pup : pup as int,
-      rdm: rdm == freezed ? _value.rdm : rdm as int,
-      rng: rng == freezed ? _value.rng : rng as int,
-      sam: sam == freezed ? _value.sam : sam as int,
-      sch: sch == freezed ? _value.sch : sch as int,
-      smn: smn == freezed ? _value.smn : smn as int,
-      thf: thf == freezed ? _value.thf : thf as int,
-      war: war == freezed ? _value.war : war as int,
-      whm: whm == freezed ? _value.whm : whm as int,
+      blm: blm == freezed
+          ? _value.blm
+          : blm // ignore: cast_nullable_to_non_nullable
+              as int,
+      blu: blu == freezed
+          ? _value.blu
+          : blu // ignore: cast_nullable_to_non_nullable
+              as int,
+      brd: brd == freezed
+          ? _value.brd
+          : brd // ignore: cast_nullable_to_non_nullable
+              as int,
+      bst: bst == freezed
+          ? _value.bst
+          : bst // ignore: cast_nullable_to_non_nullable
+              as int,
+      cor: cor == freezed
+          ? _value.cor
+          : cor // ignore: cast_nullable_to_non_nullable
+              as int,
+      dnc: dnc == freezed
+          ? _value.dnc
+          : dnc // ignore: cast_nullable_to_non_nullable
+              as int,
+      drg: drg == freezed
+          ? _value.drg
+          : drg // ignore: cast_nullable_to_non_nullable
+              as int,
+      drk: drk == freezed
+          ? _value.drk
+          : drk // ignore: cast_nullable_to_non_nullable
+              as int,
+      mnk: mnk == freezed
+          ? _value.mnk
+          : mnk // ignore: cast_nullable_to_non_nullable
+              as int,
+      nin: nin == freezed
+          ? _value.nin
+          : nin // ignore: cast_nullable_to_non_nullable
+              as int,
+      pld: pld == freezed
+          ? _value.pld
+          : pld // ignore: cast_nullable_to_non_nullable
+              as int,
+      pup: pup == freezed
+          ? _value.pup
+          : pup // ignore: cast_nullable_to_non_nullable
+              as int,
+      rdm: rdm == freezed
+          ? _value.rdm
+          : rdm // ignore: cast_nullable_to_non_nullable
+              as int,
+      rng: rng == freezed
+          ? _value.rng
+          : rng // ignore: cast_nullable_to_non_nullable
+              as int,
+      sam: sam == freezed
+          ? _value.sam
+          : sam // ignore: cast_nullable_to_non_nullable
+              as int,
+      sch: sch == freezed
+          ? _value.sch
+          : sch // ignore: cast_nullable_to_non_nullable
+              as int,
+      smn: smn == freezed
+          ? _value.smn
+          : smn // ignore: cast_nullable_to_non_nullable
+              as int,
+      thf: thf == freezed
+          ? _value.thf
+          : thf // ignore: cast_nullable_to_non_nullable
+              as int,
+      war: war == freezed
+          ? _value.war
+          : war // ignore: cast_nullable_to_non_nullable
+              as int,
+      whm: whm == freezed
+          ? _value.whm
+          : whm // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_PlayerJobs implements _PlayerJobs {
   _$_PlayerJobs(
-      {@JsonKey(name: 'BLM') this.blm,
-      @JsonKey(name: 'BLU') this.blu,
-      @JsonKey(name: 'BRD') this.brd,
-      @JsonKey(name: 'BST') this.bst,
-      @JsonKey(name: 'COR') this.cor,
-      @JsonKey(name: 'DNC') this.dnc,
-      @JsonKey(name: 'DRG') this.drg,
-      @JsonKey(name: 'DRK') this.drk,
-      @JsonKey(name: 'MNK') this.mnk,
-      @JsonKey(name: 'NIN') this.nin,
-      @JsonKey(name: 'PLD') this.pld,
-      @JsonKey(name: 'PUP') this.pup,
-      @JsonKey(name: 'RDM') this.rdm,
-      @JsonKey(name: 'RNG') this.rng,
-      @JsonKey(name: 'SAM') this.sam,
-      @JsonKey(name: 'SCH') this.sch,
-      @JsonKey(name: 'SMN') this.smn,
-      @JsonKey(name: 'THF') this.thf,
-      @JsonKey(name: 'WAR') this.war,
-      @JsonKey(name: 'WHM') this.whm});
+      {@JsonKey(name: 'BLM') required this.blm,
+      @JsonKey(name: 'BLU') required this.blu,
+      @JsonKey(name: 'BRD') required this.brd,
+      @JsonKey(name: 'BST') required this.bst,
+      @JsonKey(name: 'COR') required this.cor,
+      @JsonKey(name: 'DNC') required this.dnc,
+      @JsonKey(name: 'DRG') required this.drg,
+      @JsonKey(name: 'DRK') required this.drk,
+      @JsonKey(name: 'MNK') required this.mnk,
+      @JsonKey(name: 'NIN') required this.nin,
+      @JsonKey(name: 'PLD') required this.pld,
+      @JsonKey(name: 'PUP') required this.pup,
+      @JsonKey(name: 'RDM') required this.rdm,
+      @JsonKey(name: 'RNG') required this.rng,
+      @JsonKey(name: 'SAM') required this.sam,
+      @JsonKey(name: 'SCH') required this.sch,
+      @JsonKey(name: 'SMN') required this.smn,
+      @JsonKey(name: 'THF') required this.thf,
+      @JsonKey(name: 'WAR') required this.war,
+      @JsonKey(name: 'WHM') required this.whm});
 
   factory _$_PlayerJobs.fromJson(Map<String, dynamic> json) =>
-      _$_$_PlayerJobsFromJson(json);
+      _$$_PlayerJobsFromJson(json);
 
   @override
   @JsonKey(name: 'BLM')
@@ -388,105 +511,88 @@ class _$_PlayerJobs implements _PlayerJobs {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PlayerJobs &&
-            (identical(other.blm, blm) ||
-                const DeepCollectionEquality().equals(other.blm, blm)) &&
-            (identical(other.blu, blu) ||
-                const DeepCollectionEquality().equals(other.blu, blu)) &&
-            (identical(other.brd, brd) ||
-                const DeepCollectionEquality().equals(other.brd, brd)) &&
-            (identical(other.bst, bst) ||
-                const DeepCollectionEquality().equals(other.bst, bst)) &&
-            (identical(other.cor, cor) ||
-                const DeepCollectionEquality().equals(other.cor, cor)) &&
-            (identical(other.dnc, dnc) ||
-                const DeepCollectionEquality().equals(other.dnc, dnc)) &&
-            (identical(other.drg, drg) ||
-                const DeepCollectionEquality().equals(other.drg, drg)) &&
-            (identical(other.drk, drk) ||
-                const DeepCollectionEquality().equals(other.drk, drk)) &&
-            (identical(other.mnk, mnk) ||
-                const DeepCollectionEquality().equals(other.mnk, mnk)) &&
-            (identical(other.nin, nin) ||
-                const DeepCollectionEquality().equals(other.nin, nin)) &&
-            (identical(other.pld, pld) ||
-                const DeepCollectionEquality().equals(other.pld, pld)) &&
-            (identical(other.pup, pup) ||
-                const DeepCollectionEquality().equals(other.pup, pup)) &&
-            (identical(other.rdm, rdm) ||
-                const DeepCollectionEquality().equals(other.rdm, rdm)) &&
-            (identical(other.rng, rng) ||
-                const DeepCollectionEquality().equals(other.rng, rng)) &&
-            (identical(other.sam, sam) ||
-                const DeepCollectionEquality().equals(other.sam, sam)) &&
-            (identical(other.sch, sch) ||
-                const DeepCollectionEquality().equals(other.sch, sch)) &&
-            (identical(other.smn, smn) ||
-                const DeepCollectionEquality().equals(other.smn, smn)) &&
-            (identical(other.thf, thf) ||
-                const DeepCollectionEquality().equals(other.thf, thf)) &&
-            (identical(other.war, war) ||
-                const DeepCollectionEquality().equals(other.war, war)) &&
-            (identical(other.whm, whm) ||
-                const DeepCollectionEquality().equals(other.whm, whm)));
+        (other.runtimeType == runtimeType &&
+            other is _PlayerJobs &&
+            (identical(other.blm, blm) || other.blm == blm) &&
+            (identical(other.blu, blu) || other.blu == blu) &&
+            (identical(other.brd, brd) || other.brd == brd) &&
+            (identical(other.bst, bst) || other.bst == bst) &&
+            (identical(other.cor, cor) || other.cor == cor) &&
+            (identical(other.dnc, dnc) || other.dnc == dnc) &&
+            (identical(other.drg, drg) || other.drg == drg) &&
+            (identical(other.drk, drk) || other.drk == drk) &&
+            (identical(other.mnk, mnk) || other.mnk == mnk) &&
+            (identical(other.nin, nin) || other.nin == nin) &&
+            (identical(other.pld, pld) || other.pld == pld) &&
+            (identical(other.pup, pup) || other.pup == pup) &&
+            (identical(other.rdm, rdm) || other.rdm == rdm) &&
+            (identical(other.rng, rng) || other.rng == rng) &&
+            (identical(other.sam, sam) || other.sam == sam) &&
+            (identical(other.sch, sch) || other.sch == sch) &&
+            (identical(other.smn, smn) || other.smn == smn) &&
+            (identical(other.thf, thf) || other.thf == thf) &&
+            (identical(other.war, war) || other.war == war) &&
+            (identical(other.whm, whm) || other.whm == whm));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(blm) ^
-      const DeepCollectionEquality().hash(blu) ^
-      const DeepCollectionEquality().hash(brd) ^
-      const DeepCollectionEquality().hash(bst) ^
-      const DeepCollectionEquality().hash(cor) ^
-      const DeepCollectionEquality().hash(dnc) ^
-      const DeepCollectionEquality().hash(drg) ^
-      const DeepCollectionEquality().hash(drk) ^
-      const DeepCollectionEquality().hash(mnk) ^
-      const DeepCollectionEquality().hash(nin) ^
-      const DeepCollectionEquality().hash(pld) ^
-      const DeepCollectionEquality().hash(pup) ^
-      const DeepCollectionEquality().hash(rdm) ^
-      const DeepCollectionEquality().hash(rng) ^
-      const DeepCollectionEquality().hash(sam) ^
-      const DeepCollectionEquality().hash(sch) ^
-      const DeepCollectionEquality().hash(smn) ^
-      const DeepCollectionEquality().hash(thf) ^
-      const DeepCollectionEquality().hash(war) ^
-      const DeepCollectionEquality().hash(whm);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        blm,
+        blu,
+        brd,
+        bst,
+        cor,
+        dnc,
+        drg,
+        drk,
+        mnk,
+        nin,
+        pld,
+        pup,
+        rdm,
+        rng,
+        sam,
+        sch,
+        smn,
+        thf,
+        war,
+        whm
+      ]);
 
+  @JsonKey(ignore: true)
   @override
   _$PlayerJobsCopyWith<_PlayerJobs> get copyWith =>
       __$PlayerJobsCopyWithImpl<_PlayerJobs>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_PlayerJobsToJson(this);
+    return _$$_PlayerJobsToJson(this);
   }
 }
 
 abstract class _PlayerJobs implements PlayerJobs {
   factory _PlayerJobs(
-      {@JsonKey(name: 'BLM') int blm,
-      @JsonKey(name: 'BLU') int blu,
-      @JsonKey(name: 'BRD') int brd,
-      @JsonKey(name: 'BST') int bst,
-      @JsonKey(name: 'COR') int cor,
-      @JsonKey(name: 'DNC') int dnc,
-      @JsonKey(name: 'DRG') int drg,
-      @JsonKey(name: 'DRK') int drk,
-      @JsonKey(name: 'MNK') int mnk,
-      @JsonKey(name: 'NIN') int nin,
-      @JsonKey(name: 'PLD') int pld,
-      @JsonKey(name: 'PUP') int pup,
-      @JsonKey(name: 'RDM') int rdm,
-      @JsonKey(name: 'RNG') int rng,
-      @JsonKey(name: 'SAM') int sam,
-      @JsonKey(name: 'SCH') int sch,
-      @JsonKey(name: 'SMN') int smn,
-      @JsonKey(name: 'THF') int thf,
-      @JsonKey(name: 'WAR') int war,
-      @JsonKey(name: 'WHM') int whm}) = _$_PlayerJobs;
+      {@JsonKey(name: 'BLM') required int blm,
+      @JsonKey(name: 'BLU') required int blu,
+      @JsonKey(name: 'BRD') required int brd,
+      @JsonKey(name: 'BST') required int bst,
+      @JsonKey(name: 'COR') required int cor,
+      @JsonKey(name: 'DNC') required int dnc,
+      @JsonKey(name: 'DRG') required int drg,
+      @JsonKey(name: 'DRK') required int drk,
+      @JsonKey(name: 'MNK') required int mnk,
+      @JsonKey(name: 'NIN') required int nin,
+      @JsonKey(name: 'PLD') required int pld,
+      @JsonKey(name: 'PUP') required int pup,
+      @JsonKey(name: 'RDM') required int rdm,
+      @JsonKey(name: 'RNG') required int rng,
+      @JsonKey(name: 'SAM') required int sam,
+      @JsonKey(name: 'SCH') required int sch,
+      @JsonKey(name: 'SMN') required int smn,
+      @JsonKey(name: 'THF') required int thf,
+      @JsonKey(name: 'WAR') required int war,
+      @JsonKey(name: 'WHM') required int whm}) = _$_PlayerJobs;
 
   factory _PlayerJobs.fromJson(Map<String, dynamic> json) =
       _$_PlayerJobs.fromJson;
@@ -552,5 +658,7 @@ abstract class _PlayerJobs implements PlayerJobs {
   @JsonKey(name: 'WHM')
   int get whm;
   @override
-  _$PlayerJobsCopyWith<_PlayerJobs> get copyWith;
+  @JsonKey(ignore: true)
+  _$PlayerJobsCopyWith<_PlayerJobs> get copyWith =>
+      throw _privateConstructorUsedError;
 }

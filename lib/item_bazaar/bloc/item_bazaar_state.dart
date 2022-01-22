@@ -18,13 +18,13 @@ class ItemBazaarSuccess extends ItemBazaarState {
   final List<BazaarItem> bazaarItems;
 
   const ItemBazaarSuccess({
-    this.key,
-    this.bazaarItems,
+    required this.key,
+    required this.bazaarItems,
   });
 
   ItemBazaarSuccess copyWith({
-    String key,
-    List<BazaarItem> bazaarItems,
+    String? key,
+    List<BazaarItem>? bazaarItems,
   }) {
     return ItemBazaarSuccess(
       key: key ?? this.key,

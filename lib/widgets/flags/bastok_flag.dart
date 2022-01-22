@@ -6,9 +6,9 @@ class BastokFlag extends StatelessWidget {
   final double width;
 
   const BastokFlag({
-    Key key,
-    this.height,
-    this.width,
+    Key? key,
+    required this.height,
+    required this.width,
   }) : super(key: key);
 
   @override

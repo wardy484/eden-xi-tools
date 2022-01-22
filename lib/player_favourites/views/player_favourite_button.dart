@@ -7,7 +7,8 @@ import 'package:eden_xi_tools/player_favourites/bloc/player_favourites_bloc.dart
 class PlayerFavouriteButton extends StatelessWidget {
   final PlayerSearchResultItem player;
 
-  const PlayerFavouriteButton({Key key, this.player}) : super(key: key);
+  const PlayerFavouriteButton({Key? key, required this.player})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

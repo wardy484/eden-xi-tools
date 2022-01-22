@@ -2,7 +2,7 @@ import 'package:eden_xi_tools/widgets/centered_message.dart';
 import 'package:flutter/material.dart';
 
 class PlayerSearchEmptyView extends StatelessWidget {
-  const PlayerSearchEmptyView({Key key}) : super(key: key);
+  const PlayerSearchEmptyView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

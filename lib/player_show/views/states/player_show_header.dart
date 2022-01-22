@@ -6,7 +6,10 @@ import 'package:flutter/material.dart';
 class PlayerShowHeader extends StatelessWidget {
   final PlayerSearchResultItem playerResult;
 
-  const PlayerShowHeader({Key key, this.playerResult}) : super(key: key);
+  const PlayerShowHeader({
+    Key? key,
+    required this.playerResult,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,7 @@ class PlayerShowHeader extends StatelessWidget {
         style: LightHeading,
       ),
       subtitle: Text(
-        playerResult.title,
+        playerResult.jobString,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         style: LightText,

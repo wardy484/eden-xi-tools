@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'player.dart';
 
@@ -8,6 +9,10 @@ part of 'player.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 Player _$PlayerFromJson(Map<String, dynamic> json) {
   return _Player.fromJson(json);
 }
@@ -16,19 +21,18 @@ Player _$PlayerFromJson(Map<String, dynamic> json) {
 class _$PlayerTearOff {
   const _$PlayerTearOff();
 
-// ignore: unused_element
   _Player call(
-      {String avatar,
-      int id,
-      String jobString,
-      PlayerJobs jobs,
-      int mentor,
-      String name,
-      int nameFlags,
-      int nation,
-      PlayerRanks ranks,
-      String title,
-      int online}) {
+      {required String avatar,
+      required int id,
+      required String jobString,
+      required PlayerJobs jobs,
+      required int mentor,
+      required String name,
+      required int nameflags,
+      required int nation,
+      required PlayerRanks ranks,
+      required String title,
+      required int online}) {
     return _Player(
       avatar: avatar,
       id: id,
@@ -36,7 +40,7 @@ class _$PlayerTearOff {
       jobs: jobs,
       mentor: mentor,
       name: name,
-      nameFlags: nameFlags,
+      nameflags: nameflags,
       nation: nation,
       ranks: ranks,
       title: title,
@@ -44,32 +48,31 @@ class _$PlayerTearOff {
     );
   }
 
-// ignore: unused_element
-  Player fromJson(Map<String, Object> json) {
+  Player fromJson(Map<String, Object?> json) {
     return Player.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Player = _$PlayerTearOff();
 
 /// @nodoc
 mixin _$Player {
-  String get avatar;
-  int get id;
-  String get jobString;
-  PlayerJobs get jobs;
-  int get mentor;
-  String get name;
-  int get nameFlags;
-  int get nation;
-  PlayerRanks get ranks;
-  String get title;
-  int get online;
+  String get avatar => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  String get jobString => throw _privateConstructorUsedError;
+  PlayerJobs get jobs => throw _privateConstructorUsedError;
+  int get mentor => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  int get nameflags => throw _privateConstructorUsedError;
+  int get nation => throw _privateConstructorUsedError;
+  PlayerRanks get ranks => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  int get online => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $PlayerCopyWith<Player> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PlayerCopyWith<Player> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -83,7 +86,7 @@ abstract class $PlayerCopyWith<$Res> {
       PlayerJobs jobs,
       int mentor,
       String name,
-      int nameFlags,
+      int nameflags,
       int nation,
       PlayerRanks ranks,
       String title,
@@ -103,38 +106,68 @@ class _$PlayerCopyWithImpl<$Res> implements $PlayerCopyWith<$Res> {
 
   @override
   $Res call({
-    Object avatar = freezed,
-    Object id = freezed,
-    Object jobString = freezed,
-    Object jobs = freezed,
-    Object mentor = freezed,
-    Object name = freezed,
-    Object nameFlags = freezed,
-    Object nation = freezed,
-    Object ranks = freezed,
-    Object title = freezed,
-    Object online = freezed,
+    Object? avatar = freezed,
+    Object? id = freezed,
+    Object? jobString = freezed,
+    Object? jobs = freezed,
+    Object? mentor = freezed,
+    Object? name = freezed,
+    Object? nameflags = freezed,
+    Object? nation = freezed,
+    Object? ranks = freezed,
+    Object? title = freezed,
+    Object? online = freezed,
   }) {
     return _then(_value.copyWith(
-      avatar: avatar == freezed ? _value.avatar : avatar as String,
-      id: id == freezed ? _value.id : id as int,
-      jobString: jobString == freezed ? _value.jobString : jobString as String,
-      jobs: jobs == freezed ? _value.jobs : jobs as PlayerJobs,
-      mentor: mentor == freezed ? _value.mentor : mentor as int,
-      name: name == freezed ? _value.name : name as String,
-      nameFlags: nameFlags == freezed ? _value.nameFlags : nameFlags as int,
-      nation: nation == freezed ? _value.nation : nation as int,
-      ranks: ranks == freezed ? _value.ranks : ranks as PlayerRanks,
-      title: title == freezed ? _value.title : title as String,
-      online: online == freezed ? _value.online : online as int,
+      avatar: avatar == freezed
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      jobString: jobString == freezed
+          ? _value.jobString
+          : jobString // ignore: cast_nullable_to_non_nullable
+              as String,
+      jobs: jobs == freezed
+          ? _value.jobs
+          : jobs // ignore: cast_nullable_to_non_nullable
+              as PlayerJobs,
+      mentor: mentor == freezed
+          ? _value.mentor
+          : mentor // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      nameflags: nameflags == freezed
+          ? _value.nameflags
+          : nameflags // ignore: cast_nullable_to_non_nullable
+              as int,
+      nation: nation == freezed
+          ? _value.nation
+          : nation // ignore: cast_nullable_to_non_nullable
+              as int,
+      ranks: ranks == freezed
+          ? _value.ranks
+          : ranks // ignore: cast_nullable_to_non_nullable
+              as PlayerRanks,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      online: online == freezed
+          ? _value.online
+          : online // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 
   @override
   $PlayerJobsCopyWith<$Res> get jobs {
-    if (_value.jobs == null) {
-      return null;
-    }
     return $PlayerJobsCopyWith<$Res>(_value.jobs, (value) {
       return _then(_value.copyWith(jobs: value));
     });
@@ -142,9 +175,6 @@ class _$PlayerCopyWithImpl<$Res> implements $PlayerCopyWith<$Res> {
 
   @override
   $PlayerRanksCopyWith<$Res> get ranks {
-    if (_value.ranks == null) {
-      return null;
-    }
     return $PlayerRanksCopyWith<$Res>(_value.ranks, (value) {
       return _then(_value.copyWith(ranks: value));
     });
@@ -163,7 +193,7 @@ abstract class _$PlayerCopyWith<$Res> implements $PlayerCopyWith<$Res> {
       PlayerJobs jobs,
       int mentor,
       String name,
-      int nameFlags,
+      int nameflags,
       int nation,
       PlayerRanks ranks,
       String title,
@@ -186,53 +216,85 @@ class __$PlayerCopyWithImpl<$Res> extends _$PlayerCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object avatar = freezed,
-    Object id = freezed,
-    Object jobString = freezed,
-    Object jobs = freezed,
-    Object mentor = freezed,
-    Object name = freezed,
-    Object nameFlags = freezed,
-    Object nation = freezed,
-    Object ranks = freezed,
-    Object title = freezed,
-    Object online = freezed,
+    Object? avatar = freezed,
+    Object? id = freezed,
+    Object? jobString = freezed,
+    Object? jobs = freezed,
+    Object? mentor = freezed,
+    Object? name = freezed,
+    Object? nameflags = freezed,
+    Object? nation = freezed,
+    Object? ranks = freezed,
+    Object? title = freezed,
+    Object? online = freezed,
   }) {
     return _then(_Player(
-      avatar: avatar == freezed ? _value.avatar : avatar as String,
-      id: id == freezed ? _value.id : id as int,
-      jobString: jobString == freezed ? _value.jobString : jobString as String,
-      jobs: jobs == freezed ? _value.jobs : jobs as PlayerJobs,
-      mentor: mentor == freezed ? _value.mentor : mentor as int,
-      name: name == freezed ? _value.name : name as String,
-      nameFlags: nameFlags == freezed ? _value.nameFlags : nameFlags as int,
-      nation: nation == freezed ? _value.nation : nation as int,
-      ranks: ranks == freezed ? _value.ranks : ranks as PlayerRanks,
-      title: title == freezed ? _value.title : title as String,
-      online: online == freezed ? _value.online : online as int,
+      avatar: avatar == freezed
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      jobString: jobString == freezed
+          ? _value.jobString
+          : jobString // ignore: cast_nullable_to_non_nullable
+              as String,
+      jobs: jobs == freezed
+          ? _value.jobs
+          : jobs // ignore: cast_nullable_to_non_nullable
+              as PlayerJobs,
+      mentor: mentor == freezed
+          ? _value.mentor
+          : mentor // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      nameflags: nameflags == freezed
+          ? _value.nameflags
+          : nameflags // ignore: cast_nullable_to_non_nullable
+              as int,
+      nation: nation == freezed
+          ? _value.nation
+          : nation // ignore: cast_nullable_to_non_nullable
+              as int,
+      ranks: ranks == freezed
+          ? _value.ranks
+          : ranks // ignore: cast_nullable_to_non_nullable
+              as PlayerRanks,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      online: online == freezed
+          ? _value.online
+          : online // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_Player implements _Player {
   _$_Player(
-      {this.avatar,
-      this.id,
-      this.jobString,
-      this.jobs,
-      this.mentor,
-      this.name,
-      this.nameFlags,
-      this.nation,
-      this.ranks,
-      this.title,
-      this.online});
+      {required this.avatar,
+      required this.id,
+      required this.jobString,
+      required this.jobs,
+      required this.mentor,
+      required this.name,
+      required this.nameflags,
+      required this.nation,
+      required this.ranks,
+      required this.title,
+      required this.online});
 
   factory _$_Player.fromJson(Map<String, dynamic> json) =>
-      _$_$_PlayerFromJson(json);
+      _$$_PlayerFromJson(json);
 
   @override
   final String avatar;
@@ -247,7 +309,7 @@ class _$_Player implements _Player {
   @override
   final String name;
   @override
-  final int nameFlags;
+  final int nameflags;
   @override
   final int nation;
   @override
@@ -259,77 +321,57 @@ class _$_Player implements _Player {
 
   @override
   String toString() {
-    return 'Player(avatar: $avatar, id: $id, jobString: $jobString, jobs: $jobs, mentor: $mentor, name: $name, nameFlags: $nameFlags, nation: $nation, ranks: $ranks, title: $title, online: $online)';
+    return 'Player(avatar: $avatar, id: $id, jobString: $jobString, jobs: $jobs, mentor: $mentor, name: $name, nameflags: $nameflags, nation: $nation, ranks: $ranks, title: $title, online: $online)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Player &&
-            (identical(other.avatar, avatar) ||
-                const DeepCollectionEquality().equals(other.avatar, avatar)) &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
+        (other.runtimeType == runtimeType &&
+            other is _Player &&
+            (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.jobString, jobString) ||
-                const DeepCollectionEquality()
-                    .equals(other.jobString, jobString)) &&
-            (identical(other.jobs, jobs) ||
-                const DeepCollectionEquality().equals(other.jobs, jobs)) &&
-            (identical(other.mentor, mentor) ||
-                const DeepCollectionEquality().equals(other.mentor, mentor)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.nameFlags, nameFlags) ||
-                const DeepCollectionEquality()
-                    .equals(other.nameFlags, nameFlags)) &&
-            (identical(other.nation, nation) ||
-                const DeepCollectionEquality().equals(other.nation, nation)) &&
-            (identical(other.ranks, ranks) ||
-                const DeepCollectionEquality().equals(other.ranks, ranks)) &&
-            (identical(other.title, title) ||
-                const DeepCollectionEquality().equals(other.title, title)) &&
-            (identical(other.online, online) ||
-                const DeepCollectionEquality().equals(other.online, online)));
+                other.jobString == jobString) &&
+            (identical(other.jobs, jobs) || other.jobs == jobs) &&
+            (identical(other.mentor, mentor) || other.mentor == mentor) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.nameflags, nameflags) ||
+                other.nameflags == nameflags) &&
+            (identical(other.nation, nation) || other.nation == nation) &&
+            (identical(other.ranks, ranks) || other.ranks == ranks) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.online, online) || other.online == online));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(avatar) ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(jobString) ^
-      const DeepCollectionEquality().hash(jobs) ^
-      const DeepCollectionEquality().hash(mentor) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(nameFlags) ^
-      const DeepCollectionEquality().hash(nation) ^
-      const DeepCollectionEquality().hash(ranks) ^
-      const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(online);
+  int get hashCode => Object.hash(runtimeType, avatar, id, jobString, jobs,
+      mentor, name, nameflags, nation, ranks, title, online);
 
+  @JsonKey(ignore: true)
   @override
   _$PlayerCopyWith<_Player> get copyWith =>
       __$PlayerCopyWithImpl<_Player>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_PlayerToJson(this);
+    return _$$_PlayerToJson(this);
   }
 }
 
 abstract class _Player implements Player {
   factory _Player(
-      {String avatar,
-      int id,
-      String jobString,
-      PlayerJobs jobs,
-      int mentor,
-      String name,
-      int nameFlags,
-      int nation,
-      PlayerRanks ranks,
-      String title,
-      int online}) = _$_Player;
+      {required String avatar,
+      required int id,
+      required String jobString,
+      required PlayerJobs jobs,
+      required int mentor,
+      required String name,
+      required int nameflags,
+      required int nation,
+      required PlayerRanks ranks,
+      required String title,
+      required int online}) = _$_Player;
 
   factory _Player.fromJson(Map<String, dynamic> json) = _$_Player.fromJson;
 
@@ -346,7 +388,7 @@ abstract class _Player implements Player {
   @override
   String get name;
   @override
-  int get nameFlags;
+  int get nameflags;
   @override
   int get nation;
   @override
@@ -356,5 +398,6 @@ abstract class _Player implements Player {
   @override
   int get online;
   @override
-  _$PlayerCopyWith<_Player> get copyWith;
+  @JsonKey(ignore: true)
+  _$PlayerCopyWith<_Player> get copyWith => throw _privateConstructorUsedError;
 }

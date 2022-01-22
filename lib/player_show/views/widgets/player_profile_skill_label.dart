@@ -6,8 +6,11 @@ class PlayerProfileSkillLabel extends StatelessWidget {
   final String name;
   final dynamic level;
 
-  const PlayerProfileSkillLabel({Key key, this.name, this.level})
-      : super(key: key);
+  const PlayerProfileSkillLabel({
+    Key? key,
+    required this.name,
+    required this.level,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

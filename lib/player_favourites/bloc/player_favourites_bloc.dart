@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:eden_xi_tools/eden/player/entities/player_search_result_item/player_search_result_item.dart';
 import 'package:eden_xi_tools/player_favourites/entities/player_favourites.dart';
 import 'package:equatable/equatable.dart';
@@ -10,18 +8,22 @@ part 'player_favourites_state.dart';
 
 class PlayerFavouritesBloc
     extends HydratedBloc<PlayerFavouritesEvent, PlayerFavouritesState> {
-  PlayerFavouritesBloc() : super(PlayerFavouritesInitial());
+  PlayerFavouritesBloc() : super(PlayerFavouritesInitial()) {
+    on<PlayerFavouritesEvent>(_onEvent);
+  }
 
-  @override
-  Stream<PlayerFavouritesState> mapEventToState(
+  void _onEvent(
     PlayerFavouritesEvent event,
-  ) async* {
+    Emitter<PlayerFavouritesState> emit,
+  ) async {
     try {
       final currentState = state;
 
       if (event is PlayerFavouritesReordered &&
           currentState is PlayerFavouritesLoaded) {
-        yield PlayerFavouritesLoading();
+        emit(
+          PlayerFavouritesLoading(),
+        );
 
         var newIndex = event.newIndex;
         var favourites = currentState.favourites.all();
@@ -33,55 +35,64 @@ class PlayerFavouritesBloc
         var item = favourites.removeAt(event.oldIndex);
         favourites.insert(newIndex, item);
 
-        yield PlayerFavouritesLoaded(
-          favourites: PlayerFavourites(
-            favourites: favourites,
+        emit(
+          PlayerFavouritesLoaded(
+            favourites: PlayerFavourites(
+              favourites: favourites,
+            ),
           ),
         );
       }
 
       if (event is PlayerFavouritesSaved) {
         if (currentState is PlayerFavouritesInitial) {
-          yield PlayerFavouritesLoading();
+          emit(PlayerFavouritesLoading());
 
-          yield PlayerFavouritesLoaded(
-            favourites: PlayerFavourites(
-              favourites: [event.player],
+          emit(
+            PlayerFavouritesLoaded(
+              favourites: PlayerFavourites(
+                favourites: [event.player],
+              ),
             ),
           );
         }
 
         if (currentState is PlayerFavouritesLoaded) {
-          yield PlayerFavouritesLoading();
+          emit(PlayerFavouritesLoading());
 
           currentState.favourites.add(event.player);
 
-          yield currentState.copyWith(
-            favourites: currentState.favourites,
+          emit(
+            currentState.copyWith(
+              favourites: currentState.favourites,
+            ),
           );
         }
       }
 
       if (event is PlayerFavouritesRemoved) {
         if (currentState is PlayerFavouritesLoaded) {
-          yield PlayerFavouritesLoading();
+          emit(PlayerFavouritesLoading());
 
-          yield currentState.copyWith(
-            favourites: PlayerFavourites(
-              favourites: currentState.favourites.without(event.player),
+          emit(
+            currentState.copyWith(
+              favourites: PlayerFavourites(
+                favourites: currentState.favourites.without(event.player),
+              ),
             ),
           );
         }
       }
     } catch (_) {
-      // Explicitly yield existing state
-      yield state;
+      // Explicitly emit(existing state
+      emit(state);
     }
   }
 
   @override
   PlayerFavouritesState fromJson(Map<String, dynamic> json) {
     try {
+      // ignore: unnecessary_null_comparison
       if (json != null) {
         return PlayerFavouritesLoaded(
           favourites: PlayerFavourites.fromJson(json),
@@ -100,6 +111,6 @@ class PlayerFavouritesBloc
       return state.favourites.toJson();
     }
 
-    return null;
+    return {};
   }
 }

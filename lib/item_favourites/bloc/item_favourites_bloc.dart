@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:eden_xi_tools/eden/items/entities/search_result_item/search_result_item.dart';
 import 'package:eden_xi_tools/item_favourites/entities/item_favourites.dart';
 import 'package:equatable/equatable.dart';
@@ -10,18 +8,20 @@ part 'item_favourites_state.dart';
 
 class ItemFavouritesBloc
     extends HydratedBloc<ItemFavouritesEvent, ItemFavouritesState> {
-  ItemFavouritesBloc() : super(ItemFavouritesInitial());
+  ItemFavouritesBloc() : super(ItemFavouritesInitial()) {
+    on<ItemFavouritesEvent>(_onEvent);
+  }
 
-  @override
-  Stream<ItemFavouritesState> mapEventToState(
+  void _onEvent(
     ItemFavouritesEvent event,
-  ) async* {
+    Emitter<ItemFavouritesState> emit,
+  ) async {
     try {
       final currentState = state;
 
       if (event is ItemFavouritesReordered &&
           currentState is ItemFavouritesLoaded) {
-        yield ItemFavouritesLoading();
+        emit(ItemFavouritesLoading());
 
         var newIndex = event.newIndex;
         var favourites = currentState.favourites.all();
@@ -33,55 +33,56 @@ class ItemFavouritesBloc
         var item = favourites.removeAt(event.oldIndex);
         favourites.insert(newIndex, item);
 
-        yield ItemFavouritesLoaded(
+        emit(ItemFavouritesLoaded(
           favourites: ItemFavourites(
             favourites: favourites,
           ),
-        );
+        ));
       }
 
       if (event is ItemFavouritesSaved) {
         if (currentState is ItemFavouritesInitial) {
-          yield ItemFavouritesLoading();
+          emit(ItemFavouritesLoading());
 
-          yield ItemFavouritesLoaded(
+          emit(ItemFavouritesLoaded(
             favourites: ItemFavourites(
               favourites: [event.item],
             ),
-          );
+          ));
         }
 
         if (currentState is ItemFavouritesLoaded) {
-          yield ItemFavouritesLoading();
+          emit(ItemFavouritesLoading());
 
           currentState.favourites.add(event.item);
 
-          yield currentState.copyWith(
+          emit(currentState.copyWith(
             favourites: currentState.favourites,
-          );
+          ));
         }
       }
 
       if (event is ItemFavouritesRemoved) {
         if (currentState is ItemFavouritesLoaded) {
-          yield ItemFavouritesLoading();
+          emit(ItemFavouritesLoading());
 
-          yield currentState.copyWith(
+          emit(currentState.copyWith(
             favourites: ItemFavourites(
               favourites: currentState.favourites.without(event.item),
             ),
-          );
+          ));
         }
       }
     } catch (_) {
       // Explicitly yield existing state
-      yield state;
+      emit(state);
     }
   }
 
   @override
   ItemFavouritesState fromJson(Map<String, dynamic> json) {
     try {
+      // ignore: unnecessary_null_comparison
       if (json != null) {
         return ItemFavouritesLoaded(
           favourites: ItemFavourites.fromJson(json),
@@ -100,6 +101,6 @@ class ItemFavouritesBloc
       return state.favourites.toJson();
     }
 
-    return null;
+    return {};
   }
 }

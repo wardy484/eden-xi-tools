@@ -5,10 +5,10 @@ part 'search_result.freezed.dart';
 part 'search_result.g.dart';
 
 @freezed
-abstract class SearchResult with _$SearchResult {
+class SearchResult with _$SearchResult {
   factory SearchResult({
-    int total,
-    List<SearchResultItem> items,
+    required int total,
+    required List<SearchResultItem> items,
   }) = _SearchResult;
 
   factory SearchResult.fromJson(Map<String, dynamic> json) =>

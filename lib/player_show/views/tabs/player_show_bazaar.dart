@@ -12,12 +12,12 @@ import 'package:eden_xi_tools/extensions/int.dart';
 
 class PlayerShowBazaar extends StatefulWidget {
   final List<PlayerBazaarItem> items;
-  final Function onRefresh;
+  final Future<void> Function() onRefresh;
 
   const PlayerShowBazaar({
-    Key key,
-    @required this.items,
-    @required this.onRefresh,
+    Key? key,
+    required this.items,
+    required this.onRefresh,
   }) : super(key: key);
 
   @override
@@ -25,7 +25,7 @@ class PlayerShowBazaar extends StatefulWidget {
 }
 
 class _PlayerShowBazaarState extends State<PlayerShowBazaar> {
-  SnackBar _snackbar;
+  late SnackBar _snackbar;
 
   @override
   Widget build(BuildContext context) {
@@ -85,10 +85,9 @@ class _PlayerShowBazaarState extends State<PlayerShowBazaar> {
     var name = Uri.encodeFull(itemName);
     var item = await itemRepository.getItem(name);
 
-    if (_snackbar != null) {
-      ScaffoldMessenger.of(context).hideCurrentSnackBar();
-    }
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
 
+    // ignore: unnecessary_null_comparison
     if (item != null) {
       Navigator.push(
         context,

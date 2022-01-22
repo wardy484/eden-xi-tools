@@ -6,19 +6,17 @@ part of 'player_search_results.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PlayerSearchResult _$_$_PlayerSearchResultFromJson(
-    Map<String, dynamic> json) {
-  return _$_PlayerSearchResult(
-    total: json['total'] as int,
-    items: (json['chars'] as List)
-        ?.map((e) => e == null
-            ? null
-            : PlayerSearchResultItem.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-  );
-}
+_$_PlayerSearchResult _$$_PlayerSearchResultFromJson(
+        Map<String, dynamic> json) =>
+    _$_PlayerSearchResult(
+      total: json['total'] as int,
+      items: (json['chars'] as List<dynamic>)
+          .map(
+              (e) => PlayerSearchResultItem.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
 
-Map<String, dynamic> _$_$_PlayerSearchResultToJson(
+Map<String, dynamic> _$$_PlayerSearchResultToJson(
         _$_PlayerSearchResult instance) =>
     <String, dynamic>{
       'total': instance.total,

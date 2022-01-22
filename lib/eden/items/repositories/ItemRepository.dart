@@ -4,12 +4,11 @@ import 'package:eden_xi_tools/eden/items/entities/search_result/search_result.da
 import 'package:eden_xi_tools/eden/items/entities/auction_house_item/auction_house_item.dart';
 import 'package:eden_xi_tools/eden/items/entities/bazaar_item/bazaar_item.dart';
 import 'package:eden_xi_tools/eden/items/entities/item/item.dart';
-import 'package:flutter/material.dart';
 
 class ItemRepository {
   final Dio client;
 
-  ItemRepository({@required this.client});
+  ItemRepository({required this.client});
 
   Future<SearchResult> search(
       String itemName, int startIndex, int limit) async {

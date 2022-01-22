@@ -7,7 +7,10 @@ import 'package:flutter/material.dart';
 class PlayerShowNations extends StatelessWidget {
   final PlayerRanks ranks;
 
-  const PlayerShowNations({Key key, this.ranks}) : super(key: key);
+  const PlayerShowNations({
+    Key? key,
+    required this.ranks,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

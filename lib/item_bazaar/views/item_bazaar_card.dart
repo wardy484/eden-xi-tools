@@ -13,7 +13,10 @@ import 'package:kiwi/kiwi.dart';
 class ItemBazaarCard extends StatelessWidget {
   final BazaarItem item;
 
-  const ItemBazaarCard({Key key, this.item}) : super(key: key);
+  const ItemBazaarCard({
+    Key? key,
+    required this.item,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

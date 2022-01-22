@@ -10,23 +10,23 @@ class _$BlocInjector extends BlocInjector {
   @override
   void configure() {
     final KiwiContainer container = KiwiContainer();
-    container.registerFactory(
-        (c) => ItemSearchBloc(itemRepository: c<ItemRepository>()));
-    container.registerFactory(
-        (c) => PlayerSearchBloc(playerRepository: c<PlayerRepository>()));
-    container.registerFactory(
-        (c) => ItemShowBloc(itemRepository: c<ItemRepository>()));
-    container.registerFactory(
-        (c) => ItemAuctionHouseBloc(itemRepository: c<ItemRepository>()));
-    container.registerFactory(
-        (c) => ItemBazaarBloc(itemRepository: c<ItemRepository>()));
-    container.registerFactory((c) => ItemOwnersBloc(c<ItemRepository>()));
-    container.registerFactory(
-        (c) => PlayerShowBloc(playerRepository: c<PlayerRepository>()));
-    container.registerFactory((c) => ItemFavouritesBloc());
-    container.registerFactory((c) => PlayerFavouritesBloc());
     container
-        .registerFactory((c) => PlayerEquipmentBloc(c<PlayerRepository>()));
-    container.registerFactory((c) => SettingsBloc());
+      ..registerFactory(
+          (c) => ItemSearchBloc(itemRepository: c<ItemRepository>()))
+      ..registerFactory(
+          (c) => PlayerSearchBloc(playerRepository: c<PlayerRepository>()))
+      ..registerFactory(
+          (c) => ItemShowBloc(itemRepository: c<ItemRepository>()))
+      ..registerFactory(
+          (c) => ItemAuctionHouseBloc(itemRepository: c<ItemRepository>()))
+      ..registerFactory(
+          (c) => ItemBazaarBloc(itemRepository: c<ItemRepository>()))
+      ..registerFactory((c) => ItemOwnersBloc(c<ItemRepository>()))
+      ..registerFactory(
+          (c) => PlayerShowBloc(playerRepository: c<PlayerRepository>()))
+      ..registerFactory((c) => ItemFavouritesBloc())
+      ..registerFactory((c) => PlayerFavouritesBloc())
+      ..registerFactory((c) => PlayerEquipmentBloc(c<PlayerRepository>()))
+      ..registerFactory((c) => SettingsBloc());
   }
 }

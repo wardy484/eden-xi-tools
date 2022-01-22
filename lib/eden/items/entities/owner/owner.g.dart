@@ -6,12 +6,10 @@ part of 'owner.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Owner _$_$_OwnerFromJson(Map<String, dynamic> json) {
-  return _$_Owner(
-    json['name'] as String,
-  );
-}
+_$_Owner _$$_OwnerFromJson(Map<String, dynamic> json) => _$_Owner(
+      json['name'] as String,
+    );
 
-Map<String, dynamic> _$_$_OwnerToJson(_$_Owner instance) => <String, dynamic>{
+Map<String, dynamic> _$$_OwnerToJson(_$_Owner instance) => <String, dynamic>{
       'name': instance.name,
     };

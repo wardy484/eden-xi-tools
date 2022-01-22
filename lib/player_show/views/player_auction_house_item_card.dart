@@ -8,7 +8,10 @@ import 'package:recase/recase.dart';
 class PlayerAuctionHouseItemCard extends StatelessWidget {
   final PlayerAuctionHouseItem item;
 
-  const PlayerAuctionHouseItemCard({Key key, this.item}) : super(key: key);
+  const PlayerAuctionHouseItemCard({
+    Key? key,
+    required this.item,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -3,11 +3,15 @@ import 'package:flutter/material.dart';
 
 class PlayerAvatar extends StatelessWidget {
   final String id;
-  final double height;
-  final double width;
+  final double? height;
+  final double? width;
 
-  const PlayerAvatar({Key key, this.id, this.height, this.width})
-      : super(key: key);
+  const PlayerAvatar({
+    Key? key,
+    required this.id,
+    this.height,
+    this.width,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

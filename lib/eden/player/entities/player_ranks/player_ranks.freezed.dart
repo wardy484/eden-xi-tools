@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'player_ranks.dart';
 
@@ -8,6 +9,10 @@ part of 'player_ranks.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 PlayerRanks _$PlayerRanksFromJson(Map<String, dynamic> json) {
   return _PlayerRanks.fromJson(json);
 }
@@ -16,8 +21,8 @@ PlayerRanks _$PlayerRanksFromJson(Map<String, dynamic> json) {
 class _$PlayerRanksTearOff {
   const _$PlayerRanksTearOff();
 
-// ignore: unused_element
-  _PlayerRanks call({int bastok, int sandoria, int windurst}) {
+  _PlayerRanks call(
+      {required int bastok, required int sandoria, required int windurst}) {
     return _PlayerRanks(
       bastok: bastok,
       sandoria: sandoria,
@@ -25,24 +30,24 @@ class _$PlayerRanksTearOff {
     );
   }
 
-// ignore: unused_element
-  PlayerRanks fromJson(Map<String, Object> json) {
+  PlayerRanks fromJson(Map<String, Object?> json) {
     return PlayerRanks.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $PlayerRanks = _$PlayerRanksTearOff();
 
 /// @nodoc
 mixin _$PlayerRanks {
-  int get bastok;
-  int get sandoria;
-  int get windurst;
+  int get bastok => throw _privateConstructorUsedError;
+  int get sandoria => throw _privateConstructorUsedError;
+  int get windurst => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $PlayerRanksCopyWith<PlayerRanks> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PlayerRanksCopyWith<PlayerRanks> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -63,14 +68,23 @@ class _$PlayerRanksCopyWithImpl<$Res> implements $PlayerRanksCopyWith<$Res> {
 
   @override
   $Res call({
-    Object bastok = freezed,
-    Object sandoria = freezed,
-    Object windurst = freezed,
+    Object? bastok = freezed,
+    Object? sandoria = freezed,
+    Object? windurst = freezed,
   }) {
     return _then(_value.copyWith(
-      bastok: bastok == freezed ? _value.bastok : bastok as int,
-      sandoria: sandoria == freezed ? _value.sandoria : sandoria as int,
-      windurst: windurst == freezed ? _value.windurst : windurst as int,
+      bastok: bastok == freezed
+          ? _value.bastok
+          : bastok // ignore: cast_nullable_to_non_nullable
+              as int,
+      sandoria: sandoria == freezed
+          ? _value.sandoria
+          : sandoria // ignore: cast_nullable_to_non_nullable
+              as int,
+      windurst: windurst == freezed
+          ? _value.windurst
+          : windurst // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -97,26 +111,35 @@ class __$PlayerRanksCopyWithImpl<$Res> extends _$PlayerRanksCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object bastok = freezed,
-    Object sandoria = freezed,
-    Object windurst = freezed,
+    Object? bastok = freezed,
+    Object? sandoria = freezed,
+    Object? windurst = freezed,
   }) {
     return _then(_PlayerRanks(
-      bastok: bastok == freezed ? _value.bastok : bastok as int,
-      sandoria: sandoria == freezed ? _value.sandoria : sandoria as int,
-      windurst: windurst == freezed ? _value.windurst : windurst as int,
+      bastok: bastok == freezed
+          ? _value.bastok
+          : bastok // ignore: cast_nullable_to_non_nullable
+              as int,
+      sandoria: sandoria == freezed
+          ? _value.sandoria
+          : sandoria // ignore: cast_nullable_to_non_nullable
+              as int,
+      windurst: windurst == freezed
+          ? _value.windurst
+          : windurst // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_PlayerRanks implements _PlayerRanks {
-  _$_PlayerRanks({this.bastok, this.sandoria, this.windurst});
+  _$_PlayerRanks(
+      {required this.bastok, required this.sandoria, required this.windurst});
 
   factory _$_PlayerRanks.fromJson(Map<String, dynamic> json) =>
-      _$_$_PlayerRanksFromJson(json);
+      _$$_PlayerRanksFromJson(json);
 
   @override
   final int bastok;
@@ -133,37 +156,34 @@ class _$_PlayerRanks implements _PlayerRanks {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PlayerRanks &&
-            (identical(other.bastok, bastok) ||
-                const DeepCollectionEquality().equals(other.bastok, bastok)) &&
+        (other.runtimeType == runtimeType &&
+            other is _PlayerRanks &&
+            (identical(other.bastok, bastok) || other.bastok == bastok) &&
             (identical(other.sandoria, sandoria) ||
-                const DeepCollectionEquality()
-                    .equals(other.sandoria, sandoria)) &&
+                other.sandoria == sandoria) &&
             (identical(other.windurst, windurst) ||
-                const DeepCollectionEquality()
-                    .equals(other.windurst, windurst)));
+                other.windurst == windurst));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(bastok) ^
-      const DeepCollectionEquality().hash(sandoria) ^
-      const DeepCollectionEquality().hash(windurst);
+  int get hashCode => Object.hash(runtimeType, bastok, sandoria, windurst);
 
+  @JsonKey(ignore: true)
   @override
   _$PlayerRanksCopyWith<_PlayerRanks> get copyWith =>
       __$PlayerRanksCopyWithImpl<_PlayerRanks>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_PlayerRanksToJson(this);
+    return _$$_PlayerRanksToJson(this);
   }
 }
 
 abstract class _PlayerRanks implements PlayerRanks {
-  factory _PlayerRanks({int bastok, int sandoria, int windurst}) =
-      _$_PlayerRanks;
+  factory _PlayerRanks(
+      {required int bastok,
+      required int sandoria,
+      required int windurst}) = _$_PlayerRanks;
 
   factory _PlayerRanks.fromJson(Map<String, dynamic> json) =
       _$_PlayerRanks.fromJson;
@@ -175,5 +195,7 @@ abstract class _PlayerRanks implements PlayerRanks {
   @override
   int get windurst;
   @override
-  _$PlayerRanksCopyWith<_PlayerRanks> get copyWith;
+  @JsonKey(ignore: true)
+  _$PlayerRanksCopyWith<_PlayerRanks> get copyWith =>
+      throw _privateConstructorUsedError;
 }

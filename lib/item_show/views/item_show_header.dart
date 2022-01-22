@@ -5,7 +5,10 @@ import 'package:eden_xi_tools/widgets/item_icon.dart';
 class ItemShowHeader extends StatelessWidget {
   final SearchResultItem item;
 
-  const ItemShowHeader({Key key, this.item}) : super(key: key);
+  const ItemShowHeader({
+    Key? key,
+    required this.item,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

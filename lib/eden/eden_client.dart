@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:eden_xi_tools/eden/misc/repository/misc_repository.dart';
-import 'package:hooks_riverpod/all.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 export "./misc/repository/misc_repository.dart";
 

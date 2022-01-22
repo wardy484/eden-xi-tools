@@ -10,7 +10,10 @@ const openBrace =
 class YellLine extends StatelessWidget {
   final Yell yell;
 
-  const YellLine({Key key, this.yell}) : super(key: key);
+  const YellLine({
+    Key? key,
+    required this.yell,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +31,7 @@ class YellLine extends StatelessWidget {
           ),
           TextSpan(text: ": "),
           ...yell.message.split("").map((e) {
-            TextStyle style;
+            TextStyle? style;
 
             if (e == "»") {
               style = closeBrace;

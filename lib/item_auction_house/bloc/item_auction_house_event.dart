@@ -11,7 +11,10 @@ class ItemAuctionHouseRequested extends ItemAuctionHouseEvent {
   final String itemKey;
   final bool stacked;
 
-  const ItemAuctionHouseRequested({this.itemKey, this.stacked});
+  const ItemAuctionHouseRequested({
+    required this.itemKey,
+    required this.stacked,
+  });
 
   @override
   List<Object> get props => [itemKey];
@@ -20,7 +23,9 @@ class ItemAuctionHouseRequested extends ItemAuctionHouseEvent {
 class ItemAuctionHouseStackToggled extends ItemAuctionHouseEvent {
   final bool stacked;
 
-  const ItemAuctionHouseStackToggled({this.stacked});
+  const ItemAuctionHouseStackToggled({
+    required this.stacked,
+  });
 
   @override
   List<Object> get props => [stacked];

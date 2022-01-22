@@ -6,12 +6,10 @@ import 'package:eden_xi_tools/eden/player/entities/player_crafts/player_crafts.d
 import 'package:eden_xi_tools/eden/player/entities/player_equipment/player_equipment.dart';
 import 'package:eden_xi_tools/eden/player/entities/player_search_result/player_search_results.dart';
 
-import 'package:flutter/material.dart';
-
 class PlayerRepository {
   final Dio client;
 
-  PlayerRepository({@required this.client});
+  PlayerRepository({required this.client});
 
   String _buildSearchUrl(
     String playerName,

@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'item.dart';
 
@@ -8,6 +9,10 @@ part of 'item.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 Item _$ItemFromJson(Map<String, dynamic> json) {
   return _Item.fromJson(json);
 }
@@ -16,15 +21,14 @@ Item _$ItemFromJson(Map<String, dynamic> json) {
 class _$ItemTearOff {
   const _$ItemTearOff();
 
-// ignore: unused_element
   _Item call(
-      {int id,
-      String armor,
-      String desc,
-      String key,
-      String name,
-      String sort,
-      bool stackable}) {
+      {required int id,
+      String? armor,
+      required String desc,
+      required String key,
+      required String name,
+      required String sort,
+      required bool stackable}) {
     return _Item(
       id: id,
       armor: armor,
@@ -36,28 +40,27 @@ class _$ItemTearOff {
     );
   }
 
-// ignore: unused_element
-  Item fromJson(Map<String, Object> json) {
+  Item fromJson(Map<String, Object?> json) {
     return Item.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Item = _$ItemTearOff();
 
 /// @nodoc
 mixin _$Item {
-  int get id;
-  String get armor;
-  String get desc;
-  String get key;
-  String get name;
-  String get sort;
-  bool get stackable;
+  int get id => throw _privateConstructorUsedError;
+  String? get armor => throw _privateConstructorUsedError;
+  String get desc => throw _privateConstructorUsedError;
+  String get key => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get sort => throw _privateConstructorUsedError;
+  bool get stackable => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $ItemCopyWith<Item> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ItemCopyWith<Item> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -66,7 +69,7 @@ abstract class $ItemCopyWith<$Res> {
       _$ItemCopyWithImpl<$Res>;
   $Res call(
       {int id,
-      String armor,
+      String? armor,
       String desc,
       String key,
       String name,
@@ -84,22 +87,43 @@ class _$ItemCopyWithImpl<$Res> implements $ItemCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
-    Object armor = freezed,
-    Object desc = freezed,
-    Object key = freezed,
-    Object name = freezed,
-    Object sort = freezed,
-    Object stackable = freezed,
+    Object? id = freezed,
+    Object? armor = freezed,
+    Object? desc = freezed,
+    Object? key = freezed,
+    Object? name = freezed,
+    Object? sort = freezed,
+    Object? stackable = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as int,
-      armor: armor == freezed ? _value.armor : armor as String,
-      desc: desc == freezed ? _value.desc : desc as String,
-      key: key == freezed ? _value.key : key as String,
-      name: name == freezed ? _value.name : name as String,
-      sort: sort == freezed ? _value.sort : sort as String,
-      stackable: stackable == freezed ? _value.stackable : stackable as bool,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      armor: armor == freezed
+          ? _value.armor
+          : armor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      desc: desc == freezed
+          ? _value.desc
+          : desc // ignore: cast_nullable_to_non_nullable
+              as String,
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      sort: sort == freezed
+          ? _value.sort
+          : sort // ignore: cast_nullable_to_non_nullable
+              as String,
+      stackable: stackable == freezed
+          ? _value.stackable
+          : stackable // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -111,7 +135,7 @@ abstract class _$ItemCopyWith<$Res> implements $ItemCopyWith<$Res> {
   @override
   $Res call(
       {int id,
-      String armor,
+      String? armor,
       String desc,
       String key,
       String name,
@@ -130,46 +154,66 @@ class __$ItemCopyWithImpl<$Res> extends _$ItemCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object armor = freezed,
-    Object desc = freezed,
-    Object key = freezed,
-    Object name = freezed,
-    Object sort = freezed,
-    Object stackable = freezed,
+    Object? id = freezed,
+    Object? armor = freezed,
+    Object? desc = freezed,
+    Object? key = freezed,
+    Object? name = freezed,
+    Object? sort = freezed,
+    Object? stackable = freezed,
   }) {
     return _then(_Item(
-      id: id == freezed ? _value.id : id as int,
-      armor: armor == freezed ? _value.armor : armor as String,
-      desc: desc == freezed ? _value.desc : desc as String,
-      key: key == freezed ? _value.key : key as String,
-      name: name == freezed ? _value.name : name as String,
-      sort: sort == freezed ? _value.sort : sort as String,
-      stackable: stackable == freezed ? _value.stackable : stackable as bool,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      armor: armor == freezed
+          ? _value.armor
+          : armor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      desc: desc == freezed
+          ? _value.desc
+          : desc // ignore: cast_nullable_to_non_nullable
+              as String,
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      sort: sort == freezed
+          ? _value.sort
+          : sort // ignore: cast_nullable_to_non_nullable
+              as String,
+      stackable: stackable == freezed
+          ? _value.stackable
+          : stackable // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
-class _$_Item implements _Item {
+@JsonSerializable()
+class _$_Item extends _Item {
   _$_Item(
-      {this.id,
+      {required this.id,
       this.armor,
-      this.desc,
-      this.key,
-      this.name,
-      this.sort,
-      this.stackable});
+      required this.desc,
+      required this.key,
+      required this.name,
+      required this.sort,
+      required this.stackable})
+      : super._();
 
-  factory _$_Item.fromJson(Map<String, dynamic> json) =>
-      _$_$_ItemFromJson(json);
+  factory _$_Item.fromJson(Map<String, dynamic> json) => _$$_ItemFromJson(json);
 
   @override
   final int id;
   @override
-  final String armor;
+  final String? armor;
   @override
   final String desc;
   @override
@@ -181,81 +225,58 @@ class _$_Item implements _Item {
   @override
   final bool stackable;
 
-  bool _didtrimmedDesc = false;
-  String _trimmedDesc;
-
-  @override
-  String get trimmedDesc {
-    if (_didtrimmedDesc == false) {
-      _didtrimmedDesc = true;
-      _trimmedDesc = desc.replaceAll("\n", " ");
-    }
-    return _trimmedDesc;
-  }
-
   @override
   String toString() {
-    return 'Item(id: $id, armor: $armor, desc: $desc, key: $key, name: $name, sort: $sort, stackable: $stackable, trimmedDesc: $trimmedDesc)';
+    return 'Item(id: $id, armor: $armor, desc: $desc, key: $key, name: $name, sort: $sort, stackable: $stackable)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Item &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.armor, armor) ||
-                const DeepCollectionEquality().equals(other.armor, armor)) &&
-            (identical(other.desc, desc) ||
-                const DeepCollectionEquality().equals(other.desc, desc)) &&
-            (identical(other.key, key) ||
-                const DeepCollectionEquality().equals(other.key, key)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.sort, sort) ||
-                const DeepCollectionEquality().equals(other.sort, sort)) &&
+        (other.runtimeType == runtimeType &&
+            other is _Item &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.armor, armor) || other.armor == armor) &&
+            (identical(other.desc, desc) || other.desc == desc) &&
+            (identical(other.key, key) || other.key == key) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.sort, sort) || other.sort == sort) &&
             (identical(other.stackable, stackable) ||
-                const DeepCollectionEquality()
-                    .equals(other.stackable, stackable)));
+                other.stackable == stackable));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(armor) ^
-      const DeepCollectionEquality().hash(desc) ^
-      const DeepCollectionEquality().hash(key) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(sort) ^
-      const DeepCollectionEquality().hash(stackable);
+      Object.hash(runtimeType, id, armor, desc, key, name, sort, stackable);
 
+  @JsonKey(ignore: true)
   @override
   _$ItemCopyWith<_Item> get copyWith =>
       __$ItemCopyWithImpl<_Item>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_ItemToJson(this);
+    return _$$_ItemToJson(this);
   }
 }
 
-abstract class _Item implements Item {
+abstract class _Item extends Item {
   factory _Item(
-      {int id,
-      String armor,
-      String desc,
-      String key,
-      String name,
-      String sort,
-      bool stackable}) = _$_Item;
+      {required int id,
+      String? armor,
+      required String desc,
+      required String key,
+      required String name,
+      required String sort,
+      required bool stackable}) = _$_Item;
+  _Item._() : super._();
 
   factory _Item.fromJson(Map<String, dynamic> json) = _$_Item.fromJson;
 
   @override
   int get id;
   @override
-  String get armor;
+  String? get armor;
   @override
   String get desc;
   @override
@@ -267,5 +288,6 @@ abstract class _Item implements Item {
   @override
   bool get stackable;
   @override
-  _$ItemCopyWith<_Item> get copyWith;
+  @JsonKey(ignore: true)
+  _$ItemCopyWith<_Item> get copyWith => throw _privateConstructorUsedError;
 }

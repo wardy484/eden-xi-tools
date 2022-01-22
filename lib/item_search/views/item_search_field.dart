@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ItemSearchField extends StatelessWidget {
-  const ItemSearchField({Key key}) : super(key: key);
+  const ItemSearchField({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

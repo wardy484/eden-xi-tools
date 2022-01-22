@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 class ItemIcon extends StatelessWidget {
   final int id;
-  final double width;
-  final double height;
+  final double? width;
+  final double? height;
 
   const ItemIcon({
-    Key key,
-    this.id,
+    Key? key,
+    required this.id,
     this.height,
     this.width,
   }) : super(key: key);

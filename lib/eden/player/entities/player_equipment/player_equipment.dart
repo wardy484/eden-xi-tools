@@ -5,7 +5,9 @@ part 'player_equipment.freezed.dart';
 part 'player_equipment.g.dart';
 
 @freezed
-abstract class PlayerEquipment with _$PlayerEquipment {
+class PlayerEquipment with _$PlayerEquipment {
+  const PlayerEquipment._(); // Added constructor
+
   factory PlayerEquipment(
     PlayerEquipmentSlot ammo,
     PlayerEquipmentSlot back,

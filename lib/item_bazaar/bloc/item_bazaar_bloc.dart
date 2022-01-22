@@ -1,10 +1,7 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:eden_xi_tools/eden/items/entities/bazaar_item/bazaar_item.dart';
 import 'package:eden_xi_tools/eden/items/repositories/ItemRepository.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
 
 part 'item_bazaar_event.dart';
 part 'item_bazaar_state.dart';
@@ -12,50 +9,56 @@ part 'item_bazaar_state.dart';
 class ItemBazaarBloc extends Bloc<ItemBazaarEvent, ItemBazaarState> {
   final ItemRepository itemRepository;
 
-  ItemBazaarBloc({@required this.itemRepository}) : super(ItemBazaarInitial());
+  ItemBazaarBloc({required this.itemRepository}) : super(ItemBazaarInitial()) {
+    on<ItemBazaarEvent>(_onEvent);
+  }
 
-  @override
-  Stream<ItemBazaarState> mapEventToState(
+  void _onEvent(
     ItemBazaarEvent event,
-  ) async* {
+    Emitter<ItemBazaarState> emit,
+  ) async {
     try {
       if (event is ItemBazaarRequested) {
-        yield* _mapItemBazaarRequested(event);
+        emit(ItemBazaarLoading());
+
+        emit(await _mapItemBazaarRequested(event));
       }
 
       if (event is ItemBazaarRefreshed) {
-        yield* _mapItemBazaarRefreshed(event);
+        emit(ItemBazaarLoading());
+
+        emit(await _mapItemBazaarRefreshed(event));
       }
 
       if (event is ItemBazaarCleared) {
-        yield ItemBazaarInitial();
+        emit(ItemBazaarLoading());
+
+        emit(ItemBazaarInitial());
       }
     } catch (_) {
-      yield ItemBazaarFailure();
+      emit(ItemBazaarFailure());
     }
   }
 
-  Stream<ItemBazaarState> _mapItemBazaarRequested(
+  Future<ItemBazaarState> _mapItemBazaarRequested(
     ItemBazaarRequested event,
-  ) async* {
-    yield ItemBazaarLoading();
-
+  ) async {
     var items = await itemRepository.getBazaarItems(event.itemKey);
 
-    yield ItemBazaarSuccess(key: event.itemKey, bazaarItems: items);
+    return ItemBazaarSuccess(key: event.itemKey, bazaarItems: items);
   }
 
-  Stream<ItemBazaarState> _mapItemBazaarRefreshed(
+  Future<ItemBazaarState> _mapItemBazaarRefreshed(
     ItemBazaarRefreshed event,
-  ) async* {
+  ) async {
     final currentState = state;
-
-    yield ItemBazaarLoading();
 
     if (currentState is ItemBazaarSuccess) {
       var items = await itemRepository.getBazaarItems(currentState.key);
 
-      yield currentState.copyWith(bazaarItems: items);
+      return currentState.copyWith(bazaarItems: items);
     }
+
+    return ItemBazaarLoading();
   }
 }
