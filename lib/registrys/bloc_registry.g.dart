@@ -27,6 +27,8 @@ class _$BlocInjector extends BlocInjector {
       ..registerFactory((c) => ItemFavouritesBloc())
       ..registerFactory((c) => PlayerFavouritesBloc())
       ..registerFactory((c) => PlayerEquipmentBloc(c<PlayerRepository>()))
-      ..registerFactory((c) => SettingsBloc());
+      ..registerFactory((c) => SettingsBloc())
+      ..registerFactory(
+          (c) => ItemcraftsCubit(itemRepository: c<ItemRepository>()));
   }
 }

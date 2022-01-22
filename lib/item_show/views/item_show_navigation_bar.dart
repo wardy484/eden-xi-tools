@@ -33,6 +33,10 @@ class ItemShowNavigationBar extends StatelessWidget {
           icon: Icon(Icons.people_alt_outlined),
           label: 'Bazaar',
         ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.handyman),
+          label: 'Crafts',
+        ),
       ],
     );
   }

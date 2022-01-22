@@ -4,6 +4,7 @@ import 'package:eden_xi_tools/eden/items/entities/search_result/search_result.da
 import 'package:eden_xi_tools/eden/items/entities/auction_house_item/auction_house_item.dart';
 import 'package:eden_xi_tools/eden/items/entities/bazaar_item/bazaar_item.dart';
 import 'package:eden_xi_tools/eden/items/entities/item/item.dart';
+import 'package:eden_xi_tools/eden/items/entities/crafts/craft.dart';
 
 class ItemRepository {
   final Dio client;
@@ -69,6 +70,20 @@ class ItemRepository {
       List owners = response.data as List;
 
       return owners.map((owner) => Owner(owner)).toList();
+    } else {
+      throw Exception("Erroring fetching item from Eden server.");
+    }
+  }
+
+  Future<List<Craft>> getCrafts(String key) async {
+    final response = await client.get('/items/$key/crafts');
+
+    if (response.statusCode == 200) {
+      List crafts = response.data as List;
+
+      return crafts.map<Craft>((craft) {
+        return Craft.fromJson(craft);
+      }).toList();
     } else {
       throw Exception("Erroring fetching item from Eden server.");
     }

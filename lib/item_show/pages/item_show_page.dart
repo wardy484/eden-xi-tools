@@ -3,6 +3,8 @@ import 'package:eden_xi_tools/item_auction_house/bloc/item_auction_house_bloc.da
 import 'package:eden_xi_tools/item_auction_house/pages/item_auction_house_page.dart';
 import 'package:eden_xi_tools/item_bazaar/bloc/item_bazaar_bloc.dart';
 import 'package:eden_xi_tools/item_bazaar/pages/item_bazaar_page.dart';
+import 'package:eden_xi_tools/item_crafts/cubit/itemcrafts_cubit.dart';
+import 'package:eden_xi_tools/item_crafts/pages/item_crafts_page.dart';
 import 'package:eden_xi_tools/item_favourites/views/item_favourite_button.dart';
 import 'package:eden_xi_tools/item_owners/bloc/bloc/item_owners_bloc.dart';
 import 'package:eden_xi_tools/item_owners/item_owners_page.dart';
@@ -33,6 +35,7 @@ class _ItemShowPageState extends State<ItemShowPage> {
   late ItemBazaarBloc _bazaarBloc;
   late ItemAuctionHouseBloc _auctionHouseBloc;
   late ItemOwnersBloc _itemOwnersBloc;
+  late ItemcraftsCubit _craftsCubit;
 
   @override
   void initState() {
@@ -43,6 +46,7 @@ class _ItemShowPageState extends State<ItemShowPage> {
     _bazaarBloc = container.resolve<ItemBazaarBloc>();
     _auctionHouseBloc = container.resolve<ItemAuctionHouseBloc>();
     _itemOwnersBloc = container.resolve<ItemOwnersBloc>();
+    _craftsCubit = container.resolve<ItemcraftsCubit>();
 
     _showItemBloc.add(ItemShowRequested(key: widget.item.key));
   }
@@ -55,6 +59,7 @@ class _ItemShowPageState extends State<ItemShowPage> {
         BlocProvider.value(value: _bazaarBloc),
         BlocProvider.value(value: _auctionHouseBloc),
         BlocProvider.value(value: _itemOwnersBloc),
+        BlocProvider.value(value: _craftsCubit),
       ],
       child: BlocBuilder<ItemAuctionHouseBloc, ItemAuctionHouseState>(
         builder: (context, state) {
@@ -85,6 +90,7 @@ class _ItemShowPageState extends State<ItemShowPage> {
                               ItemOwnersPage(item: state.item),
                             ItemAuctionHousePage(itemKey: state.item.key),
                             ItemBazaarPage(itemKey: state.item.key),
+                            ItemCraftsPage(itemKey: state.item.key),
                           ],
                           index: _selectedPageIndex,
                           onSwipe: _onPageNavigation,
@@ -95,7 +101,8 @@ class _ItemShowPageState extends State<ItemShowPage> {
                 }
 
                 return CenteredMessage(
-                    "Failed to fetch item, please try again later");
+                  "Failed to fetch item, please try again later",
+                );
               },
             ),
             bottomNavigationBar: ItemShowNavigationBar(

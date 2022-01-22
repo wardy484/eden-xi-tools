@@ -1,6 +1,7 @@
 import 'package:eden_xi_tools/eden/player/repository/player_repository.dart';
 import 'package:eden_xi_tools/item_auction_house/bloc/item_auction_house_bloc.dart';
 import 'package:eden_xi_tools/item_bazaar/bloc/item_bazaar_bloc.dart';
+import 'package:eden_xi_tools/item_crafts/cubit/itemcrafts_cubit.dart';
 import 'package:eden_xi_tools/item_favourites/bloc/item_favourites_bloc.dart';
 import 'package:eden_xi_tools/item_owners/bloc/bloc/item_owners_bloc.dart';
 import 'package:eden_xi_tools/item_search/item_search.dart';
@@ -37,5 +38,6 @@ abstract class BlocInjector {
   @Register.factory(PlayerFavouritesBloc)
   @Register.factory(PlayerEquipmentBloc)
   @Register.factory(SettingsBloc)
+  @Register.factory(ItemcraftsCubit)
   void configure();
 }
