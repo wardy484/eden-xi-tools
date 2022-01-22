@@ -17,10 +17,8 @@ class DashboardPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     Future.delayed(
       Duration.zero,
-      () => ref.read(serverStatusProvider),
+      () => ref.read(serverStatusProvider.notifier).fetch(),
     );
-
-    var status = ref.watch(serverStatusProvider);
 
     return SwipableScaffold(
       resetOnPop: true,
@@ -58,7 +56,7 @@ class DashboardPage extends HookConsumerWidget {
       pages: [
         RefreshIndicator(
           onRefresh: () async {
-            status;
+            ref.read(serverStatusProvider.notifier).fetch();
           },
           child: ListView(
             children: [

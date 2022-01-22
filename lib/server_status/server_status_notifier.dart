@@ -4,7 +4,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final serverStatusProvider =
     StateNotifierProvider<ServerStatusStateNotifier, ServerStatusState>(
-  (Ref ref) => ServerStatusStateNotifier(ref),
+  (Ref ref) {
+    return ServerStatusStateNotifier(ref);
+  },
 );
 
 class ServerStatusStateNotifier extends StateNotifier<ServerStatusState> {
