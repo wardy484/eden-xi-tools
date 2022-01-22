@@ -66,6 +66,7 @@ class StackToggleButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ItemAuctionHouseBloc, ItemAuctionHouseState>(
       builder: (context, state) {
+        // TODO don't show this is current tab is not "Auction House", it looks shit
         return LabelledSwitch(
           label: "Stacked:",
           value: state.stacked,
