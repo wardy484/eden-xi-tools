@@ -31,14 +31,7 @@ class ItemAuctionHouseBloc
       }
 
       if (event is ItemAuctionHouseStackToggled) {
-        // TODO: Create some form of loading transition
-        // without the below code the app just hangs
-        // with it nothing happens because the logic is wank
-        // potentially migrate to the new bloc syntax properly
-        // or use freezed
-        // do before release on any platform
-        // emit(ItemAuctionHouseLoading(event.stacked));
-        emit(await _mapItemAuctionHouseStackToggled(event));
+        emit(await _mapItemAuctionHouseStackToggled(event, emit));
       }
 
       if (event is ItemAuctionHouseCleared) {
@@ -84,8 +77,11 @@ class ItemAuctionHouseBloc
 
   Future<ItemAuctionHouseState> _mapItemAuctionHouseStackToggled(
     ItemAuctionHouseStackToggled event,
+    emit,
   ) async {
     final currentState = state;
+
+    emit(ItemAuctionHouseLoading(state.stacked));
 
     if (currentState is ItemAuctionHouseSuccess) {
       var items = await itemRepository.getAuctionHouseItem(
