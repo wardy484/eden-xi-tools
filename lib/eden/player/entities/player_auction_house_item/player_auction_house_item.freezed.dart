@@ -28,7 +28,7 @@ class _$PlayerAuctionHouseItemTearOff {
       required int sale,
       @JsonKey(name: 'sell_date') required int sellDate,
       @JsonKey(name: 'seller_name') required String sellerName,
-      @JsonKey(name: 'stack_size') required int stackSize}) {
+      @JsonKey(name: 'stack_size') required String stackSize}) {
     return _PlayerAuctionHouseItem(
       buyerName: buyerName,
       name: name,
@@ -58,7 +58,7 @@ mixin _$PlayerAuctionHouseItem {
   @JsonKey(name: 'seller_name')
   String get sellerName => throw _privateConstructorUsedError;
   @JsonKey(name: 'stack_size')
-  int get stackSize => throw _privateConstructorUsedError;
+  String get stackSize => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -77,7 +77,7 @@ abstract class $PlayerAuctionHouseItemCopyWith<$Res> {
       int sale,
       @JsonKey(name: 'sell_date') int sellDate,
       @JsonKey(name: 'seller_name') String sellerName,
-      @JsonKey(name: 'stack_size') int stackSize});
+      @JsonKey(name: 'stack_size') String stackSize});
 }
 
 /// @nodoc
@@ -122,7 +122,7 @@ class _$PlayerAuctionHouseItemCopyWithImpl<$Res>
       stackSize: stackSize == freezed
           ? _value.stackSize
           : stackSize // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ));
   }
 }
@@ -140,7 +140,7 @@ abstract class _$PlayerAuctionHouseItemCopyWith<$Res>
       int sale,
       @JsonKey(name: 'sell_date') int sellDate,
       @JsonKey(name: 'seller_name') String sellerName,
-      @JsonKey(name: 'stack_size') int stackSize});
+      @JsonKey(name: 'stack_size') String stackSize});
 }
 
 /// @nodoc
@@ -187,7 +187,7 @@ class __$PlayerAuctionHouseItemCopyWithImpl<$Res>
       stackSize: stackSize == freezed
           ? _value.stackSize
           : stackSize // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ));
   }
 }
@@ -222,7 +222,7 @@ class _$_PlayerAuctionHouseItem extends _PlayerAuctionHouseItem {
   final String sellerName;
   @override
   @JsonKey(name: 'stack_size')
-  final int stackSize;
+  final String stackSize;
 
   @override
   String toString() {
@@ -269,7 +269,7 @@ abstract class _PlayerAuctionHouseItem extends PlayerAuctionHouseItem {
           required int sale,
           @JsonKey(name: 'sell_date') required int sellDate,
           @JsonKey(name: 'seller_name') required String sellerName,
-          @JsonKey(name: 'stack_size') required int stackSize}) =
+          @JsonKey(name: 'stack_size') required String stackSize}) =
       _$_PlayerAuctionHouseItem;
   _PlayerAuctionHouseItem._() : super._();
 
@@ -291,7 +291,7 @@ abstract class _PlayerAuctionHouseItem extends PlayerAuctionHouseItem {
   String get sellerName;
   @override
   @JsonKey(name: 'stack_size')
-  int get stackSize;
+  String get stackSize;
   @override
   @JsonKey(ignore: true)
   _$PlayerAuctionHouseItemCopyWith<_PlayerAuctionHouseItem> get copyWith =>

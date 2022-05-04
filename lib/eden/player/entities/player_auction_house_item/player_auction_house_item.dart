@@ -14,7 +14,7 @@ class PlayerAuctionHouseItem with _$PlayerAuctionHouseItem {
     required int sale,
     @JsonKey(name: 'sell_date') required int sellDate,
     @JsonKey(name: 'seller_name') required String sellerName,
-    @JsonKey(name: 'stack_size') required int stackSize,
+    @JsonKey(name: 'stack_size') required String stackSize,
   }) = _PlayerAuctionHouseItem;
 
   factory PlayerAuctionHouseItem.fromJson(Map<String, dynamic> json) =>

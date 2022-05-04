@@ -33,7 +33,7 @@ class PlayerAuctionHouseItemCard extends StatelessWidget {
   String buildTitle() {
     String name = (new ReCase(item.name)).titleCase;
 
-    if (item.stackSize > 1) {
+    if (int.parse(item.stackSize) > 1) {
       return '$name x${item.stackSize}';
     }
 

@@ -14,7 +14,7 @@ _$_PlayerAuctionHouseItem _$$_PlayerAuctionHouseItemFromJson(
       sale: json['sale'] as int,
       sellDate: json['sell_date'] as int,
       sellerName: json['seller_name'] as String,
-      stackSize: json['stack_size'] as int,
+      stackSize: json['stack_size'] as String,
     );
 
 Map<String, dynamic> _$$_PlayerAuctionHouseItemToJson(
