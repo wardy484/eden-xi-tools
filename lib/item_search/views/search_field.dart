@@ -34,7 +34,7 @@ class _SearchFieldState extends State<SearchField> {
       controller: _controller,
       onChanged: (String value) {
         if (value != "") {
-          widget.onChange(value);
+          widget.onChange(value.trim());
 
           setState(() {
             _showClearButton = true;

@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:eden_xi_tools/eden/items/entities/crafts/craft.dart';
-import 'package:eden_xi_tools/eden/items/entities/crafts/craft_ingredient.dart';
 import 'package:eden_xi_tools/item_crafts/cubit/itemcrafts_cubit.dart';
 import 'package:eden_xi_tools/widgets/custom_card/custom_card.dart';
 import 'package:eden_xi_tools/widgets/item_icon.dart';
@@ -56,22 +55,38 @@ class _ItemCraftsPageState extends State<ItemCraftsPage> {
               itemCount: crafts.length,
               itemBuilder: (context, index) {
                 final Craft craft = crafts[index];
-                final CraftIngredient ingredient = craft.ingredients.first;
 
                 return CustomCard(
                   header: Padding(
                     padding: const EdgeInsets.all(14.0),
-                    child: Row(
-                      children: [
-                        ItemIcon(id: ingredient.id),
-                        SizedBox(width: 14),
-                        Text(ingredient.name),
-                        Spacer(),
-                        ItemIcon(id: craft.crystal),
-                      ],
+                    child: Column(
+                      children: craft.crafts.map((c) {
+                        return Row(children: [
+                          Text("${c.craft} (${c.level})"),
+                          Spacer(),
+                          ItemIcon(id: craft.crystal),
+                        ]);
+                      }).toList(),
                     ),
                   ),
                   body: Padding(
+                    padding: const EdgeInsets.all(14.0),
+                    child: Column(
+                      children: craft.ingredients.map((ingredient) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 1),
+                          child: Row(
+                            children: [
+                              ItemIcon(id: ingredient.id),
+                              SizedBox(width: 14),
+                              Text(ingredient.name),
+                            ],
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  footer: Padding(
                     padding: const EdgeInsets.all(14.0),
                     child: Column(
                       children: craft.results.map((result) {
@@ -82,25 +97,14 @@ class _ItemCraftsPageState extends State<ItemCraftsPage> {
                           padding: const EdgeInsets.symmetric(vertical: 1),
                           child: Row(
                             children: [
-                              Text(type),
-                              SizedBox(width: 14),
                               ItemIcon(id: result.id),
-                              // Spacer(),
+                              SizedBox(width: 14),
+                              Text(type),
                               SizedBox(width: 14),
                               Text(result.name),
                             ],
                           ),
                         );
-                      }).toList(),
-                    ),
-                  ),
-                  footer: Padding(
-                    padding: const EdgeInsets.all(14.0),
-                    child: Column(
-                      children: craft.crafts.map((c) {
-                        return Row(children: [
-                          Text("${c.craft} (${c.level})"),
-                        ]);
                       }).toList(),
                     ),
                   ),

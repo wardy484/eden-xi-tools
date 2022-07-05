@@ -17,15 +17,10 @@ class PlayerAuctionHouseItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 20, top: 16),
-              child: Text(buildTitle(), style: SubHeading),
-            ),
-          ],
+        ItemAuctionHouseCard(
+          item: item.toAuctionHouseItem(),
+          title: buildTitle(),
         ),
-        ItemAuctionHouseCard(item: item.toAuctionHouseItem()),
       ],
     );
   }
