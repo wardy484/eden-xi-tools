@@ -1,4 +1,4 @@
-import 'package:eden_xi_tools/player_show/views/tabs/player_show_bottom_bar_items.dart';
+import 'package:eden_xi_tools/player_show/widgets/tabs/player_show_bottom_bar_items.dart';
 import 'package:flutter/material.dart';
 
 class PlayerShowNavigationBar extends StatelessWidget {
