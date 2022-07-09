@@ -1,4 +1,4 @@
-import 'package:eden_xi_tools/player_show/views/widgets/player_profile_skill_label.dart';
+import 'package:eden_xi_tools/player_show/widgets/player_profile_skill_label.dart';
 import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
 

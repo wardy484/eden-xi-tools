@@ -4,7 +4,6 @@ import 'package:eden_xi_tools/player_favourites/views/player_favourite_button.da
 import 'package:eden_xi_tools/player_show/player_show_notifier.dart';
 import 'package:eden_xi_tools/player_show/player_show_state.dart';
 import 'package:eden_xi_tools/player_show/views/player_show_navigation_bar.dart';
-import 'package:eden_xi_tools/player_show/views/widgets/player_show_header.dart';
 import 'package:eden_xi_tools/player_show/views/tabs/player_show_auction_house.dart';
 import 'package:eden_xi_tools/player_show/views/tabs/player_show_bazaar.dart';
 import 'package:eden_xi_tools/player_show/views/tabs/player_show_details.dart';
@@ -43,7 +42,7 @@ class _PlayerShowPageState extends ConsumerState<PlayerShowPage> {
     _registerLoadingListener();
 
     return ItemShowScaffold(
-        header: PlayerShowHeader(playerResult: widget.playerResult),
+        header: PlayerShowPage(playerResult: widget.playerResult),
         body: ref.watch(playerShowProvider).maybeWhen(
               loaded: (
                 playerResult,
