@@ -1,4 +1,7 @@
-part of 'player_equipment_bloc.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'player_equipment_state.freezed.dart';
 
 @freezed
 class PlayerEquipmentState with _$PlayerEquipmentState {

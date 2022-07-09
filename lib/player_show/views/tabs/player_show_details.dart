@@ -1,7 +1,7 @@
-import 'package:eden_xi_tools/player_equipment/views/player_equipment_card.dart';
 import 'package:eden_xi_tools/player_show/views/widgets/player_crafting_card.dart';
 import 'package:eden_xi_tools/player_show/views/widgets/player_jobs_card.dart';
 import 'package:eden_xi_tools/player_show/views/widgets/player_show_regions.dart';
+import 'package:eden_xi_tools/player_show/widgets/player_equipment_card.dart';
 import 'package:eden_xi_tools/widgets/online_indicator.dart';
 import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
@@ -9,12 +9,14 @@ import 'package:flutter/material.dart';
 class PlayerShowDetails extends StatelessWidget {
   final Player player;
   final PlayerCrafts crafts;
+  final PlayerEquipment equipment;
   final Future<void> Function() onRefresh;
 
   const PlayerShowDetails({
     Key? key,
     required this.player,
     required this.crafts,
+    required this.equipment,
     required this.onRefresh,
   }) : super(key: key);
 
@@ -64,7 +66,7 @@ class PlayerShowDetails extends StatelessWidget {
               ),
             ),
           ),
-          PlayerEquipmentCard(playerName: player.name),
+          PlayerEquipmentCard(equipment: equipment),
           PlayerJobsCard(jobs: player.jobs),
           PlayerCraftingCard(crafts: crafts),
         ],

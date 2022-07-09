@@ -1,4 +1,3 @@
-import 'package:eden_xi_tools/player_show/player_show.dart';
 import 'package:eden_xi_tools/player_favourites/views/player_favourite_button.dart';
 import 'package:eden_xi_tools/player_show/views/player_show_navigation_bar.dart';
 import 'package:eden_xi_tools/player_show/views/states/player_show_header.dart';
@@ -11,12 +10,23 @@ import 'package:flutter/material.dart';
 import 'package:eden_xi_tools/item_show/views/item_show_scaffold.dart';
 
 class PlayerShowSuccessState extends StatefulWidget {
-  final PlayerShowSuccess state;
+  final PlayerSearchResultItem playerResult;
+  final Player player;
+  final PlayerEquipment equipment;
+  final List<PlayerAuctionHouseItem> auctionHouseItems;
+  final List<PlayerBazaarItem> bazaarItems;
+  final PlayerCrafts crafts;
+
   final Future<void> Function() onRefreshPressed;
 
   const PlayerShowSuccessState({
     Key? key,
-    required this.state,
+    required this.playerResult,
+    required this.player,
+    required this.equipment,
+    required this.auctionHouseItems,
+    required this.bazaarItems,
+    required this.crafts,
     required this.onRefreshPressed,
   }) : super(key: key);
 
@@ -29,7 +39,7 @@ class _PlayerShowSuccessStateState extends State<PlayerShowSuccessState> {
 
   @override
   Widget build(BuildContext context) {
-    final PlayerSearchResultItem playerResult = widget.state.playerResult;
+    final PlayerSearchResultItem playerResult = widget.playerResult;
 
     return ItemShowScaffold(
       header: PlayerShowHeader(playerResult: playerResult),
@@ -41,16 +51,17 @@ class _PlayerShowSuccessStateState extends State<PlayerShowSuccessState> {
         onSwipe: _onPageNavigation,
         pages: [
           PlayerShowDetails(
-            player: widget.state.player,
-            crafts: widget.state.crafts,
+            player: widget.player,
+            crafts: widget.crafts,
+            equipment: widget.equipment,
             onRefresh: widget.onRefreshPressed,
           ),
           PlayerShowAuctionHouse(
-            items: widget.state.auctionHouseItems,
+            items: widget.auctionHouseItems,
             onRefresh: widget.onRefreshPressed,
           ),
           PlayerShowBazaar(
-            items: widget.state.bazaarItems,
+            items: widget.bazaarItems,
             onRefresh: widget.onRefreshPressed,
           ),
         ],
