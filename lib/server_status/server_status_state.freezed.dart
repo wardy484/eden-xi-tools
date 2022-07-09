@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'server_status_state.dart';
@@ -11,29 +12,7 @@ part of 'server_status_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ServerStatusStateTearOff {
-  const _$ServerStatusStateTearOff();
-
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _Loading loading() {
-    return const _Loading();
-  }
-
-  _Fetched fetched(Status status) {
-    return _Fetched(
-      status,
-    );
-  }
-}
-
-/// @nodoc
-const $ServerStatusState = _$ServerStatusStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ServerStatusState {
@@ -101,19 +80,21 @@ class _$ServerStatusStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$ServerStatusStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$ServerStatusStateCopyWithImpl<$Res>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, (v) => _then(v as _$_Initial));
 
   @override
-  _Initial get _value => super._value as _Initial;
+  _$_Initial get _value => super._value as _$_Initial;
 }
 
 /// @nodoc
@@ -129,7 +110,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initial);
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -209,19 +190,21 @@ abstract class _Initial implements ServerStatusState {
 }
 
 /// @nodoc
-abstract class _$LoadingCopyWith<$Res> {
-  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
-      __$LoadingCopyWithImpl<$Res>;
+abstract class _$$_LoadingCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoadingCopyWithImpl<$Res> extends _$ServerStatusStateCopyWithImpl<$Res>
-    implements _$LoadingCopyWith<$Res> {
-  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
-      : super(_value, (v) => _then(v as _Loading));
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$ServerStatusStateCopyWithImpl<$Res>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, (v) => _then(v as _$_Loading));
 
   @override
-  _Loading get _value => super._value as _Loading;
+  _$_Loading get _value => super._value as _$_Loading;
 }
 
 /// @nodoc
@@ -237,7 +220,7 @@ class _$_Loading implements _Loading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Loading);
+        (other.runtimeType == runtimeType && other is _$_Loading);
   }
 
   @override
@@ -317,28 +300,30 @@ abstract class _Loading implements ServerStatusState {
 }
 
 /// @nodoc
-abstract class _$FetchedCopyWith<$Res> {
-  factory _$FetchedCopyWith(_Fetched value, $Res Function(_Fetched) then) =
-      __$FetchedCopyWithImpl<$Res>;
+abstract class _$$_FetchedCopyWith<$Res> {
+  factory _$$_FetchedCopyWith(
+          _$_Fetched value, $Res Function(_$_Fetched) then) =
+      __$$_FetchedCopyWithImpl<$Res>;
   $Res call({Status status});
 
   $StatusCopyWith<$Res> get status;
 }
 
 /// @nodoc
-class __$FetchedCopyWithImpl<$Res> extends _$ServerStatusStateCopyWithImpl<$Res>
-    implements _$FetchedCopyWith<$Res> {
-  __$FetchedCopyWithImpl(_Fetched _value, $Res Function(_Fetched) _then)
-      : super(_value, (v) => _then(v as _Fetched));
+class __$$_FetchedCopyWithImpl<$Res>
+    extends _$ServerStatusStateCopyWithImpl<$Res>
+    implements _$$_FetchedCopyWith<$Res> {
+  __$$_FetchedCopyWithImpl(_$_Fetched _value, $Res Function(_$_Fetched) _then)
+      : super(_value, (v) => _then(v as _$_Fetched));
 
   @override
-  _Fetched get _value => super._value as _Fetched;
+  _$_Fetched get _value => super._value as _$_Fetched;
 
   @override
   $Res call({
     Object? status = freezed,
   }) {
-    return _then(_Fetched(
+    return _then(_$_Fetched(
       status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -371,17 +356,18 @@ class _$_Fetched implements _Fetched {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Fetched &&
-            (identical(other.status, status) || other.status == status));
+            other is _$_Fetched &&
+            const DeepCollectionEquality().equals(other.status, status));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(status));
 
   @JsonKey(ignore: true)
   @override
-  _$FetchedCopyWith<_Fetched> get copyWith =>
-      __$FetchedCopyWithImpl<_Fetched>(this, _$identity);
+  _$$_FetchedCopyWith<_$_Fetched> get copyWith =>
+      __$$_FetchedCopyWithImpl<_$_Fetched>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -453,10 +439,10 @@ class _$_Fetched implements _Fetched {
 }
 
 abstract class _Fetched implements ServerStatusState {
-  const factory _Fetched(Status status) = _$_Fetched;
+  const factory _Fetched(final Status status) = _$_Fetched;
 
-  Status get status;
+  Status get status => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$FetchedCopyWith<_Fetched> get copyWith =>
+  _$$_FetchedCopyWith<_$_Fetched> get copyWith =>
       throw _privateConstructorUsedError;
 }

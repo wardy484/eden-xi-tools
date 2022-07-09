@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'settings_bloc.dart';
@@ -11,26 +12,11 @@ part of 'settings_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$SettingsEventTearOff {
-  const _$SettingsEventTearOff();
-
-  _Saved saved(Settings settings) {
-    return _Saved(
-      settings,
-    );
-  }
-}
-
-/// @nodoc
-const $SettingsEvent = _$SettingsEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$SettingsEvent {
   Settings get settings => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Settings settings) saved,
@@ -109,9 +95,9 @@ class _$SettingsEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$SavedCopyWith<$Res> implements $SettingsEventCopyWith<$Res> {
-  factory _$SavedCopyWith(_Saved value, $Res Function(_Saved) then) =
-      __$SavedCopyWithImpl<$Res>;
+abstract class _$$_SavedCopyWith<$Res> implements $SettingsEventCopyWith<$Res> {
+  factory _$$_SavedCopyWith(_$_Saved value, $Res Function(_$_Saved) then) =
+      __$$_SavedCopyWithImpl<$Res>;
   @override
   $Res call({Settings settings});
 
@@ -120,19 +106,19 @@ abstract class _$SavedCopyWith<$Res> implements $SettingsEventCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$SavedCopyWithImpl<$Res> extends _$SettingsEventCopyWithImpl<$Res>
-    implements _$SavedCopyWith<$Res> {
-  __$SavedCopyWithImpl(_Saved _value, $Res Function(_Saved) _then)
-      : super(_value, (v) => _then(v as _Saved));
+class __$$_SavedCopyWithImpl<$Res> extends _$SettingsEventCopyWithImpl<$Res>
+    implements _$$_SavedCopyWith<$Res> {
+  __$$_SavedCopyWithImpl(_$_Saved _value, $Res Function(_$_Saved) _then)
+      : super(_value, (v) => _then(v as _$_Saved));
 
   @override
-  _Saved get _value => super._value as _Saved;
+  _$_Saved get _value => super._value as _$_Saved;
 
   @override
   $Res call({
     Object? settings = freezed,
   }) {
-    return _then(_Saved(
+    return _then(_$_Saved(
       settings == freezed
           ? _value.settings
           : settings // ignore: cast_nullable_to_non_nullable
@@ -158,18 +144,18 @@ class _$_Saved implements _Saved {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Saved &&
-            (identical(other.settings, settings) ||
-                other.settings == settings));
+            other is _$_Saved &&
+            const DeepCollectionEquality().equals(other.settings, settings));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, settings);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(settings));
 
   @JsonKey(ignore: true)
   @override
-  _$SavedCopyWith<_Saved> get copyWith =>
-      __$SavedCopyWithImpl<_Saved>(this, _$identity);
+  _$$_SavedCopyWith<_$_Saved> get copyWith =>
+      __$$_SavedCopyWithImpl<_$_Saved>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -229,39 +215,19 @@ class _$_Saved implements _Saved {
 }
 
 abstract class _Saved implements SettingsEvent {
-  const factory _Saved(Settings settings) = _$_Saved;
+  const factory _Saved(final Settings settings) = _$_Saved;
 
   @override
-  Settings get settings;
+  Settings get settings => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$SavedCopyWith<_Saved> get copyWith => throw _privateConstructorUsedError;
+  _$$_SavedCopyWith<_$_Saved> get copyWith =>
+      throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$SettingsStateTearOff {
-  const _$SettingsStateTearOff();
-
-  _Initial initial(Settings settings) {
-    return _Initial(
-      settings,
-    );
-  }
-
-  _Loaded loaded(Settings settings) {
-    return _Loaded(
-      settings,
-    );
-  }
-}
-
-/// @nodoc
-const $SettingsState = _$SettingsStateTearOff();
 
 /// @nodoc
 mixin _$SettingsState {
   Settings get settings => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Settings settings) initial,
@@ -346,9 +312,11 @@ class _$SettingsStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> implements $SettingsStateCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res>
+    implements $SettingsStateCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
   @override
   $Res call({Settings settings});
 
@@ -357,19 +325,19 @@ abstract class _$InitialCopyWith<$Res> implements $SettingsStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$SettingsStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
+class __$$_InitialCopyWithImpl<$Res> extends _$SettingsStateCopyWithImpl<$Res>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, (v) => _then(v as _$_Initial));
 
   @override
-  _Initial get _value => super._value as _Initial;
+  _$_Initial get _value => super._value as _$_Initial;
 
   @override
   $Res call({
     Object? settings = freezed,
   }) {
-    return _then(_Initial(
+    return _then(_$_Initial(
       settings == freezed
           ? _value.settings
           : settings // ignore: cast_nullable_to_non_nullable
@@ -395,18 +363,18 @@ class _$_Initial implements _Initial {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Initial &&
-            (identical(other.settings, settings) ||
-                other.settings == settings));
+            other is _$_Initial &&
+            const DeepCollectionEquality().equals(other.settings, settings));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, settings);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(settings));
 
   @JsonKey(ignore: true)
   @override
-  _$InitialCopyWith<_Initial> get copyWith =>
-      __$InitialCopyWithImpl<_Initial>(this, _$identity);
+  _$$_InitialCopyWith<_$_Initial> get copyWith =>
+      __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -472,20 +440,21 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements SettingsState {
-  const factory _Initial(Settings settings) = _$_Initial;
+  const factory _Initial(final Settings settings) = _$_Initial;
 
   @override
-  Settings get settings;
+  Settings get settings => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$InitialCopyWith<_Initial> get copyWith =>
+  _$$_InitialCopyWith<_$_Initial> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$LoadedCopyWith<$Res> implements $SettingsStateCopyWith<$Res> {
-  factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) then) =
-      __$LoadedCopyWithImpl<$Res>;
+abstract class _$$_LoadedCopyWith<$Res>
+    implements $SettingsStateCopyWith<$Res> {
+  factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
+      __$$_LoadedCopyWithImpl<$Res>;
   @override
   $Res call({Settings settings});
 
@@ -494,19 +463,19 @@ abstract class _$LoadedCopyWith<$Res> implements $SettingsStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$LoadedCopyWithImpl<$Res> extends _$SettingsStateCopyWithImpl<$Res>
-    implements _$LoadedCopyWith<$Res> {
-  __$LoadedCopyWithImpl(_Loaded _value, $Res Function(_Loaded) _then)
-      : super(_value, (v) => _then(v as _Loaded));
+class __$$_LoadedCopyWithImpl<$Res> extends _$SettingsStateCopyWithImpl<$Res>
+    implements _$$_LoadedCopyWith<$Res> {
+  __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
+      : super(_value, (v) => _then(v as _$_Loaded));
 
   @override
-  _Loaded get _value => super._value as _Loaded;
+  _$_Loaded get _value => super._value as _$_Loaded;
 
   @override
   $Res call({
     Object? settings = freezed,
   }) {
-    return _then(_Loaded(
+    return _then(_$_Loaded(
       settings == freezed
           ? _value.settings
           : settings // ignore: cast_nullable_to_non_nullable
@@ -532,18 +501,18 @@ class _$_Loaded implements _Loaded {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Loaded &&
-            (identical(other.settings, settings) ||
-                other.settings == settings));
+            other is _$_Loaded &&
+            const DeepCollectionEquality().equals(other.settings, settings));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, settings);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(settings));
 
   @JsonKey(ignore: true)
   @override
-  _$LoadedCopyWith<_Loaded> get copyWith =>
-      __$LoadedCopyWithImpl<_Loaded>(this, _$identity);
+  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+      __$$_LoadedCopyWithImpl<_$_Loaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -609,11 +578,12 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements SettingsState {
-  const factory _Loaded(Settings settings) = _$_Loaded;
+  const factory _Loaded(final Settings settings) = _$_Loaded;
 
   @override
-  Settings get settings;
+  Settings get settings => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$LoadedCopyWith<_Loaded> get copyWith => throw _privateConstructorUsedError;
+  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+      throw _privateConstructorUsedError;
 }

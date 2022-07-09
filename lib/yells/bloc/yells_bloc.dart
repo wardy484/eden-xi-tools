@@ -1,16 +1,25 @@
 import 'package:bloc/bloc.dart';
-import 'package:eden_xi_tools/eden/misc/entities/yell/yell.dart';
-import 'package:eden_xi_tools/eden/misc/repository/misc_repository.dart';
+import 'package:eden_xi_tools/eden/eden_provider.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 part 'yells_event.dart';
 part 'yells_state.dart';
 part 'yells_bloc.freezed.dart';
 
-class YellsBloc extends Bloc<YellsEvent, YellsState> {
-  MiscRepository statusRepository;
+final yellsProvider = Provider.autoDispose((ref) {
+  return YellsBloc(
+    eden: ref.read(edenProvider),
+  );
+});
 
-  YellsBloc(this.statusRepository) : super(_Initial()) {
+class YellsBloc extends Bloc<YellsEvent, YellsState> {
+  EdenXiApi eden;
+
+  YellsBloc({
+    required this.eden,
+  }) : super(_Initial()) {
     on<YellsEvent>(_onEvent);
   }
 
@@ -24,7 +33,7 @@ class YellsBloc extends Bloc<YellsEvent, YellsState> {
       await event.when(
         started: () => YellsState.initial(),
         requested: () async {
-          List<Yell> yells = await statusRepository.getYells();
+          List<Yell> yells = await eden.server.getYells();
 
           return YellsState.loaded(yells);
         },

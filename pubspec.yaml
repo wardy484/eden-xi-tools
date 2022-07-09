@@ -40,7 +40,6 @@ dependencies:
     get_it: ^2.0.1
     hydrated_bloc: ^8.0.0
     json_annotation: ^4.4.0
-    kiwi: ^4.0.1
     dio: ^4.0.4
     freezed_annotation:
     fluttertoast: ^8.0.8
@@ -54,9 +53,13 @@ dependencies:
     flutter_hooks: ^0.18.0
     hooks_riverpod: ^2.0.0-dev.0
 
+    isar: ^2.5.0
+    isar_flutter_libs: ^2.5.0
+
     cupertino_icons: ^1.0.1
     bloc_concurrency: ^0.2.0
     google_fonts: ^2.2.0
+    eden_xi_tools_api: ^1.0.0
 
 dev_dependencies:
     flutter_test:
@@ -64,7 +67,9 @@ dev_dependencies:
     build_runner: ^2.1.7
     json_serializable: ^6.1.4
     kiwi_generator: ^4.0.1
-    freezed:
+    freezed: ^2.0.3+1
+    isar_generator: ^2.5.0
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

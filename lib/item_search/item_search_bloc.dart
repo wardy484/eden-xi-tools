@@ -1,14 +1,19 @@
 import 'package:bloc/bloc.dart';
-import 'package:eden_xi_tools/eden/items/repositories/ItemRepository.dart';
+import 'package:eden_xi_tools/eden/eden_provider.dart';
 import 'package:eden_xi_tools/item_search/item_search.dart';
-import 'package:eden_xi_tools/eden/items/entities/search_result/search_result.dart';
 import 'package:eden_xi_tools/transformers.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+final itemSearchProvider = Provider.autoDispose<ItemSearchBloc>(
+  (ref) => ItemSearchBloc(eden: ref.read(edenProvider)),
+);
 
 class ItemSearchBloc extends Bloc<ItemSearchEvent, ItemSearchState> {
-  final ItemRepository itemRepository;
+  final EdenXiApi eden;
   final limit = 30;
 
-  ItemSearchBloc({required this.itemRepository}) : super(ItemSearchEmpty()) {
+  ItemSearchBloc({required this.eden}) : super(ItemSearchEmpty()) {
     on<ItemSearchEvent>(
       _onEvent,
       transformer: debounce(const Duration(milliseconds: 300)),
@@ -35,7 +40,7 @@ class ItemSearchBloc extends Bloc<ItemSearchEvent, ItemSearchState> {
     if (event is ItemSearchFetched && !_hasReachedMax(currentState)) {
       try {
         if (currentState is ItemSearchInitial) {
-          final results = await itemRepository.search(itemName, 0, limit);
+          final results = await eden.items.search(itemName, 0, limit);
 
           emit(
             ItemSearchSuccess(
@@ -49,7 +54,7 @@ class ItemSearchBloc extends Bloc<ItemSearchEvent, ItemSearchState> {
         }
 
         if (currentState is ItemSearchSuccess) {
-          final results = await itemRepository.search(
+          final results = await eden.items.search(
             itemName,
             currentState.results.items.length,
             limit,

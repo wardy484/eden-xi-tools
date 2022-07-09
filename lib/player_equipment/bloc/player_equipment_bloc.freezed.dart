@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'player_equipment_bloc.dart';
@@ -11,25 +12,7 @@ part of 'player_equipment_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$PlayerEquipmentEventTearOff {
-  const _$PlayerEquipmentEventTearOff();
-
-  _Started started() {
-    return const _Started();
-  }
-
-  _Fetched fetched(String playerName) {
-    return _Fetched(
-      playerName,
-    );
-  }
-}
-
-/// @nodoc
-const $PlayerEquipmentEvent = _$PlayerEquipmentEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$PlayerEquipmentEvent {
@@ -91,20 +74,21 @@ class _$PlayerEquipmentEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$StartedCopyWith<$Res> {
-  factory _$StartedCopyWith(_Started value, $Res Function(_Started) then) =
-      __$StartedCopyWithImpl<$Res>;
+abstract class _$$_StartedCopyWith<$Res> {
+  factory _$$_StartedCopyWith(
+          _$_Started value, $Res Function(_$_Started) then) =
+      __$$_StartedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$StartedCopyWithImpl<$Res>
+class __$$_StartedCopyWithImpl<$Res>
     extends _$PlayerEquipmentEventCopyWithImpl<$Res>
-    implements _$StartedCopyWith<$Res> {
-  __$StartedCopyWithImpl(_Started _value, $Res Function(_Started) _then)
-      : super(_value, (v) => _then(v as _Started));
+    implements _$$_StartedCopyWith<$Res> {
+  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+      : super(_value, (v) => _then(v as _$_Started));
 
   @override
-  _Started get _value => super._value as _Started;
+  _$_Started get _value => super._value as _$_Started;
 }
 
 /// @nodoc
@@ -120,7 +104,7 @@ class _$_Started implements _Started {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Started);
+        (other.runtimeType == runtimeType && other is _$_Started);
   }
 
   @override
@@ -194,27 +178,28 @@ abstract class _Started implements PlayerEquipmentEvent {
 }
 
 /// @nodoc
-abstract class _$FetchedCopyWith<$Res> {
-  factory _$FetchedCopyWith(_Fetched value, $Res Function(_Fetched) then) =
-      __$FetchedCopyWithImpl<$Res>;
+abstract class _$$_FetchedCopyWith<$Res> {
+  factory _$$_FetchedCopyWith(
+          _$_Fetched value, $Res Function(_$_Fetched) then) =
+      __$$_FetchedCopyWithImpl<$Res>;
   $Res call({String playerName});
 }
 
 /// @nodoc
-class __$FetchedCopyWithImpl<$Res>
+class __$$_FetchedCopyWithImpl<$Res>
     extends _$PlayerEquipmentEventCopyWithImpl<$Res>
-    implements _$FetchedCopyWith<$Res> {
-  __$FetchedCopyWithImpl(_Fetched _value, $Res Function(_Fetched) _then)
-      : super(_value, (v) => _then(v as _Fetched));
+    implements _$$_FetchedCopyWith<$Res> {
+  __$$_FetchedCopyWithImpl(_$_Fetched _value, $Res Function(_$_Fetched) _then)
+      : super(_value, (v) => _then(v as _$_Fetched));
 
   @override
-  _Fetched get _value => super._value as _Fetched;
+  _$_Fetched get _value => super._value as _$_Fetched;
 
   @override
   $Res call({
     Object? playerName = freezed,
   }) {
-    return _then(_Fetched(
+    return _then(_$_Fetched(
       playerName == freezed
           ? _value.playerName
           : playerName // ignore: cast_nullable_to_non_nullable
@@ -240,18 +225,19 @@ class _$_Fetched implements _Fetched {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Fetched &&
-            (identical(other.playerName, playerName) ||
-                other.playerName == playerName));
+            other is _$_Fetched &&
+            const DeepCollectionEquality()
+                .equals(other.playerName, playerName));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, playerName);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(playerName));
 
   @JsonKey(ignore: true)
   @override
-  _$FetchedCopyWith<_Fetched> get copyWith =>
-      __$FetchedCopyWithImpl<_Fetched>(this, _$identity);
+  _$$_FetchedCopyWith<_$_Fetched> get copyWith =>
+      __$$_FetchedCopyWithImpl<_$_Fetched>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -317,35 +303,13 @@ class _$_Fetched implements _Fetched {
 }
 
 abstract class _Fetched implements PlayerEquipmentEvent {
-  const factory _Fetched(String playerName) = _$_Fetched;
+  const factory _Fetched(final String playerName) = _$_Fetched;
 
-  String get playerName;
+  String get playerName => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$FetchedCopyWith<_Fetched> get copyWith =>
+  _$$_FetchedCopyWith<_$_Fetched> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$PlayerEquipmentStateTearOff {
-  const _$PlayerEquipmentStateTearOff();
-
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _Loading loading() {
-    return const _Loading();
-  }
-
-  _Loaded loaded(PlayerEquipment equipment) {
-    return _Loaded(
-      equipment,
-    );
-  }
-}
-
-/// @nodoc
-const $PlayerEquipmentState = _$PlayerEquipmentStateTearOff();
 
 /// @nodoc
 mixin _$PlayerEquipmentState {
@@ -413,20 +377,21 @@ class _$PlayerEquipmentStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res>
+class __$$_InitialCopyWithImpl<$Res>
     extends _$PlayerEquipmentStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, (v) => _then(v as _$_Initial));
 
   @override
-  _Initial get _value => super._value as _Initial;
+  _$_Initial get _value => super._value as _$_Initial;
 }
 
 /// @nodoc
@@ -442,7 +407,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initial);
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -522,20 +487,21 @@ abstract class _Initial implements PlayerEquipmentState {
 }
 
 /// @nodoc
-abstract class _$LoadingCopyWith<$Res> {
-  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
-      __$LoadingCopyWithImpl<$Res>;
+abstract class _$$_LoadingCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoadingCopyWithImpl<$Res>
+class __$$_LoadingCopyWithImpl<$Res>
     extends _$PlayerEquipmentStateCopyWithImpl<$Res>
-    implements _$LoadingCopyWith<$Res> {
-  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
-      : super(_value, (v) => _then(v as _Loading));
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, (v) => _then(v as _$_Loading));
 
   @override
-  _Loading get _value => super._value as _Loading;
+  _$_Loading get _value => super._value as _$_Loading;
 }
 
 /// @nodoc
@@ -551,7 +517,7 @@ class _$_Loading implements _Loading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Loading);
+        (other.runtimeType == runtimeType && other is _$_Loading);
   }
 
   @override
@@ -631,29 +597,29 @@ abstract class _Loading implements PlayerEquipmentState {
 }
 
 /// @nodoc
-abstract class _$LoadedCopyWith<$Res> {
-  factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) then) =
-      __$LoadedCopyWithImpl<$Res>;
+abstract class _$$_LoadedCopyWith<$Res> {
+  factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
+      __$$_LoadedCopyWithImpl<$Res>;
   $Res call({PlayerEquipment equipment});
 
   $PlayerEquipmentCopyWith<$Res> get equipment;
 }
 
 /// @nodoc
-class __$LoadedCopyWithImpl<$Res>
+class __$$_LoadedCopyWithImpl<$Res>
     extends _$PlayerEquipmentStateCopyWithImpl<$Res>
-    implements _$LoadedCopyWith<$Res> {
-  __$LoadedCopyWithImpl(_Loaded _value, $Res Function(_Loaded) _then)
-      : super(_value, (v) => _then(v as _Loaded));
+    implements _$$_LoadedCopyWith<$Res> {
+  __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
+      : super(_value, (v) => _then(v as _$_Loaded));
 
   @override
-  _Loaded get _value => super._value as _Loaded;
+  _$_Loaded get _value => super._value as _$_Loaded;
 
   @override
   $Res call({
     Object? equipment = freezed,
   }) {
-    return _then(_Loaded(
+    return _then(_$_Loaded(
       equipment == freezed
           ? _value.equipment
           : equipment // ignore: cast_nullable_to_non_nullable
@@ -686,18 +652,18 @@ class _$_Loaded implements _Loaded {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Loaded &&
-            (identical(other.equipment, equipment) ||
-                other.equipment == equipment));
+            other is _$_Loaded &&
+            const DeepCollectionEquality().equals(other.equipment, equipment));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, equipment);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(equipment));
 
   @JsonKey(ignore: true)
   @override
-  _$LoadedCopyWith<_Loaded> get copyWith =>
-      __$LoadedCopyWithImpl<_Loaded>(this, _$identity);
+  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+      __$$_LoadedCopyWithImpl<_$_Loaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -769,9 +735,10 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements PlayerEquipmentState {
-  const factory _Loaded(PlayerEquipment equipment) = _$_Loaded;
+  const factory _Loaded(final PlayerEquipment equipment) = _$_Loaded;
 
-  PlayerEquipment get equipment;
+  PlayerEquipment get equipment => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$LoadedCopyWith<_Loaded> get copyWith => throw _privateConstructorUsedError;
+  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+      throw _privateConstructorUsedError;
 }

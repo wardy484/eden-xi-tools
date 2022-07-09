@@ -1,15 +1,20 @@
 import 'package:bloc/bloc.dart';
-import 'package:eden_xi_tools/eden/items/entities/bazaar_item/bazaar_item.dart';
-import 'package:eden_xi_tools/eden/items/repositories/ItemRepository.dart';
+import 'package:eden_xi_tools/eden/eden_provider.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:equatable/equatable.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 part 'item_bazaar_event.dart';
 part 'item_bazaar_state.dart';
 
-class ItemBazaarBloc extends Bloc<ItemBazaarEvent, ItemBazaarState> {
-  final ItemRepository itemRepository;
+final itemBazaarProvider = Provider.autoDispose<ItemBazaarBloc>(
+  (ref) => ItemBazaarBloc(eden: ref.read(edenProvider)),
+);
 
-  ItemBazaarBloc({required this.itemRepository}) : super(ItemBazaarInitial()) {
+class ItemBazaarBloc extends Bloc<ItemBazaarEvent, ItemBazaarState> {
+  final EdenXiApi eden;
+
+  ItemBazaarBloc({required this.eden}) : super(ItemBazaarInitial()) {
     on<ItemBazaarEvent>(_onEvent);
   }
 
@@ -43,7 +48,7 @@ class ItemBazaarBloc extends Bloc<ItemBazaarEvent, ItemBazaarState> {
   Future<ItemBazaarState> _mapItemBazaarRequested(
     ItemBazaarRequested event,
   ) async {
-    var items = await itemRepository.getBazaarItems(event.itemKey);
+    var items = await eden.items.getBazaarItems(event.itemKey);
 
     return ItemBazaarSuccess(key: event.itemKey, bazaarItems: items);
   }
@@ -54,7 +59,7 @@ class ItemBazaarBloc extends Bloc<ItemBazaarEvent, ItemBazaarState> {
     final currentState = state;
 
     if (currentState is ItemBazaarSuccess) {
-      var items = await itemRepository.getBazaarItems(currentState.key);
+      var items = await eden.items.getBazaarItems(currentState.key);
 
       return currentState.copyWith(bazaarItems: items);
     }

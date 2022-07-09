@@ -1,17 +1,17 @@
-import 'package:eden_xi_tools/eden/items/entities/auction_house_item/auction_house_item.dart';
-import 'package:eden_xi_tools/eden/player/repository/player_repository.dart';
+import 'package:eden_xi_tools/eden/eden_provider.dart';
 import 'package:eden_xi_tools/player_show/pages/player_show_page.dart';
 import 'package:eden_xi_tools/styles/text_styles.dart';
 import 'package:eden_xi_tools/widgets/item_icon.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:eden_xi_tools/extensions/int.dart';
-import 'package:kiwi/kiwi.dart';
 
 enum MoreOptions { buyer, seller }
 
-class ItemAuctionHouseCard extends StatelessWidget {
+class ItemAuctionHouseCard extends ConsumerWidget {
   final AuctionHouseItem item;
   final String? title;
 
@@ -22,7 +22,7 @@ class ItemAuctionHouseCard extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
     // Text('Bought by ${item.buyerName} from ${item.sellerName}'),
 
     return Card(
@@ -48,9 +48,9 @@ class ItemAuctionHouseCard extends StatelessWidget {
             trailing: PopupMenuButton<MoreOptions>(
               onSelected: (MoreOptions result) {
                 if (result.index == 0) {
-                  _navigateToPlayer(item.sellerName, context);
+                  _navigateToPlayer(item.sellerName, context, ref);
                 } else {
-                  _navigateToPlayer(item.buyerName, context);
+                  _navigateToPlayer(item.buyerName, context, ref);
                 }
               },
               itemBuilder: (BuildContext context) {
@@ -75,7 +75,8 @@ class ItemAuctionHouseCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: GestureDetector(
-                    onTap: () => _navigateToPlayer(item.buyerName, context),
+                    onTap: () =>
+                        _navigateToPlayer(item.buyerName, context, ref),
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Text("Buyer: ${item.buyerName}"),
@@ -85,7 +86,8 @@ class ItemAuctionHouseCard extends StatelessWidget {
                 VerticalDivider(),
                 Expanded(
                   child: GestureDetector(
-                    onTap: () => _navigateToPlayer(item.sellerName, context),
+                    onTap: () =>
+                        _navigateToPlayer(item.sellerName, context, ref),
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Text("Seller: ${item.sellerName}"),
@@ -108,9 +110,9 @@ class ItemAuctionHouseCard extends StatelessWidget {
     return formatter.format(date);
   }
 
-  _navigateToPlayer(String playerName, context) async {
-    var playerRepository = KiwiContainer().resolve<PlayerRepository>();
-    var players = await playerRepository.search(playerName, 0, 1);
+  _navigateToPlayer(
+      String playerName, BuildContext context, WidgetRef ref) async {
+    var players = await ref.read(edenProvider).players.search(playerName, 0, 1);
 
     if (players.total > 0) {
       Navigator.push(

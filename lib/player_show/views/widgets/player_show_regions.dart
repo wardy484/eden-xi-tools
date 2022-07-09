@@ -1,7 +1,7 @@
-import 'package:eden_xi_tools/eden/player/entities/player_ranks/player_ranks.dart';
 import 'package:eden_xi_tools/widgets/flags/bastok_flag.dart';
 import 'package:eden_xi_tools/widgets/flags/sandoria_flag.dart';
 import 'package:eden_xi_tools/widgets/flags/windhurst_flag.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
 
 class PlayerShowNations extends StatelessWidget {

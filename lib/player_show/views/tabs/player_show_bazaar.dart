@@ -1,16 +1,15 @@
-import 'package:eden_xi_tools/eden/items/entities/search_result_item/search_result_item.dart';
-import 'package:eden_xi_tools/eden/items/repositories/ItemRepository.dart';
-import 'package:eden_xi_tools/eden/player/entities/player_bazaar_item/player_bazaar_item.dart';
+import 'package:eden_xi_tools/eden/eden_provider.dart';
 import 'package:eden_xi_tools/item_show/pages/item_show_page.dart';
 import 'package:eden_xi_tools/styles/spacing.dart';
 import 'package:eden_xi_tools/styles/text_styles.dart';
 import 'package:eden_xi_tools/widgets/centered_message.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
-import 'package:kiwi/kiwi.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:recase/recase.dart';
 import 'package:eden_xi_tools/extensions/int.dart';
 
-class PlayerShowBazaar extends StatefulWidget {
+class PlayerShowBazaar extends ConsumerStatefulWidget {
   final List<PlayerBazaarItem> items;
   final Future<void> Function() onRefresh;
 
@@ -24,7 +23,7 @@ class PlayerShowBazaar extends StatefulWidget {
   _PlayerShowBazaarState createState() => _PlayerShowBazaarState();
 }
 
-class _PlayerShowBazaarState extends State<PlayerShowBazaar> {
+class _PlayerShowBazaarState extends ConsumerState<PlayerShowBazaar> {
   late SnackBar _snackbar;
 
   @override
@@ -80,10 +79,12 @@ class _PlayerShowBazaarState extends State<PlayerShowBazaar> {
     );
   }
 
-  _navigateToItem(String itemName, context) async {
-    var itemRepository = KiwiContainer().resolve<ItemRepository>();
+  _navigateToItem(
+    String itemName,
+    BuildContext context,
+  ) async {
     var name = Uri.encodeFull(itemName);
-    var item = await itemRepository.getItem(name);
+    var item = await ref.read(edenProvider).items.getItem(name);
 
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
 

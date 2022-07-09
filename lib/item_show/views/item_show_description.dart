@@ -1,7 +1,7 @@
-import 'package:eden_xi_tools/eden/items/entities/item/item.dart';
 import 'package:eden_xi_tools/item_auction_house/bloc/item_auction_house_bloc.dart';
 import 'package:eden_xi_tools/widgets/custom_card/custom_card.dart';
 import 'package:eden_xi_tools/widgets/labelled_switch.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

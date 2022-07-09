@@ -1,12 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:eden_xi_tools/eden/items/entities/search_result_item/search_result_item.dart';
-import 'package:eden_xi_tools/eden/player/entities/player_equipment/player_equipment.dart';
-import 'package:eden_xi_tools/eden/player/entities/player_equipment_slot/playerequipmentslot.dart';
 import 'package:eden_xi_tools/item_show/pages/item_show_page.dart';
 import 'package:eden_xi_tools/player_equipment/bloc/player_equipment_bloc.dart';
 import 'package:eden_xi_tools/widgets/centered_loader.dart';
 import 'package:eden_xi_tools/widgets/custom_card/custom_card.dart';
 import 'package:eden_xi_tools/widgets/item_icon.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recase/recase.dart';

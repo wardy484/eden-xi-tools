@@ -1,4 +1,4 @@
-import 'package:eden_xi_tools/eden/player/entities/player_search_result_item/player_search_result_item.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class PlayerShowEvent extends Equatable {

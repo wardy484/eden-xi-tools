@@ -1,8 +1,8 @@
 // ignore: unused_import
+import 'package:eden_xi_tools/auction_house_subscriptions/models/auction_house_history_item.dart';
 import 'package:eden_xi_tools/firebase_options.dart';
 import 'package:eden_xi_tools/dashboard/pages/dashboard_page.dart';
 import 'package:eden_xi_tools/item_favourites/bloc/item_favourites_bloc.dart';
-import 'package:eden_xi_tools/registrys/app_registry.dart';
 import 'package:eden_xi_tools/settings/bloc/settings_bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -12,7 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:eden_xi_tools/player_favourites/bloc/player_favourites_bloc.dart';
-import 'package:kiwi/kiwi.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io' as io;
 import 'package:google_fonts/google_fonts.dart';
@@ -40,8 +39,15 @@ void main() async {
     storageDirectory: await getApplicationDocumentsDirectory(),
   );
 
-  KiwiContainer container = KiwiContainer();
-  AppRegistry().register();
+  // TODO: Sort out db with some provider shit
+  // await Isar.open(
+  //   schemas: [
+  //     AuctionHouseHistoryItemSchema,
+  //     AuctionHouseSubscriptionSchema,
+  //   ],
+  //   directory: newPath,
+  //   inspector: true,
+  // );
 
   HydratedBlocOverrides.runZoned(
     () => runApp(
@@ -49,13 +55,13 @@ void main() async {
         child: MultiBlocProvider(
           providers: [
             BlocProvider<ItemFavouritesBloc>(
-              create: (context) => container.resolve<ItemFavouritesBloc>(),
+              create: (context) => ItemFavouritesBloc(),
             ),
             BlocProvider<PlayerFavouritesBloc>(
-              create: (context) => container.resolve<PlayerFavouritesBloc>(),
+              create: (context) => PlayerFavouritesBloc(),
             ),
             BlocProvider<SettingsBloc>(
-              create: (context) => container.resolve<SettingsBloc>(),
+              create: (context) => SettingsBloc(),
             ),
           ],
           child: App(),
@@ -110,18 +116,6 @@ class _AppState extends State<App> {
           Theme.of(context)
               .textTheme, // If this is not set, then ThemeData.light().textTheme is used.
         ),
-        // : TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-        // headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
-        // bodyText2: TextStyle(
-        //   fontSize: 14.0,
-        // ),        ),
-        // textTheme: TextTheme(
-        //   headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-        //   headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
-        //   bodyText2: TextStyle(
-        //     fontSize: 14.0,
-        //   ),
-        // ),
         inputDecorationTheme: InputDecorationTheme(
           fillColor: Colors.white,
           filled: true,

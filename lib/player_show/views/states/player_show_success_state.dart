@@ -1,4 +1,3 @@
-import 'package:eden_xi_tools/eden/player/entities/player_search_result_item/player_search_result_item.dart';
 import 'package:eden_xi_tools/player_show/player_show.dart';
 import 'package:eden_xi_tools/player_favourites/views/player_favourite_button.dart';
 import 'package:eden_xi_tools/player_show/views/player_show_navigation_bar.dart';
@@ -7,6 +6,7 @@ import 'package:eden_xi_tools/player_show/views/tabs/player_show_auction_house.d
 import 'package:eden_xi_tools/player_show/views/tabs/player_show_bazaar.dart';
 import 'package:eden_xi_tools/player_show/views/tabs/player_show_details.dart';
 import 'package:eden_xi_tools/widgets/swipable_pages/swipable_pages.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
 import 'package:eden_xi_tools/item_show/views/item_show_scaffold.dart';
 

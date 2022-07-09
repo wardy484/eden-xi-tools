@@ -1,6 +1,6 @@
-import 'package:eden_xi_tools/eden/player/entities/player_jobs/player_jobs.dart';
 import 'package:eden_xi_tools/player_show/views/widgets/factory/PlayerFactory.dart';
 import 'package:eden_xi_tools/widgets/custom_card/custom_card.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 

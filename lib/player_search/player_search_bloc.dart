@@ -1,16 +1,22 @@
 import 'package:bloc/bloc.dart';
-import 'package:eden_xi_tools/eden/player/entities/player_search_result/player_search_results.dart';
-import 'package:eden_xi_tools/eden/player/repository/player_repository.dart';
+import 'package:eden_xi_tools/eden/eden_provider.dart';
 import 'package:eden_xi_tools/player_search/player_search_events.dart';
 import 'package:eden_xi_tools/player_search/player_search_state.dart';
 import 'package:eden_xi_tools/transformers.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+final playerSearchProvider = Provider.autoDispose<PlayerSearchBloc>(
+  (ref) => PlayerSearchBloc(eden: ref.read(edenProvider)),
+);
 
 class PlayerSearchBloc extends Bloc<PlayerSearchEvent, PlayerSearchState> {
-  final PlayerRepository playerRepository;
+  final EdenXiApi eden;
   final limit = 30;
 
-  PlayerSearchBloc({required this.playerRepository})
-      : super(PlayerSearchEmpty()) {
+  PlayerSearchBloc({
+    required this.eden,
+  }) : super(PlayerSearchEmpty()) {
     on<PlayerSearchEvent>(
       (event, emit) => _onEvent(event, emit),
       transformer: debounce(const Duration(milliseconds: 300)),
@@ -38,7 +44,7 @@ class PlayerSearchBloc extends Bloc<PlayerSearchEvent, PlayerSearchState> {
       try {
         if (currentState is PlayerSearchEmpty ||
             currentState is PlayerSearchInital) {
-          final results = await playerRepository.search(playerName, 0, limit);
+          final results = await eden.players.search(playerName, 0, limit);
 
           emit(
             PlayerSearchSuccess(
@@ -52,7 +58,7 @@ class PlayerSearchBloc extends Bloc<PlayerSearchEvent, PlayerSearchState> {
         }
 
         if (currentState is PlayerSearchSuccess) {
-          final results = await playerRepository.search(
+          final results = await eden.players.search(
             playerName,
             currentState.results.items.length,
             limit,

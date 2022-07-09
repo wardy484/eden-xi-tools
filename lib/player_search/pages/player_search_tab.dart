@@ -6,20 +6,20 @@ import 'package:eden_xi_tools/player_search/views/player_search_loading.dart';
 import 'package:eden_xi_tools/player_search/views/player_search_sucess.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kiwi/kiwi.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class PlayerSearchTab extends StatefulWidget {
+class PlayerSearchTab extends ConsumerStatefulWidget {
   @override
   _PlayerSearchTabState createState() => _PlayerSearchTabState();
 }
 
-class _PlayerSearchTabState extends State<PlayerSearchTab> {
+class _PlayerSearchTabState extends ConsumerState<PlayerSearchTab> {
   late PlayerSearchBloc _searchBloc;
 
   @override
   void initState() {
     super.initState();
-    _searchBloc = KiwiContainer().resolve<PlayerSearchBloc>();
+    _searchBloc = ref.read(playerSearchProvider);
   }
 
   @override

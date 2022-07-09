@@ -1,15 +1,19 @@
 import 'package:bloc/bloc.dart';
-import 'package:eden_xi_tools/eden/items/entities/owner/ownable_items.dart';
-import 'package:eden_xi_tools/eden/items/entities/owner/owner.dart';
-import 'package:eden_xi_tools/eden/items/repositories/ItemRepository.dart';
+import 'package:eden_xi_tools/eden/eden_provider.dart';
 import 'package:eden_xi_tools/item_show/item_show_events.dart';
 import 'package:eden_xi_tools/item_show/item_show_state.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+final itemShowProvider = Provider.autoDispose<ItemShowBloc>(
+  (ref) => ItemShowBloc(eden: ref.read(edenProvider)),
+);
 
 class ItemShowBloc extends Bloc<ItemShowEvent, ItemShowState> {
-  final ItemRepository itemRepository;
+  final EdenXiApi eden;
   final limit = 30;
 
-  ItemShowBloc({required this.itemRepository}) : super(ItemShowInitial()) {
+  ItemShowBloc({required this.eden}) : super(ItemShowInitial()) {
     on<ItemShowEvent>(_onEvent);
   }
 
@@ -39,12 +43,12 @@ class ItemShowBloc extends Bloc<ItemShowEvent, ItemShowState> {
   }
 
   Future<ItemShowSuccess> _buildSuccess(String key, bool stacked) async {
-    final item = await itemRepository.getItem(key);
-    final bazaarItems = await itemRepository.getBazaarItems(key);
+    final item = await eden.items.getItem(key);
+    final bazaarItems = await eden.items.getBazaarItems(key);
     List<Owner> owners = [];
 
     if (OwnableItems.contains(item.id)) {
-      owners = await itemRepository.getOwners(item.id);
+      owners = await eden.items.getOwners(item.id);
     }
 
     return ItemShowSuccess(

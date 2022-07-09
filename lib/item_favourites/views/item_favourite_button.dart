@@ -1,6 +1,6 @@
-import 'package:eden_xi_tools/eden/items/entities/search_result_item/search_result_item.dart';
 import 'package:eden_xi_tools/item_favourites/bloc/item_favourites_bloc.dart';
 import 'package:eden_xi_tools/widgets/favourite_button.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

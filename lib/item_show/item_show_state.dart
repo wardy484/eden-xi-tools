@@ -1,7 +1,5 @@
-import 'package:eden_xi_tools/eden/items/entities/owner/owner.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:equatable/equatable.dart';
-import 'package:eden_xi_tools/eden/items/entities/bazaar_item/bazaar_item.dart';
-import 'package:eden_xi_tools/eden/items/entities/item/item.dart';
 
 abstract class ItemShowState extends Equatable {
   final bool showStacked;

@@ -1,16 +1,21 @@
 import 'package:bloc/bloc.dart';
-import 'package:eden_xi_tools/eden/items/entities/auction_house_item/auction_house_item.dart';
-import 'package:eden_xi_tools/eden/items/repositories/ItemRepository.dart';
+import 'package:eden_xi_tools/eden/eden_provider.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:equatable/equatable.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 part 'item_auction_house_event.dart';
 part 'item_auction_house_state.dart';
 
+final itemAuctionHouseProvider = Provider.autoDispose<ItemAuctionHouseBloc>(
+  (ref) => ItemAuctionHouseBloc(eden: ref.read(edenProvider)),
+);
+
 class ItemAuctionHouseBloc
     extends Bloc<ItemAuctionHouseEvent, ItemAuctionHouseState> {
-  final ItemRepository itemRepository;
+  final EdenXiApi eden;
 
-  ItemAuctionHouseBloc({required this.itemRepository})
+  ItemAuctionHouseBloc({required this.eden})
       : super(ItemAuctionHouseInitial()) {
     on<ItemAuctionHouseEvent>(_onEvent);
   }
@@ -46,7 +51,7 @@ class ItemAuctionHouseBloc
   Future<ItemAuctionHouseState> _mapItemAuctionHouseRequested(
     ItemAuctionHouseRequested event,
   ) async {
-    var items = await itemRepository.getAuctionHouseItem(
+    var items = await eden.items.getAuctionHouseItem(
       event.itemKey,
       event.stacked,
     );
@@ -64,7 +69,7 @@ class ItemAuctionHouseBloc
     final currentState = state;
 
     if (currentState is ItemAuctionHouseSuccess) {
-      var items = await itemRepository.getAuctionHouseItem(
+      var items = await eden.items.getAuctionHouseItem(
         currentState.key,
         currentState.stacked,
       );
@@ -84,7 +89,7 @@ class ItemAuctionHouseBloc
     emit(ItemAuctionHouseLoading(state.stacked));
 
     if (currentState is ItemAuctionHouseSuccess) {
-      var items = await itemRepository.getAuctionHouseItem(
+      var items = await eden.items.getAuctionHouseItem(
         currentState.key,
         event.stacked,
       );

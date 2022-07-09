@@ -6,20 +6,20 @@ import 'package:eden_xi_tools/item_search/views/search_empty.dart';
 import 'package:eden_xi_tools/item_search/views/search_failure.dart';
 import 'package:eden_xi_tools/item_search/views/search_loading.dart';
 import 'package:eden_xi_tools/item_search/views/search_sucess.dart';
-import 'package:kiwi/kiwi.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class ItemSearchPage extends StatefulWidget {
+class ItemSearchPage extends ConsumerStatefulWidget {
   @override
   _ItemSearchPageState createState() => _ItemSearchPageState();
 }
 
-class _ItemSearchPageState extends State<ItemSearchPage> {
+class _ItemSearchPageState extends ConsumerState<ItemSearchPage> {
   late ItemSearchBloc _searchBloc;
 
   @override
   void initState() {
     super.initState();
-    _searchBloc = KiwiContainer().resolve<ItemSearchBloc>();
+    _searchBloc = ref.read(itemSearchProvider);
   }
 
   @override

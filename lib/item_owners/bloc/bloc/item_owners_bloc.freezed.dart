@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'item_owners_bloc.dart';
@@ -11,25 +12,7 @@ part of 'item_owners_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ItemOwnersEventTearOff {
-  const _$ItemOwnersEventTearOff();
-
-  _Started started() {
-    return const _Started();
-  }
-
-  _Requested requested(int id) {
-    return _Requested(
-      id,
-    );
-  }
-}
-
-/// @nodoc
-const $ItemOwnersEvent = _$ItemOwnersEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ItemOwnersEvent {
@@ -91,19 +74,20 @@ class _$ItemOwnersEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$StartedCopyWith<$Res> {
-  factory _$StartedCopyWith(_Started value, $Res Function(_Started) then) =
-      __$StartedCopyWithImpl<$Res>;
+abstract class _$$_StartedCopyWith<$Res> {
+  factory _$$_StartedCopyWith(
+          _$_Started value, $Res Function(_$_Started) then) =
+      __$$_StartedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$StartedCopyWithImpl<$Res> extends _$ItemOwnersEventCopyWithImpl<$Res>
-    implements _$StartedCopyWith<$Res> {
-  __$StartedCopyWithImpl(_Started _value, $Res Function(_Started) _then)
-      : super(_value, (v) => _then(v as _Started));
+class __$$_StartedCopyWithImpl<$Res> extends _$ItemOwnersEventCopyWithImpl<$Res>
+    implements _$$_StartedCopyWith<$Res> {
+  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+      : super(_value, (v) => _then(v as _$_Started));
 
   @override
-  _Started get _value => super._value as _Started;
+  _$_Started get _value => super._value as _$_Started;
 }
 
 /// @nodoc
@@ -119,7 +103,7 @@ class _$_Started implements _Started {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Started);
+        (other.runtimeType == runtimeType && other is _$_Started);
   }
 
   @override
@@ -193,27 +177,29 @@ abstract class _Started implements ItemOwnersEvent {
 }
 
 /// @nodoc
-abstract class _$RequestedCopyWith<$Res> {
-  factory _$RequestedCopyWith(
-          _Requested value, $Res Function(_Requested) then) =
-      __$RequestedCopyWithImpl<$Res>;
+abstract class _$$_RequestedCopyWith<$Res> {
+  factory _$$_RequestedCopyWith(
+          _$_Requested value, $Res Function(_$_Requested) then) =
+      __$$_RequestedCopyWithImpl<$Res>;
   $Res call({int id});
 }
 
 /// @nodoc
-class __$RequestedCopyWithImpl<$Res> extends _$ItemOwnersEventCopyWithImpl<$Res>
-    implements _$RequestedCopyWith<$Res> {
-  __$RequestedCopyWithImpl(_Requested _value, $Res Function(_Requested) _then)
-      : super(_value, (v) => _then(v as _Requested));
+class __$$_RequestedCopyWithImpl<$Res>
+    extends _$ItemOwnersEventCopyWithImpl<$Res>
+    implements _$$_RequestedCopyWith<$Res> {
+  __$$_RequestedCopyWithImpl(
+      _$_Requested _value, $Res Function(_$_Requested) _then)
+      : super(_value, (v) => _then(v as _$_Requested));
 
   @override
-  _Requested get _value => super._value as _Requested;
+  _$_Requested get _value => super._value as _$_Requested;
 
   @override
   $Res call({
     Object? id = freezed,
   }) {
-    return _then(_Requested(
+    return _then(_$_Requested(
       id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -239,17 +225,18 @@ class _$_Requested implements _Requested {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Requested &&
-            (identical(other.id, id) || other.id == id));
+            other is _$_Requested &&
+            const DeepCollectionEquality().equals(other.id, id));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(id));
 
   @JsonKey(ignore: true)
   @override
-  _$RequestedCopyWith<_Requested> get copyWith =>
-      __$RequestedCopyWithImpl<_Requested>(this, _$identity);
+  _$$_RequestedCopyWith<_$_Requested> get copyWith =>
+      __$$_RequestedCopyWithImpl<_$_Requested>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -315,39 +302,13 @@ class _$_Requested implements _Requested {
 }
 
 abstract class _Requested implements ItemOwnersEvent {
-  const factory _Requested(int id) = _$_Requested;
+  const factory _Requested(final int id) = _$_Requested;
 
-  int get id;
+  int get id => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$RequestedCopyWith<_Requested> get copyWith =>
+  _$$_RequestedCopyWith<_$_Requested> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-/// @nodoc
-class _$ItemOwnersStateTearOff {
-  const _$ItemOwnersStateTearOff();
-
-  _Initial initial() {
-    return const _Initial();
-  }
-
-  _Loading loading() {
-    return const _Loading();
-  }
-
-  _Success success(List<Owner> owners) {
-    return _Success(
-      owners,
-    );
-  }
-
-  _Error error() {
-    return const _Error();
-  }
-}
-
-/// @nodoc
-const $ItemOwnersState = _$ItemOwnersStateTearOff();
 
 /// @nodoc
 mixin _$ItemOwnersState {
@@ -421,19 +382,20 @@ class _$ItemOwnersStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$ItemOwnersStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
+class __$$_InitialCopyWithImpl<$Res> extends _$ItemOwnersStateCopyWithImpl<$Res>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, (v) => _then(v as _$_Initial));
 
   @override
-  _Initial get _value => super._value as _Initial;
+  _$_Initial get _value => super._value as _$_Initial;
 }
 
 /// @nodoc
@@ -449,7 +411,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initial);
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -535,19 +497,20 @@ abstract class _Initial implements ItemOwnersState {
 }
 
 /// @nodoc
-abstract class _$LoadingCopyWith<$Res> {
-  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
-      __$LoadingCopyWithImpl<$Res>;
+abstract class _$$_LoadingCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoadingCopyWithImpl<$Res> extends _$ItemOwnersStateCopyWithImpl<$Res>
-    implements _$LoadingCopyWith<$Res> {
-  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
-      : super(_value, (v) => _then(v as _Loading));
+class __$$_LoadingCopyWithImpl<$Res> extends _$ItemOwnersStateCopyWithImpl<$Res>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, (v) => _then(v as _$_Loading));
 
   @override
-  _Loading get _value => super._value as _Loading;
+  _$_Loading get _value => super._value as _$_Loading;
 }
 
 /// @nodoc
@@ -563,7 +526,7 @@ class _$_Loading implements _Loading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Loading);
+        (other.runtimeType == runtimeType && other is _$_Loading);
   }
 
   @override
@@ -649,28 +612,29 @@ abstract class _Loading implements ItemOwnersState {
 }
 
 /// @nodoc
-abstract class _$SuccessCopyWith<$Res> {
-  factory _$SuccessCopyWith(_Success value, $Res Function(_Success) then) =
-      __$SuccessCopyWithImpl<$Res>;
+abstract class _$$_SuccessCopyWith<$Res> {
+  factory _$$_SuccessCopyWith(
+          _$_Success value, $Res Function(_$_Success) then) =
+      __$$_SuccessCopyWithImpl<$Res>;
   $Res call({List<Owner> owners});
 }
 
 /// @nodoc
-class __$SuccessCopyWithImpl<$Res> extends _$ItemOwnersStateCopyWithImpl<$Res>
-    implements _$SuccessCopyWith<$Res> {
-  __$SuccessCopyWithImpl(_Success _value, $Res Function(_Success) _then)
-      : super(_value, (v) => _then(v as _Success));
+class __$$_SuccessCopyWithImpl<$Res> extends _$ItemOwnersStateCopyWithImpl<$Res>
+    implements _$$_SuccessCopyWith<$Res> {
+  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+      : super(_value, (v) => _then(v as _$_Success));
 
   @override
-  _Success get _value => super._value as _Success;
+  _$_Success get _value => super._value as _$_Success;
 
   @override
   $Res call({
     Object? owners = freezed,
   }) {
-    return _then(_Success(
+    return _then(_$_Success(
       owners == freezed
-          ? _value.owners
+          ? _value._owners
           : owners // ignore: cast_nullable_to_non_nullable
               as List<Owner>,
     ));
@@ -680,10 +644,14 @@ class __$SuccessCopyWithImpl<$Res> extends _$ItemOwnersStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Success implements _Success {
-  const _$_Success(this.owners);
+  const _$_Success(final List<Owner> owners) : _owners = owners;
 
+  final List<Owner> _owners;
   @override
-  final List<Owner> owners;
+  List<Owner> get owners {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_owners);
+  }
 
   @override
   String toString() {
@@ -694,18 +662,18 @@ class _$_Success implements _Success {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Success &&
-            const DeepCollectionEquality().equals(other.owners, owners));
+            other is _$_Success &&
+            const DeepCollectionEquality().equals(other._owners, _owners));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(owners));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_owners));
 
   @JsonKey(ignore: true)
   @override
-  _$SuccessCopyWith<_Success> get copyWith =>
-      __$SuccessCopyWithImpl<_Success>(this, _$identity);
+  _$$_SuccessCopyWith<_$_Success> get copyWith =>
+      __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -783,28 +751,28 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements ItemOwnersState {
-  const factory _Success(List<Owner> owners) = _$_Success;
+  const factory _Success(final List<Owner> owners) = _$_Success;
 
-  List<Owner> get owners;
+  List<Owner> get owners => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$SuccessCopyWith<_Success> get copyWith =>
+  _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ErrorCopyWith<$Res> {
-  factory _$ErrorCopyWith(_Error value, $Res Function(_Error) then) =
-      __$ErrorCopyWithImpl<$Res>;
+abstract class _$$_ErrorCopyWith<$Res> {
+  factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
+      __$$_ErrorCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$ErrorCopyWithImpl<$Res> extends _$ItemOwnersStateCopyWithImpl<$Res>
-    implements _$ErrorCopyWith<$Res> {
-  __$ErrorCopyWithImpl(_Error _value, $Res Function(_Error) _then)
-      : super(_value, (v) => _then(v as _Error));
+class __$$_ErrorCopyWithImpl<$Res> extends _$ItemOwnersStateCopyWithImpl<$Res>
+    implements _$$_ErrorCopyWith<$Res> {
+  __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
+      : super(_value, (v) => _then(v as _$_Error));
 
   @override
-  _Error get _value => super._value as _Error;
+  _$_Error get _value => super._value as _$_Error;
 }
 
 /// @nodoc
@@ -820,7 +788,7 @@ class _$_Error implements _Error {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Error);
+        (other.runtimeType == runtimeType && other is _$_Error);
   }
 
   @override

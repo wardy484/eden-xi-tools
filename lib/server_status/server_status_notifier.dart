@@ -1,26 +1,28 @@
-import 'package:eden_xi_tools/eden/eden_client.dart';
+import 'package:eden_xi_tools/eden/eden_provider.dart';
 import 'package:eden_xi_tools/server_status/server_status.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final serverStatusProvider =
-    StateNotifierProvider<ServerStatusStateNotifier, ServerStatusState>(
+final serverStatusProvider = StateNotifierProvider.autoDispose<
+    ServerStatusStateNotifier, ServerStatusState>(
   (Ref ref) {
-    return ServerStatusStateNotifier(ref);
+    return ServerStatusStateNotifier(
+      eden: ref.read(edenProvider),
+    );
   },
 );
 
 class ServerStatusStateNotifier extends StateNotifier<ServerStatusState> {
-  final MiscRepository miscRepository;
+  final EdenXiApi eden;
 
-  ServerStatusStateNotifier(Ref ref)
-      : miscRepository = ref.read(miscRepositoryProvider),
-        super(ServerStatusState.initial());
+  ServerStatusStateNotifier({required this.eden})
+      : super(ServerStatusState.initial());
 
   void fetch() async {
     state = ServerStatusState.loading();
 
     try {
-      final status = await miscRepository.get();
+      final status = await eden.server.get();
 
       state = ServerStatusState.fetched(status);
     } catch (error) {

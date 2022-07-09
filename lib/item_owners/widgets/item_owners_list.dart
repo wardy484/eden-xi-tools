@@ -1,4 +1,4 @@
-import 'package:eden_xi_tools/eden/items/entities/owner/owner.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
 
 class ItemOwnersList extends StatelessWidget {

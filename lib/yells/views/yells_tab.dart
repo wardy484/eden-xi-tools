@@ -1,21 +1,21 @@
 import 'dart:async';
 
-import 'package:eden_xi_tools/eden/misc/entities/yell/yell.dart';
 import 'package:eden_xi_tools/widgets/centered_loader.dart';
 import 'package:eden_xi_tools/yells/bloc/yells_bloc.dart';
 import 'package:eden_xi_tools/yells/views/yell_line.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kiwi/kiwi.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class YellsTab extends StatefulWidget {
+class YellsTab extends ConsumerStatefulWidget {
   YellsTab({Key? key}) : super(key: key);
 
   @override
   _YellsTabState createState() => _YellsTabState();
 }
 
-class _YellsTabState extends State<YellsTab> {
+class _YellsTabState extends ConsumerState<YellsTab> {
   late YellsBloc _yellsBloc;
   late Completer<void> _refreshCompleter;
 
@@ -23,7 +23,7 @@ class _YellsTabState extends State<YellsTab> {
   void initState() {
     _refreshCompleter = Completer<void>();
 
-    _yellsBloc = KiwiContainer().resolve<YellsBloc>();
+    _yellsBloc = ref.read(yellsProvider);
     _yellsBloc.add(YellsEvent.requested());
     super.initState();
   }

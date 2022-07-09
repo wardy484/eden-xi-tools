@@ -1,10 +1,9 @@
-import 'package:eden_xi_tools/eden/player/entities/player/player.dart';
-import 'package:eden_xi_tools/eden/player/entities/player_crafts/player_crafts.dart';
 import 'package:eden_xi_tools/player_equipment/views/player_equipment_card.dart';
 import 'package:eden_xi_tools/player_show/views/widgets/player_crafting_card.dart';
 import 'package:eden_xi_tools/player_show/views/widgets/player_jobs_card.dart';
 import 'package:eden_xi_tools/player_show/views/widgets/player_show_regions.dart';
 import 'package:eden_xi_tools/widgets/online_indicator.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
 
 class PlayerShowDetails extends StatelessWidget {

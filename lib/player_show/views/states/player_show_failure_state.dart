@@ -1,5 +1,5 @@
-import 'package:eden_xi_tools/eden/player/entities/player_search_result_item/player_search_result_item.dart';
 import 'package:eden_xi_tools/player_show/views/states/player_show_header.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
 import 'package:eden_xi_tools/item_show/views/item_show_scaffold.dart';
 

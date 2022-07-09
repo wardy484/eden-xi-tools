@@ -1,5 +1,5 @@
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:equatable/equatable.dart';
-import 'package:eden_xi_tools/eden/items/entities/search_result/search_result.dart';
 
 abstract class ItemSearchState extends Equatable {
   final String itemName;

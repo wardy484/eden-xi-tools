@@ -1,9 +1,8 @@
 import 'dart:async';
-import 'package:eden_xi_tools/eden/items/entities/item/item.dart';
-import 'package:eden_xi_tools/eden/items/entities/owner/owner.dart';
 import 'package:eden_xi_tools/item_owners/bloc/bloc/item_owners_bloc.dart';
 import 'package:eden_xi_tools/item_owners/widgets/item_owners_list.dart';
 import 'package:eden_xi_tools/widgets/centered_loader.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

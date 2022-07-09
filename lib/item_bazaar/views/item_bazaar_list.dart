@@ -1,5 +1,5 @@
-import 'package:eden_xi_tools/eden/items/entities/bazaar_item/bazaar_item.dart';
 import 'package:eden_xi_tools/item_bazaar/views/item_bazaar_card.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
 
 class ItemBazaarList extends StatelessWidget {

@@ -1,4 +1,3 @@
-import 'package:eden_xi_tools/eden/items/entities/owner/ownable_items.dart';
 import 'package:eden_xi_tools/item_auction_house/bloc/item_auction_house_bloc.dart';
 import 'package:eden_xi_tools/item_auction_house/pages/item_auction_house_page.dart';
 import 'package:eden_xi_tools/item_bazaar/bloc/item_bazaar_bloc.dart';
@@ -13,14 +12,14 @@ import 'package:eden_xi_tools/item_show/views/item_show_header.dart';
 import 'package:eden_xi_tools/widgets/centered_loader.dart';
 import 'package:eden_xi_tools/widgets/centered_message.dart';
 import 'package:eden_xi_tools/widgets/swipable_pages/swipable_pages.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:eden_xi_tools/eden/items/entities/search_result_item/search_result_item.dart';
 import 'package:eden_xi_tools/item_show/item_show.dart';
 import 'package:eden_xi_tools/item_show/views/item_show_navigation_bar.dart';
-import 'package:kiwi/kiwi.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class ItemShowPage extends StatefulWidget {
+class ItemShowPage extends ConsumerStatefulWidget {
   final SearchResultItem item;
 
   const ItemShowPage({Key? key, required this.item}) : super(key: key);
@@ -29,24 +28,22 @@ class ItemShowPage extends StatefulWidget {
   _ItemShowPageState createState() => _ItemShowPageState();
 }
 
-class _ItemShowPageState extends State<ItemShowPage> {
+class _ItemShowPageState extends ConsumerState<ItemShowPage> {
   int _selectedPageIndex = 0;
   late ItemShowBloc _showItemBloc;
   late ItemBazaarBloc _bazaarBloc;
   late ItemAuctionHouseBloc _auctionHouseBloc;
   late ItemOwnersBloc _itemOwnersBloc;
-  late ItemcraftsCubit _craftsCubit;
+  late ItemCraftsCubit _craftsCubit;
 
   @override
   void initState() {
     super.initState();
-    KiwiContainer container = KiwiContainer();
-
-    _showItemBloc = container.resolve<ItemShowBloc>();
-    _bazaarBloc = container.resolve<ItemBazaarBloc>();
-    _auctionHouseBloc = container.resolve<ItemAuctionHouseBloc>();
-    _itemOwnersBloc = container.resolve<ItemOwnersBloc>();
-    _craftsCubit = container.resolve<ItemcraftsCubit>();
+    _showItemBloc = ref.read(itemShowProvider);
+    _bazaarBloc = ref.read(itemBazaarProvider);
+    _auctionHouseBloc = ref.read(itemAuctionHouseProvider);
+    _itemOwnersBloc = ref.read(itemOwnersProvider);
+    _craftsCubit = ref.read(itemCraftsProvider);
 
     _showItemBloc.add(ItemShowRequested(key: widget.item.key));
   }

@@ -1,8 +1,8 @@
 import 'dart:async';
-import 'package:eden_xi_tools/eden/items/entities/crafts/craft.dart';
 import 'package:eden_xi_tools/item_crafts/cubit/itemcrafts_cubit.dart';
 import 'package:eden_xi_tools/widgets/custom_card/custom_card.dart';
 import 'package:eden_xi_tools/widgets/item_icon.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,13 +20,13 @@ class ItemCraftsPage extends StatefulWidget {
 
 class _ItemCraftsPageState extends State<ItemCraftsPage> {
   late Completer<void> _refreshCompleter;
-  late ItemcraftsCubit _craftsCubit;
+  late ItemCraftsCubit _craftsCubit;
 
   @override
   void initState() {
     super.initState();
     _refreshCompleter = Completer<void>();
-    _craftsCubit = BlocProvider.of<ItemcraftsCubit>(context);
+    _craftsCubit = BlocProvider.of<ItemCraftsCubit>(context);
 
     _craftsCubit.state.whenOrNull(
       initial: () => _craftsCubit.getCrafts(widget.itemKey),
@@ -36,7 +36,7 @@ class _ItemCraftsPageState extends State<ItemCraftsPage> {
   @override
   Widget build(BuildContext context) {
     return Tab(
-      child: BlocConsumer<ItemcraftsCubit, ItemcraftsState>(
+      child: BlocConsumer<ItemCraftsCubit, ItemcraftsState>(
         listener: (context, state) {
           state.whenOrNull(
             Loaded: (crafts) {

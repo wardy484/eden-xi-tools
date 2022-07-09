@@ -1,16 +1,23 @@
 import 'package:bloc/bloc.dart';
-import 'package:eden_xi_tools/eden/items/entities/owner/owner.dart';
-import 'package:eden_xi_tools/eden/items/repositories/ItemRepository.dart';
+import 'package:eden_xi_tools/eden/eden_provider.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 part 'item_owners_event.dart';
 part 'item_owners_state.dart';
 part 'item_owners_bloc.freezed.dart';
 
-class ItemOwnersBloc extends Bloc<ItemOwnersEvent, ItemOwnersState> {
-  final ItemRepository itemRepository;
+final itemOwnersProvider = Provider.autoDispose<ItemOwnersBloc>(
+  (ref) => ItemOwnersBloc(eden: ref.read(edenProvider)),
+);
 
-  ItemOwnersBloc(this.itemRepository) : super(_Initial()) {
+class ItemOwnersBloc extends Bloc<ItemOwnersEvent, ItemOwnersState> {
+  final EdenXiApi eden;
+
+  ItemOwnersBloc({
+    required this.eden,
+  }) : super(_Initial()) {
     on<ItemOwnersEvent>(_onEvent);
   }
 
@@ -25,7 +32,7 @@ class ItemOwnersBloc extends Bloc<ItemOwnersEvent, ItemOwnersState> {
         started: () => ItemOwnersState.initial(),
         requested: (int id) async {
           try {
-            var owners = await itemRepository.getOwners(id);
+            var owners = await eden.items.getOwners(id);
             return ItemOwnersState.success(owners);
           } catch (e) {
             return ItemOwnersState.error();
