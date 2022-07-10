@@ -23,17 +23,6 @@ void main() async {
     yield LicenseEntryWithLineBreaks(['google_fonts'], license);
   });
 
-  String oldPath = (await getTemporaryDirectory()).path;
-  String newPath = (await getApplicationDocumentsDirectory()).path;
-
-  try {
-    var file = await io.File("$oldPath/hydrated_box.hive");
-
-    if (file.existsSync()) {
-      file.renameSync("$newPath/hydrated_box.hive");
-    }
-  } catch (_) {}
-
   HydratedStorage storage = await HydratedStorage.build(
     storageDirectory: await getApplicationDocumentsDirectory(),
   );
