@@ -18,15 +18,12 @@ class PlayerShowNotifier extends StateNotifier<PlayerShowState> {
     required this.eden,
   }) : super(PlayerShowState.initial());
 
-  void clear() {
-    state = PlayerShowState.initial();
-  }
-
   Future<void> getPlayer(PlayerSearchResultItem playerResult) async {
     state = PlayerShowState.loading();
 
     try {
       final name = playerResult.charname;
+
       final List<Future> futures = [
         eden.players.getPlayer(name),
         eden.players.getEquipment(name),
@@ -35,15 +32,15 @@ class PlayerShowNotifier extends StateNotifier<PlayerShowState> {
         eden.players.getCrafts(name),
       ];
 
-      final stuff = await Future.wait(futures);
+      final results = await Future.wait(futures);
 
       state = PlayerShowState.loaded(
         playerResult: playerResult,
-        player: stuff[0],
-        equipment: stuff[1],
-        auctionHouseItems: stuff[2],
-        bazaarItems: stuff[3],
-        crafts: stuff[4],
+        player: results[0],
+        equipment: results[1],
+        auctionHouseItems: results[2],
+        bazaarItems: results[3],
+        crafts: results[4],
       );
     } catch (_) {
       state = PlayerShowState.initial();

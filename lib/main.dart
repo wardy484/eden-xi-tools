@@ -1,5 +1,4 @@
 // ignore: unused_import
-import 'package:eden_xi_tools/auction_house_subscriptions/models/auction_house_history_item.dart';
 import 'package:eden_xi_tools/firebase_options.dart';
 import 'package:eden_xi_tools/dashboard/pages/dashboard_page.dart';
 import 'package:eden_xi_tools/item_favourites/bloc/item_favourites_bloc.dart';
