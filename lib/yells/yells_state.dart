@@ -1,4 +1,7 @@
-part of 'yells_bloc.dart';
+import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'yells_state.freezed.dart';
 
 @freezed
 class YellsState with _$YellsState {

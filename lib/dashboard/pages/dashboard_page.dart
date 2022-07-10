@@ -1,9 +1,9 @@
+import 'package:eden_xi_tools/dashboard/server_status_notifier.dart';
 import 'package:eden_xi_tools/dashboard/views/dashboard_favourite_items_card.dart';
 import 'package:eden_xi_tools/dashboard/views/dashboard_favourite_players_card.dart';
 import 'package:eden_xi_tools/dashboard/views/dashboard_server_status.dart';
 import 'package:eden_xi_tools/item_search/pages/item_search_tab.dart';
 import 'package:eden_xi_tools/player_search/pages/player_search_tab.dart';
-import 'package:eden_xi_tools/server_status/server_status_notifier.dart';
 import 'package:eden_xi_tools/settings/pages/settings_page.dart';
 import 'package:eden_xi_tools/widgets/swipable_pages/SwipableScaffold.dart';
 import 'package:eden_xi_tools/yells/views/yells_tab.dart';

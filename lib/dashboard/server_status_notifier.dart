@@ -1,5 +1,5 @@
+import 'package:eden_xi_tools/dashboard/server_status_state.dart';
 import 'package:eden_xi_tools/eden/eden_provider.dart';
-import 'package:eden_xi_tools/server_status/server_status.dart';
 import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -26,7 +26,7 @@ class ServerStatusStateNotifier extends StateNotifier<ServerStatusState> {
 
       state = ServerStatusState.fetched(status);
     } catch (error) {
-      print(error);
+      state = ServerStatusState.loading();
     }
   }
 }
