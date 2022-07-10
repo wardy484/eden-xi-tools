@@ -1,59 +1,19 @@
 import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-abstract class ItemShowState extends Equatable {
-  final bool showStacked;
+part 'item_show_state.freezed.dart';
 
-  const ItemShowState({this.showStacked = false});
-
-  @override
-  List<Object> get props => [];
-}
-
-class ItemShowInitial extends ItemShowState {}
-
-class ItemShowFailure extends ItemShowState {}
-
-class ItemShowSuccess extends ItemShowState {
-  final String key;
-  final Item item;
-  final List<BazaarItem> bazaarItems;
-  final bool showStacked;
-  final List<Owner> owners;
-
-  const ItemShowSuccess({
-    required this.key,
-    required this.item,
-    required this.showStacked,
-    required this.bazaarItems,
-    required this.owners,
-  });
-
-  ItemShowSuccess copyWith({
-    String? key,
-    Item? item,
-    List<BazaarItem>? bazaarItems,
-    bool? showStacked,
-    List<Owner>? owners,
-  }) {
-    return ItemShowSuccess(
-      key: key ?? this.key,
-      item: item ?? this.item,
-      bazaarItems: bazaarItems ?? this.bazaarItems,
-      showStacked: showStacked ?? this.showStacked,
-      owners: owners ?? this.owners,
-    );
-  }
-
-  @override
-  List<Object> get props => [
-        key,
-        item,
-        bazaarItems,
-        showStacked,
-        owners,
-      ];
-
-  @override
-  String toString() => 'Item show success { key: $key, item: ${item.name} }';
+@freezed
+abstract class ItemShowState with _$ItemShowState {
+  const factory ItemShowState.initial(bool stacked) = ItemShowStateInitial;
+  const factory ItemShowState.loading(bool stacked) = ItemShowStateLoading;
+  const factory ItemShowState.loaded({
+    required String key,
+    required Item item,
+    required List<BazaarItem> bazaarItems,
+    required List<Owner> owners,
+    required List<AuctionHouseItem> auctionItems,
+    required List<Craft> crafts,
+    required bool stacked,
+  }) = ItemShowStateLoaded;
 }

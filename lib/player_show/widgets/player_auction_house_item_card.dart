@@ -1,4 +1,4 @@
-import 'package:eden_xi_tools/item_auction_house/views/item_auction_house_card.dart';
+import 'package:eden_xi_tools/item_show/widgets/item_auction_house_card.dart';
 import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';

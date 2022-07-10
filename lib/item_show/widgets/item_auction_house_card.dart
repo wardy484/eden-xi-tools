@@ -23,8 +23,6 @@ class ItemAuctionHouseCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    // Text('Bought by ${item.buyerName} from ${item.sellerName}'),
-
     return Card(
       child: Column(
         children: [
@@ -71,7 +69,7 @@ class ItemAuctionHouseCard extends ConsumerWidget {
           Divider(),
           IntrinsicHeight(
             child: Row(
-              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // TODO: Use button widgets to make this a better on tap exp
               children: [
                 Expanded(
                   child: GestureDetector(

@@ -1,7 +1,7 @@
 import 'package:eden_xi_tools/dashboard/pages/favourites_page.dart';
 import 'package:eden_xi_tools/dashboard/views/dashboard_favourites_card.dart';
 import 'package:eden_xi_tools/item_favourites/bloc/item_favourites_bloc.dart';
-import 'package:eden_xi_tools/item_show/views/item_search_result_card.dart';
+import 'package:eden_xi_tools/item_show/widgets/item_search_result_card.dart';
 import 'package:eden_xi_tools/settings/bloc/settings_bloc.dart';
 import 'package:eden_xi_tools/widgets/centered_loader.dart';
 import 'package:eden_xi_tools/widgets/centered_message.dart';
