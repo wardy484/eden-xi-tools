@@ -1,4 +1,4 @@
-import 'package:eden_xi_tools/item_search/views/search_field.dart';
+import 'package:eden_xi_tools/item_search/widgets/search_field.dart';
 import 'package:eden_xi_tools/player_search/player_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

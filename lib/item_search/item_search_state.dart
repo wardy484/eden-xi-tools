@@ -1,55 +1,21 @@
 import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-abstract class ItemSearchState extends Equatable {
-  final String itemName;
+part 'item_search_state.freezed.dart';
 
-  const ItemSearchState({this.itemName = ""});
+@freezed
+abstract class ItemSearchState with _$ItemSearchState {
+  const factory ItemSearchState.initial({
+    required String itemName,
+  }) = ItemSearchStateInitial;
 
-  @override
-  List<Object> get props => [itemName];
-}
+  const factory ItemSearchState.loading({
+    required String itemName,
+  }) = ItemSearchStateLoading;
 
-class ItemSearchEmpty extends ItemSearchState {}
-
-class ItemSearchInitial extends ItemSearchState {
-  final String itemName;
-
-  const ItemSearchInitial({this.itemName = ""});
-
-  @override
-  List<Object> get props => [itemName];
-}
-
-class ItemSearchFailure extends ItemSearchState {}
-
-class ItemSearchSuccess extends ItemSearchState {
-  final SearchResult results;
-  final bool hasReachedMax;
-  final String itemName;
-
-  const ItemSearchSuccess({
-    required this.results,
-    required this.hasReachedMax,
-    this.itemName = "",
-  });
-
-  ItemSearchSuccess copyWith({
-    SearchResult? results,
-    bool? hasReachedMax,
-    String? itemName,
-  }) {
-    return ItemSearchSuccess(
-      results: results ?? this.results,
-      hasReachedMax: hasReachedMax ?? this.hasReachedMax,
-      itemName: itemName ?? this.itemName,
-    );
-  }
-
-  @override
-  List<Object> get props => [results, hasReachedMax, itemName];
-
-  @override
-  String toString() =>
-      'PostSuccess { search results: ${results.total}, hasReachedMax: $hasReachedMax, itemName: $itemName }';
+  const factory ItemSearchState.loaded({
+    required String itemName,
+    required SearchResult searchResult,
+    required bool hasReachedMax,
+  }) = ItemSearchStateLoaded;
 }

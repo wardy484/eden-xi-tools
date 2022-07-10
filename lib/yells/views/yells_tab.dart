@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:eden_xi_tools/widgets/centered_loader.dart';
 import 'package:eden_xi_tools/yells/views/yell_line.dart';
 import 'package:eden_xi_tools/yells/yells_notifier.dart';

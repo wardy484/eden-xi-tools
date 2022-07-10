@@ -3,8 +3,8 @@ import 'package:eden_xi_tools/eden/eden_provider.dart';
 import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final serverStatusProvider = StateNotifierProvider.autoDispose<
-    ServerStatusStateNotifier, ServerStatusState>(
+final serverStatusProvider =
+    StateNotifierProvider<ServerStatusStateNotifier, ServerStatusState>(
   (Ref ref) {
     return ServerStatusStateNotifier(
       eden: ref.read(edenProvider),

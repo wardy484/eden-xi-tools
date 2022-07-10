@@ -1,11 +1,9 @@
-import 'package:eden_xi_tools/item_search/views/item_search_field.dart';
+import 'package:eden_xi_tools/item_search/item_search_notifier.dart';
+import 'package:eden_xi_tools/item_search/widgets/item_search_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:eden_xi_tools/item_search/item_search.dart';
-import 'package:eden_xi_tools/item_search/views/search_empty.dart';
-import 'package:eden_xi_tools/item_search/views/search_failure.dart';
-import 'package:eden_xi_tools/item_search/views/search_loading.dart';
-import 'package:eden_xi_tools/item_search/views/search_sucess.dart';
+import 'package:eden_xi_tools/item_search/widgets/search_empty.dart';
+import 'package:eden_xi_tools/item_search/widgets/search_loading.dart';
+import 'package:eden_xi_tools/item_search/widgets/search_sucess.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class ItemSearchTab extends ConsumerStatefulWidget {
@@ -14,52 +12,24 @@ class ItemSearchTab extends ConsumerStatefulWidget {
 }
 
 class _ItemSearchTabState extends ConsumerState<ItemSearchTab> {
-  late ItemSearchBloc _searchBloc;
-
-  @override
-  void initState() {
-    super.initState();
-    _searchBloc = ref.read(itemSearchProvider);
-  }
-
   @override
   Widget build(BuildContext context) {
-    return BlocProvider.value(
-      value: _searchBloc,
-      child: Column(
-        children: [
-          ItemSearchField(),
-          Expanded(
-            child: BlocBuilder<ItemSearchBloc, ItemSearchState>(
-              builder: (context, state) {
-                if (state is ItemSearchEmpty) {
-                  return SearchEmpty();
-                }
-
-                if (state is ItemSearchInitial) {
-                  return SearchLoading();
-                }
-
-                if (state is ItemSearchSuccess) {
-                  return SearchSuccess(
-                    state: state,
-                    fetchMoreResults: () =>
-                        _searchBloc.add(ItemSearchFetched()),
-                  );
-                }
-
-                return SearchFailure();
-              },
-            ),
-          ),
-        ],
-      ),
+    return Column(
+      children: [
+        ItemSearchField(),
+        Expanded(
+          child: ref.watch(itemSearchProvider).when(
+                initial: (_) => SearchEmpty(),
+                loading: (_) => SearchLoading(),
+                loaded: (itemName, searchResult, hasReachedMax) =>
+                    SearchSuccess(
+                  itemName: itemName,
+                  searchResult: searchResult,
+                  hasReachedMax: hasReachedMax,
+                ),
+              ),
+        ),
+      ],
     );
-  }
-
-  @override
-  void dispose() {
-    _searchBloc.close();
-    super.dispose();
   }
 }

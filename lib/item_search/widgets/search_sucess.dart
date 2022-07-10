@@ -1,24 +1,27 @@
+import 'package:eden_xi_tools/item_search/item_search_notifier.dart';
 import 'package:eden_xi_tools/item_show/widgets/item_search_result_card.dart';
 import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
-import 'package:eden_xi_tools/item_search/item_search.dart';
 import 'package:eden_xi_tools/widgets/bottom_loader.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class SearchSuccess extends StatefulWidget {
-  final ItemSearchSuccess state;
-  final Function fetchMoreResults;
+class SearchSuccess extends ConsumerStatefulWidget {
+  final String itemName;
+  final SearchResult searchResult;
+  final bool hasReachedMax;
 
   const SearchSuccess({
     Key? key,
-    required this.state,
-    required this.fetchMoreResults,
+    required this.itemName,
+    required this.searchResult,
+    required this.hasReachedMax,
   }) : super(key: key);
 
   @override
   _SearchSuccessState createState() => _SearchSuccessState();
 }
 
-class _SearchSuccessState extends State<SearchSuccess> {
+class _SearchSuccessState extends ConsumerState<SearchSuccess> {
   final _scrollController = ScrollController();
   final _scrollThreshold = 200.0;
 
@@ -30,8 +33,8 @@ class _SearchSuccessState extends State<SearchSuccess> {
 
   @override
   Widget build(BuildContext context) {
-    SearchResult results = widget.state.results;
-    bool hasReachedMax = widget.state.hasReachedMax;
+    SearchResult results = widget.searchResult;
+    bool hasReachedMax = widget.hasReachedMax;
 
     if (results.total < 1) {
       return Center(
@@ -55,19 +58,12 @@ class _SearchSuccessState extends State<SearchSuccess> {
     return hasReachedMax ? results.items.length : results.items.length + 1;
   }
 
-  @override
-  void dispose() {
-    // somethin
-    _scrollController.dispose();
-    super.dispose();
-  }
-
   void _onScroll() {
     final maxScroll = _scrollController.position.maxScrollExtent;
     final currentScroll = _scrollController.position.pixels;
 
     if (maxScroll - currentScroll <= _scrollThreshold) {
-      widget.fetchMoreResults();
+      ref.read(itemSearchProvider.notifier).getItem(widget.itemName);
     }
   }
 }
