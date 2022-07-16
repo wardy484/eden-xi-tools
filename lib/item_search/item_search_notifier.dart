@@ -23,7 +23,7 @@ class ItemSearchNotifier extends StateNotifier<ItemSearchState> {
     state = ItemSearchState.initial(itemName: "");
   }
 
-  Future<void> getItem(
+  Future<void> search(
     String itemName, {
     bool append = false,
   }) async {

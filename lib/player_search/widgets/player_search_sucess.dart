@@ -1,24 +1,27 @@
-import 'package:eden_xi_tools/player_search/player_search_state.dart';
-import 'package:eden_xi_tools/player_search/views/player_search_result_card.dart';
+import 'package:eden_xi_tools/player_search/player_search_notifier.dart';
+import 'package:eden_xi_tools/player_search/widgets/player_search_result_card.dart';
 import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
 import 'package:eden_xi_tools/widgets/bottom_loader.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class PlayerSearchSuccessView extends StatefulWidget {
-  final PlayerSearchSuccess state;
-  final Function fetchMoreResults;
+class PlayerSearchSuccessView extends ConsumerStatefulWidget {
+  final String playerName;
+  final PlayerSearchResult results;
+  final bool hasReachedMax;
 
   const PlayerSearchSuccessView({
     Key? key,
-    required this.state,
-    required this.fetchMoreResults,
+    required this.playerName,
+    required this.results,
+    required this.hasReachedMax,
   }) : super(key: key);
 
   @override
   _PlayerSearchSuccessView createState() => _PlayerSearchSuccessView();
 }
 
-class _PlayerSearchSuccessView extends State<PlayerSearchSuccessView> {
+class _PlayerSearchSuccessView extends ConsumerState<PlayerSearchSuccessView> {
   final _scrollController = ScrollController();
   final _scrollThreshold = 200.0;
 
@@ -30,8 +33,8 @@ class _PlayerSearchSuccessView extends State<PlayerSearchSuccessView> {
 
   @override
   Widget build(BuildContext context) {
-    PlayerSearchResult results = widget.state.results;
-    bool hasReachedMax = widget.state.hasReachedMax;
+    PlayerSearchResult results = widget.results;
+    bool hasReachedMax = widget.hasReachedMax;
 
     if (results.total < 1) {
       return Center(
@@ -55,18 +58,20 @@ class _PlayerSearchSuccessView extends State<PlayerSearchSuccessView> {
     return hasReachedMax ? results.items.length : results.items.length + 1;
   }
 
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
-  }
-
   void _onScroll() {
     final maxScroll = _scrollController.position.maxScrollExtent;
     final currentScroll = _scrollController.position.pixels;
 
     if (maxScroll - currentScroll <= _scrollThreshold) {
-      widget.fetchMoreResults();
+      ref
+          .read(playerSearchProvider.notifier)
+          .search(widget.playerName, append: true);
     }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 }

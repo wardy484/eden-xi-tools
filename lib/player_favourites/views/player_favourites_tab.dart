@@ -1,5 +1,5 @@
 import 'package:eden_xi_tools/player_favourites/bloc/player_favourites_bloc.dart';
-import 'package:eden_xi_tools/player_search/views/player_search_result_card.dart';
+import 'package:eden_xi_tools/player_search/widgets/player_search_result_card.dart';
 import 'package:eden_xi_tools/widgets/centered_message.dart';
 import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';

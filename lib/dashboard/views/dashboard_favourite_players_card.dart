@@ -1,7 +1,7 @@
 import 'package:eden_xi_tools/dashboard/pages/favourites_page.dart';
 import 'package:eden_xi_tools/dashboard/views/dashboard_favourites_card.dart';
 import 'package:eden_xi_tools/player_favourites/bloc/player_favourites_bloc.dart';
-import 'package:eden_xi_tools/player_search/views/player_search_result_card.dart';
+import 'package:eden_xi_tools/player_search/widgets/player_search_result_card.dart';
 import 'package:eden_xi_tools/settings/bloc/settings_bloc.dart';
 import 'package:eden_xi_tools/widgets/centered_loader.dart';
 import 'package:eden_xi_tools/widgets/centered_message.dart';

@@ -63,7 +63,7 @@ class _SearchSuccessState extends ConsumerState<SearchSuccess> {
     final currentScroll = _scrollController.position.pixels;
 
     if (maxScroll - currentScroll <= _scrollThreshold) {
-      ref.read(itemSearchProvider.notifier).getItem(widget.itemName);
+      ref.read(itemSearchProvider.notifier).search(widget.itemName);
     }
   }
 }

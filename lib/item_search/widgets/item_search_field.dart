@@ -10,7 +10,7 @@ class ItemSearchField extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return SearchField(
       onChange: (String value) {
-        ref.read(itemSearchProvider.notifier).getItem(
+        ref.read(itemSearchProvider.notifier).search(
               value.trim(),
               append: false,
             );

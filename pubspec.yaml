@@ -55,6 +55,7 @@ dependencies:
     bloc_concurrency: ^0.2.0
     google_fonts: ^2.2.0
     eden_xi_tools_api: ^1.0.0
+    easy_debounce: ^2.0.2+1
 
 dev_dependencies:
     flutter_test:
