@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'item_show_state.freezed.dart';
 
 @freezed
-abstract class ItemShowState with _$ItemShowState {
+class ItemShowState with _$ItemShowState {
   const factory ItemShowState.initial(bool stacked) = ItemShowStateInitial;
   const factory ItemShowState.loading(bool stacked) = ItemShowStateLoading;
   const factory ItemShowState.loaded({

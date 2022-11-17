@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'item_search_state.freezed.dart';
 
 @freezed
-abstract class ItemSearchState with _$ItemSearchState {
+class ItemSearchState with _$ItemSearchState {
   const factory ItemSearchState.initial({
     required String itemName,
   }) = ItemSearchStateInitial;

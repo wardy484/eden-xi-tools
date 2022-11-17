@@ -102,7 +102,7 @@ class EquipmentSlot extends StatelessWidget {
                   id: equipment.itemId!,
                   name: name,
                   sort: equipment.name!,
-                  key: equipment.name!,
+                  key: equipment.itemId!,
                 ),
               ),
             ),

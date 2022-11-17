@@ -33,7 +33,7 @@ class _ItemShowPageState extends ConsumerState<ItemShowPage> {
     super.initState();
 
     ref.read(itemShowProvider.notifier).getItem(
-          widget.item.key,
+          widget.item.key.toString(),
           false,
         );
 
@@ -107,7 +107,7 @@ class _ItemShowPageState extends ConsumerState<ItemShowPage> {
 
   Future<void> _refreshPage() {
     ref.watch(itemShowProvider.notifier).getItem(
-          widget.item.key,
+          widget.item.key.toString(),
           ref.read(itemShowProvider).stacked,
         );
 

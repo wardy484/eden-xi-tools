@@ -98,7 +98,7 @@ class _PlayerShowBazaarState extends ConsumerState<PlayerShowBazaar> {
               id: item.id,
               name: ReCase(item.name).titleCase,
               sort: name,
-              key: name,
+              key: item.id,
             ),
           ),
         ),
