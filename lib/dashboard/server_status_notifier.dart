@@ -22,7 +22,7 @@ class ServerStatusStateNotifier extends StateNotifier<ServerStatusState> {
     state = ServerStatusState.loading();
 
     try {
-      final status = await eden.server.get();
+      final status = await eden.server.getServerStatus();
 
       state = ServerStatusState.fetched(status);
     } catch (error) {

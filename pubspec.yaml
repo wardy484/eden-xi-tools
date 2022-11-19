@@ -51,7 +51,9 @@ dependencies:
     cupertino_icons: ^1.0.1
     bloc_concurrency: ^0.2.0
     google_fonts: ^2.2.0
-    eden_xi_tools_api: ^1.0.1
+    eden_xi_tools_api: ^1.0.2
+    # eden_xi_tools_api:
+    #     path: ../eden/eden_xi_tools_api
     easy_debounce: ^2.0.2+1
     async: ^2.8.2
     sentry_flutter: ^6.15.1
