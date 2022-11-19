@@ -7,7 +7,7 @@ class ItemSearchNoResults extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CenteredMessage(
-      "Begin searching an item by typing in the search box above.",
+      "No items found.",
     );
   }
 }

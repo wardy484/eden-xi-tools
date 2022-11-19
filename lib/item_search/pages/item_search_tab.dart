@@ -86,10 +86,10 @@ class _ItemSearchTabState extends ConsumerState<ItemSearchTab> {
                 newPageErrorIndicatorBuilder: (_) => ItemSearchError(),
                 noItemsFoundIndicatorBuilder: (context) {
                   if (ref.read(itemSearchProvider).itemName == "") {
-                    return ItemSearchNoResults();
+                    return ItemSearchEmpty();
                   }
 
-                  return ItemSearchEmpty();
+                  return ItemSearchNoResults();
                 }),
           ),
         ),

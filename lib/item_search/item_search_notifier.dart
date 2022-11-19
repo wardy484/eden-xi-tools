@@ -33,7 +33,6 @@ class ItemSearchNotifier extends StateNotifier<ItemSearchState> {
     );
 
     try {
-      print("fetch page: $page");
       SearchResult results = await eden.items.search(
         itemName,
         page,
@@ -42,8 +41,6 @@ class ItemSearchNotifier extends StateNotifier<ItemSearchState> {
 
       final isLastPage =
           results.total == 0 || results.total <= (page + 1) * limit;
-
-      print("IsLastPage ${isLastPage}");
 
       state = ItemSearchState.loaded(
         itemName: itemName,

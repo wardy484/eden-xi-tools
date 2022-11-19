@@ -2,6 +2,7 @@ import 'package:eden_xi_tools/eden/eden_provider.dart';
 import 'package:eden_xi_tools/player_search/player_search_state.dart';
 import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 final playerSearchProvider =
     StateNotifierProvider.autoDispose<PlayerSearchNotifier, PlayerSearchState>(
@@ -25,46 +26,38 @@ class PlayerSearchNotifier extends StateNotifier<PlayerSearchState> {
 
   Future<void> search(
     String playerName, {
-    bool append = false,
+    int page = 0,
   }) async {
-    state.whenOrNull(
-      initial: (playerName) {
-        state = PlayerSearchState.loading(
-          playerName: playerName,
-        );
-      },
-    );
-
-    final startIndex = state.maybeWhen(
-      loaded: (playerName, searchResult, hasReachedMax) =>
-          searchResult.items.length,
-      orElse: () => 0,
-    );
-
-    PlayerSearchResult results = await eden.players.search(
-      playerName,
-      startIndex,
-      limit,
-    );
-
-    state.whenOrNull(
-      loaded: (playerName, oldResults, hasReachedMax) {
-        if (oldResults.total > 0 && append) {
-          results = PlayerSearchResult(
-            total: results.total + oldResults.total,
-            items: [
-              ...oldResults.items,
-              ...results.items,
-            ],
-          );
-        }
-      },
-    );
-
-    state = PlayerSearchState.loaded(
+    PlayerSearchState.loading(
       playerName: playerName,
-      results: results,
-      hasReachedMax: results.items.length >= results.total,
     );
+
+    try {
+      PlayerSearchResult results = await eden.players.search(
+        playerName,
+        page,
+        limit,
+      );
+
+      final isLastPage =
+          results.total == 0 || results.total <= (page + 1) * limit;
+
+      state = PlayerSearchState.loaded(
+        playerName: playerName,
+        results: results,
+        page: page,
+        isLastPage: isLastPage,
+      );
+    } catch (error, stackTrace) {
+      Sentry.captureException(
+        error,
+        stackTrace: stackTrace,
+      );
+
+      state = PlayerSearchState.error(
+        playerName: playerName,
+        message: "Failed to search for players, please try again later.",
+      );
+    }
   }
 }

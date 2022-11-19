@@ -21,27 +21,30 @@ mixin _$PlayerSearchState {
   TResult when<TResult extends Object?>({
     required TResult Function(String playerName) initial,
     required TResult Function(String playerName) loading,
-    required TResult Function(
-            String playerName, PlayerSearchResult results, bool hasReachedMax)
+    required TResult Function(String playerName, PlayerSearchResult results,
+            int page, bool isLastPage)
         loaded,
+    required TResult Function(String playerName, String message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String playerName)? initial,
     TResult Function(String playerName)? loading,
-    TResult Function(
-            String playerName, PlayerSearchResult results, bool hasReachedMax)?
+    TResult Function(String playerName, PlayerSearchResult results, int page,
+            bool isLastPage)?
         loaded,
+    TResult Function(String playerName, String message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String playerName)? initial,
     TResult Function(String playerName)? loading,
-    TResult Function(
-            String playerName, PlayerSearchResult results, bool hasReachedMax)?
+    TResult Function(String playerName, PlayerSearchResult results, int page,
+            bool isLastPage)?
         loaded,
+    TResult Function(String playerName, String message)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -50,6 +53,7 @@ mixin _$PlayerSearchState {
     required TResult Function(PlayerSearchStateInitial value) initial,
     required TResult Function(PlayerSearchStateLoading value) loading,
     required TResult Function(PlayerSearchStateLoaded value) loaded,
+    required TResult Function(PlayerSearchStateError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +61,7 @@ mixin _$PlayerSearchState {
     TResult Function(PlayerSearchStateInitial value)? initial,
     TResult Function(PlayerSearchStateLoading value)? loading,
     TResult Function(PlayerSearchStateLoaded value)? loaded,
+    TResult Function(PlayerSearchStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +69,7 @@ mixin _$PlayerSearchState {
     TResult Function(PlayerSearchStateInitial value)? initial,
     TResult Function(PlayerSearchStateLoading value)? loading,
     TResult Function(PlayerSearchStateLoaded value)? loaded,
+    TResult Function(PlayerSearchStateError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -176,9 +182,10 @@ class _$PlayerSearchStateInitial implements PlayerSearchStateInitial {
   TResult when<TResult extends Object?>({
     required TResult Function(String playerName) initial,
     required TResult Function(String playerName) loading,
-    required TResult Function(
-            String playerName, PlayerSearchResult results, bool hasReachedMax)
+    required TResult Function(String playerName, PlayerSearchResult results,
+            int page, bool isLastPage)
         loaded,
+    required TResult Function(String playerName, String message) error,
   }) {
     return initial(playerName);
   }
@@ -188,9 +195,10 @@ class _$PlayerSearchStateInitial implements PlayerSearchStateInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String playerName)? initial,
     TResult Function(String playerName)? loading,
-    TResult Function(
-            String playerName, PlayerSearchResult results, bool hasReachedMax)?
+    TResult Function(String playerName, PlayerSearchResult results, int page,
+            bool isLastPage)?
         loaded,
+    TResult Function(String playerName, String message)? error,
   }) {
     return initial?.call(playerName);
   }
@@ -200,9 +208,10 @@ class _$PlayerSearchStateInitial implements PlayerSearchStateInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String playerName)? initial,
     TResult Function(String playerName)? loading,
-    TResult Function(
-            String playerName, PlayerSearchResult results, bool hasReachedMax)?
+    TResult Function(String playerName, PlayerSearchResult results, int page,
+            bool isLastPage)?
         loaded,
+    TResult Function(String playerName, String message)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -217,6 +226,7 @@ class _$PlayerSearchStateInitial implements PlayerSearchStateInitial {
     required TResult Function(PlayerSearchStateInitial value) initial,
     required TResult Function(PlayerSearchStateLoading value) loading,
     required TResult Function(PlayerSearchStateLoaded value) loaded,
+    required TResult Function(PlayerSearchStateError value) error,
   }) {
     return initial(this);
   }
@@ -227,6 +237,7 @@ class _$PlayerSearchStateInitial implements PlayerSearchStateInitial {
     TResult Function(PlayerSearchStateInitial value)? initial,
     TResult Function(PlayerSearchStateLoading value)? loading,
     TResult Function(PlayerSearchStateLoaded value)? loaded,
+    TResult Function(PlayerSearchStateError value)? error,
   }) {
     return initial?.call(this);
   }
@@ -237,6 +248,7 @@ class _$PlayerSearchStateInitial implements PlayerSearchStateInitial {
     TResult Function(PlayerSearchStateInitial value)? initial,
     TResult Function(PlayerSearchStateLoading value)? loading,
     TResult Function(PlayerSearchStateLoaded value)? loaded,
+    TResult Function(PlayerSearchStateError value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -331,9 +343,10 @@ class _$PlayerSearchStateLoading implements PlayerSearchStateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function(String playerName) initial,
     required TResult Function(String playerName) loading,
-    required TResult Function(
-            String playerName, PlayerSearchResult results, bool hasReachedMax)
+    required TResult Function(String playerName, PlayerSearchResult results,
+            int page, bool isLastPage)
         loaded,
+    required TResult Function(String playerName, String message) error,
   }) {
     return loading(playerName);
   }
@@ -343,9 +356,10 @@ class _$PlayerSearchStateLoading implements PlayerSearchStateLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String playerName)? initial,
     TResult Function(String playerName)? loading,
-    TResult Function(
-            String playerName, PlayerSearchResult results, bool hasReachedMax)?
+    TResult Function(String playerName, PlayerSearchResult results, int page,
+            bool isLastPage)?
         loaded,
+    TResult Function(String playerName, String message)? error,
   }) {
     return loading?.call(playerName);
   }
@@ -355,9 +369,10 @@ class _$PlayerSearchStateLoading implements PlayerSearchStateLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String playerName)? initial,
     TResult Function(String playerName)? loading,
-    TResult Function(
-            String playerName, PlayerSearchResult results, bool hasReachedMax)?
+    TResult Function(String playerName, PlayerSearchResult results, int page,
+            bool isLastPage)?
         loaded,
+    TResult Function(String playerName, String message)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -372,6 +387,7 @@ class _$PlayerSearchStateLoading implements PlayerSearchStateLoading {
     required TResult Function(PlayerSearchStateInitial value) initial,
     required TResult Function(PlayerSearchStateLoading value) loading,
     required TResult Function(PlayerSearchStateLoaded value) loaded,
+    required TResult Function(PlayerSearchStateError value) error,
   }) {
     return loading(this);
   }
@@ -382,6 +398,7 @@ class _$PlayerSearchStateLoading implements PlayerSearchStateLoading {
     TResult Function(PlayerSearchStateInitial value)? initial,
     TResult Function(PlayerSearchStateLoading value)? loading,
     TResult Function(PlayerSearchStateLoaded value)? loaded,
+    TResult Function(PlayerSearchStateError value)? error,
   }) {
     return loading?.call(this);
   }
@@ -392,6 +409,7 @@ class _$PlayerSearchStateLoading implements PlayerSearchStateLoading {
     TResult Function(PlayerSearchStateInitial value)? initial,
     TResult Function(PlayerSearchStateLoading value)? loading,
     TResult Function(PlayerSearchStateLoaded value)? loaded,
+    TResult Function(PlayerSearchStateError value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -421,7 +439,10 @@ abstract class _$$PlayerSearchStateLoadedCopyWith<$Res>
       __$$PlayerSearchStateLoadedCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String playerName, PlayerSearchResult results, bool hasReachedMax});
+      {String playerName,
+      PlayerSearchResult results,
+      int page,
+      bool isLastPage});
 
   $PlayerSearchResultCopyWith<$Res> get results;
 }
@@ -442,7 +463,8 @@ class __$$PlayerSearchStateLoadedCopyWithImpl<$Res>
   $Res call({
     Object? playerName = freezed,
     Object? results = freezed,
-    Object? hasReachedMax = freezed,
+    Object? page = freezed,
+    Object? isLastPage = freezed,
   }) {
     return _then(_$PlayerSearchStateLoaded(
       playerName: playerName == freezed
@@ -453,9 +475,13 @@ class __$$PlayerSearchStateLoadedCopyWithImpl<$Res>
           ? _value.results
           : results // ignore: cast_nullable_to_non_nullable
               as PlayerSearchResult,
-      hasReachedMax: hasReachedMax == freezed
-          ? _value.hasReachedMax
-          : hasReachedMax // ignore: cast_nullable_to_non_nullable
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      isLastPage: isLastPage == freezed
+          ? _value.isLastPage
+          : isLastPage // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -474,18 +500,21 @@ class _$PlayerSearchStateLoaded implements PlayerSearchStateLoaded {
   const _$PlayerSearchStateLoaded(
       {required this.playerName,
       required this.results,
-      required this.hasReachedMax});
+      required this.page,
+      required this.isLastPage});
 
   @override
   final String playerName;
   @override
   final PlayerSearchResult results;
   @override
-  final bool hasReachedMax;
+  final int page;
+  @override
+  final bool isLastPage;
 
   @override
   String toString() {
-    return 'PlayerSearchState.loaded(playerName: $playerName, results: $results, hasReachedMax: $hasReachedMax)';
+    return 'PlayerSearchState.loaded(playerName: $playerName, results: $results, page: $page, isLastPage: $isLastPage)';
   }
 
   @override
@@ -496,8 +525,9 @@ class _$PlayerSearchStateLoaded implements PlayerSearchStateLoaded {
             const DeepCollectionEquality()
                 .equals(other.playerName, playerName) &&
             const DeepCollectionEquality().equals(other.results, results) &&
+            const DeepCollectionEquality().equals(other.page, page) &&
             const DeepCollectionEquality()
-                .equals(other.hasReachedMax, hasReachedMax));
+                .equals(other.isLastPage, isLastPage));
   }
 
   @override
@@ -505,7 +535,8 @@ class _$PlayerSearchStateLoaded implements PlayerSearchStateLoaded {
       runtimeType,
       const DeepCollectionEquality().hash(playerName),
       const DeepCollectionEquality().hash(results),
-      const DeepCollectionEquality().hash(hasReachedMax));
+      const DeepCollectionEquality().hash(page),
+      const DeepCollectionEquality().hash(isLastPage));
 
   @JsonKey(ignore: true)
   @override
@@ -518,11 +549,12 @@ class _$PlayerSearchStateLoaded implements PlayerSearchStateLoaded {
   TResult when<TResult extends Object?>({
     required TResult Function(String playerName) initial,
     required TResult Function(String playerName) loading,
-    required TResult Function(
-            String playerName, PlayerSearchResult results, bool hasReachedMax)
+    required TResult Function(String playerName, PlayerSearchResult results,
+            int page, bool isLastPage)
         loaded,
+    required TResult Function(String playerName, String message) error,
   }) {
-    return loaded(playerName, results, hasReachedMax);
+    return loaded(playerName, results, page, isLastPage);
   }
 
   @override
@@ -530,11 +562,12 @@ class _$PlayerSearchStateLoaded implements PlayerSearchStateLoaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String playerName)? initial,
     TResult Function(String playerName)? loading,
-    TResult Function(
-            String playerName, PlayerSearchResult results, bool hasReachedMax)?
+    TResult Function(String playerName, PlayerSearchResult results, int page,
+            bool isLastPage)?
         loaded,
+    TResult Function(String playerName, String message)? error,
   }) {
-    return loaded?.call(playerName, results, hasReachedMax);
+    return loaded?.call(playerName, results, page, isLastPage);
   }
 
   @override
@@ -542,13 +575,14 @@ class _$PlayerSearchStateLoaded implements PlayerSearchStateLoaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String playerName)? initial,
     TResult Function(String playerName)? loading,
-    TResult Function(
-            String playerName, PlayerSearchResult results, bool hasReachedMax)?
+    TResult Function(String playerName, PlayerSearchResult results, int page,
+            bool isLastPage)?
         loaded,
+    TResult Function(String playerName, String message)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(playerName, results, hasReachedMax);
+      return loaded(playerName, results, page, isLastPage);
     }
     return orElse();
   }
@@ -559,6 +593,7 @@ class _$PlayerSearchStateLoaded implements PlayerSearchStateLoaded {
     required TResult Function(PlayerSearchStateInitial value) initial,
     required TResult Function(PlayerSearchStateLoading value) loading,
     required TResult Function(PlayerSearchStateLoaded value) loaded,
+    required TResult Function(PlayerSearchStateError value) error,
   }) {
     return loaded(this);
   }
@@ -569,6 +604,7 @@ class _$PlayerSearchStateLoaded implements PlayerSearchStateLoaded {
     TResult Function(PlayerSearchStateInitial value)? initial,
     TResult Function(PlayerSearchStateLoading value)? loading,
     TResult Function(PlayerSearchStateLoaded value)? loaded,
+    TResult Function(PlayerSearchStateError value)? error,
   }) {
     return loaded?.call(this);
   }
@@ -579,6 +615,7 @@ class _$PlayerSearchStateLoaded implements PlayerSearchStateLoaded {
     TResult Function(PlayerSearchStateInitial value)? initial,
     TResult Function(PlayerSearchStateLoading value)? loading,
     TResult Function(PlayerSearchStateLoaded value)? loaded,
+    TResult Function(PlayerSearchStateError value)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -592,14 +629,189 @@ abstract class PlayerSearchStateLoaded implements PlayerSearchState {
   const factory PlayerSearchStateLoaded(
       {required final String playerName,
       required final PlayerSearchResult results,
-      required final bool hasReachedMax}) = _$PlayerSearchStateLoaded;
+      required final int page,
+      required final bool isLastPage}) = _$PlayerSearchStateLoaded;
 
   @override
   String get playerName => throw _privateConstructorUsedError;
   PlayerSearchResult get results => throw _privateConstructorUsedError;
-  bool get hasReachedMax => throw _privateConstructorUsedError;
+  int get page => throw _privateConstructorUsedError;
+  bool get isLastPage => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$PlayerSearchStateLoadedCopyWith<_$PlayerSearchStateLoaded> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$PlayerSearchStateErrorCopyWith<$Res>
+    implements $PlayerSearchStateCopyWith<$Res> {
+  factory _$$PlayerSearchStateErrorCopyWith(_$PlayerSearchStateError value,
+          $Res Function(_$PlayerSearchStateError) then) =
+      __$$PlayerSearchStateErrorCopyWithImpl<$Res>;
+  @override
+  $Res call({String playerName, String message});
+}
+
+/// @nodoc
+class __$$PlayerSearchStateErrorCopyWithImpl<$Res>
+    extends _$PlayerSearchStateCopyWithImpl<$Res>
+    implements _$$PlayerSearchStateErrorCopyWith<$Res> {
+  __$$PlayerSearchStateErrorCopyWithImpl(_$PlayerSearchStateError _value,
+      $Res Function(_$PlayerSearchStateError) _then)
+      : super(_value, (v) => _then(v as _$PlayerSearchStateError));
+
+  @override
+  _$PlayerSearchStateError get _value =>
+      super._value as _$PlayerSearchStateError;
+
+  @override
+  $Res call({
+    Object? playerName = freezed,
+    Object? message = freezed,
+  }) {
+    return _then(_$PlayerSearchStateError(
+      playerName: playerName == freezed
+          ? _value.playerName
+          : playerName // ignore: cast_nullable_to_non_nullable
+              as String,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PlayerSearchStateError implements PlayerSearchStateError {
+  const _$PlayerSearchStateError(
+      {required this.playerName, required this.message});
+
+  @override
+  final String playerName;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'PlayerSearchState.error(playerName: $playerName, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PlayerSearchStateError &&
+            const DeepCollectionEquality()
+                .equals(other.playerName, playerName) &&
+            const DeepCollectionEquality().equals(other.message, message));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(playerName),
+      const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$PlayerSearchStateErrorCopyWith<_$PlayerSearchStateError> get copyWith =>
+      __$$PlayerSearchStateErrorCopyWithImpl<_$PlayerSearchStateError>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String playerName) initial,
+    required TResult Function(String playerName) loading,
+    required TResult Function(String playerName, PlayerSearchResult results,
+            int page, bool isLastPage)
+        loaded,
+    required TResult Function(String playerName, String message) error,
+  }) {
+    return error(playerName, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String playerName)? initial,
+    TResult Function(String playerName)? loading,
+    TResult Function(String playerName, PlayerSearchResult results, int page,
+            bool isLastPage)?
+        loaded,
+    TResult Function(String playerName, String message)? error,
+  }) {
+    return error?.call(playerName, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String playerName)? initial,
+    TResult Function(String playerName)? loading,
+    TResult Function(String playerName, PlayerSearchResult results, int page,
+            bool isLastPage)?
+        loaded,
+    TResult Function(String playerName, String message)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(playerName, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PlayerSearchStateInitial value) initial,
+    required TResult Function(PlayerSearchStateLoading value) loading,
+    required TResult Function(PlayerSearchStateLoaded value) loaded,
+    required TResult Function(PlayerSearchStateError value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(PlayerSearchStateInitial value)? initial,
+    TResult Function(PlayerSearchStateLoading value)? loading,
+    TResult Function(PlayerSearchStateLoaded value)? loaded,
+    TResult Function(PlayerSearchStateError value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PlayerSearchStateInitial value)? initial,
+    TResult Function(PlayerSearchStateLoading value)? loading,
+    TResult Function(PlayerSearchStateLoaded value)? loaded,
+    TResult Function(PlayerSearchStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PlayerSearchStateError implements PlayerSearchState {
+  const factory PlayerSearchStateError(
+      {required final String playerName,
+      required final String message}) = _$PlayerSearchStateError;
+
+  @override
+  String get playerName => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$$PlayerSearchStateErrorCopyWith<_$PlayerSearchStateError> get copyWith =>
       throw _privateConstructorUsedError;
 }

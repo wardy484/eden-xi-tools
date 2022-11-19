@@ -12,7 +12,7 @@ class PlayerSearchField extends ConsumerWidget {
 
     return SearchField(
       onChange: (String value) {
-        playerSearch.search(value);
+        playerSearch.search(value, page: 0);
       },
       onClear: () {
         playerSearch.clear();

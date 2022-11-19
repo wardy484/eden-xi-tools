@@ -16,6 +16,12 @@ class PlayerSearchState with _$PlayerSearchState {
   const factory PlayerSearchState.loaded({
     required String playerName,
     required PlayerSearchResult results,
-    required bool hasReachedMax,
+    required int page,
+    required bool isLastPage,
   }) = PlayerSearchStateLoaded;
+
+  const factory PlayerSearchState.error({
+    required String playerName,
+    required String message,
+  }) = PlayerSearchStateError;
 }
