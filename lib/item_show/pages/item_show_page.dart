@@ -9,6 +9,7 @@ import 'package:eden_xi_tools/item_show/item_show_notifier.dart';
 import 'package:eden_xi_tools/item_show/widgets/item_show_description.dart';
 import 'package:eden_xi_tools/item_show/widgets/item_show_header.dart';
 import 'package:eden_xi_tools/widgets/centered_loader.dart';
+import 'package:eden_xi_tools/widgets/centered_message.dart';
 import 'package:eden_xi_tools/widgets/swipable_pages/swipable_pages.dart';
 import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
@@ -93,6 +94,7 @@ class _ItemShowPageState extends ConsumerState<ItemShowPage> {
                 ],
               );
             },
+            error: (stacked, message) => CenteredMessage(message),
             orElse: () => const Center(
               child: CenteredLoader(),
             ),

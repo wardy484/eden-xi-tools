@@ -16,4 +16,8 @@ class ItemShowState with _$ItemShowState {
     required List<Craft> crafts,
     required bool stacked,
   }) = ItemShowStateLoaded;
+  const factory ItemShowState.error(
+    bool stacked, {
+    required String message,
+  }) = ItemShowStateError;
 }

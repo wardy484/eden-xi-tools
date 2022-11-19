@@ -30,6 +30,7 @@ mixin _$ItemShowState {
             List<Craft> crafts,
             bool stacked)
         loaded,
+    required TResult Function(bool stacked, String message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -45,6 +46,7 @@ mixin _$ItemShowState {
             List<Craft> crafts,
             bool stacked)?
         loaded,
+    TResult Function(bool stacked, String message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +62,7 @@ mixin _$ItemShowState {
             List<Craft> crafts,
             bool stacked)?
         loaded,
+    TResult Function(bool stacked, String message)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -68,6 +71,7 @@ mixin _$ItemShowState {
     required TResult Function(ItemShowStateInitial value) initial,
     required TResult Function(ItemShowStateLoading value) loading,
     required TResult Function(ItemShowStateLoaded value) loaded,
+    required TResult Function(ItemShowStateError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +79,7 @@ mixin _$ItemShowState {
     TResult Function(ItemShowStateInitial value)? initial,
     TResult Function(ItemShowStateLoading value)? loading,
     TResult Function(ItemShowStateLoaded value)? loaded,
+    TResult Function(ItemShowStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,6 +87,7 @@ mixin _$ItemShowState {
     TResult Function(ItemShowStateInitial value)? initial,
     TResult Function(ItemShowStateLoading value)? loading,
     TResult Function(ItemShowStateLoaded value)? loaded,
+    TResult Function(ItemShowStateError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -200,6 +206,7 @@ class _$ItemShowStateInitial implements ItemShowStateInitial {
             List<Craft> crafts,
             bool stacked)
         loaded,
+    required TResult Function(bool stacked, String message) error,
   }) {
     return initial(stacked);
   }
@@ -218,6 +225,7 @@ class _$ItemShowStateInitial implements ItemShowStateInitial {
             List<Craft> crafts,
             bool stacked)?
         loaded,
+    TResult Function(bool stacked, String message)? error,
   }) {
     return initial?.call(stacked);
   }
@@ -236,6 +244,7 @@ class _$ItemShowStateInitial implements ItemShowStateInitial {
             List<Craft> crafts,
             bool stacked)?
         loaded,
+    TResult Function(bool stacked, String message)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -250,6 +259,7 @@ class _$ItemShowStateInitial implements ItemShowStateInitial {
     required TResult Function(ItemShowStateInitial value) initial,
     required TResult Function(ItemShowStateLoading value) loading,
     required TResult Function(ItemShowStateLoaded value) loaded,
+    required TResult Function(ItemShowStateError value) error,
   }) {
     return initial(this);
   }
@@ -260,6 +270,7 @@ class _$ItemShowStateInitial implements ItemShowStateInitial {
     TResult Function(ItemShowStateInitial value)? initial,
     TResult Function(ItemShowStateLoading value)? loading,
     TResult Function(ItemShowStateLoaded value)? loaded,
+    TResult Function(ItemShowStateError value)? error,
   }) {
     return initial?.call(this);
   }
@@ -270,6 +281,7 @@ class _$ItemShowStateInitial implements ItemShowStateInitial {
     TResult Function(ItemShowStateInitial value)? initial,
     TResult Function(ItemShowStateLoading value)? loading,
     TResult Function(ItemShowStateLoaded value)? loaded,
+    TResult Function(ItemShowStateError value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -370,6 +382,7 @@ class _$ItemShowStateLoading implements ItemShowStateLoading {
             List<Craft> crafts,
             bool stacked)
         loaded,
+    required TResult Function(bool stacked, String message) error,
   }) {
     return loading(stacked);
   }
@@ -388,6 +401,7 @@ class _$ItemShowStateLoading implements ItemShowStateLoading {
             List<Craft> crafts,
             bool stacked)?
         loaded,
+    TResult Function(bool stacked, String message)? error,
   }) {
     return loading?.call(stacked);
   }
@@ -406,6 +420,7 @@ class _$ItemShowStateLoading implements ItemShowStateLoading {
             List<Craft> crafts,
             bool stacked)?
         loaded,
+    TResult Function(bool stacked, String message)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -420,6 +435,7 @@ class _$ItemShowStateLoading implements ItemShowStateLoading {
     required TResult Function(ItemShowStateInitial value) initial,
     required TResult Function(ItemShowStateLoading value) loading,
     required TResult Function(ItemShowStateLoaded value) loaded,
+    required TResult Function(ItemShowStateError value) error,
   }) {
     return loading(this);
   }
@@ -430,6 +446,7 @@ class _$ItemShowStateLoading implements ItemShowStateLoading {
     TResult Function(ItemShowStateInitial value)? initial,
     TResult Function(ItemShowStateLoading value)? loading,
     TResult Function(ItemShowStateLoaded value)? loaded,
+    TResult Function(ItemShowStateError value)? error,
   }) {
     return loading?.call(this);
   }
@@ -440,6 +457,7 @@ class _$ItemShowStateLoading implements ItemShowStateLoading {
     TResult Function(ItemShowStateInitial value)? initial,
     TResult Function(ItemShowStateLoading value)? loading,
     TResult Function(ItemShowStateLoaded value)? loaded,
+    TResult Function(ItemShowStateError value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -644,6 +662,7 @@ class _$ItemShowStateLoaded implements ItemShowStateLoaded {
             List<Craft> crafts,
             bool stacked)
         loaded,
+    required TResult Function(bool stacked, String message) error,
   }) {
     return loaded(
         key, item, bazaarItems, owners, auctionItems, crafts, stacked);
@@ -663,6 +682,7 @@ class _$ItemShowStateLoaded implements ItemShowStateLoaded {
             List<Craft> crafts,
             bool stacked)?
         loaded,
+    TResult Function(bool stacked, String message)? error,
   }) {
     return loaded?.call(
         key, item, bazaarItems, owners, auctionItems, crafts, stacked);
@@ -682,6 +702,7 @@ class _$ItemShowStateLoaded implements ItemShowStateLoaded {
             List<Craft> crafts,
             bool stacked)?
         loaded,
+    TResult Function(bool stacked, String message)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -697,6 +718,7 @@ class _$ItemShowStateLoaded implements ItemShowStateLoaded {
     required TResult Function(ItemShowStateInitial value) initial,
     required TResult Function(ItemShowStateLoading value) loading,
     required TResult Function(ItemShowStateLoaded value) loaded,
+    required TResult Function(ItemShowStateError value) error,
   }) {
     return loaded(this);
   }
@@ -707,6 +729,7 @@ class _$ItemShowStateLoaded implements ItemShowStateLoaded {
     TResult Function(ItemShowStateInitial value)? initial,
     TResult Function(ItemShowStateLoading value)? loading,
     TResult Function(ItemShowStateLoaded value)? loaded,
+    TResult Function(ItemShowStateError value)? error,
   }) {
     return loaded?.call(this);
   }
@@ -717,6 +740,7 @@ class _$ItemShowStateLoaded implements ItemShowStateLoaded {
     TResult Function(ItemShowStateInitial value)? initial,
     TResult Function(ItemShowStateLoading value)? loading,
     TResult Function(ItemShowStateLoaded value)? loaded,
+    TResult Function(ItemShowStateError value)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -747,5 +771,192 @@ abstract class ItemShowStateLoaded implements ItemShowState {
   @override
   @JsonKey(ignore: true)
   _$$ItemShowStateLoadedCopyWith<_$ItemShowStateLoaded> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ItemShowStateErrorCopyWith<$Res>
+    implements $ItemShowStateCopyWith<$Res> {
+  factory _$$ItemShowStateErrorCopyWith(_$ItemShowStateError value,
+          $Res Function(_$ItemShowStateError) then) =
+      __$$ItemShowStateErrorCopyWithImpl<$Res>;
+  @override
+  $Res call({bool stacked, String message});
+}
+
+/// @nodoc
+class __$$ItemShowStateErrorCopyWithImpl<$Res>
+    extends _$ItemShowStateCopyWithImpl<$Res>
+    implements _$$ItemShowStateErrorCopyWith<$Res> {
+  __$$ItemShowStateErrorCopyWithImpl(
+      _$ItemShowStateError _value, $Res Function(_$ItemShowStateError) _then)
+      : super(_value, (v) => _then(v as _$ItemShowStateError));
+
+  @override
+  _$ItemShowStateError get _value => super._value as _$ItemShowStateError;
+
+  @override
+  $Res call({
+    Object? stacked = freezed,
+    Object? message = freezed,
+  }) {
+    return _then(_$ItemShowStateError(
+      stacked == freezed
+          ? _value.stacked
+          : stacked // ignore: cast_nullable_to_non_nullable
+              as bool,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ItemShowStateError implements ItemShowStateError {
+  const _$ItemShowStateError(this.stacked, {required this.message});
+
+  @override
+  final bool stacked;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ItemShowState.error(stacked: $stacked, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ItemShowStateError &&
+            const DeepCollectionEquality().equals(other.stacked, stacked) &&
+            const DeepCollectionEquality().equals(other.message, message));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(stacked),
+      const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$ItemShowStateErrorCopyWith<_$ItemShowStateError> get copyWith =>
+      __$$ItemShowStateErrorCopyWithImpl<_$ItemShowStateError>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(bool stacked) initial,
+    required TResult Function(bool stacked) loading,
+    required TResult Function(
+            String key,
+            Item item,
+            List<BazaarItem> bazaarItems,
+            List<Owner> owners,
+            List<AuctionHouseItem> auctionItems,
+            List<Craft> crafts,
+            bool stacked)
+        loaded,
+    required TResult Function(bool stacked, String message) error,
+  }) {
+    return error(stacked, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(bool stacked)? initial,
+    TResult Function(bool stacked)? loading,
+    TResult Function(
+            String key,
+            Item item,
+            List<BazaarItem> bazaarItems,
+            List<Owner> owners,
+            List<AuctionHouseItem> auctionItems,
+            List<Craft> crafts,
+            bool stacked)?
+        loaded,
+    TResult Function(bool stacked, String message)? error,
+  }) {
+    return error?.call(stacked, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool stacked)? initial,
+    TResult Function(bool stacked)? loading,
+    TResult Function(
+            String key,
+            Item item,
+            List<BazaarItem> bazaarItems,
+            List<Owner> owners,
+            List<AuctionHouseItem> auctionItems,
+            List<Craft> crafts,
+            bool stacked)?
+        loaded,
+    TResult Function(bool stacked, String message)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(stacked, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ItemShowStateInitial value) initial,
+    required TResult Function(ItemShowStateLoading value) loading,
+    required TResult Function(ItemShowStateLoaded value) loaded,
+    required TResult Function(ItemShowStateError value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ItemShowStateInitial value)? initial,
+    TResult Function(ItemShowStateLoading value)? loading,
+    TResult Function(ItemShowStateLoaded value)? loaded,
+    TResult Function(ItemShowStateError value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ItemShowStateInitial value)? initial,
+    TResult Function(ItemShowStateLoading value)? loading,
+    TResult Function(ItemShowStateLoaded value)? loaded,
+    TResult Function(ItemShowStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ItemShowStateError implements ItemShowState {
+  const factory ItemShowStateError(final bool stacked,
+      {required final String message}) = _$ItemShowStateError;
+
+  @override
+  bool get stacked => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$$ItemShowStateErrorCopyWith<_$ItemShowStateError> get copyWith =>
       throw _privateConstructorUsedError;
 }

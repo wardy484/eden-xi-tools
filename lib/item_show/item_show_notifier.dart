@@ -2,6 +2,7 @@ import 'package:eden_xi_tools/eden/eden_provider.dart';
 import 'package:eden_xi_tools/item_show/item_show_state.dart';
 import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 final itemShowProvider =
     StateNotifierProvider.autoDispose<ItemShowNotifier, ItemShowState>((ref) {
@@ -46,8 +47,16 @@ class ItemShowNotifier extends StateNotifier<ItemShowState> {
         crafts: result[3] as List<Craft>,
         stacked: stacked,
       );
-    } catch (_) {
-      state = ItemShowState.loading(stacked);
+    } catch (error, stackTrace) {
+      Sentry.captureException(
+        error,
+        stackTrace: stackTrace,
+      );
+
+      state = ItemShowState.error(
+        stacked,
+        message: "Some went wrong fetching item info, please try again later.",
+      );
     }
   }
 
