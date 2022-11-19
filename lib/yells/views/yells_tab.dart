@@ -43,6 +43,12 @@ class _YellsTabState extends ConsumerState<YellsTab> {
                 },
               ),
             ),
+            error: (message) => Center(
+              child: Text(
+                message,
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
             orElse: () => CenteredLoader(),
           ),
     );

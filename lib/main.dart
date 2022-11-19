@@ -13,6 +13,7 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:eden_xi_tools/player_favourites/bloc/player_favourites_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,26 +37,33 @@ void main() async {
   //   inspector: true,
   // );
 
-  HydratedBlocOverrides.runZoned(
-    () => runApp(
-      ProviderScope(
-        child: MultiBlocProvider(
-          providers: [
-            BlocProvider<ItemFavouritesBloc>(
-              create: (context) => ItemFavouritesBloc(),
-            ),
-            BlocProvider<PlayerFavouritesBloc>(
-              create: (context) => PlayerFavouritesBloc(),
-            ),
-            BlocProvider<SettingsBloc>(
-              create: (context) => SettingsBloc(),
-            ),
-          ],
-          child: App(),
+  await SentryFlutter.init(
+    (options) {
+      options.dsn =
+          'https://50a610cfddde4532828b206bac7a8d3f@o1207946.ingest.sentry.io/4504182030073856';
+      options.tracesSampleRate = 1.0;
+    },
+    appRunner: () => HydratedBlocOverrides.runZoned(
+      () => runApp(
+        ProviderScope(
+          child: MultiBlocProvider(
+            providers: [
+              BlocProvider<ItemFavouritesBloc>(
+                create: (context) => ItemFavouritesBloc(),
+              ),
+              BlocProvider<PlayerFavouritesBloc>(
+                create: (context) => PlayerFavouritesBloc(),
+              ),
+              BlocProvider<SettingsBloc>(
+                create: (context) => SettingsBloc(),
+              ),
+            ],
+            child: App(),
+          ),
         ),
       ),
+      storage: storage,
     ),
-    storage: storage,
   );
 }
 

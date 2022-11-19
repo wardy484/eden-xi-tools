@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SearchFailure extends StatelessWidget {
-  const SearchFailure({Key? key}) : super(key: key);
+class ItemSearchError extends StatelessWidget {
+  const ItemSearchError({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

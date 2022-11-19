@@ -16,6 +16,12 @@ class ItemSearchState with _$ItemSearchState {
   const factory ItemSearchState.loaded({
     required String itemName,
     required SearchResult searchResult,
-    required bool hasReachedMax,
+    required int page,
+    required bool isLastPage,
   }) = ItemSearchStateLoaded;
+
+  const factory ItemSearchState.error({
+    required String itemName,
+    required String message,
+  }) = ItemSearchStateError;
 }

@@ -2,6 +2,7 @@ import 'package:eden_xi_tools/eden/eden_provider.dart';
 import 'package:eden_xi_tools/item_search/item_search_state.dart';
 import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 final itemSearchProvider =
     StateNotifierProvider.autoDispose<ItemSearchNotifier, ItemSearchState>(
@@ -25,46 +26,41 @@ class ItemSearchNotifier extends StateNotifier<ItemSearchState> {
 
   Future<void> search(
     String itemName, {
-    bool append = false,
+    int page = 0,
   }) async {
-    state.whenOrNull(
-      initial: (itemName) {
-        state = ItemSearchState.loading(
-          itemName: itemName,
-        );
-      },
-    );
-
-    final startIndex = state.maybeWhen(
-      loaded: (itemName, searchResult, hasReachedMax) =>
-          searchResult.items.length,
-      orElse: () => 0,
-    );
-
-    SearchResult results = await eden.items.search(
-      itemName,
-      startIndex,
-      limit,
-    );
-
-    state.whenOrNull(
-      loaded: (itemName, oldResults, hasReachedMax) {
-        if (oldResults.total > 0 && append) {
-          results = SearchResult(
-            total: results.total + oldResults.total,
-            items: [
-              ...oldResults.items,
-              ...results.items,
-            ],
-          );
-        }
-      },
-    );
-
-    state = ItemSearchState.loaded(
+    state = ItemSearchState.loading(
       itemName: itemName,
-      searchResult: results,
-      hasReachedMax: results.total <= limit,
     );
+
+    try {
+      print("fetch page: $page");
+      SearchResult results = await eden.items.search(
+        itemName,
+        page,
+        limit * (page + 1),
+      );
+
+      final isLastPage =
+          results.total == 0 || results.total <= (page + 1) * limit;
+
+      print("IsLastPage ${isLastPage}");
+
+      state = ItemSearchState.loaded(
+        itemName: itemName,
+        searchResult: results,
+        page: page,
+        isLastPage: isLastPage,
+      );
+    } catch (error, stackTrace) {
+      Sentry.captureException(
+        error,
+        stackTrace: stackTrace,
+      );
+
+      state = ItemSearchState.error(
+        itemName: itemName,
+        message: "Failed to search for items, please try again later.",
+      );
+    }
   }
 }

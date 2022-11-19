@@ -21,27 +21,30 @@ mixin _$ItemSearchState {
   TResult when<TResult extends Object?>({
     required TResult Function(String itemName) initial,
     required TResult Function(String itemName) loading,
-    required TResult Function(
-            String itemName, SearchResult searchResult, bool hasReachedMax)
+    required TResult Function(String itemName, SearchResult searchResult,
+            int page, bool isLastPage)
         loaded,
+    required TResult Function(String itemName, String message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String itemName)? initial,
     TResult Function(String itemName)? loading,
-    TResult Function(
-            String itemName, SearchResult searchResult, bool hasReachedMax)?
+    TResult Function(String itemName, SearchResult searchResult, int page,
+            bool isLastPage)?
         loaded,
+    TResult Function(String itemName, String message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String itemName)? initial,
     TResult Function(String itemName)? loading,
-    TResult Function(
-            String itemName, SearchResult searchResult, bool hasReachedMax)?
+    TResult Function(String itemName, SearchResult searchResult, int page,
+            bool isLastPage)?
         loaded,
+    TResult Function(String itemName, String message)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -50,6 +53,7 @@ mixin _$ItemSearchState {
     required TResult Function(ItemSearchStateInitial value) initial,
     required TResult Function(ItemSearchStateLoading value) loading,
     required TResult Function(ItemSearchStateLoaded value) loaded,
+    required TResult Function(ItemSearchStateError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +61,7 @@ mixin _$ItemSearchState {
     TResult Function(ItemSearchStateInitial value)? initial,
     TResult Function(ItemSearchStateLoading value)? loading,
     TResult Function(ItemSearchStateLoaded value)? loaded,
+    TResult Function(ItemSearchStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +69,7 @@ mixin _$ItemSearchState {
     TResult Function(ItemSearchStateInitial value)? initial,
     TResult Function(ItemSearchStateLoading value)? loading,
     TResult Function(ItemSearchStateLoaded value)? loaded,
+    TResult Function(ItemSearchStateError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -174,9 +180,10 @@ class _$ItemSearchStateInitial implements ItemSearchStateInitial {
   TResult when<TResult extends Object?>({
     required TResult Function(String itemName) initial,
     required TResult Function(String itemName) loading,
-    required TResult Function(
-            String itemName, SearchResult searchResult, bool hasReachedMax)
+    required TResult Function(String itemName, SearchResult searchResult,
+            int page, bool isLastPage)
         loaded,
+    required TResult Function(String itemName, String message) error,
   }) {
     return initial(itemName);
   }
@@ -186,9 +193,10 @@ class _$ItemSearchStateInitial implements ItemSearchStateInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String itemName)? initial,
     TResult Function(String itemName)? loading,
-    TResult Function(
-            String itemName, SearchResult searchResult, bool hasReachedMax)?
+    TResult Function(String itemName, SearchResult searchResult, int page,
+            bool isLastPage)?
         loaded,
+    TResult Function(String itemName, String message)? error,
   }) {
     return initial?.call(itemName);
   }
@@ -198,9 +206,10 @@ class _$ItemSearchStateInitial implements ItemSearchStateInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String itemName)? initial,
     TResult Function(String itemName)? loading,
-    TResult Function(
-            String itemName, SearchResult searchResult, bool hasReachedMax)?
+    TResult Function(String itemName, SearchResult searchResult, int page,
+            bool isLastPage)?
         loaded,
+    TResult Function(String itemName, String message)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -215,6 +224,7 @@ class _$ItemSearchStateInitial implements ItemSearchStateInitial {
     required TResult Function(ItemSearchStateInitial value) initial,
     required TResult Function(ItemSearchStateLoading value) loading,
     required TResult Function(ItemSearchStateLoaded value) loaded,
+    required TResult Function(ItemSearchStateError value) error,
   }) {
     return initial(this);
   }
@@ -225,6 +235,7 @@ class _$ItemSearchStateInitial implements ItemSearchStateInitial {
     TResult Function(ItemSearchStateInitial value)? initial,
     TResult Function(ItemSearchStateLoading value)? loading,
     TResult Function(ItemSearchStateLoaded value)? loaded,
+    TResult Function(ItemSearchStateError value)? error,
   }) {
     return initial?.call(this);
   }
@@ -235,6 +246,7 @@ class _$ItemSearchStateInitial implements ItemSearchStateInitial {
     TResult Function(ItemSearchStateInitial value)? initial,
     TResult Function(ItemSearchStateLoading value)? loading,
     TResult Function(ItemSearchStateLoaded value)? loaded,
+    TResult Function(ItemSearchStateError value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -327,9 +339,10 @@ class _$ItemSearchStateLoading implements ItemSearchStateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function(String itemName) initial,
     required TResult Function(String itemName) loading,
-    required TResult Function(
-            String itemName, SearchResult searchResult, bool hasReachedMax)
+    required TResult Function(String itemName, SearchResult searchResult,
+            int page, bool isLastPage)
         loaded,
+    required TResult Function(String itemName, String message) error,
   }) {
     return loading(itemName);
   }
@@ -339,9 +352,10 @@ class _$ItemSearchStateLoading implements ItemSearchStateLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String itemName)? initial,
     TResult Function(String itemName)? loading,
-    TResult Function(
-            String itemName, SearchResult searchResult, bool hasReachedMax)?
+    TResult Function(String itemName, SearchResult searchResult, int page,
+            bool isLastPage)?
         loaded,
+    TResult Function(String itemName, String message)? error,
   }) {
     return loading?.call(itemName);
   }
@@ -351,9 +365,10 @@ class _$ItemSearchStateLoading implements ItemSearchStateLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String itemName)? initial,
     TResult Function(String itemName)? loading,
-    TResult Function(
-            String itemName, SearchResult searchResult, bool hasReachedMax)?
+    TResult Function(String itemName, SearchResult searchResult, int page,
+            bool isLastPage)?
         loaded,
+    TResult Function(String itemName, String message)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -368,6 +383,7 @@ class _$ItemSearchStateLoading implements ItemSearchStateLoading {
     required TResult Function(ItemSearchStateInitial value) initial,
     required TResult Function(ItemSearchStateLoading value) loading,
     required TResult Function(ItemSearchStateLoaded value) loaded,
+    required TResult Function(ItemSearchStateError value) error,
   }) {
     return loading(this);
   }
@@ -378,6 +394,7 @@ class _$ItemSearchStateLoading implements ItemSearchStateLoading {
     TResult Function(ItemSearchStateInitial value)? initial,
     TResult Function(ItemSearchStateLoading value)? loading,
     TResult Function(ItemSearchStateLoaded value)? loaded,
+    TResult Function(ItemSearchStateError value)? error,
   }) {
     return loading?.call(this);
   }
@@ -388,6 +405,7 @@ class _$ItemSearchStateLoading implements ItemSearchStateLoading {
     TResult Function(ItemSearchStateInitial value)? initial,
     TResult Function(ItemSearchStateLoading value)? loading,
     TResult Function(ItemSearchStateLoaded value)? loaded,
+    TResult Function(ItemSearchStateError value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -416,7 +434,8 @@ abstract class _$$ItemSearchStateLoadedCopyWith<$Res>
           $Res Function(_$ItemSearchStateLoaded) then) =
       __$$ItemSearchStateLoadedCopyWithImpl<$Res>;
   @override
-  $Res call({String itemName, SearchResult searchResult, bool hasReachedMax});
+  $Res call(
+      {String itemName, SearchResult searchResult, int page, bool isLastPage});
 
   $SearchResultCopyWith<$Res> get searchResult;
 }
@@ -436,7 +455,8 @@ class __$$ItemSearchStateLoadedCopyWithImpl<$Res>
   $Res call({
     Object? itemName = freezed,
     Object? searchResult = freezed,
-    Object? hasReachedMax = freezed,
+    Object? page = freezed,
+    Object? isLastPage = freezed,
   }) {
     return _then(_$ItemSearchStateLoaded(
       itemName: itemName == freezed
@@ -447,9 +467,13 @@ class __$$ItemSearchStateLoadedCopyWithImpl<$Res>
           ? _value.searchResult
           : searchResult // ignore: cast_nullable_to_non_nullable
               as SearchResult,
-      hasReachedMax: hasReachedMax == freezed
-          ? _value.hasReachedMax
-          : hasReachedMax // ignore: cast_nullable_to_non_nullable
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      isLastPage: isLastPage == freezed
+          ? _value.isLastPage
+          : isLastPage // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -468,18 +492,21 @@ class _$ItemSearchStateLoaded implements ItemSearchStateLoaded {
   const _$ItemSearchStateLoaded(
       {required this.itemName,
       required this.searchResult,
-      required this.hasReachedMax});
+      required this.page,
+      required this.isLastPage});
 
   @override
   final String itemName;
   @override
   final SearchResult searchResult;
   @override
-  final bool hasReachedMax;
+  final int page;
+  @override
+  final bool isLastPage;
 
   @override
   String toString() {
-    return 'ItemSearchState.loaded(itemName: $itemName, searchResult: $searchResult, hasReachedMax: $hasReachedMax)';
+    return 'ItemSearchState.loaded(itemName: $itemName, searchResult: $searchResult, page: $page, isLastPage: $isLastPage)';
   }
 
   @override
@@ -490,8 +517,9 @@ class _$ItemSearchStateLoaded implements ItemSearchStateLoaded {
             const DeepCollectionEquality().equals(other.itemName, itemName) &&
             const DeepCollectionEquality()
                 .equals(other.searchResult, searchResult) &&
+            const DeepCollectionEquality().equals(other.page, page) &&
             const DeepCollectionEquality()
-                .equals(other.hasReachedMax, hasReachedMax));
+                .equals(other.isLastPage, isLastPage));
   }
 
   @override
@@ -499,7 +527,8 @@ class _$ItemSearchStateLoaded implements ItemSearchStateLoaded {
       runtimeType,
       const DeepCollectionEquality().hash(itemName),
       const DeepCollectionEquality().hash(searchResult),
-      const DeepCollectionEquality().hash(hasReachedMax));
+      const DeepCollectionEquality().hash(page),
+      const DeepCollectionEquality().hash(isLastPage));
 
   @JsonKey(ignore: true)
   @override
@@ -512,11 +541,12 @@ class _$ItemSearchStateLoaded implements ItemSearchStateLoaded {
   TResult when<TResult extends Object?>({
     required TResult Function(String itemName) initial,
     required TResult Function(String itemName) loading,
-    required TResult Function(
-            String itemName, SearchResult searchResult, bool hasReachedMax)
+    required TResult Function(String itemName, SearchResult searchResult,
+            int page, bool isLastPage)
         loaded,
+    required TResult Function(String itemName, String message) error,
   }) {
-    return loaded(itemName, searchResult, hasReachedMax);
+    return loaded(itemName, searchResult, page, isLastPage);
   }
 
   @override
@@ -524,11 +554,12 @@ class _$ItemSearchStateLoaded implements ItemSearchStateLoaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String itemName)? initial,
     TResult Function(String itemName)? loading,
-    TResult Function(
-            String itemName, SearchResult searchResult, bool hasReachedMax)?
+    TResult Function(String itemName, SearchResult searchResult, int page,
+            bool isLastPage)?
         loaded,
+    TResult Function(String itemName, String message)? error,
   }) {
-    return loaded?.call(itemName, searchResult, hasReachedMax);
+    return loaded?.call(itemName, searchResult, page, isLastPage);
   }
 
   @override
@@ -536,13 +567,14 @@ class _$ItemSearchStateLoaded implements ItemSearchStateLoaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String itemName)? initial,
     TResult Function(String itemName)? loading,
-    TResult Function(
-            String itemName, SearchResult searchResult, bool hasReachedMax)?
+    TResult Function(String itemName, SearchResult searchResult, int page,
+            bool isLastPage)?
         loaded,
+    TResult Function(String itemName, String message)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(itemName, searchResult, hasReachedMax);
+      return loaded(itemName, searchResult, page, isLastPage);
     }
     return orElse();
   }
@@ -553,6 +585,7 @@ class _$ItemSearchStateLoaded implements ItemSearchStateLoaded {
     required TResult Function(ItemSearchStateInitial value) initial,
     required TResult Function(ItemSearchStateLoading value) loading,
     required TResult Function(ItemSearchStateLoaded value) loaded,
+    required TResult Function(ItemSearchStateError value) error,
   }) {
     return loaded(this);
   }
@@ -563,6 +596,7 @@ class _$ItemSearchStateLoaded implements ItemSearchStateLoaded {
     TResult Function(ItemSearchStateInitial value)? initial,
     TResult Function(ItemSearchStateLoading value)? loading,
     TResult Function(ItemSearchStateLoaded value)? loaded,
+    TResult Function(ItemSearchStateError value)? error,
   }) {
     return loaded?.call(this);
   }
@@ -573,6 +607,7 @@ class _$ItemSearchStateLoaded implements ItemSearchStateLoaded {
     TResult Function(ItemSearchStateInitial value)? initial,
     TResult Function(ItemSearchStateLoading value)? loading,
     TResult Function(ItemSearchStateLoaded value)? loaded,
+    TResult Function(ItemSearchStateError value)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -586,14 +621,186 @@ abstract class ItemSearchStateLoaded implements ItemSearchState {
   const factory ItemSearchStateLoaded(
       {required final String itemName,
       required final SearchResult searchResult,
-      required final bool hasReachedMax}) = _$ItemSearchStateLoaded;
+      required final int page,
+      required final bool isLastPage}) = _$ItemSearchStateLoaded;
 
   @override
   String get itemName => throw _privateConstructorUsedError;
   SearchResult get searchResult => throw _privateConstructorUsedError;
-  bool get hasReachedMax => throw _privateConstructorUsedError;
+  int get page => throw _privateConstructorUsedError;
+  bool get isLastPage => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$ItemSearchStateLoadedCopyWith<_$ItemSearchStateLoaded> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ItemSearchStateErrorCopyWith<$Res>
+    implements $ItemSearchStateCopyWith<$Res> {
+  factory _$$ItemSearchStateErrorCopyWith(_$ItemSearchStateError value,
+          $Res Function(_$ItemSearchStateError) then) =
+      __$$ItemSearchStateErrorCopyWithImpl<$Res>;
+  @override
+  $Res call({String itemName, String message});
+}
+
+/// @nodoc
+class __$$ItemSearchStateErrorCopyWithImpl<$Res>
+    extends _$ItemSearchStateCopyWithImpl<$Res>
+    implements _$$ItemSearchStateErrorCopyWith<$Res> {
+  __$$ItemSearchStateErrorCopyWithImpl(_$ItemSearchStateError _value,
+      $Res Function(_$ItemSearchStateError) _then)
+      : super(_value, (v) => _then(v as _$ItemSearchStateError));
+
+  @override
+  _$ItemSearchStateError get _value => super._value as _$ItemSearchStateError;
+
+  @override
+  $Res call({
+    Object? itemName = freezed,
+    Object? message = freezed,
+  }) {
+    return _then(_$ItemSearchStateError(
+      itemName: itemName == freezed
+          ? _value.itemName
+          : itemName // ignore: cast_nullable_to_non_nullable
+              as String,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ItemSearchStateError implements ItemSearchStateError {
+  const _$ItemSearchStateError({required this.itemName, required this.message});
+
+  @override
+  final String itemName;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ItemSearchState.error(itemName: $itemName, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ItemSearchStateError &&
+            const DeepCollectionEquality().equals(other.itemName, itemName) &&
+            const DeepCollectionEquality().equals(other.message, message));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(itemName),
+      const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$ItemSearchStateErrorCopyWith<_$ItemSearchStateError> get copyWith =>
+      __$$ItemSearchStateErrorCopyWithImpl<_$ItemSearchStateError>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String itemName) initial,
+    required TResult Function(String itemName) loading,
+    required TResult Function(String itemName, SearchResult searchResult,
+            int page, bool isLastPage)
+        loaded,
+    required TResult Function(String itemName, String message) error,
+  }) {
+    return error(itemName, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String itemName)? initial,
+    TResult Function(String itemName)? loading,
+    TResult Function(String itemName, SearchResult searchResult, int page,
+            bool isLastPage)?
+        loaded,
+    TResult Function(String itemName, String message)? error,
+  }) {
+    return error?.call(itemName, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String itemName)? initial,
+    TResult Function(String itemName)? loading,
+    TResult Function(String itemName, SearchResult searchResult, int page,
+            bool isLastPage)?
+        loaded,
+    TResult Function(String itemName, String message)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(itemName, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ItemSearchStateInitial value) initial,
+    required TResult Function(ItemSearchStateLoading value) loading,
+    required TResult Function(ItemSearchStateLoaded value) loaded,
+    required TResult Function(ItemSearchStateError value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ItemSearchStateInitial value)? initial,
+    TResult Function(ItemSearchStateLoading value)? loading,
+    TResult Function(ItemSearchStateLoaded value)? loaded,
+    TResult Function(ItemSearchStateError value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ItemSearchStateInitial value)? initial,
+    TResult Function(ItemSearchStateLoading value)? loading,
+    TResult Function(ItemSearchStateLoaded value)? loaded,
+    TResult Function(ItemSearchStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ItemSearchStateError implements ItemSearchState {
+  const factory ItemSearchStateError(
+      {required final String itemName,
+      required final String message}) = _$ItemSearchStateError;
+
+  @override
+  String get itemName => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$$ItemSearchStateErrorCopyWith<_$ItemSearchStateError> get copyWith =>
       throw _privateConstructorUsedError;
 }
