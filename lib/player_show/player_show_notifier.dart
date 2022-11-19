@@ -2,6 +2,7 @@ import 'package:eden_xi_tools/eden/eden_provider.dart';
 import 'package:eden_xi_tools/player_show/player_show_state.dart';
 import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 final playerShowProvider =
     StateNotifierProvider.autoDispose<PlayerShowNotifier, PlayerShowState>(
@@ -42,8 +43,15 @@ class PlayerShowNotifier extends StateNotifier<PlayerShowState> {
         bazaarItems: results[3],
         crafts: results[4],
       );
-    } catch (_) {
-      state = PlayerShowState.initial();
+    } catch (error, stackTrace) {
+      Sentry.captureException(
+        error,
+        stackTrace: stackTrace,
+      );
+
+      state = PlayerShowState.error(
+        "Some went wrong fetching player info, please try again later.",
+      );
     }
   }
 }

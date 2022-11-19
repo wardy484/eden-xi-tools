@@ -15,4 +15,5 @@ class PlayerShowState with _$PlayerShowState {
     required List<PlayerBazaarItem> bazaarItems,
     required PlayerCrafts crafts,
   }) = _Loaded;
+  const factory PlayerShowState.error(String message) = _Error;
 }

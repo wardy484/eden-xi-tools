@@ -8,6 +8,7 @@ import 'package:eden_xi_tools/player_show/widgets/player_show_navigation_bar.dar
 import 'package:eden_xi_tools/player_show/widgets/tabs/player_show_auction_house.dart';
 import 'package:eden_xi_tools/player_show/widgets/tabs/player_show_bazaar.dart';
 import 'package:eden_xi_tools/player_show/widgets/tabs/player_show_details.dart';
+import 'package:eden_xi_tools/widgets/centered_message.dart';
 import 'package:eden_xi_tools/widgets/swipable_pages/swipable_pages.dart';
 import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
@@ -74,6 +75,7 @@ class _PlayerShowPageState extends ConsumerState<PlayerShowPage> {
                   ],
                 );
               },
+              error: (message) => CenteredMessage(message),
               orElse: () => Center(child: CircularProgressIndicator()),
             ),
         bottomNavigationBar: PlayerShowNavigationBar(

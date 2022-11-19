@@ -28,6 +28,7 @@ mixin _$PlayerShowState {
             List<PlayerBazaarItem> bazaarItems,
             PlayerCrafts crafts)
         loaded,
+    required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,6 +43,7 @@ mixin _$PlayerShowState {
             List<PlayerBazaarItem> bazaarItems,
             PlayerCrafts crafts)?
         loaded,
+    TResult Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +58,7 @@ mixin _$PlayerShowState {
             List<PlayerBazaarItem> bazaarItems,
             PlayerCrafts crafts)?
         loaded,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -64,6 +67,7 @@ mixin _$PlayerShowState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,6 +75,7 @@ mixin _$PlayerShowState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,6 +83,7 @@ mixin _$PlayerShowState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -149,6 +155,7 @@ class _$_Initial implements _Initial {
             List<PlayerBazaarItem> bazaarItems,
             PlayerCrafts crafts)
         loaded,
+    required TResult Function(String message) error,
   }) {
     return initial();
   }
@@ -166,6 +173,7 @@ class _$_Initial implements _Initial {
             List<PlayerBazaarItem> bazaarItems,
             PlayerCrafts crafts)?
         loaded,
+    TResult Function(String message)? error,
   }) {
     return initial?.call();
   }
@@ -183,6 +191,7 @@ class _$_Initial implements _Initial {
             List<PlayerBazaarItem> bazaarItems,
             PlayerCrafts crafts)?
         loaded,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -197,6 +206,7 @@ class _$_Initial implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
   }) {
     return initial(this);
   }
@@ -207,6 +217,7 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
   }) {
     return initial?.call(this);
   }
@@ -217,6 +228,7 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -279,6 +291,7 @@ class _$_Loading implements _Loading {
             List<PlayerBazaarItem> bazaarItems,
             PlayerCrafts crafts)
         loaded,
+    required TResult Function(String message) error,
   }) {
     return loading();
   }
@@ -296,6 +309,7 @@ class _$_Loading implements _Loading {
             List<PlayerBazaarItem> bazaarItems,
             PlayerCrafts crafts)?
         loaded,
+    TResult Function(String message)? error,
   }) {
     return loading?.call();
   }
@@ -313,6 +327,7 @@ class _$_Loading implements _Loading {
             List<PlayerBazaarItem> bazaarItems,
             PlayerCrafts crafts)?
         loaded,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -327,6 +342,7 @@ class _$_Loading implements _Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
   }) {
     return loading(this);
   }
@@ -337,6 +353,7 @@ class _$_Loading implements _Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
   }) {
     return loading?.call(this);
   }
@@ -347,6 +364,7 @@ class _$_Loading implements _Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -538,6 +556,7 @@ class _$_Loaded implements _Loaded {
             List<PlayerBazaarItem> bazaarItems,
             PlayerCrafts crafts)
         loaded,
+    required TResult Function(String message) error,
   }) {
     return loaded(playerResult, player, equipment, auctionHouseItems,
         bazaarItems, crafts);
@@ -556,6 +575,7 @@ class _$_Loaded implements _Loaded {
             List<PlayerBazaarItem> bazaarItems,
             PlayerCrafts crafts)?
         loaded,
+    TResult Function(String message)? error,
   }) {
     return loaded?.call(playerResult, player, equipment, auctionHouseItems,
         bazaarItems, crafts);
@@ -574,6 +594,7 @@ class _$_Loaded implements _Loaded {
             List<PlayerBazaarItem> bazaarItems,
             PlayerCrafts crafts)?
         loaded,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -589,6 +610,7 @@ class _$_Loaded implements _Loaded {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
   }) {
     return loaded(this);
   }
@@ -599,6 +621,7 @@ class _$_Loaded implements _Loaded {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
   }) {
     return loaded?.call(this);
   }
@@ -609,6 +632,7 @@ class _$_Loaded implements _Loaded {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -636,5 +660,169 @@ abstract class _Loaded implements PlayerShowState {
   PlayerCrafts get crafts => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ErrorCopyWith<$Res> {
+  factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
+      __$$_ErrorCopyWithImpl<$Res>;
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$_ErrorCopyWithImpl<$Res> extends _$PlayerShowStateCopyWithImpl<$Res>
+    implements _$$_ErrorCopyWith<$Res> {
+  __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
+      : super(_value, (v) => _then(v as _$_Error));
+
+  @override
+  _$_Error get _value => super._value as _$_Error;
+
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$_Error(
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Error implements _Error {
+  const _$_Error(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'PlayerShowState.error(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Error &&
+            const DeepCollectionEquality().equals(other.message, message));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+      __$$_ErrorCopyWithImpl<_$_Error>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(
+            PlayerSearchResultItem playerResult,
+            Player player,
+            PlayerEquipment equipment,
+            List<PlayerAuctionHouseItem> auctionHouseItems,
+            List<PlayerBazaarItem> bazaarItems,
+            PlayerCrafts crafts)
+        loaded,
+    required TResult Function(String message) error,
+  }) {
+    return error(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(
+            PlayerSearchResultItem playerResult,
+            Player player,
+            PlayerEquipment equipment,
+            List<PlayerAuctionHouseItem> auctionHouseItems,
+            List<PlayerBazaarItem> bazaarItems,
+            PlayerCrafts crafts)?
+        loaded,
+    TResult Function(String message)? error,
+  }) {
+    return error?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(
+            PlayerSearchResultItem playerResult,
+            Player player,
+            PlayerEquipment equipment,
+            List<PlayerAuctionHouseItem> auctionHouseItems,
+            List<PlayerBazaarItem> bazaarItems,
+            PlayerCrafts crafts)?
+        loaded,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Error implements PlayerShowState {
+  const factory _Error(final String message) = _$_Error;
+
+  String get message => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
       throw _privateConstructorUsedError;
 }
