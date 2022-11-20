@@ -16,7 +16,6 @@ class PlayerShowNavigationBar extends StatelessWidget {
     return BottomNavigationBar(
       items: PlayerShowBottomBarListItems,
       currentIndex: currentIndex,
-      selectedItemColor: Colors.blueAccent,
       onTap: onTap,
     );
   }
