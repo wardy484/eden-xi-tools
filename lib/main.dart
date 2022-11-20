@@ -27,16 +27,6 @@ void main() async {
     storageDirectory: await getApplicationDocumentsDirectory(),
   );
 
-  // TODO: Sort out db with some provider shit
-  // await Isar.open(
-  //   schemas: [
-  //     AuctionHouseHistoryItemSchema,
-  //     AuctionHouseSubscriptionSchema,
-  //   ],
-  //   directory: newPath,
-  //   inspector: true,
-  // );
-
   await SentryFlutter.init(
     (options) {
       options.dsn =
@@ -79,48 +69,68 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Eden Tools",
-      home: FutureBuilder(
-        future: Future.wait([
-          Firebase.initializeApp(
-            options: DefaultFirebaseOptions.currentPlatform,
-          ),
-          Future.delayed(Duration(seconds: 1)),
-        ]),
-        builder: (BuildContext context, AsyncSnapshot snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            page = DashboardPage();
-          }
+    return BlocBuilder<SettingsBloc, SettingsState>(
+      builder: (context, state) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: "Eden Tools",
+          home: FutureBuilder(
+            future: Future.wait([
+              Firebase.initializeApp(
+                options: DefaultFirebaseOptions.currentPlatform,
+              ),
+              Future.delayed(Duration(seconds: 1)),
+            ]),
+            builder: (BuildContext context, AsyncSnapshot snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                page = DashboardPage();
+              }
 
-          return AnimatedSwitcher(
-            duration: Duration(seconds: 1),
-            child: page,
-          );
-        },
-      ),
-      theme: ThemeData(
-        brightness: Brightness.light,
-        primaryColor: Colors.blue,
-        scaffoldBackgroundColor: Colors.grey[200],
-        cardTheme: CardTheme(
-          margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        ),
-        textTheme: GoogleFonts.robotoTextTheme(
-          Theme.of(context).textTheme,
-        ),
-        inputDecorationTheme: InputDecorationTheme(
-          fillColor: Colors.white,
-          filled: true,
-        ),
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          elevation: 5,
-        ),
-        dividerTheme: DividerThemeData(space: 0),
-        colorScheme:
-            ColorScheme.fromSwatch().copyWith(secondary: Colors.blueAccent),
-      ),
+              return AnimatedSwitcher(
+                duration: Duration(seconds: 1),
+                child: page,
+              );
+            },
+          ),
+          theme: ThemeData(
+            brightness: Brightness.light,
+            primaryColor: Colors.blue,
+            scaffoldBackgroundColor: Colors.grey[200],
+            cardTheme: CardTheme(
+              margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            ),
+            textTheme: GoogleFonts.robotoTextTheme(
+              Theme.of(context).textTheme,
+            ),
+            inputDecorationTheme: InputDecorationTheme(
+              fillColor: Colors.white,
+              filled: true,
+            ),
+            bottomNavigationBarTheme: BottomNavigationBarThemeData(
+              elevation: 5,
+            ),
+            dividerTheme: DividerThemeData(space: 0),
+            colorScheme:
+                ColorScheme.fromSwatch().copyWith(secondary: Colors.blueAccent),
+          ),
+          darkTheme: ThemeData(
+            brightness: Brightness.dark,
+            cardTheme: CardTheme(
+              margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            ),
+            bottomNavigationBarTheme: BottomNavigationBarThemeData(
+              elevation: 5,
+              selectedItemColor: Colors.white,
+              unselectedItemColor: Colors.grey[400],
+            ),
+          ),
+          themeMode: state.maybeWhen(
+            loaded: (settings) =>
+                settings.darkMode ? ThemeMode.dark : ThemeMode.light,
+            orElse: () => ThemeMode.light,
+          ),
+        );
+      },
     );
   }
 }
@@ -131,7 +141,7 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Theme.of(context).primaryColor,
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,

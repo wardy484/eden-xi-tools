@@ -15,11 +15,14 @@ class PlayerAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CachedNetworkImage(
-      placeholder: (context, url) => Text(""),
-      imageUrl: getUrl(),
-      height: height,
-      width: width,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(3),
+      child: CachedNetworkImage(
+        placeholder: (context, url) => Text(""),
+        imageUrl: getUrl(),
+        height: height,
+        width: width,
+      ),
     );
   }
 

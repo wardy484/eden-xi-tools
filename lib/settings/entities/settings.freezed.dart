@@ -22,6 +22,7 @@ Settings _$SettingsFromJson(Map<String, dynamic> json) {
 mixin _$Settings {
   int get maxPlayersOnDashboard => throw _privateConstructorUsedError;
   int get maxItemsOnDashboard => throw _privateConstructorUsedError;
+  bool get darkMode => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +34,8 @@ mixin _$Settings {
 abstract class $SettingsCopyWith<$Res> {
   factory $SettingsCopyWith(Settings value, $Res Function(Settings) then) =
       _$SettingsCopyWithImpl<$Res>;
-  $Res call({int maxPlayersOnDashboard, int maxItemsOnDashboard});
+  $Res call(
+      {int maxPlayersOnDashboard, int maxItemsOnDashboard, bool darkMode});
 }
 
 /// @nodoc
@@ -48,6 +50,7 @@ class _$SettingsCopyWithImpl<$Res> implements $SettingsCopyWith<$Res> {
   $Res call({
     Object? maxPlayersOnDashboard = freezed,
     Object? maxItemsOnDashboard = freezed,
+    Object? darkMode = freezed,
   }) {
     return _then(_value.copyWith(
       maxPlayersOnDashboard: maxPlayersOnDashboard == freezed
@@ -58,6 +61,10 @@ class _$SettingsCopyWithImpl<$Res> implements $SettingsCopyWith<$Res> {
           ? _value.maxItemsOnDashboard
           : maxItemsOnDashboard // ignore: cast_nullable_to_non_nullable
               as int,
+      darkMode: darkMode == freezed
+          ? _value.darkMode
+          : darkMode // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -68,7 +75,8 @@ abstract class _$$_SettingsCopyWith<$Res> implements $SettingsCopyWith<$Res> {
           _$_Settings value, $Res Function(_$_Settings) then) =
       __$$_SettingsCopyWithImpl<$Res>;
   @override
-  $Res call({int maxPlayersOnDashboard, int maxItemsOnDashboard});
+  $Res call(
+      {int maxPlayersOnDashboard, int maxItemsOnDashboard, bool darkMode});
 }
 
 /// @nodoc
@@ -85,6 +93,7 @@ class __$$_SettingsCopyWithImpl<$Res> extends _$SettingsCopyWithImpl<$Res>
   $Res call({
     Object? maxPlayersOnDashboard = freezed,
     Object? maxItemsOnDashboard = freezed,
+    Object? darkMode = freezed,
   }) {
     return _then(_$_Settings(
       maxPlayersOnDashboard: maxPlayersOnDashboard == freezed
@@ -95,6 +104,10 @@ class __$$_SettingsCopyWithImpl<$Res> extends _$SettingsCopyWithImpl<$Res>
           ? _value.maxItemsOnDashboard
           : maxItemsOnDashboard // ignore: cast_nullable_to_non_nullable
               as int,
+      darkMode: darkMode == freezed
+          ? _value.darkMode
+          : darkMode // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -103,7 +116,9 @@ class __$$_SettingsCopyWithImpl<$Res> extends _$SettingsCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Settings implements _Settings {
   _$_Settings(
-      {required this.maxPlayersOnDashboard, required this.maxItemsOnDashboard});
+      {required this.maxPlayersOnDashboard,
+      required this.maxItemsOnDashboard,
+      this.darkMode = false});
 
   factory _$_Settings.fromJson(Map<String, dynamic> json) =>
       _$$_SettingsFromJson(json);
@@ -112,10 +127,13 @@ class _$_Settings implements _Settings {
   final int maxPlayersOnDashboard;
   @override
   final int maxItemsOnDashboard;
+  @override
+  @JsonKey()
+  final bool darkMode;
 
   @override
   String toString() {
-    return 'Settings(maxPlayersOnDashboard: $maxPlayersOnDashboard, maxItemsOnDashboard: $maxItemsOnDashboard)';
+    return 'Settings(maxPlayersOnDashboard: $maxPlayersOnDashboard, maxItemsOnDashboard: $maxItemsOnDashboard, darkMode: $darkMode)';
   }
 
   @override
@@ -126,7 +144,8 @@ class _$_Settings implements _Settings {
             const DeepCollectionEquality()
                 .equals(other.maxPlayersOnDashboard, maxPlayersOnDashboard) &&
             const DeepCollectionEquality()
-                .equals(other.maxItemsOnDashboard, maxItemsOnDashboard));
+                .equals(other.maxItemsOnDashboard, maxItemsOnDashboard) &&
+            const DeepCollectionEquality().equals(other.darkMode, darkMode));
   }
 
   @JsonKey(ignore: true)
@@ -134,7 +153,8 @@ class _$_Settings implements _Settings {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(maxPlayersOnDashboard),
-      const DeepCollectionEquality().hash(maxItemsOnDashboard));
+      const DeepCollectionEquality().hash(maxItemsOnDashboard),
+      const DeepCollectionEquality().hash(darkMode));
 
   @JsonKey(ignore: true)
   @override
@@ -150,7 +170,8 @@ class _$_Settings implements _Settings {
 abstract class _Settings implements Settings {
   factory _Settings(
       {required final int maxPlayersOnDashboard,
-      required final int maxItemsOnDashboard}) = _$_Settings;
+      required final int maxItemsOnDashboard,
+      final bool darkMode}) = _$_Settings;
 
   factory _Settings.fromJson(Map<String, dynamic> json) = _$_Settings.fromJson;
 
@@ -158,6 +179,8 @@ abstract class _Settings implements Settings {
   int get maxPlayersOnDashboard => throw _privateConstructorUsedError;
   @override
   int get maxItemsOnDashboard => throw _privateConstructorUsedError;
+  @override
+  bool get darkMode => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_SettingsCopyWith<_$_Settings> get copyWith =>

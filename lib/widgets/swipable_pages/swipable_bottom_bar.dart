@@ -27,15 +27,15 @@ class _SwipableBottomBarState extends State<SwipableBottomBar> {
         onTap: widget.onTap,
       ),
       decoration: BoxDecoration(
-        // color: globals.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey[300]!,
-            blurRadius: 10,
-            spreadRadius: 1,
+          // color: globals.white,
+          // boxShadow: [
+          //   BoxShadow(
+          //     color: Colors.grey[300]!,
+          //     blurRadius: 1,
+          //     spreadRadius: 1,
+          //   ),
+          // ],
           ),
-        ],
-      ),
     );
   }
 }

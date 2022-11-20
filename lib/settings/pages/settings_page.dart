@@ -84,6 +84,35 @@ class _SettingsPageState extends State<SettingsPage> {
                           ),
                         ),
                       ),
+                      ListTile(
+                        title: Text("Theme (WIP)"),
+                        trailing: SizedBox(
+                          width: 70,
+                          child: DropdownButton<bool>(
+                            items: [
+                              DropdownMenuItem(
+                                child: Text("Light"),
+                                value: false,
+                              ),
+                              DropdownMenuItem(
+                                child: Text("Dark"),
+                                value: true,
+                              ),
+                            ],
+                            value: state.settings.darkMode,
+                            onChanged: (bool? value) {
+                              _settingsBloc.add(
+                                SettingsEvent.saved(
+                                  state.settings
+                                      .copyWith(darkMode: value ?? false),
+                                ),
+                              );
+                            },
+                            isExpanded: true,
+                            underline: Text(""),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 )

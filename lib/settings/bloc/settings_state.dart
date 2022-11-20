@@ -3,6 +3,7 @@ part of 'settings_bloc.dart';
 final Settings InitialSettings = Settings(
   maxItemsOnDashboard: 4,
   maxPlayersOnDashboard: 4,
+  darkMode: false,
 );
 
 @freezed
