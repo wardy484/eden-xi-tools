@@ -29,7 +29,7 @@ class _SearchFieldState extends State<SearchField> {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      // autofocus: true,
+      cursorColor: Theme.of(context).inputDecorationTheme.focusColor,
       focusNode: _focus,
       controller: _controller,
       onChanged: (String value) {

@@ -118,6 +118,18 @@ class _AppState extends State<App> {
             cardTheme: CardTheme(
               margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             ),
+            inputDecorationTheme: InputDecorationTheme(
+              // fillColor: Colors.white,
+              // filled: true,
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white),
+              ),
+
+              iconColor: Colors.white,
+              focusColor: Colors.white,
+              hoverColor: Colors.grey[500],
+            ),
+            dividerTheme: DividerThemeData(space: 0),
             bottomNavigationBarTheme: BottomNavigationBarThemeData(
               elevation: 5,
               selectedItemColor: Colors.white,
