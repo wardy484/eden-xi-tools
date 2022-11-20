@@ -13,6 +13,54 @@ class ItemShowDescription extends StatelessWidget {
     required this.currentPageIndex,
   }) : super(key: key);
 
+  String charToElement(String char) {
+    switch (char) {
+      case '':
+        return "https://vignette.wikia.nocookie.net/ffxi/images/2/2c/Trans_Fire.gif";
+      case '':
+        return "https://vignette.wikia.nocookie.net/ffxi/images/c/ca/Trans_Ice.gif";
+      case '':
+        return "https://vignette.wikia.nocookie.net/ffxi/images/e/e6/Trans_Wind.gif";
+      case '':
+        return "https://vignette.wikia.nocookie.net/ffxi/images/7/7d/Trans_Earth.gif";
+      case '':
+        return "https://vignette.wikia.nocookie.net/ffxi/images/5/5c/Trans_Lightning.gif";
+      case '':
+        return "https://vignette.wikia.nocookie.net/ffxi/images/0/0a/Trans_Water.gif";
+      case '':
+        return "https://vignette.wikia.nocookie.net/ffxi/images/a/a2/Trans_Light.gif";
+      case '':
+        return "https://vignette.wikia.nocookie.net/ffxi/images/d/de/Trans_Dark.gif";
+      default:
+        return char;
+    }
+  }
+
+  List<InlineSpan> splitOnSpecialCharacters(String text) {
+    final elements = ["", "", "", "", "", "", "", ""];
+    final List<InlineSpan> render = [];
+
+    for (int i = 0; i < text.length; i++) {
+      bool isElement = false;
+
+      for (final element in elements) {
+        if (text[i].contains(element)) {
+          render.add(
+            WidgetSpan(child: Image.network(charToElement(element))),
+          );
+          isElement = true;
+          break;
+        }
+      }
+
+      if (!isElement) {
+        render.add(TextSpan(text: text[i]));
+      }
+    }
+
+    return render;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -37,10 +85,11 @@ class ItemShowDescription extends StatelessWidget {
               Flexible(
                 child: Padding(
                   padding: const EdgeInsets.all(16),
-                  child: Text(
-                    item.trimmedDesc,
-                    softWrap: true,
-                    maxLines: 10,
+                  child: RichText(
+                    text: TextSpan(
+                      style: DefaultTextStyle.of(context).style,
+                      children: splitOnSpecialCharacters(item.desc),
+                    ),
                   ),
                 ),
               ),

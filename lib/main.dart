@@ -108,8 +108,7 @@ class _AppState extends State<App> {
           margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         ),
         textTheme: GoogleFonts.robotoTextTheme(
-          Theme.of(context)
-              .textTheme, // If this is not set, then ThemeData.light().textTheme is used.
+          Theme.of(context).textTheme,
         ),
         inputDecorationTheme: InputDecorationTheme(
           fillColor: Colors.white,
