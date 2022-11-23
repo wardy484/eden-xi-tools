@@ -5,13 +5,14 @@ import 'package:eden_xi_tools/player_show/widgets/player_show_navigation_bar.dar
 import 'package:eden_xi_tools/player_show/widgets/tabs/player_show_auction_house.dart';
 import 'package:eden_xi_tools/player_show/widgets/tabs/player_show_bazaar.dart';
 import 'package:eden_xi_tools/player_show/widgets/tabs/player_show_details.dart';
+import 'package:eden_xi_tools/widgets/centered_loader.dart';
 import 'package:eden_xi_tools/widgets/centered_message.dart';
 import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class PlayerShowPage extends StatefulHookConsumerWidget {
+class PlayerShowPage extends HookConsumerWidget {
   final PlayerSearchResultItem playerResult;
 
   const PlayerShowPage({
@@ -20,76 +21,64 @@ class PlayerShowPage extends StatefulHookConsumerWidget {
   }) : super(key: key);
 
   @override
-  _PlayerShowPageState createState() => _PlayerShowPageState();
-}
-
-class _PlayerShowPageState extends ConsumerState<PlayerShowPage> {
-  int _selectedPageIndex = 0;
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final pageIndex = useState(0);
     final pageController = usePageController(initialPage: 0);
 
     final player = ref.watch(
-      playerDetailsControllerProvider(widget.playerResult.charname),
+      playerDetailsControllerProvider(playerResult.charname),
     );
 
     return Scaffold(
       appBar: PlayerShowAppbar(
-        playerResult: widget.playerResult,
+        playerResult: playerResult,
       ),
       body: player.when(
         data: (player) {
           return RefreshIndicator(
-            onRefresh: _refreshPage,
+            onRefresh: () => _refreshPage(ref),
             child: PageView(
-              onPageChanged: (value) => setState(
-                () => _selectedPageIndex = value,
-              ),
+              onPageChanged: (value) => pageIndex.value = value,
               controller: pageController,
               children: [
                 PlayerShowDetails(
                   player: player.details,
                   crafts: player.crafts,
                   equipment: player.equipment,
-                  onRefresh: _refreshPage,
+                  onRefresh: () => _refreshPage(ref),
                 ),
                 PlayerShowAuctionHouse(
                   items: player.auctionHouseItems,
-                  onRefresh: _refreshPage,
+                  onRefresh: () => _refreshPage(ref),
                 ),
                 PlayerShowBazaar(
                   items: player.bazaarItems,
-                  onRefresh: _refreshPage,
+                  onRefresh: () => _refreshPage(ref),
                 ),
               ],
             ),
           );
         },
-        error: (_, __) =>
-            CenteredMessage("Could not load player, please try again later"),
-        loading: () => Center(child: CircularProgressIndicator()),
+        error: (_, __) => CenteredMessage(
+          "Could not load player, please try again later",
+        ),
+        loading: () => CenteredLoader(),
       ),
       bottomNavigationBar: PlayerShowNavigationBar(
-        currentIndex: _selectedPageIndex,
+        currentIndex: pageIndex.value,
         onTap: (index) {
-          setState(() => _selectedPageIndex = index);
-
-          pageController.animateToPage(
-            index,
-            duration: Duration(milliseconds: 300),
-            curve: Curves.easeInOut,
-          );
+          pageIndex.value = index;
+          pageController.jumpToPage(index);
         },
       ),
     );
   }
 
-  Future<void> _refreshPage() {
+  Future<void> _refreshPage(WidgetRef ref) {
     ref.invalidate(playerDetailsControllerProvider);
 
     return ref.read(
-      playerDetailsControllerProvider(widget.playerResult.charname).future,
+      playerDetailsControllerProvider(playerResult.charname).future,
     );
   }
 }

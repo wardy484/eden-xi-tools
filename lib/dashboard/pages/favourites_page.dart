@@ -1,14 +1,15 @@
 import 'package:eden_xi_tools/item_favourites/views/item_favourites_tab.dart';
 import 'package:eden_xi_tools/player_favourites/views/player_favourites_tab.dart';
-import 'package:eden_xi_tools/widgets/swipable_pages/SwipableScaffold.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 enum FavouritePageTabs {
   players,
   items,
 }
 
-class FavouritesPage extends StatefulWidget {
+class FavouritesPage extends HookConsumerWidget {
   final FavouritePageTabs initialPageIndex;
 
   const FavouritesPage({
@@ -17,31 +18,39 @@ class FavouritesPage extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _FavouritesPageState createState() => _FavouritesPageState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final pageIndex = useState(0);
+    final pageController = usePageController(initialPage: 0);
 
-class _FavouritesPageState extends State<FavouritesPage> {
-  @override
-  Widget build(BuildContext context) {
-    return SwipableScaffold(
-      initialPage: widget.initialPageIndex.index,
+    return Scaffold(
       appBar: AppBar(
         title: Text("Favourites"),
       ),
-      pages: [
-        PlayerFavouritesTab(),
-        ItemFavouritesTab(),
-      ],
-      tabs: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(Icons.people),
-          label: 'Favourite players',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.cake),
-          label: 'Favourite items',
-        ),
-      ],
+      body: PageView(
+        controller: pageController,
+        onPageChanged: (value) => pageIndex.value = value,
+        children: [
+          PlayerFavouritesTab(),
+          ItemFavouritesTab(),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: pageIndex.value,
+        onTap: (value) {
+          pageIndex.value = value;
+          pageController.jumpToPage(value);
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people),
+            label: 'Favourite players',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.cake),
+            label: 'Favourite items',
+          ),
+        ],
+      ),
     );
   }
 }

@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:eden_xi_tools/item_show/item_show_controller.dart';
 import 'package:eden_xi_tools/item_show/widgets/item_auction_house_tab.dart';
 import 'package:eden_xi_tools/item_show/widgets/item_bazaar_tab.dart';
@@ -26,11 +25,11 @@ class ItemShowPage extends StatefulHookConsumerWidget {
 }
 
 class _ItemShowPageState extends ConsumerState<ItemShowPage> {
-  int _selectedPageIndex = 0;
-
   @override
   Widget build(BuildContext context) {
+    final pageIndex = useState(0);
     final pageController = usePageController(initialPage: 0);
+
     final item = ref.watch(itemShowControllerProvider(
       widget.item.key,
       stacked: ref.watch(itemStackedProvider),
@@ -49,14 +48,12 @@ class _ItemShowPageState extends ConsumerState<ItemShowPage> {
             children: [
               ItemShowDescription(
                 item: item.details,
-                currentPageIndex: _selectedPageIndex,
+                currentPageIndex: pageIndex.value,
               ),
               Expanded(
                 child: PageView(
                   controller: pageController,
-                  onPageChanged: (value) => setState(
-                    () => _selectedPageIndex = value,
-                  ),
+                  onPageChanged: (value) => pageIndex.value = value,
                   children: [
                     if (OwnableItems.contains(widget.item.id))
                       ItemOwnersTab(
@@ -87,15 +84,10 @@ class _ItemShowPageState extends ConsumerState<ItemShowPage> {
         orElse: () => CenteredLoader(),
       ),
       bottomNavigationBar: ItemShowNavigationBar(
-        currentIndex: _selectedPageIndex,
+        currentIndex: pageIndex.value,
         onTap: (int index) {
-          setState(() => _selectedPageIndex = index);
-
-          pageController.animateToPage(
-            index,
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.easeInOut,
-          );
+          pageIndex.value = index;
+          pageController.jumpToPage(index);
         },
         item: widget.item,
       ),

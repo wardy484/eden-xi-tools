@@ -111,6 +111,9 @@ class _AppState extends State<App> {
             ),
             bottomNavigationBarTheme: BottomNavigationBarThemeData(
               elevation: 5,
+              backgroundColor: Colors.white,
+              selectedItemColor: Colors.blue,
+              unselectedItemColor: Colors.grey,
             ),
             dividerTheme: DividerThemeData(space: 0),
             colorScheme:

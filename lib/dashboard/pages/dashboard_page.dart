@@ -5,9 +5,9 @@ import 'package:eden_xi_tools/dashboard/views/dashboard_server_status.dart';
 import 'package:eden_xi_tools/item_search/pages/item_search_tab.dart';
 import 'package:eden_xi_tools/player_search/pages/player_search_tab.dart';
 import 'package:eden_xi_tools/settings/pages/settings_page.dart';
-import 'package:eden_xi_tools/widgets/swipable_pages/SwipableScaffold.dart';
 import 'package:eden_xi_tools/yells/views/yells_tab.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class DashboardPage extends HookConsumerWidget {
@@ -15,8 +15,10 @@ class DashboardPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return SwipableScaffold(
-      resetOnPop: true,
+    final pageIndex = useState(0);
+    final pageController = usePageController(initialPage: 0);
+
+    return Scaffold(
       appBar: AppBar(
         title: Row(
           children: [
@@ -47,45 +49,56 @@ class DashboardPage extends HookConsumerWidget {
           ),
         ],
       ),
-      pages: [
-        RefreshIndicator(
-          onRefresh: () async {
-            ref.invalidate(serverStatusControllerProvider);
+      body: PageView(
+        controller: pageController,
+        onPageChanged: (value) => pageIndex.value = value,
+        children: [
+          RefreshIndicator(
+            onRefresh: () async {
+              ref.invalidate(serverStatusControllerProvider);
 
-            return ref.read(serverStatusControllerProvider.future);
-          },
-          child: ListView(
-            children: [
-              SizedBox(height: 8),
-              DashboardServerStatus(),
-              DashboardFavouritePlayersCard(),
-              DashboardFavouriteItemsCard(),
-              SizedBox(height: 16),
-            ],
+              return ref.read(serverStatusControllerProvider.future);
+            },
+            child: ListView(
+              children: [
+                SizedBox(height: 8),
+                DashboardServerStatus(),
+                DashboardFavouritePlayersCard(),
+                DashboardFavouriteItemsCard(),
+                SizedBox(height: 16),
+              ],
+            ),
           ),
-        ),
-        ItemSearchTab(),
-        PlayerSearchTab(),
-        YellsTab(),
-      ],
-      tabs: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Dashboard',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.gavel_rounded),
-          label: 'Item Search',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.people),
-          label: 'Player Search',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.chat_bubble),
-          label: 'Yells',
-        ),
-      ],
+          ItemSearchTab(),
+          PlayerSearchTab(),
+          YellsTab(),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: pageIndex.value,
+        onTap: (value) {
+          pageIndex.value = value;
+          pageController.jumpToPage(value);
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Dashboard',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.gavel_rounded),
+            label: 'Item Search',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people),
+            label: 'Player Search',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat_bubble),
+            label: 'Yells',
+          ),
+        ],
+      ),
     );
   }
 }
