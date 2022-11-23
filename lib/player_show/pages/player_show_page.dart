@@ -1,8 +1,7 @@
 import 'dart:async';
 import 'package:eden_xi_tools/item_show/widgets/item_show_scaffold.dart';
 import 'package:eden_xi_tools/player_favourites/views/player_favourite_button.dart';
-import 'package:eden_xi_tools/player_show/player_show_notifier.dart';
-import 'package:eden_xi_tools/player_show/player_show_state.dart';
+import 'package:eden_xi_tools/player_show/player_details_controller.dart';
 import 'package:eden_xi_tools/player_show/widgets/player_show_header.dart';
 import 'package:eden_xi_tools/player_show/widgets/player_show_navigation_bar.dart';
 import 'package:eden_xi_tools/player_show/widgets/tabs/player_show_auction_house.dart';
@@ -27,57 +26,43 @@ class PlayerShowPage extends ConsumerStatefulWidget {
 }
 
 class _PlayerShowPageState extends ConsumerState<PlayerShowPage> {
-  late Completer<void> _refreshCompleter;
   int _selectedPageIndex = 0;
 
   @override
-  void initState() {
-    super.initState();
-
-    ref.read(playerShowProvider.notifier).getPlayer(widget.playerResult);
-
-    _refreshCompleter = Completer();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    _registerLoadingListener();
+    final player = ref.watch(
+      playerDetailsControllerProvider(widget.playerResult.charname),
+    );
 
     return ItemShowScaffold(
         header: PlayerShowHeader(playerResult: widget.playerResult),
-        body: ref.watch(playerShowProvider).maybeWhen(
-              loaded: (
-                playerResult,
-                player,
-                equipment,
-                auctionHouseItems,
-                bazaarItems,
-                crafts,
-              ) {
-                return SwipablePages(
-                  index: _selectedPageIndex,
-                  onSwipe: _onPageNavigation,
-                  pages: [
-                    PlayerShowDetails(
-                      player: player,
-                      crafts: crafts,
-                      equipment: equipment,
-                      onRefresh: _refreshPage,
-                    ),
-                    PlayerShowAuctionHouse(
-                      items: auctionHouseItems,
-                      onRefresh: _refreshPage,
-                    ),
-                    PlayerShowBazaar(
-                      items: bazaarItems,
-                      onRefresh: _refreshPage,
-                    ),
-                  ],
-                );
-              },
-              error: (message) => CenteredMessage(message),
-              orElse: () => Center(child: CircularProgressIndicator()),
-            ),
+        body: player.when(
+          data: (player) {
+            return SwipablePages(
+              index: _selectedPageIndex,
+              onSwipe: _onPageNavigation,
+              pages: [
+                PlayerShowDetails(
+                  player: player.details,
+                  crafts: player.crafts,
+                  equipment: player.equipment,
+                  onRefresh: _refreshPage,
+                ),
+                PlayerShowAuctionHouse(
+                  items: player.auctionHouseItems,
+                  onRefresh: _refreshPage,
+                ),
+                PlayerShowBazaar(
+                  items: player.bazaarItems,
+                  onRefresh: _refreshPage,
+                ),
+              ],
+            );
+          },
+          error: (_, __) =>
+              CenteredMessage("Could not load player, please try again later"),
+          loading: () => Center(child: CircularProgressIndicator()),
+        ),
         bottomNavigationBar: PlayerShowNavigationBar(
           currentIndex: _selectedPageIndex,
           onTap: _onPageNavigation,
@@ -88,37 +73,14 @@ class _PlayerShowPageState extends ConsumerState<PlayerShowPage> {
   }
 
   Future<void> _refreshPage() {
-    ref.watch(playerShowProvider.notifier).getPlayer(widget.playerResult);
+    ref.invalidate(playerDetailsControllerProvider);
 
-    return _refreshCompleter.future;
+    return ref.read(
+      playerDetailsControllerProvider(widget.playerResult.charname).future,
+    );
   }
 
   void _onPageNavigation(int index) {
     setState(() => _selectedPageIndex = index);
-  }
-
-  void _registerLoadingListener() {
-    ref.listen(playerShowProvider, (
-      PlayerShowState? previous,
-      PlayerShowState next,
-    ) {
-      previous?.whenOrNull(
-        loading: () {
-          next.whenOrNull(
-            loaded: (
-              playerResult,
-              player,
-              equipment,
-              auctionHouseItems,
-              bazaarItems,
-              crafts,
-            ) {
-              _refreshCompleter.complete();
-              _refreshCompleter = Completer();
-            },
-          );
-        },
-      );
-    });
   }
 }
