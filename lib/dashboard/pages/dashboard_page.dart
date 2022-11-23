@@ -1,4 +1,4 @@
-import 'package:eden_xi_tools/dashboard/server_status_notifier.dart';
+import 'package:eden_xi_tools/dashboard/server_status_controller.dart';
 import 'package:eden_xi_tools/dashboard/views/dashboard_favourite_items_card.dart';
 import 'package:eden_xi_tools/dashboard/views/dashboard_favourite_players_card.dart';
 import 'package:eden_xi_tools/dashboard/views/dashboard_server_status.dart';
@@ -15,11 +15,6 @@ class DashboardPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Future.delayed(
-      Duration.zero,
-      () => ref.read(serverStatusProvider.notifier).fetch(),
-    );
-
     return SwipableScaffold(
       resetOnPop: true,
       appBar: AppBar(
@@ -37,7 +32,6 @@ class DashboardPage extends HookConsumerWidget {
         ),
         actions: [
           TextButton(
-            // minWidth: 60,
             onPressed: () {
               Navigator.push(
                 context,
@@ -56,7 +50,9 @@ class DashboardPage extends HookConsumerWidget {
       pages: [
         RefreshIndicator(
           onRefresh: () async {
-            ref.read(serverStatusProvider.notifier).fetch();
+            ref.invalidate(serverStatusControllerProvider);
+
+            return ref.read(serverStatusControllerProvider.future);
           },
           child: ListView(
             children: [

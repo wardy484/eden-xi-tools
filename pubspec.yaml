@@ -28,7 +28,6 @@ dependencies:
     bloc: ^8.0.2
     flutter_bloc: ^8.0.1
     equatable: ^2.0.3 
-    rxdart: ^0.27.3
     intl: ^0.17.0
     flutter_launcher_icons: ^0.9.2
     recase: ^4.0.0
@@ -46,10 +45,11 @@ dependencies:
     path_provider: ^2.0.8
 
     flutter_hooks: ^0.18.0
-    hooks_riverpod: ^2.0.0-dev.9
+    hooks_riverpod: ^2.1.1
+    riverpod_annotation: ^1.0.6
+    riverpod_generator: ^1.0.6
 
     cupertino_icons: ^1.0.1
-    bloc_concurrency: ^0.2.0
     google_fonts: ^2.2.0
     eden_xi_tools_api: ^1.0.2
     # eden_xi_tools_api:
