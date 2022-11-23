@@ -10,13 +10,13 @@ import 'package:eden_xi_tools/item_show/widgets/item_show_description.dart';
 import 'package:eden_xi_tools/item_show/widgets/item_show_header.dart';
 import 'package:eden_xi_tools/widgets/centered_loader.dart';
 import 'package:eden_xi_tools/widgets/centered_message.dart';
-import 'package:eden_xi_tools/widgets/swipable_pages/swipable_pages.dart';
 import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
 import 'package:eden_xi_tools/item_show/widgets/item_show_navigation_bar.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class ItemShowPage extends ConsumerStatefulWidget {
+class ItemShowPage extends StatefulHookConsumerWidget {
   final SearchResultItem item;
 
   const ItemShowPage({Key? key, required this.item}) : super(key: key);
@@ -30,6 +30,7 @@ class _ItemShowPageState extends ConsumerState<ItemShowPage> {
 
   @override
   Widget build(BuildContext context) {
+    final pageController = usePageController(initialPage: 0);
     final item = ref.watch(itemShowControllerProvider(
       widget.item.key,
       stacked: ref.watch(itemStackedProvider),
@@ -51,8 +52,12 @@ class _ItemShowPageState extends ConsumerState<ItemShowPage> {
                 currentPageIndex: _selectedPageIndex,
               ),
               Expanded(
-                child: SwipablePages(
-                  pages: [
+                child: PageView(
+                  controller: pageController,
+                  onPageChanged: (value) => setState(
+                    () => _selectedPageIndex = value,
+                  ),
+                  children: [
                     if (OwnableItems.contains(widget.item.id))
                       ItemOwnersTab(
                         owners: item.owners,
@@ -71,8 +76,6 @@ class _ItemShowPageState extends ConsumerState<ItemShowPage> {
                       onRefresh: _refreshPage,
                     ),
                   ],
-                  index: _selectedPageIndex,
-                  onSwipe: _onPageNavigation,
                 ),
               ),
             ],
@@ -81,13 +84,19 @@ class _ItemShowPageState extends ConsumerState<ItemShowPage> {
         error: (_, __) => CenteredMessage(
           "Failed to load item, try again later.",
         ),
-        orElse: () => const Center(
-          child: CenteredLoader(),
-        ),
+        orElse: () => CenteredLoader(),
       ),
       bottomNavigationBar: ItemShowNavigationBar(
         currentIndex: _selectedPageIndex,
-        onTap: _onPageNavigation,
+        onTap: (int index) {
+          setState(() => _selectedPageIndex = index);
+
+          pageController.animateToPage(
+            index,
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+          );
+        },
         item: widget.item,
       ),
     );
@@ -102,9 +111,5 @@ class _ItemShowPageState extends ConsumerState<ItemShowPage> {
         stacked: ref.read(itemStackedProvider),
       ).future,
     );
-  }
-
-  void _onPageNavigation(int index) {
-    setState(() => _selectedPageIndex = index);
   }
 }

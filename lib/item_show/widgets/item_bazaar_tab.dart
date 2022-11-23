@@ -1,4 +1,5 @@
 import 'package:eden_xi_tools/item_show/widgets/item_bazaar_card.dart';
+import 'package:eden_xi_tools/widgets/centered_message.dart';
 import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +28,7 @@ class _ItemBazaarTabState extends State<ItemBazaarTab> {
     Widget child;
 
     if (widget.items.isEmpty) {
-      child = Text("No bazaar history...");
+      child = CenteredMessage("No bazaar history...");
     } else {
       child = ListView.builder(
         itemCount: widget.items.length,

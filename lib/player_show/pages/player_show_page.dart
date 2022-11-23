@@ -43,6 +43,9 @@ class _PlayerShowPageState extends ConsumerState<PlayerShowPage> {
           return RefreshIndicator(
             onRefresh: _refreshPage,
             child: PageView(
+              onPageChanged: (value) => setState(
+                () => _selectedPageIndex = value,
+              ),
               controller: pageController,
               children: [
                 PlayerShowDetails(

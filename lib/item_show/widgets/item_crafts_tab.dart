@@ -1,3 +1,4 @@
+import 'package:eden_xi_tools/widgets/centered_message.dart';
 import 'package:eden_xi_tools/widgets/custom_card/custom_card.dart';
 import 'package:eden_xi_tools/widgets/item_icon.dart';
 import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
@@ -24,16 +25,7 @@ class _ItemCraftsTabState extends ConsumerState<ItemCraftsTab> {
     Widget child;
 
     if (widget.crafts.isEmpty) {
-      child = ListView(
-        children: [
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text("No recipes found..."),
-            ),
-          ),
-        ],
-      );
+      child = CenteredMessage("No recipes found...");
     } else {
       child = ListView.builder(
         itemCount: widget.crafts.length,
