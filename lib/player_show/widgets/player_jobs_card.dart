@@ -1,4 +1,4 @@
-import 'package:eden_xi_tools/player_show/PlayerFactory.dart';
+import 'package:eden_xi_tools/player_show/player_factory.dart';
 import 'package:eden_xi_tools/widgets/custom_card/custom_card.dart';
 import 'package:eden_xi_tools_api/eden_xi_tools_api.dart';
 import 'package:flutter/material.dart';
