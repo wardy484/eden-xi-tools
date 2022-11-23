@@ -1,4 +1,4 @@
-// ignore: unused_import
+import 'package:eden_xi_tools/observers/error_logger.dart';
 import 'package:eden_xi_tools/firebase_options.dart';
 import 'package:eden_xi_tools/dashboard/pages/dashboard_page.dart';
 import 'package:eden_xi_tools/item_favourites/bloc/item_favourites_bloc.dart';
@@ -36,6 +36,9 @@ void main() async {
     appRunner: () => HydratedBlocOverrides.runZoned(
       () => runApp(
         ProviderScope(
+          observers: [
+            ErrorLogger(),
+          ],
           child: MultiBlocProvider(
             providers: [
               BlocProvider<ItemFavouritesBloc>(
