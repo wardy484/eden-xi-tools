@@ -58,7 +58,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '841113579326',
     projectId: 'edenxi',
     storageBucket: 'edenxi.appspot.com',
-    iosClientId: '841113579326-ffgu55e3dlniv04cpanuoakpvqk3bmod.apps.googleusercontent.com',
+    iosClientId:
+        '841113579326-ffgu55e3dlniv04cpanuoakpvqk3bmod.apps.googleusercontent.com',
     iosBundleId: 'com.kimward.edentools',
   );
 
@@ -68,7 +69,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '841113579326',
     projectId: 'edenxi',
     storageBucket: 'edenxi.appspot.com',
-    iosClientId: '841113579326-ffgu55e3dlniv04cpanuoakpvqk3bmod.apps.googleusercontent.com',
+    iosClientId:
+        '841113579326-ffgu55e3dlniv04cpanuoakpvqk3bmod.apps.googleusercontent.com',
     iosBundleId: 'com.kimward.edentools',
   );
 }
