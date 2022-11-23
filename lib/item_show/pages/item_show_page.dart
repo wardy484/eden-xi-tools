@@ -1,11 +1,11 @@
 import 'dart:async';
 
+import 'package:eden_xi_tools/item_show/item_show_controller.dart';
 import 'package:eden_xi_tools/item_show/widgets/item_auction_house_tab.dart';
 import 'package:eden_xi_tools/item_show/widgets/item_bazaar_tab.dart';
 import 'package:eden_xi_tools/item_show/widgets/item_crafts_tab.dart';
 import 'package:eden_xi_tools/item_favourites/views/item_favourite_button.dart';
 import 'package:eden_xi_tools/item_show/widgets/item_owners_tab.dart';
-import 'package:eden_xi_tools/item_show/item_show_notifier.dart';
 import 'package:eden_xi_tools/item_show/widgets/item_show_description.dart';
 import 'package:eden_xi_tools/item_show/widgets/item_show_header.dart';
 import 'package:eden_xi_tools/widgets/centered_loader.dart';
@@ -26,23 +26,15 @@ class ItemShowPage extends ConsumerStatefulWidget {
 }
 
 class _ItemShowPageState extends ConsumerState<ItemShowPage> {
-  late Completer<void> _refreshCompleter;
   int _selectedPageIndex = 0;
 
   @override
-  void initState() {
-    super.initState();
-
-    ref.read(itemShowProvider.notifier).getItem(
-          widget.item.key.toString(),
-          false,
-        );
-
-    _refreshCompleter = Completer();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final item = ref.watch(itemShowControllerProvider(
+      widget.item.key,
+      stacked: ref.watch(itemStackedProvider),
+    ));
+
     return Scaffold(
       appBar: AppBar(
         title: ItemShowHeader(item: widget.item),
@@ -50,55 +42,49 @@ class _ItemShowPageState extends ConsumerState<ItemShowPage> {
           ItemFavouriteButton(item: widget.item),
         ],
       ),
-      body: ref.watch(itemShowProvider).maybeWhen(
-            loaded: (
-              key,
-              item,
-              bazaarItems,
-              owners,
-              auctionItems,
-              crafts,
-              stacked,
-            ) {
-              return Column(
-                children: [
-                  ItemShowDescription(
-                    item: item,
-                    currentPageIndex: _selectedPageIndex,
-                  ),
-                  Expanded(
-                    child: SwipablePages(
-                      pages: [
-                        if (OwnableItems.contains(widget.item.id))
-                          ItemOwnersTab(
-                            owners: owners,
-                            onRefresh: _refreshPage,
-                          ),
-                        ItemAuctionHouseTab(
-                          items: auctionItems,
-                          onRefresh: _refreshPage,
-                        ),
-                        ItemBazaarTab(
-                          items: bazaarItems,
-                          onRefresh: _refreshPage,
-                        ),
-                        ItemCraftsTab(
-                          crafts: crafts,
-                          onRefresh: _refreshPage,
-                        ),
-                      ],
-                      index: _selectedPageIndex,
-                      onSwipe: _onPageNavigation,
+      body: item.maybeWhen(
+        data: (item) {
+          return Column(
+            children: [
+              ItemShowDescription(
+                item: item.details,
+                currentPageIndex: _selectedPageIndex,
+              ),
+              Expanded(
+                child: SwipablePages(
+                  pages: [
+                    if (OwnableItems.contains(widget.item.id))
+                      ItemOwnersTab(
+                        owners: item.owners,
+                        onRefresh: _refreshPage,
+                      ),
+                    ItemAuctionHouseTab(
+                      items: item.auctionHouseItems,
+                      onRefresh: _refreshPage,
                     ),
-                  ),
-                ],
-              );
-            },
-            error: (stacked, message) => CenteredMessage(message),
-            orElse: () => const Center(
-              child: CenteredLoader(),
-            ),
-          ),
+                    ItemBazaarTab(
+                      items: item.bazaarItems,
+                      onRefresh: _refreshPage,
+                    ),
+                    ItemCraftsTab(
+                      crafts: item.crafts,
+                      onRefresh: _refreshPage,
+                    ),
+                  ],
+                  index: _selectedPageIndex,
+                  onSwipe: _onPageNavigation,
+                ),
+              ),
+            ],
+          );
+        },
+        error: (_, __) => CenteredMessage(
+          "Failed to load item, try again later.",
+        ),
+        orElse: () => const Center(
+          child: CenteredLoader(),
+        ),
+      ),
       bottomNavigationBar: ItemShowNavigationBar(
         currentIndex: _selectedPageIndex,
         onTap: _onPageNavigation,
@@ -108,20 +94,17 @@ class _ItemShowPageState extends ConsumerState<ItemShowPage> {
   }
 
   Future<void> _refreshPage() {
-    ref.watch(itemShowProvider.notifier).getItem(
-          widget.item.key.toString(),
-          ref.read(itemShowProvider).stacked,
-        );
+    ref.invalidate(itemShowControllerProvider);
 
-    return _refreshCompleter.future;
+    return ref.read(
+      itemShowControllerProvider(
+        widget.item.key,
+        stacked: ref.read(itemStackedProvider),
+      ).future,
+    );
   }
 
   void _onPageNavigation(int index) {
     setState(() => _selectedPageIndex = index);
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
   }
 }

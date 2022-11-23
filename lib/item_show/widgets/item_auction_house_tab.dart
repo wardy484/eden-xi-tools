@@ -19,11 +19,6 @@ class ItemAuctionHouseTab extends StatefulWidget {
 
 class _ItemAuctionHouseTabState extends State<ItemAuctionHouseTab> {
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     Widget child;
 

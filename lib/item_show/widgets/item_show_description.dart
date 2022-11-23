@@ -76,7 +76,7 @@ class ItemShowDescription extends StatelessWidget {
                   "Description",
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
-                StackToggleButton(currentPageIndex: currentPageIndex)
+                StackToggleButton(itemKey: item.key),
               ],
             ),
           ),
